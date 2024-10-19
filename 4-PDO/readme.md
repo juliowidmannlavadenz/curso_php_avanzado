@@ -1,5 +1,6 @@
 # PDO
-## Que es PDO y Manejo de Errores
+## Que es PDO y manejo de errores
 ## Conexión con PDO
 ## Consultas con PDO
-## Patrones de la capa de datos: ActiveRecord y Repository
+## Patrones de la capa de datos: activerecord y repository
+
