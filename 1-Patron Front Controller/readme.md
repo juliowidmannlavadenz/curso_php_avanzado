@@ -10,14 +10,17 @@ El Patrón Front Controller en PHP es un patrón de diseño arquitectónico que 
 
 ## ¿Cómo funciona?
 
-**1. Único punto de entrada:** Todas las peticiones HTTP que llegan a la aplicación pasan primero por un archivo común, como index.php. Este archivo actúa como un controlador único o Front Controller.
+**1. Único punto de entrada (Front Controller):**
+El archivo index.php es el único punto de entrada para todas las peticiones. Aquí recibes todas las solicitudes HTTP y decides qué hacer con ellas.
 
-**2. Enrutamiento:** El Front Controller determina cuál acción o controlador específico debe manejar la solicitud. Esto generalmente se basa en la URL de la solicitud, que se mapea a controladores o acciones.
+**2. Enrutamiento:**
+El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
 
-**3. Controladores:** Una vez que el Front Controller decide cuál controlador debe manejar la solicitud, delega la ejecución a ese controlador, que es el encargado de ejecutar la lógica de negocio correspondiente y devolver la respuesta adecuada.
+**3. Controladores:**
+El controlador es quien maneja la lógica de negocio. Dependiendo de la acción solicitada, se ejecuta el controlador correspondiente.
 
-**4. Modularidad:** El uso de un Front Controller permite centralizar funcionalidades comunes, como la gestión de errores, la autenticación, la autorización o la validación de solicitudes, en un solo lugar, evitando duplicaciones de código.
-
+**4. Modularidad:**
+El patrón Front Controller permite centralizar la funcionalidad común, como manejo de errores, autenticación, validación, etc.
 
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
