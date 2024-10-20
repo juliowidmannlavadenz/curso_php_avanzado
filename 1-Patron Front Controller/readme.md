@@ -109,6 +109,13 @@ $router->route($_SERVER['REQUEST_URI']);
 * Antes de realizar el enrutamiento, se pueden agregar funcionalidades comunes, como manejo de errores o autenticación.
 * En este ejemplo, se incluye un sistema de autenticación y manejo de errores, lo que centraliza estas funciones en el punto de entrada principal (index.php).
 
+### **Resumen:**
+
+> El Front Controller centraliza todas las solicitudes en un único archivo, que luego decide a qué controlador y acción enviar la solicitud.
+El enrutamiento es manejado por un componente que mapea las URLs a los controladores correspondientes.
+Los controladores son responsables de la lógica de negocio y procesan la solicitud.
+La modularidad permite centralizar funcionalidades comunes, como la autenticación y el manejo de errores, de forma eficiente.
+
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
 ## Relaciones entre clases
