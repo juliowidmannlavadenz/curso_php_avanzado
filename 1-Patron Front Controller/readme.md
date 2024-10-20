@@ -117,7 +117,17 @@ $router->route($_SERVER['REQUEST_URI']);
 > * La modularidad permite centralizar funcionalidades comunes, como la autenticación y el manejo de errores, de forma eficiente.
 
 ### **Ejemplo completo de front controller**
-A traves de este ejemplo manejaremos las rutas de una aplicación web. Usaremos el Front Controller para recibir las solicitudes y redirigirlas a los controladores adecuados según la URL. incluiremos características adicionales como controladores basados en clases, manejo de excepciones, redirección y una estructura más modular. Tambien vamos a agregar manejo de sesiones, autenticación básica y vistas dinámicas.
+En este ejemplo, gestionaremos las rutas de una aplicación web utilizando el patrón Front Controller.
+Detallamos las principales características que se implementarán:
+
+* Recepción y redirección de solicitudes: El Front Controller actuará como punto de entrada único, recibiendo todas las solicitudes y redirigiéndolas a los controladores correspondientes según la URL.
+* Controladores basados en clases: Utilizaremos controladores orientados a objetos, lo que permite una estructura más modular y organizada, facilitando la mantenibilidad del código.
+* Manejo de excepciones: Implementaremos un manejo centralizado de excepciones, lo que garantiza una captura y gestión uniforme de errores en toda la aplicación.
+* Redirección de rutas: Se añadirá lógica de redirección para gestionar flujos de navegación, enviando a los usuarios a las rutas correctas según el contexto o el resultado de operaciones específicas.
+* Manejo de sesiones y autenticación básica: Integraremos un sistema básico de autenticación y gestión de sesiones para proteger las rutas sensibles y gestionar las sesiones de usuario de forma centralizada.
+* Vistas dinámicas: Los controladores generarán vistas dinámicas basadas en los datos procesados, personalizando la experiencia del usuario según las interacciones con la aplicación.
+
+> Esta arquitectura proporcionará una mayor flexibilidad, modularidad y escalabilidad, mejorando tanto la organización interna del código como la experiencia del usuario.
 
 ### **1. Estructura del Proyecto:**
 
