@@ -131,24 +131,24 @@ Detallamos las principales características que se implementarán:
 
 ### **1. Estructura del Proyecto:**
 
-    /front-controller
-    /controllers
-        HomeController.php
-        ProductController.php
-        LoginController.php
-    /core
-        Router.php
-        BaseController.php
-    /models
-        User.php
-    /views
-        home.php
-        product.php
-        login.php
-    /config
-        config.php
-    index.php
-    .htaccess
+        /front-controller
+        /controllers
+            HomeController.php
+            ProductController.php
+            LoginController.php
+        /core
+            Router.php
+            BaseController.php
+        /models
+            User.php
+        /views
+            home.php
+            product.php
+            login.php
+        /config
+            config.php
+        index.php
+        .htaccess
 
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
