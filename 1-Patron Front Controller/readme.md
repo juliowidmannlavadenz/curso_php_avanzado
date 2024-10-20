@@ -150,7 +150,16 @@ Detallamos las principales características que se implementarán:
         index.php
         .htaccess
 
-### **Archivo ```.htaccess``` (Opcional, para redirigir todas las solicitudes a index.php)**
+### **2. Archivo ```.htaccess``` (Opcional, para redirigir todas las solicitudes a index.php)**
+
+```php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+```
+
+Esto asegura que todas las solicitudes pasen a través de ```index.php```, utilizando route como parámetro para las rutas.
 
 
 ## Petición y respuesta http
