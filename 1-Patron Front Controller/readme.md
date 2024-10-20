@@ -161,6 +161,111 @@ RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
 
 Esto asegura que todas las solicitudes pasen a través de ```index.php```, utilizando route como parámetro para las rutas.
 
+### **3. Archivo ```config/config.php```**
+
+Este archivo contiene la configuración básica de la aplicación.
+
+```php
+<?php
+return [
+    'app_name' => 'Mi Aplicación',
+    'base_url' => 'http://localhost/front-controller/',
+    'database' => [
+        'host' => 'localhost',
+        'dbname' => 'mi_base_de_datos',
+        'user' => 'root',
+        'password' => ''
+    ]
+];
+```
+
+### **4. Archivo ```core/Router.php```**
+
+Este es el núcleo del enrutamiento. Se encarga de recibir las rutas y encontrar el controlador adecuado.
+
+```php
+<?php
+
+class Router
+{
+    private $routes = [];
+
+    public function addRoute($path, $controller)
+    {
+        $this->routes[$path] = $controller;
+    }
+
+    public function dispatch($route)
+    {
+        if (array_key_exists($route, $this->routes)) {
+            $controllerName = $this->routes[$route];
+            $controller = new $controllerName();
+            $controller->handle();
+        } else {
+            http_response_code(404);
+            echo "404 - Página no encontrada";
+        }
+    }
+}
+```
+
+### **5. Archivo ```core/BaseController.php```**
+
+Este es el controlador base del que heredan los demás controladores. Aquí puedes definir métodos comunes como la carga de vistas y manejo de sesiones.
+
+```php
+<?php
+
+class BaseController
+{
+    protected function render($view, $data = [])
+    {
+        extract($data);
+        include __DIR__ . '/../views/' . $view . '.php';
+    }
+
+    protected function redirect($url)
+    {
+        header('Location: ' . $url);
+        exit;
+    }
+}
+```
+
+### **6. Controlador ```controllers/HomeController.php```**
+
+Este controlador maneja las solicitudes de la página de inicio.
+
+```php
+<?php
+
+class HomeController extends BaseController
+{
+    public function handle()
+    {
+        $this->render('home', ['title' => 'Página de Inicio']);
+    }
+}
+```
+### **7. Controlador ```controllers/ProductController.php```**
+
+Este controlador muestra una lista de productos.
+
+```php
+<?php
+
+class ProductController extends BaseController
+{
+    public function handle()
+    {
+        $products = ['Producto 1', 'Producto 2', 'Producto 3'];
+        $this->render('product', ['title' => 'Lista de Productos', 'products' => $products]);
+    }
+}
+```
+
+
+
 
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
