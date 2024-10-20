@@ -79,7 +79,11 @@ class ProductController {
 **Explicación:**
 
 * Cuando el enrutador determina qué controlador y método ejecutar, delega la responsabilidad a ese controlador.
-* En este caso, el controlador ProductController tiene dos métodos: index (muestra la lista de productos) y show (muestra los detalles de un producto específico).
+* En este caso, el controlador ProductController tiene dos métodos:
+
+      * index (muestra la lista de productos) y show (muestra los detalles de un producto específico).
+      * show (muestra los detalles de un producto específico).
+  
 
 
 ### **4. Modularidad:**
