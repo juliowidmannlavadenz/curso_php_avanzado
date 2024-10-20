@@ -58,6 +58,30 @@ class Router {
 ### **3. Controladores:**
 El controlador es quien maneja la lógica de negocio. Dependiendo de la acción solicitada, se ejecuta el controlador correspondiente.
 
+```php
+class HomeController {
+    public function index() {
+        echo "Bienvenido a la página de inicio";
+    }
+}
+
+class ProductController {
+    public function index() {
+        echo "Lista de productos";
+    }
+
+    public function show() {
+        echo "Detalles del producto";
+    }
+}
+```
+
+**Explicación:**
+
+* Cuando el enrutador determina qué controlador y método ejecutar, delega la responsabilidad a ese controlador.
+* En este caso, el controlador ProductController tiene dos métodos: index (muestra la lista de productos) y show (muestra los detalles de un producto específico).
+
+
 ### **4. Modularidad:**
 El patrón Front Controller permite centralizar la funcionalidad común, como manejo de errores, autenticación, validación, etc.
 
