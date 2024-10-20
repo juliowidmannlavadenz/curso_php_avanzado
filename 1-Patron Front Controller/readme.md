@@ -264,8 +264,162 @@ class ProductController extends BaseController
 }
 ```
 
+### **8. Controlador ```controllers/LoginController.php```**
 
+Este controlador maneja la autenticación de usuarios.
 
+```php
+<?php
+
+class LoginController extends BaseController
+{
+    public function handle()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $user = new User();
+            if ($user->authenticate($username, $password)) {
+                $_SESSION['user'] = $username;
+                $this->redirect('home');
+            } else {
+                $this->render('login', ['error' => 'Credenciales inválidas']);
+            }
+        } else {
+            $this->render('login');
+        }
+    }
+}
+```
+
+### **9. Modelo ```models/User.php```**
+
+Este modelo se encarga de la autenticación de usuarios. Puede estar conectado a una base de datos.
+
+```php
+<?php
+
+class User
+{
+    public function authenticate($username, $password)
+    {
+        // Aquí podrías conectarte a la base de datos para verificar el usuario
+        // Ejemplo simple para validar un usuario
+        if ($username === 'admin' && $password === '1234') {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+### **10. Archivo ```views/home.php```**
+
+La vista de la página de inicio.
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title; ?></title>
+</head>
+<body>
+    <h1><?php echo $title; ?></h1>
+    <p>Bienvenido a la página de inicio.</p>
+</body>
+</html>
+```
+
+### **11. Archivo ```views/product.php```**
+
+La vista de la página de productos.
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title; ?></title>
+</head>
+<body>
+    <h1><?php echo $title; ?></h1>
+    <ul>
+        <?php foreach ($products as $product): ?>
+            <li><?php echo $product; ?></li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
+```
+
+### **12. Archivo ```views/login.php```**
+
+La vista de la página de inicio de sesión.
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <?php if (isset($error)): ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php endif; ?>
+    <form method="POST">
+        <label for="username">Usuario:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+</body>
+</html>
+```
+
+### **13. Archivo ```index.php```**
+
+El punto de entrada de la aplicación. Aquí se inicia la sesión, se carga la configuración y se despachan las rutas.
+
+```php
+<?php
+session_start();
+
+// Cargar configuración
+$config = include __DIR__ . '/config/config.php';
+
+// Autocargar clases
+spl_autoload_register(function ($className) {
+    $directories = ['controllers', 'core', 'models'];
+    foreach ($directories as $dir) {
+        $file = __DIR__ . '/' . $dir . '/' . $className . '.php';
+        if (file_exists($file)) {
+            include $file;
+        }
+    }
+});
+
+// Crear enrutador
+$router = new Router();
+
+// Definir rutas
+$router->addRoute('home', 'HomeController');
+$router->addRoute('product', 'ProductController');
+$router->addRoute('login', 'LoginController');
+
+// Obtener la ruta de la solicitud
+$route = isset($_GET['route']) ? $_GET['route'] : 'home';
+
+// Despachar la ruta
+$router->dispatch($route);
+```
 
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
