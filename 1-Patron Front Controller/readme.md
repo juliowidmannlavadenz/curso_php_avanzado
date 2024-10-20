@@ -20,8 +20,6 @@ $router = new Router();
 $router->route($_SERVER['REQUEST_URI']); 
 ```
 **Explicación:**
-
-
 * Todas las peticiones que llegan a la aplicación pasan por index.php.
 * En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
 
