@@ -24,6 +24,7 @@ $router->route($_SERVER['REQUEST_URI']);
 * En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
 
 
+
 **2. Enrutamiento:**
 El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
 
