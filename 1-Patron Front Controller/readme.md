@@ -1,5 +1,5 @@
 # Patron front controller
-## Definición
+## Definición:
 El Patrón Front Controller en PHP es un patrón de diseño arquitectónico que centraliza todas las peticiones entrantes a una única ubicación antes de que se distribuyan a los controladores específicos. En lugar de tener múltiples scripts que gestionen distintas partes de la aplicación, este patrón permite manejar todas las solicitudes en un solo punto de entrada **(como index.php)**, mejorando la organización y el control sobre las rutas y las acciones que se ejecutan.
 
 <br>
@@ -10,7 +10,7 @@ El Patrón Front Controller en PHP es un patrón de diseño arquitectónico que 
 
 ## ¿Cómo funciona?
 
-### **1. Único punto de entrada (Front Controller)**
+### **1. Único punto de entrada (Front Controller):**
 El archivo index.php es el único punto de entrada para todas las peticiones. Aquí recibes todas las solicitudes HTTP y decides qué hacer con ellas.
 
 ```php
@@ -19,11 +19,11 @@ require 'Router.php';
 $router = new Router(); 
 $router->route($_SERVER['REQUEST_URI']); 
 ```
-**Explicación**
+**Explicación:**
 * Todas las peticiones que llegan a la aplicación pasan por index.php.
 * En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
 
-### **2. Enrutamiento**
+### **2. Enrutamiento:**
 El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
 
 ```php
@@ -50,12 +50,12 @@ class Router {
     }
 }
 ```
-**Explicación**
+**Explicación:**
 
 * En este enrutador, definimos las rutas posibles en la aplicación.
 * Se verifica la URL actual ($uri) y se despacha la solicitud al controlador y método apropiados.
 
-### **3. Controladores**
+### **3. Controladores:**
 El controlador es quien maneja la lógica de negocio. Dependiendo de la acción solicitada, se ejecuta el controlador correspondiente.
 
 ```php
@@ -76,7 +76,7 @@ class ProductController {
 }
 ```
 
-**Explicación**
+**Explicación:**
 
 * Cuando el enrutador determina qué controlador y método ejecutar, delega la responsabilidad a ese controlador.
 * En este caso, el controlador ProductController tiene dos métodos:
@@ -84,7 +84,7 @@ class ProductController {
       - index (muestra la lista de productos).
       - show (muestra los detalles de un producto específico).
 
-### **4. Modularidad**
+### **4. Modularidad:**
 El patrón Front Controller permite centralizar la funcionalidad común, como manejo de errores, autenticación, validación, etc.
 
 ```php
@@ -104,12 +104,12 @@ $router = new Router();
 $router->route($_SERVER['REQUEST_URI']);
 ```
 
-**Explicación**
+**Explicación:**
 
 * Antes de realizar el enrutamiento, se pueden agregar funcionalidades comunes, como manejo de errores o autenticación.
 * En este ejemplo, se incluye un sistema de autenticación y manejo de errores, lo que centraliza estas funciones en el punto de entrada principal (index.php).
 
-### **Resumen**
+### **Resumen:**
 
 > * El Front Controller centraliza todas las solicitudes en un único archivo, que luego decide a qué controlador y acción enviar la solicitud.
 > * El enrutamiento es manejado por un componente que mapea las URLs a los controladores correspondientes.
