@@ -116,6 +116,30 @@ $router->route($_SERVER['REQUEST_URI']);
 > * Los controladores son responsables de la lógica de negocio y procesan la solicitud.
 > * La modularidad permite centralizar funcionalidades comunes, como la autenticación y el manejo de errores, de forma eficiente.
 
+### **Ejemplo completo de front controller**
+A traves de este ejemplo manejaremos las rutas de una aplicación web. Usaremos el Front Controller para recibir las solicitudes y redirigirlas a los controladores adecuados según la URL. incluiremos características adicionales como controladores basados en clases, manejo de excepciones, redirección y una estructura más modular. Tambien vamos a agregar manejo de sesiones, autenticación básica y vistas dinámicas.
+
+### **Estructura del Proyecto:**
+
+    /front-controller
+    /controllers
+        HomeController.php
+        ProductController.php
+        LoginController.php
+    /core
+        Router.php
+        BaseController.php
+    /models
+        User.php
+    /views
+        home.php
+        product.php
+        login.php
+    /config
+        config.php
+    index.php
+    .htaccess
+
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
 ## Relaciones entre clases
