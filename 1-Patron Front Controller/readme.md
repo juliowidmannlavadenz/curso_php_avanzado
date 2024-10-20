@@ -23,13 +23,13 @@ $router->route($_SERVER['REQUEST_URI']);
 * Todas las peticiones que llegan a la aplicación pasan por index.php.
 * En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
 
-**2. Enrutamiento:**
+### **2. Enrutamiento:**
 El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
 
-**3. Controladores:**
+### **3. Controladores:**
 El controlador es quien maneja la lógica de negocio. Dependiendo de la acción solicitada, se ejecuta el controlador correspondiente.
 
-**4. Modularidad:**
+### **4. Modularidad:**
 El patrón Front Controller permite centralizar la funcionalidad común, como manejo de errores, autenticación, validación, etc.
 
 ## Petición y respuesta http
