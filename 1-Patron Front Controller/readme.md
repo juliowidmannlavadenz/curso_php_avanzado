@@ -2,7 +2,11 @@
 ## Definición
 El Patrón Front Controller en PHP es un patrón de diseño arquitectónico que centraliza todas las peticiones entrantes a una única ubicación antes de que se distribuyan a los controladores específicos. En lugar de tener múltiples scripts que gestionen distintas partes de la aplicación, este patrón permite manejar todas las solicitudes en un solo punto de entrada **(como index.php)**, mejorando la organización y el control sobre las rutas y las acciones que se ejecutan.
 
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/patron%20front%20controller.png?raw=true" alt="Logo de mi proyecto" width="600" style />
+</p>
+<br>
 
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
