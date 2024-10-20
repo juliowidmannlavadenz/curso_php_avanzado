@@ -150,6 +150,9 @@ Detallamos las principales características que se implementarán:
         index.php
         .htaccess
 
+### **Archivo ```.htaccess``` (Opcional, para redirigir todas las solicitudes a index.php)**
+
+
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
 ## Relaciones entre clases
