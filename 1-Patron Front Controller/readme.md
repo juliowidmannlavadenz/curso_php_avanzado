@@ -329,6 +329,13 @@ La vista de la página de inicio.
 <body>
     <h1><?php echo $title; ?></h1>
     <p>Bienvenido a la página de inicio.</p>
+    <nav>
+        <ul>
+            <li><a href="index.php?route=home">Inicio</a></li>
+            <li><a href="index.php?route=product">Productos</a></li>
+            <li><a href="index.php?route=login">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
 ```
@@ -352,6 +359,13 @@ La vista de la página de productos.
             <li><?php echo $product; ?></li>
         <?php endforeach; ?>
     </ul>
+    <nav>
+        <ul>
+            <li><a href="index.php?route=home">Inicio</a></li>
+            <li><a href="index.php?route=product">Productos</a></li>
+            <li><a href="index.php?route=login">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
 ```
@@ -380,6 +394,13 @@ La vista de la página de inicio de sesión.
         <input type="password" name="password" required><br>
         <button type="submit">Iniciar Sesión</button>
     </form>
+    <nav>
+        <ul>
+            <li><a href="index.php?route=home">Inicio</a></li>
+            <li><a href="index.php?route=product">Productos</a></li>
+            <li><a href="index.php?route=login">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
 ```
