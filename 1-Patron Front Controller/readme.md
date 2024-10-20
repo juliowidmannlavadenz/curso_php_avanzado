@@ -119,7 +119,7 @@ $router->route($_SERVER['REQUEST_URI']);
 ### **Ejemplo completo de front controller**
 A traves de este ejemplo manejaremos las rutas de una aplicación web. Usaremos el Front Controller para recibir las solicitudes y redirigirlas a los controladores adecuados según la URL. incluiremos características adicionales como controladores basados en clases, manejo de excepciones, redirección y una estructura más modular. Tambien vamos a agregar manejo de sesiones, autenticación básica y vistas dinámicas.
 
-### **Estructura del Proyecto:**
+### **1. Estructura del Proyecto:**
 
     /front-controller
     /controllers
