@@ -87,6 +87,28 @@ class ProductController {
 ### **4. Modularidad:**
 El patrón Front Controller permite centralizar la funcionalidad común, como manejo de errores, autenticación, validación, etc.
 
+```php
+require 'ErrorHandler.php'; // Manejador de errores
+require 'Auth.php'; // Sistema de autenticación
+require 'Router.php'; // Enrutador
+
+$handler = new ErrorHandler();
+set_error_handler([$handler, 'handle']);
+
+$auth = new Auth();
+if (!$auth->check()) {
+    die("Acceso denegado. Debes iniciar sesión.");
+}
+
+$router = new Router();
+$router->route($_SERVER['REQUEST_URI']);
+```
+
+**Explicación:**
+
+* Antes de realizar el enrutamiento, se pueden agregar funcionalidades comunes, como manejo de errores o autenticación.
+* En este ejemplo, se incluye un sistema de autenticación y manejo de errores, lo que centraliza estas funciones en el punto de entrada principal (index.php).
+
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
 ## Relaciones entre clases
