@@ -26,6 +26,35 @@ $router->route($_SERVER['REQUEST_URI']);
 ### **2. Enrutamiento:**
 El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
 
+```php
+class Router {
+    private $routes = [
+        '/' => 'HomeController@index',
+        '/products' => 'ProductController@index',
+        '/product/show' => 'ProductController@show'
+    ];
+
+    public function route($uri) {
+        if (array_key_exists($uri, $this->routes)) {
+            $action = $this->routes[$uri];
+            $this->dispatch($action);
+        } else {
+            echo "404 - Página no encontrada";
+        }
+    }
+
+    private function dispatch($action) {
+        list($controller, $method) = explode('@', $action);
+        $controller = new $controller();
+        $controller->$method();
+    }
+}
+```
+**Explicación:**
+
+* En este enrutador, definimos las rutas posibles en la aplicación.
+* Se verifica la URL actual ($uri) y se despacha la solicitud al controlador y método apropiados.
+
 ### **3. Controladores:**
 El controlador es quien maneja la lógica de negocio. Dependiendo de la acción solicitada, se ejecuta el controlador correspondiente.
 
