@@ -14,26 +14,16 @@ El Patrón Front Controller en PHP es un patrón de diseño arquitectónico que 
 El archivo index.php es el único punto de entrada para todas las peticiones. Aquí recibes todas las solicitudes HTTP y decides qué hacer con ellas.
 
 ```php
-// index.php - Agregando funcionalidad común
-require 'ErrorHandler.php'; // Manejador de errores
-require 'Auth.php'; // Sistema de autenticación
-require 'Router.php'; // Enrutador
+require 'Router.php'; // Cargamos el enrutador
 
-// Gestión de errores
-$handler = new ErrorHandler();
-set_error_handler([$handler, 'handle']);
-
-// Autenticación
-$auth = new Auth();
-if (!$auth->check()) {
-    die("Acceso denegado. Debes iniciar sesión.");
-}
-
-// Enrutamiento
-$router = new Router();
-$router->route($_SERVER['REQUEST_URI']);
-
+$router = new Router(); // Inicializamos el enrutador
+$router->route($_SERVER['REQUEST_URI']); // Enrutamos la petición
 ```
+**Explicación:**
+
+* Todas las peticiones que llegan a la aplicación pasan por index.php.
+* En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
+
 
 **2. Enrutamiento:**
 El enrutador (Router.php) se encarga de analizar la URL y determinar qué controlador y acción se deben ejecutar.
