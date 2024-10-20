@@ -270,25 +270,29 @@ Este controlador maneja la autenticación de usuarios.
 
 ```php
 <?php
+// controllers/LoginController.php
 
-class LoginController extends BaseController
-{
-    public function handle()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+class LoginController extends BaseController {
+    public function index() {
+        $error = null;
+
+        // Manejo del formulario de inicio de sesión
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $user = new User();
-            if ($user->authenticate($username, $password)) {
-                $_SESSION['user'] = $username;
-                $this->redirect('home');
+            // Autenticación
+            if (User::authenticate($username, $password)) {
+                $_SESSION['user'] = $username; // Guardar el usuario en la sesión
+                header('Location: index.php?route=home'); // Redirigir a la página de inicio
+                exit;
             } else {
-                $this->render('login', ['error' => 'Credenciales inválidas']);
+                $error = 'Credenciales inválidas. Intenta de nuevo.';
             }
-        } else {
-            $this->render('login');
         }
+
+        // Cargar la vista de inicio de sesión
+        $this->render('login', ['error' => $error]);
     }
 }
 ```
@@ -296,20 +300,31 @@ class LoginController extends BaseController
 ### **9. Modelo ```models/User.php```**
 
 Este modelo se encarga de la autenticación de usuarios. Puede estar conectado a una base de datos.
+* crearemos un modelo de usuario que contenga algunas credenciales de prueba.
 
 ```php
 <?php
+// models/User.php
 
-class User
-{
-    public function authenticate($username, $password)
-    {
-        // Aquí podrías conectarte a la base de datos para verificar el usuario
-        // Ejemplo simple para validar un usuario
-        if ($username === 'admin' && $password === '1234') {
-            return true;
+class User {
+    private static $users = [
+        [
+            'username' => 'admin',
+            'password' => 'password123', // Contraseña en texto plano (solo para fines de ejemplo)
+        ],
+        [
+            'username' => 'user',
+            'password' => 'mypassword', // Otra cuenta de usuario
+        ],
+    ];
+
+    public static function authenticate($username, $password) {
+        foreach (self::$users as $user) {
+            if ($user['username'] === $username && $user['password'] === $password) {
+                return true; // Credenciales válidas
+            }
         }
-        return false;
+        return false; // Credenciales inválidas
     }
 }
 ```
