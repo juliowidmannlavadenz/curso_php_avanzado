@@ -315,6 +315,25 @@ class BaseController
 }
 ```
 
+**Explicación:**
+
+1. class BaseController:
+   
+* Define una clase llamada BaseController, que actuará como una clase base para otros controladores. Otros controladores heredarían de esta clase y tendrían acceso a sus métodos.
+  
+2. Método render($view, $data = []):
+   
+Este método está diseñado para mostrar una vista, es decir, para cargar un archivo de vista que presente una interfaz al usuario.
+
+* $view: Es el nombre del archivo de vista que deseas cargar. Se espera que esté ubicado en el directorio views, que probablemente contenga los archivos HTML o PHP para mostrar al usuario.
+  
+* $data = []: Este es un array opcional que contiene los datos que deseas pasar a la vista. Por defecto, si no se pasan datos, es un array vacío.
+  
+* extract($data): Esta función convierte los elementos del array $data en variables individuales. Por ejemplo, si $data contiene ['name' => 'John'], se creará una variable $name con el valor 'John'. Esto facilita el uso de los datos dentro de la vista.
+  
+* include __DIR__ . '/../views/' . $view . '.php';: Carga e incluye el archivo de vista. Utiliza __DIR__ para obtener el directorio actual donde está el script (en este caso, el controlador). Luego, navega al directorio views donde se espera encontrar la vista (por ejemplo, si $view = 'home', incluirá el archivo views/home.php).
+
+
 ### **6. Controlador ```controllers/HomeController.php```**
 
 Este controlador maneja las solicitudes de la página de inicio.
