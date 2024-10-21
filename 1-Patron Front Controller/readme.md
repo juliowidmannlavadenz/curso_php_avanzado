@@ -269,6 +269,7 @@ En nuestra aplicación de ejemplo tenemos las siguientes rutas:
 
 Usariamos la clase Router de la siguiente manera:
 
+**13. Archivo ```index.php```**
 ```php
 $router = new Router();
 
@@ -281,6 +282,7 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 $router->dispatch($route);
 ```
 Si la ruta solicitada es /home, el router creará una instancia de HomeController y llamará a su método handle. Si la ruta no existe, como /contact, el código devolverá un error 404.
+
 
 
 
