@@ -287,7 +287,7 @@ Si la ruta solicitada es /home, el router creará una instancia de HomeControlle
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_controllers.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_controllers.png?raw=true" alt="Imagen width="600" style />
 </p>
 <br>
 
