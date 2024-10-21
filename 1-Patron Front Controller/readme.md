@@ -178,6 +178,24 @@ return [
     ]
 ];
 ```
+**Explicación:**
+
+1. 'app_name' => 'Mi Aplicación':
+
+* Define el nombre de la aplicación, que en este caso es "Mi Aplicación". Este valor podría ser usado en la interfaz de usuario o en mensajes internos de la aplicación.
+
+2. 'base_url' => 'http://localhost/front-controller/':
+
+* Especifica la URL base de la aplicación, que es http://localhost/front-controller/. Esta URL se usaría para generar enlaces internos o redirecciones dentro de la aplicación.
+  
+3. 'database' => [...]:
+
+* Aquí se configuran los parámetros de conexión a la base de datos:
+
+    * 'host' => 'localhost': El servidor de base de datos está en localhost, es decir, la misma máquina donde se ejecuta el código PHP.
+    * 'dbname' => 'mi_base_de_datos': El nombre de la base de datos que se va a usar es "mi_base_de_datos".
+    * 'user' => 'root': El nombre de usuario para conectarse a la base de datos es root, que es el usuario por defecto en muchos entornos de desarrollo locales.
+    * 'password' => '': La contraseña para el usuario root está vacía, lo cual es común en entornos de desarrollo, pero no es seguro en producción.
 
 ### **4. Archivo ```core/Router.php```**
 
