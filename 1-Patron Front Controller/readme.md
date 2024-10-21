@@ -226,6 +226,38 @@ class Router
     }
 }
 ```
+**Explicación:**
+
+1. class Router:
+
+* Declara una clase llamada Router que será usada para gestionar las rutas y enviar la solicitud al controlador adecuado.
+
+2. private $routes = [];:
+
+* Se define una propiedad privada $routes que es un array vacío al principio. Esta propiedad se utiliza para almacenar las rutas y sus controladores asociados. Cada ruta (URL) se asocia con un controlador que maneja la lógica para esa ruta.
+
+3. public function addRoute($path, $controller):
+
+* Este método público addRoute permite agregar rutas al router.
+* $path es la ruta (por ejemplo, '/home' o '/about') y $controller es el nombre de la clase controladora que manejará esa ruta.
+* La línea $this->routes[$path] = $controller; almacena el controlador en el array $routes, asociándolo con la ruta específica.
+
+4. public function dispatch($route):
+   
+* Este método es el responsable de "despachar" una ruta, es decir, decidir qué controlador debe manejar la solicitud basada en la ruta que recibe.
+* $route es la ruta que se está solicitando.
+* if (array_key_exists($route, $this->routes)): Verifica si la ruta solicitada existe en el array $routes.
+
+    * Si la ruta existe:
+      
+        * $controllerName = $this->routes[$route];: Obtiene el nombre del controlador asociado a esa ruta.
+        * $controller = new $controllerName();: Crea una nueva instancia del controlador.
+        * $controller->handle();: Llama al método handle del controlador, que sería el encargado de procesar la solicitud (este método debería estar definido en la clase del controlador).
+          
+    * Si la ruta no existe:
+      
+        * http_response_code(404);: Envía un código de estado HTTP 404, indicando que la página no fue encontrada.
+        * echo "404 - Página no encontrada";: Muestra un mensaje indicando que la página no se encontró.
 
 ### **5. Archivo ```core/BaseController.php```**
 
