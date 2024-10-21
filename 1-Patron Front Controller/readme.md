@@ -283,7 +283,13 @@ $router->dispatch($route);
 ```
 Si la ruta solicitada es /home, el router creará una instancia de HomeController y llamará a su método handle. Si la ruta no existe, como /contact, el código devolverá un error 404.
 
+**Vista en el navegador:**
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_controllers.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
 
 
 ### **5. Archivo ```core/BaseController.php```**
