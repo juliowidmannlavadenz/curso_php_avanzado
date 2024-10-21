@@ -269,7 +269,7 @@ En nuestra aplicación de ejemplo tenemos las siguientes rutas:
 
 Usariamos la clase Router de la siguiente manera:
 
-**13. Archivo ```index.php```**
+Archivo **```index.php```**
 ```php
 $router = new Router();
 
