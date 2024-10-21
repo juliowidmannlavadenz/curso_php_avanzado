@@ -258,6 +258,31 @@ class Router
       
         * http_response_code(404);: Envía un código de estado HTTP 404, indicando que la página no fue encontrada.
         * echo "404 - Página no encontrada";: Muestra un mensaje indicando que la página no se encontró.
+     
+**Ejemplo de uso:**
+
+En nuestra aplicación de ejemplo tenemos las siguientes rutas:
+
+* ```/home``` -> Controlador ```HomeController```
+* ```/product``` -> Controlador ```ProductController```
+* ```/login``` -> Controlador ```LoginController```
+
+Usariamos la clase Router de la siguiente manera:
+
+```php
+$router = new Router();
+
+$router->addRoute('home', 'HomeController');
+$router->addRoute('product', 'ProductController');
+$router->addRoute('login', 'LoginController');
+
+$route = isset($_GET['route']) ? $_GET['route'] : 'home';
+
+$router->dispatch($route);
+```
+Si la ruta solicitada es /home, el router creará una instancia de HomeController y llamará a su método handle. Si la ruta no existe, como /contact, el código devolverá un error 404.
+
+
 
 ### **5. Archivo ```core/BaseController.php```**
 
@@ -492,18 +517,14 @@ spl_autoload_register(function ($className) {
     }
 });
 
-// Crear enrutador
 $router = new Router();
 
-// Definir rutas
 $router->addRoute('home', 'HomeController');
 $router->addRoute('product', 'ProductController');
 $router->addRoute('login', 'LoginController');
 
-// Obtener la ruta de la solicitud
 $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 
-// Despachar la ruta
 $router->dispatch($route);
 ```
 
