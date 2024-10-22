@@ -469,10 +469,13 @@ class LoginController extends BaseController {
 * Se llama al método User::authenticate($username, $password) para comprobar si el usuario ha ingresado credenciales válidas.
   
     * Si las credenciales son correctas:
+      
         * Se almacena el nombre de usuario en la sesión ($_SESSION['user'] = $username), lo que permite al sistema recordar que el usuario está autenticado.
         * El navegador redirige al usuario a la página de inicio (home) con header('Location: index.php?route=home');.
         * Se usa exit; para detener la ejecución del script después de la redirección.
+          
     * Si las credenciales son incorrectas:
+      
         * Se establece un mensaje de error: Credenciales inválidas. Intenta de nuevo. que se mostrará en la página de inicio de sesión.
 
 5. Renderización de la vista de inicio de sesión.
