@@ -578,6 +578,13 @@ La vista de la página de inicio. Creamos una plantilla en HTML con partes diná
 
 Estas rutas son procesadas por el controlador (index.php) y despachadas para mostrar la vista correspondiente.
 
+**Vista en el navegador:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/inicio.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 ### **11. Archivo ```views/product.php```**
 
