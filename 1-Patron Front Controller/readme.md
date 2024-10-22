@@ -794,7 +794,7 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 
 ### **Ejemplo de uso:**
 
-Archivo ```script.php```
+Archivo ```get/script.php```
 ```php
 <?php
 echo "Hola, " . htmlspecialchars($_GET["nombre"]);
@@ -812,6 +812,21 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 
 
 * **POST:** Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
+
+Archivo ```post/script.php```
+```php
+<?php
+echo "Hola, " . htmlspecialchars($_POST["nombre"]);
+?>
+```
+
+Este código procesa un formulario enviado mediante el método POST y muestra el valor del campo nombre. Por ejemplo, si un formulario envía el valor "Julio", el resultado será:
+
+```php
+    Hola, Julio
+```
+
+
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
 * **DELETE:** Elimina un recurso del servidor.
 
