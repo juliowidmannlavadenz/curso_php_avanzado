@@ -675,10 +675,8 @@ El punto de entrada de la aplicación. Aquí se inicia la sesión, se carga la c
 <?php
 session_start();
 
-// Cargar configuración
 $config = include __DIR__ . '/config/config.php';
 
-// Autocargar clases
 spl_autoload_register(function ($className) {
     $directories = ['controllers', 'core', 'models'];
     foreach ($directories as $dir) {
@@ -700,9 +698,72 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 $router->dispatch($route);
 ```
 
+**Explicación:**
+
+1. Inicio de sesión con session_start():
+
+* session_start(): Este comando inicia o reanuda una sesión en PHP. Permite que el servidor almacene y acceda a variables de sesión, que son útiles para guardar información del usuario mientras navega por el sitio, como si el usuario ha iniciado sesión.
+
+2. Cargar configuración.
+
+* include: Incluye el archivo de configuración (config.php) que está en la carpeta config.
+* $config: Aquí se guarda el contenido del archivo de configuración, que puede contener datos importantes como la configuración de la base de datos, rutas, y otros parámetros.
+
+3. Autocargar clases.
+
+* spl_autoload_register(): Registra una función de autocarga que se ejecuta automáticamente cada vez que se intenta usar una clase que aún no ha sido incluida.
+
+* Autocarga de clases:
+
+    * La función anónima que recibe el nombre de la clase ($className) busca archivos que coincidan con ese nombre en las carpetas controllers, core y models.
+    * foreach ($directories as $dir): Recorre estas tres carpetas para encontrar el archivo de la clase que necesita incluirse.
+    * $file: Construye la ruta del archivo donde podría estar definida la clase ($className).
+    * file_exists(): Si el archivo existe, lo incluye automáticamente usando include.
+
+Esto permite que la aplicación cargue automáticamente las clases cuando se necesiten sin tener que incluir manualmente cada archivo.
+
+4. Instanciar el enrutador.
+
+* Crea una nueva instancia de la clase Router, que será utilizada para manejar las rutas de la aplicación.
+
+5. Agregar rutas al enrutador:
+
+* addRoute(): Método del enrutador que asocia una ruta con un controlador específico.
+* Cada ruta (como 'home', 'product', y 'login') se asigna a un controlador respectivo (HomeController, ProductController, LoginController).
+
+    * 'home' => 'HomeController': Cuando el usuario accede a la ruta home, el enrutador llamará a la clase HomeController.
+    * 'product' => 'ProductController': Si accede a product, llamará a ProductController.
+
+6. Determinar la ruta solicitada.
+
+* $_GET['route']: Captura el valor del parámetro route de la URL. Por ejemplo, si la URL es index.php?route=product, entonces $_GET['route'] será 'product'.
+* Ternario: Si no se especifica ninguna ruta en la URL (por ejemplo, si solo se accede a index.php), se asigna por defecto 'home' a la variable $route.
+
+    * Si existe un valor en $_GET['route'], se usa ese valor, si no, el valor por defecto será 'home'.
+
+7. Desplegar la ruta correspondiente.
+
+* dispatch($route): El enrutador toma la ruta que se ha solicitado y busca el controlador asociado.
+  
+    * Si la ruta existe, el enrutador crea una instancia del controlador correspondiente y llama al método handle() o el método que maneje la solicitud.
+    * Si la ruta no existe, el enrutador probablemente devolverá un error 404, que indica que la página no fue encontrada.
+
+**Resumen del flujo:**
+
+1. **Iniciar sesión:** Se inicia la sesión con session_start(), lo que permite utilizar variables de sesión, como las relacionadas con la autenticación.
+2. **Cargar configuración:** Se carga el archivo de configuración de la aplicación, lo que puede incluir detalles como la conexión a la base de datos o ajustes generales.
+3. **Autocargar clases:** Se configura la autocarga de clases para que, cuando se necesite una clase, la aplicación busque automáticamente en los directorios controllers, core, y models.
+4. **Instanciar el enrutador:** Se crea un nuevo objeto de la clase Router, que manejará las rutas.
+5. **Definir rutas:** Se definen las rutas que la aplicación puede manejar, asociándolas con controladores.
+6. **Determinar la ruta:** Se verifica qué ruta ha sido solicitada por el usuario a través de la URL.
+7. **Desplegar la ruta:** Se ejecuta la ruta correspondiente, llamando al controlador adecuado.
+
+
 ## Petición y respuesta http
 ## Ciclo de vida de una petición http
 ## Relaciones entre clases
+
+
 
 
 
