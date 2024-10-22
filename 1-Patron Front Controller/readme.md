@@ -779,7 +779,7 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 
 Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
 
-### Tipos de peticiones HHTP:
+## Tipos de peticiones HHTP:
 
 | Tipo de Petición | Propósito                                           | Ejemplo de Uso                                                                 |
 |------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
@@ -787,6 +787,33 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 | **POST**         | Enviar datos al servidor para crear un recurso.    | `POST /usuarios` → Crea un nuevo usuario enviando datos en el cuerpo de la petición. |
 | **PUT**          | Actualizar completamente un recurso existente.     | `PUT /usuarios/1` → Actualiza los datos del usuario con ID 1.                  |
 | **DELETE**       | Eliminar un recurso del servidor.                  | `DELETE /usuarios/1` → Elimina el usuario con ID 1.                            |
+
+## Explicación:
+
+* **GET:** Se utiliza para solicitar datos sin modificar nada.
+
+### **Ejmplo de uso:**
+
+Archivo ```script.php```
+```php
+<?php
+echo "Hola, " . htmlspecialchars($_GET["nombre"]);
+?>
+```
+
+Si accedemos a este script con una URL como ```http://localhost:3000/script.php?nombre=Yamir Ramirez```, el resultado será:
+
+**Vista en el navegador:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+* **POST:** Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
+* **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
+* **DELETE:** Elimina un recurso del servidor.
 
 
 
