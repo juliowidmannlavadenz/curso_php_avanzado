@@ -483,14 +483,6 @@ class LoginController extends BaseController {
 * Finalmente, se carga la vista de inicio de sesión utilizando el método render() heredado de BaseController.
 * La vista login.php recibe un array con la variable $error para mostrar el mensaje de error si lo hay.
 
-**Vista en el navegador:**
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/login_vista.png?raw=true" alt="Imagen" style />
-</p>
-<br>
-
 
 ### **9. Modelo ```models/User.php```**
 
@@ -666,6 +658,14 @@ Generamos una plantilla para una página de inicio de sesión, en ella manejamos
 </body>
 </html>
 ```
+
+**Vista en el navegador:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/login_vista.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 ### **13. Archivo ```index.php```**
 
