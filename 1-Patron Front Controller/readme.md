@@ -333,12 +333,26 @@ Este método está diseñado para mostrar una vista, es decir, para cargar un ar
   
 * include __DIR__ . '/../views/' . $view . '.php';: Carga e incluye el archivo de vista. Utiliza __DIR__ para obtener el directorio actual donde está el script (en este caso, el controlador). Luego, navega al directorio views donde se espera encontrar la vista (por ejemplo, si $view = 'home', incluirá el archivo views/home.php).
 
+**Ejemplo de uso del método ```render:```**
+
+```php
+$this->render('home', ['name' => 'John']);
+```
+
+* Esto buscaría e incluiría el archivo ```views/home.php``` y dentro de esa vista se podría usar la variable ```$name```, que tendrá el valor ```'John'```.
+
 3. Método redirect($url):
 Este método se utiliza para redirigir a una URL específica, es decir, enviar al usuario a otra página.
 
 * $url: Es la URL a la que se redirige al usuario.
 * header('Location: ' . $url);: Envía una cabecera HTTP de redirección con la URL especificada. Esto indica al navegador que debe cargar una nueva página.
 * exit;: Detiene la ejecución del script inmediatamente después de la redirección, asegurándose de que no se ejecute ningún código adicional tras la redirección.
+
+**Ejemplo de uso del método ```redirect```**
+
+```php
+$this->redirect('/home');
+```
 
 ### **6. Controlador ```controllers/HomeController.php```**
 
@@ -355,6 +369,33 @@ class HomeController extends BaseController
     }
 }
 ```
+
+**Explicación:**
+
+1. Extensión de BaseController:
+
+* La clase HomeController hereda de BaseController. Esto significa que puede utilizar todos los métodos definidos en BaseController, como el método render(), que se emplea para cargar vistas.
+
+2. Método handle():
+
+* Este método, llamado handle(), es responsable de gestionar la lógica para mostrar la vista de la página de inicio.
+
+2.1. Renderización de la vista
+
+* Se llama al método render() de BaseController para cargar la vista correspondiente. En este caso, la vista es 'home'.
+* Se pasa un array que contiene datos para la vista:
+  
+    * 'title' => 'Página de Inicio': Este par clave-valor establece el título de la página como "Página de Inicio". La clave 'title' se usará en la vista para mostrar este         texto, probablemente en una etiqueta <title> o como un encabezado en la página.
+
+3. Flujo general
+   
+Cuando se llama al método handle() de HomeController:
+
+1. Se ejecuta el código dentro de handle(), que invoca el método render().
+2. El método render() busca un archivo de vista llamado home.php dentro de la carpeta views/ y lo carga.
+3. En la vista home.php, se puede utilizar la variable $title para mostrar el título de la página.
+
+
 ### **7. Controlador ```controllers/ProductController.php```**
 
 Este controlador muestra una lista de productos.
@@ -371,6 +412,8 @@ class ProductController extends BaseController
     }
 }
 ```
+
+* Aquí definimos una clase llamada ProductController que extiende de BaseController. El propósito de esta clase es manejar la lógica para mostrar una lista de productos y renderizar una vista que muestra esa lista. 
 
 ### **8. Controlador ```controllers/LoginController.php```**
 
