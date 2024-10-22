@@ -521,6 +521,24 @@ class User {
 }
 ```
 
+**Explicación:**
+
+1. Definición de la clase User.
+
+* Esta es la clase que se encarga de gestionar la autenticación de usuarios en la aplicación.
+
+2. Propiedad estática $users.
+
+* La clase tiene una propiedad estática llamada $users, que es un array que contiene la lista de usuarios de la aplicación.
+* Cada usuario está representado por un array asociativo con un username y una password.
+* Las contraseñas están guardadas en texto plano, lo cual es inseguro en un entorno real. En una aplicación real, las contraseñas deben estar hasheadas (por ejemplo, utilizando password_hash()).
+
+3. Método estático authenticate().
+
+* Este método es responsable de verificar si las credenciales proporcionadas son válidas.
+* Es un método estático, lo que significa que puede ser llamado sin instanciar la clase User (por ejemplo, User::authenticate()).
+
+
 ### **10. Archivo ```views/home.php```**
 
 La vista de la página de inicio.
