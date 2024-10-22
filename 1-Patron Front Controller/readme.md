@@ -807,9 +807,9 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 
 
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.jpg?raw=true" alt="Imagen" style />
 </p>
-<br>
+
 
 * **POST:** Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
