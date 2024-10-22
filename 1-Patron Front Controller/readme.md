@@ -616,6 +616,22 @@ La vista de la página de productos.
 </html>
 ```
 
+**Explicación:**
+
+* (<?php foreach...): Aquí utilizamos un bucle foreach para recorrer la lista de productos almacenada en la variable $products, que es pasada desde el controlador. Por cada elemento de $products, se genera un <li> (elemento de lista) que contiene el nombre del producto.
+  
+    * $products: Es un array de productos que contiene los nombres (por ejemplo, ['Producto 1', 'Producto 2', 'Producto 3']).
+    * <li><?php echo $product; ?></li>: Cada nombre de producto se inserta dentro de un <li>, que es el formato estándar para listas en HTML.
+
+
+**Vista en el navegador:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/lista_productos.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 ### **12. Archivo ```views/login.php```**
 
 La vista de la página de inicio de sesión.
