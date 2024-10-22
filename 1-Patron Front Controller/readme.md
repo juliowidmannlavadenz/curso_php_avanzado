@@ -582,7 +582,7 @@ Estas rutas son procesadas por el controlador (index.php) y despachadas para mos
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/inicio.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/inicio2.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
