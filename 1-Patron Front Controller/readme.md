@@ -759,9 +759,9 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 7. **Desplegar la ruta:** Se ejecuta la ruta correspondiente, llamando al controlador adecuado.
 
 
-## Petición y respuesta http
-## Ciclo de vida de una petición http
-## Relaciones entre clases
+# Petición y respuesta http
+# Ciclo de vida de una petición http
+# Relaciones entre clases
 
 
 
