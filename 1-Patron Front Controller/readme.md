@@ -634,7 +634,7 @@ La vista de la página de productos.
 
 ### **12. Archivo ```views/login.php```**
 
-La vista de la página de inicio de sesión.
+Generamos una plantilla para una página de inicio de sesión, en ella manejamos la lógica del formulario, incluyendo la visualización de mensajes de error si las credenciales no son válidas. 
 
 ```php
 <!DOCTYPE html>
