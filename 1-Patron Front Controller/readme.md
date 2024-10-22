@@ -779,7 +779,7 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 
 Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
 
-## Tipos de peticiones HHTP:
+### Tipos de peticiones HHTP:
 
 | Tipo de Petición | Propósito                                           | Ejemplo de Uso                                                                 |
 |------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
@@ -788,11 +788,11 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 | **PUT**          | Actualizar completamente un recurso existente.     | `PUT /usuarios/1` → Actualiza los datos del usuario con ID 1.                  |
 | **DELETE**       | Eliminar un recurso del servidor.                  | `DELETE /usuarios/1` → Elimina el usuario con ID 1.                            |
 
-## Explicación:
+### Explicación:
 
 * **GET:** Se utiliza para solicitar datos sin modificar nada.
 
-### **Ejmplo de uso:**
+### **Ejemplo de uso:**
 
 Archivo ```script.php```
 ```php
