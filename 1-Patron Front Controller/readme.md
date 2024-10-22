@@ -758,6 +758,17 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 6. **Determinar la ruta:** Se verifica qué ruta ha sido solicitada por el usuario a través de la URL.
 7. **Desplegar la ruta:** Se ejecuta la ruta correspondiente, llamando al controlador adecuado.
 
+### **Explicacion del ejemplo:**
+
+1. Autocarga de Clases: Usamos spl_autoload_register() para cargar automáticamente las clases desde diferentes directorios (controllers, core, models).
+2. Router: El enrutador es responsable de encontrar el controlador adecuado según la ruta proporcionada.
+3. Controladores Base: Los controladores heredan de BaseController, lo que permite tener métodos comunes como render() para cargar vistas y redirect() para redirigir a otra ruta.
+4. Autenticación: El LoginController maneja la autenticación de usuarios, y el modelo User se encarga de validar las credenciales.
+5. Manejo de Sesiones: Usamos sesiones para almacenar el estado de autenticación del usuario.
+
+### **Resumen:**
+
+> En este ejemplo completo y modular del Patrón Front Controller incluimos los siguientes aspectos: Enrutamiento, controladores basados en clases, manejo de sesiones y autenticación básica.
 
 # Petición y respuesta http
 # Ciclo de vida de una petición http
