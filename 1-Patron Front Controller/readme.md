@@ -380,14 +380,14 @@ class HomeController extends BaseController
 
 * Este método, llamado handle(), es responsable de gestionar la lógica para mostrar la vista de la página de inicio.
 
-2.1. Renderización de la vista
+2.1. Renderización de la vista:
 
 * Se llama al método render() de BaseController para cargar la vista correspondiente. En este caso, la vista es 'home'.
 * Se pasa un array que contiene datos para la vista:
   
     * 'title' => 'Página de Inicio': Este par clave-valor establece el título de la página como "Página de Inicio". La clave 'title' se usará en la vista para mostrar este         texto, probablemente en una etiqueta <title> o como un encabezado en la página.
 
-3. Flujo general
+3. Flujo general.
    
 Cuando se llama al método handle() de HomeController:
 
@@ -412,6 +412,7 @@ class ProductController extends BaseController
     }
 }
 ```
+**Explicación:**
 
 * Aquí definimos una clase llamada ProductController que extiende de BaseController. El propósito de esta clase es manejar la lógica para mostrar una lista de productos y renderizar una vista que muestra esa lista. 
 
@@ -421,7 +422,6 @@ Este controlador maneja la autenticación de usuarios.
 
 ```php
 <?php
-// controllers/LoginController.php
 
 class LoginController extends BaseController {
     public function index() {
@@ -447,6 +447,47 @@ class LoginController extends BaseController {
     }
 }
 ```
+
+**Explicación:**
+
+1. Clase LoginController que extiende BaseController:
+
+* La clase LoginController hereda de BaseController, lo que le da acceso a métodos como render(), que sirve para cargar vistas (páginas HTML).
+
+2. Método index():
+
+* El método index() es responsable de manejar la solicitud para el formulario de inicio de sesión.
+* Se inicializa la variable $error como null, que almacenará cualquier mensaje de error que deba mostrarse al usuario si el inicio de sesión falla.
+
+3. Manejo del formulario de inicio de sesión.
+
+* Se verifica si el método de la solicitud es POST. Esto indica que el formulario de inicio de sesión ha sido enviado.
+* Si es una solicitud POST, el código toma los valores ingresados en los campos username y password usando $_POST['username'] y $_POST['password'].
+
+4. Autenticación.
+
+* Se llama al método User::authenticate($username, $password) para comprobar si el usuario ha ingresado credenciales válidas.
+  
+    * Si las credenciales son correctas:
+        * Se almacena el nombre de usuario en la sesión ($_SESSION['user'] = $username), lo que permite al sistema recordar que el usuario está autenticado.
+        * El navegador redirige al usuario a la página de inicio (home) con header('Location: index.php?route=home');.
+        * Se usa exit; para detener la ejecución del script después de la redirección.
+    * Si las credenciales son incorrectas:
+        * Se establece un mensaje de error: Credenciales inválidas. Intenta de nuevo. que se mostrará en la página de inicio de sesión.
+
+5. Renderización de la vista de inicio de sesión.
+
+* Finalmente, se carga la vista de inicio de sesión utilizando el método render() heredado de BaseController.
+* La vista login.php recibe un array con la variable $error para mostrar el mensaje de error si lo hay.
+
+**Vista en el navegador:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_login.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 
 ### **9. Modelo ```models/User.php```**
 
