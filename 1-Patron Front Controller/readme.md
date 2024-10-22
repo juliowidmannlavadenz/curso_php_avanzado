@@ -484,7 +484,7 @@ class LoginController extends BaseController {
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_login.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/login_vista.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
