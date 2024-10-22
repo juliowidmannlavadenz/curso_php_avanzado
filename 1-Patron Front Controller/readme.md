@@ -768,7 +768,11 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 
 ### **Resumen:**
 
-> En este ejemplo completo y modular del Patrón Front Controller incluimos los siguientes aspectos: Enrutamiento, controladores basados en clases, manejo de sesiones y autenticación básica.
+> En este ejemplo completo y modular del Patrón Front Controller incluimos los siguientes aspectos:
+> * Enrutamiento: Permite que las solicitudes sean redirigidas a los controladores adecuados en función de la URL, lo que centraliza el manejo de las rutas y evita tener múltiples puntos de entrada en la aplicación.
+> * Controladores basados en clases: Cada controlador es una clase que agrupa la lógica relacionada con una funcionalidad específica, facilitando el mantenimiento y la escalabilidad del código.
+> * Manejo de sesiones: Las sesiones permiten mantener el estado de los usuarios entre las solicitudes, necesario para funcionalidades como el inicio de sesión o la personalización de contenido.
+> * Autenticación básica: Se incluye una verificación de acceso que asegura que solo los usuarios autenticados puedan acceder a ciertas partes de la aplicación, añadiendo una capa básica de seguridad.
 
 # Petición y respuesta http
 # Ciclo de vida de una petición http
