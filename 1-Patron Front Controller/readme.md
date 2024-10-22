@@ -541,7 +541,7 @@ class User {
 
 ### **10. Archivo ```views/home.php```**
 
-La vista de la página de inicio.
+La vista de la página de inicio. Creamos una plantilla en HTML con partes dinámicas para renderizar contenido, en este caso el título de la página. 
 
 ```php
 <!DOCTYPE html>
@@ -564,6 +564,17 @@ La vista de la página de inicio.
 </body>
 </html>
 ```
+
+**Explicación:**
+
+* Los enlaces usan la estructura ```index.php?route=...``` para navegar entre las diferentes rutas de la aplicación.
+
+    * Inicio: Redirige a la ruta home.
+    * Productos: Redirige a la ruta product.
+    * Iniciar Sesión: Redirige a la ruta login.
+
+Estas rutas son procesadas por el controlador (index.php) y despachadas para mostrar la vista correspondiente.
+
 
 ### **11. Archivo ```views/product.php```**
 
