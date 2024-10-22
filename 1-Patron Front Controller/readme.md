@@ -775,6 +775,21 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 > * Autenticación básica: Se incluye una verificación de acceso que asegura que solo los usuarios autenticados puedan acceder a ciertas partes de la aplicación, añadiendo una capa básica de seguridad.
 
 # Petición y respuesta http
+## Definición:
+
+Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
+
+## Tipos de peticiones HHTP:
+
+| Tipo de Petición | Propósito                                           | Ejemplo de Uso                                                                 |
+|------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
+| **GET**          | Obtener datos de un servidor.                      | `GET /usuarios` → Recupera la lista de usuarios.                               |
+| **POST**         | Enviar datos al servidor para crear un recurso.    | `POST /usuarios` → Crea un nuevo usuario enviando datos en el cuerpo de la petición. |
+| **PUT**          | Actualizar completamente un recurso existente.     | `PUT /usuarios/1` → Actualiza los datos del usuario con ID 1.                  |
+| **DELETE**       | Eliminar un recurso del servidor.                  | `DELETE /usuarios/1` → Elimina el usuario con ID 1.                            |
+
+
+
 # Ciclo de vida de una petición http
 # Relaciones entre clases
 
