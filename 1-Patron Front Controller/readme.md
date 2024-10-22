@@ -805,7 +805,7 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 
 **Vista en el navegador:**
 
-<br>
+
 <p align="center">
 <img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.png?raw=true" alt="Imagen" style />
 </p>
