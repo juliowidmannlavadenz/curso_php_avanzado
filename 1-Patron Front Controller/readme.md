@@ -333,6 +333,12 @@ Este método está diseñado para mostrar una vista, es decir, para cargar un ar
   
 * include __DIR__ . '/../views/' . $view . '.php';: Carga e incluye el archivo de vista. Utiliza __DIR__ para obtener el directorio actual donde está el script (en este caso, el controlador). Luego, navega al directorio views donde se espera encontrar la vista (por ejemplo, si $view = 'home', incluirá el archivo views/home.php).
 
+3. Método redirect($url):
+Este método se utiliza para redirigir a una URL específica, es decir, enviar al usuario a otra página.
+
+* $url: Es la URL a la que se redirige al usuario.
+* header('Location: ' . $url);: Envía una cabecera HTTP de redirección con la URL especificada. Esto indica al navegador que debe cargar una nueva página.
+* exit;: Detiene la ejecución del script inmediatamente después de la redirección, asegurándose de que no se ejecute ningún código adicional tras la redirección.
 
 ### **6. Controlador ```controllers/HomeController.php```**
 
