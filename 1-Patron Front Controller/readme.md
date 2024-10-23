@@ -856,6 +856,16 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 ### Petición PUT:
 Reemplaza completamente un recurso existente con los datos enviados.
 
+### **Ejemplo de uso:**
+
+Archivo ```put/script.php```
+```php
+<?php
+parse_str(file_get_contents("php://input"), $_PUT);
+echo "Actualizando a: " . htmlspecialchars($_PUT["nombre"]);
+?>
+```
+
 ### DELETE:
 Elimina un recurso del servidor.
 
