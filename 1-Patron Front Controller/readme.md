@@ -1201,7 +1201,7 @@ CREATE TABLE posts (
 
 Este script primero crea la base de datos blog_db si no existe, luego selecciona esa base de datos con USE, y finalmente crea la tabla posts.
 
-### Ejemplos de uso
+## Ejemplos de uso
 Para utilizar los comandos de curl utilizaremos el intérprete de comandos Bash (Bourne Again Shell). Si no tienes instalado descargalo junto con Git desde el siguiente enlace (Windows): https://git-scm.com/downloads/win
 
 ### 1. Crear una entrada (POST)
