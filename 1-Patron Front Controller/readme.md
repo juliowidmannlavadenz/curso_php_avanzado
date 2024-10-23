@@ -892,7 +892,13 @@ Archivo ```delete/script.php```
 ```php
 <?php
 parse_str(file_get_contents("php://input"), $_DELETE);
-echo "Eliminando recurso con ID: " . htmlspecialchars($_DELETE["id"]);
+
+// Verificar si el campo 'id' está presente
+if (isset($_DELETE["id"])) {
+    echo "Eliminando recurso con ID: " . htmlspecialchars($_DELETE["id"]);
+} else {
+    echo "No se envió el campo 'id'.";
+}
 ?>
 ```
 
