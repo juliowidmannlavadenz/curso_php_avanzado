@@ -1319,7 +1319,7 @@ Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publica
 </p>
 <br>
 
-### Borreando la entrada (3) de la tabla post:
+### Borrando la entrada (3) de la tabla post:
 
 <br>
 <p align="center">
