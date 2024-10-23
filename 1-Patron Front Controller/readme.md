@@ -853,9 +853,11 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 </p>
 <br>
 
+### Petición PUT:
+Reemplaza completamente un recurso existente con los datos enviados.
 
-* **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
-* **DELETE:** Elimina un recurso del servidor.
+### DELETE:
+Elimina un recurso del servidor.
 
 
 
