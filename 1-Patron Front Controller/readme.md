@@ -333,7 +333,7 @@ Este método está diseñado para mostrar una vista, es decir, para cargar un ar
   
 * include __DIR__ . '/../views/' . $view . '.php';: Carga e incluye el archivo de vista. Utiliza __DIR__ para obtener el directorio actual donde está el script (en este caso, el controlador). Luego, navega al directorio views donde se espera encontrar la vista (por ejemplo, si $view = 'home', incluirá el archivo views/home.php).
 
-**Ejemplo de uso del método ```render:```**
+### Ejemplo de uso del método ```render:```
 
 ```php
 $this->render('home', ['name' => 'John']);
@@ -348,7 +348,7 @@ Este método se utiliza para redirigir a una URL específica, es decir, enviar a
 * header('Location: ' . $url);: Envía una cabecera HTTP de redirección con la URL especificada. Esto indica al navegador que debe cargar una nueva página.
 * exit;: Detiene la ejecución del script inmediatamente después de la redirección, asegurándose de que no se ejecute ningún código adicional tras la redirección.
 
-**Ejemplo de uso del método ```redirect```**
+### Ejemplo de uso del método ```redirect```
 
 ```php
 $this->redirect('/home');
