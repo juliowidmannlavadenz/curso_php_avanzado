@@ -1021,11 +1021,12 @@ Content-Length: 60
 
 ## **Ejemplo completo de petición y respuesta http**
 
-En este ejemplo, implementar un sistema de blog simple en PHP que maneje diversas peticiones HTTP (GET, POST, PUT, DELETE). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
+En este ejemplo, implementaremos un sistema de blog que maneje diversas peticiones HTTP (```GET```, ```POST```, ```PUT```, ```DELETE```). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
 
 * Para interactuar con el servidor, emplearemos cURL, facilitando el envío de estas peticiones desde el cliente.
 * La petición PUT permitirá a los autores actualizar entradas existentes.
 * DELETE se encargará de eliminar entradas del blog.
+
 
 
 # Ciclo de vida de una petición http
