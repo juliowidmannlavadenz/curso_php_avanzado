@@ -1227,6 +1227,14 @@ curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json"
     * "title": El título de la entrada del blog, que en este caso es "Mi primera entrada".
     * "content": El contenido de la entrada del blog, que es "Contenido de la entrada."
 
+### intérprete bash:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_post_bash.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 # Ciclo de vida de una petición http
 # Relaciones entre clases
 
