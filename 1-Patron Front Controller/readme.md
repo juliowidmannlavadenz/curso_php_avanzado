@@ -997,7 +997,28 @@ Content-Length: 138
 * Los encabezados ```Content-Type``` y ```Content-Length``` especifican que el contenido es de tipo ```text/html``` y tiene una longitud de 138 bytes.
 * El cuerpo de la respuesta es un pequeño documento HTML que muestra un saludo "Hola, Mundo!" en una página web.
 
+### Ejemplo de respuesta HTTP que incluye un archivo JSON:
 
+```php
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 60
+
+{
+    "mensaje": "Hola, Mundo!",
+    "status": "exitoso",
+    "data": {
+        "id": 1,
+        "nombre": "Ejemplo"
+    }
+}
+```
+
+### En este ejemplo:
+
+* La línea ```HTTP/1.1 200 OK``` indica que la solicitud fue exitosa.
+* El encabezado ```Content-Type``` especifica que el contenido es de tipo ```application/json```.
+* El cuerpo de la respuesta es un objeto JSON que incluye un mensaje, un estado y un objeto de datos con un ```id``` y un ```nombre```.
 
 
 
