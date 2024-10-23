@@ -926,7 +926,7 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 
 ### Códigos de estado HTTP más comunes:
 
-<div style="text-align: center;">
+
     
 | **Código**  |               **Categoría**               |                           **Descripción**                           |
 |-------------|-------------------------------------------|---------------------------------------------------------------------|
@@ -945,7 +945,7 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 | 503         |        Error del servidor (5xx)           |                    Service Unavailable - Servicio no disponible      |
 | 504         |        Error del servidor (5xx)           |                    Gateway Timeout - Tiempo de espera agotado       |
 
-</div>
+
 
 
 # Ciclo de vida de una petición http
