@@ -1210,6 +1210,20 @@ Para utilizar los comandos de curl utilizaremos el intérprete de comandos Bash 
 curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json" -d '{"title": "Mi primera entrada", "content": "Contenido de la entrada."}'
 ```
 
+**Explicación:**
+
+1. curl: Esta es la herramienta utilizada para transferir datos con URLs. Permite realizar diferentes tipos de solicitudes HTTP (GET, POST, PUT, DELETE, etc.).
+
+2. -X POST: Este parámetro especifica el tipo de solicitud HTTP que se está realizando. En este caso, se está enviando una solicitud POST, que generalmente se usa para enviar datos al servidor (por ejemplo, para crear un nuevo recurso).
+
+3. http://localhost/blog/api/posts: Esta es la URL a la que se está enviando la solicitud. En este caso, es un endpoint de la API que se ejecuta en localhost (es decir, en el mismo ordenador donde se está ejecutando el comando) y está destinado a manejar las publicaciones en un blog.
+
+4. -H "Content-Type: application/json": Este parámetro establece un encabezado HTTP que indica al servidor el tipo de contenido que se está enviando. Aquí, se especifica que los datos se están enviando en formato JSON.
+
+5. -d '{"title": "Mi primera entrada", "content": "Contenido de la entrada."}': Este parámetro se utiliza para enviar los datos que se incluirán en la solicitud POST. Los datos se envían en formato JSON y contienen dos campos:
+
+    * "title": El título de la entrada del blog, que en este caso es "Mi primera entrada".
+    * "content": El contenido de la entrada del blog, que es "Contenido de la entrada."
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
