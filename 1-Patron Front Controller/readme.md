@@ -944,7 +944,7 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 | 503         |        Error del servidor (5xx)           |                    Service Unavailable - Servicio no disponible      |
 | 504         |        Error del servidor (5xx)           |                    Gateway Timeout - Tiempo de espera agotado       |
 
-### 1. Encabezados: 
+### 2. Encabezados: 
 
 Metadatos sobre la respuesta, como el tipo de contenido ```(Content-Type)```, la longitud del contenido ```(Content-Length)```, políticas de caché ```(Cache-Control)```, entre otros.
 
@@ -967,6 +967,38 @@ Metadatos sobre la respuesta, como el tipo de contenido ```(Content-Type)```, la
 | **Location**            | Se utiliza en redireccionamientos para especificar la nueva ubicación de un recurso.|
 | **Connection**          | Controla si la conexión debe mantenerse abierta o cerrarse después de completar la solicitud.|
 | **X-Forwarded-For**     | Identifica la dirección IP del cliente cuando hay servidores intermedios o proxies.|
+
+### 2. Cuerpo: 
+
+El contenido real de la respuesta, que puede ser una página HTML, un archivo JSON, un archivo binario o cualquier otro tipo de recurso solicitado.
+
+### Ejemplo de respuesta HTTP con una página HTML simple:
+
+```php
+   HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 138
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Respuesta HTTP</title>
+</head>
+<body>
+    <h1>Hola, Mundo!</h1>
+    <p>Esta es una respuesta HTTP con contenido HTML.</p>
+</body>
+</html>
+```
+### En este ejemplo:
+
+* La línea ```HTTP/1.1 200 OK``` indica que la solicitud fue exitosa.
+* Los encabezados ```Content-Type``` y ```Content-Length``` especifican que el contenido es de tipo ```text/html``` y tiene una longitud de 138 bytes.
+* El cuerpo de la respuesta es un pequeño documento HTML que muestra un saludo "Hola, Mundo!" en una página web.
+
+
+
 
 
 
