@@ -259,7 +259,7 @@ class Router
         * http_response_code(404);: Envía un código de estado HTTP 404, indicando que la página no fue encontrada.
         * echo "404 - Página no encontrada";: Muestra un mensaje indicando que la página no se encontró.
      
-**Ejemplo de uso:**
+### Ejemplo de uso:
 
 En nuestra aplicación de ejemplo tenemos las siguientes rutas:
 
@@ -283,7 +283,7 @@ $router->dispatch($route);
 ```
 Si la ruta solicitada es /home, el router creará una instancia de HomeController y llamará a su método handle. Si la ruta no existe, como /contact, el código devolverá un error 404.
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 <br>
 <p align="center">
@@ -570,7 +570,7 @@ La vista de la página de inicio. Creamos una plantilla en HTML con partes diná
 
 Estas rutas son procesadas por el controlador (index.php) y despachadas para mostrar la vista correspondiente.
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 <br>
 <p align="center">
@@ -616,7 +616,7 @@ La vista de la página de productos.
     * <li><?php echo $product; ?></li>: Cada nombre de producto se inserta dentro de un <li>, que es el formato estándar para listas en HTML.
 
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 <br>
 <p align="center">
@@ -659,7 +659,7 @@ Generamos una plantilla para una página de inicio de sesión, en ella manejamos
 </html>
 ```
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 <br>
 <p align="center">
@@ -791,7 +791,7 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 ### Petición GET:
 Se utiliza para solicitar datos sin modificar nada.
 
-### **Ejemplo de uso:**
+### Ejemplo de uso:
 
 Archivo ```get/script.php```
 ```php
@@ -802,7 +802,7 @@ echo "Hola, " . htmlspecialchars($_GET["nombre"]);
 
 Si accedemos a este script con una URL como ```http://localhost:3000/script.php?nombre=Yamir Ramirez```, el resultado será:
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 
 <p align="center">
@@ -812,7 +812,7 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 ### Petición POST:
 Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
 
-### **Ejemplo de uso:**
+### Ejemplo de uso:
 
 Archivo ```post/script.php```
 ```php
@@ -856,7 +856,7 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 ### Petición PUT:
 Reemplaza completamente un recurso existente con los datos enviados.
 
-### **Ejemplo de uso:**
+### Ejemplo de uso:
 
 Archivo ```put/script.php```
 ```php
@@ -886,7 +886,7 @@ Este código captura los datos enviados con una petición PUT (por ejemplo, un c
 ### DELETE:
 Elimina un recurso del servidor.
 
-### **Ejemplo de uso:**
+### Ejemplo de uso:
 
 Archivo ```delete/script.php```
 ```php
@@ -908,7 +908,7 @@ Este código procesa una petición DELETE y obtiene un parámetro id que se env�
     http://localhost:3000/script.php?id=123
 ```
 
-**Vista en el navegador:**
+### Vista en el navegador:
 
 <br>
 <p align="center">
