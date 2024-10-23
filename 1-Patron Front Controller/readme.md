@@ -831,7 +831,11 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 
 ### **1. Instalar Thunder Client:**
 
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/thunder_client.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
 * **DELETE:** Elimina un recurso del servidor.
