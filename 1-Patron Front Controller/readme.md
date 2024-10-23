@@ -1038,6 +1038,155 @@ En este ejemplo, implementaremos un sistema de blog que maneje diversas peticion
     │   └── routes.php
     └── .htaccess
 
+### 2. Archivo .htaccess para reescritura de URL (opcional):
+
+```php
+RewriteEngine On
+RewriteRule ^api/(.*)$ api/routes.php?request=$1 [QSA,L]
+```
+Este archivo lo utilizamos para redirigir las peticiones a ```api/routes.php```, permitiendo manejar las rutas de forma más limpia.
+
+### 3. Archivo ```index.php``` (punto de entrada)
+
+```php
+<?php
+require_once 'api/routes.php';
+```
+
+### 4. Archivo ```api/db.php``` (conexión a la base de datos)
+
+```php
+<?php
+
+function getDbConnection() {
+    $host = 'localhost';
+    $db = 'blog_db';
+    $user = 'root';
+    $pass = ''; // Cambia esto según tu configuración
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        exit;
+    }
+}
+```
+
+### 5. Archivo ```api/BlogController.php``` (controlador del blog)
+
+```php
+<?php
+// api/BlogController.php
+
+require_once 'db.php';
+
+class BlogController {
+
+    // Obtener todas las entradas
+    public function getPosts() {
+        $db = getDbConnection();
+        $stmt = $db->query("SELECT * FROM posts");
+        $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        header('Content-Type: application/json');
+        echo json_encode($posts);
+    }
+
+    // Crear una nueva entrada
+    public function createPost($data) {
+        $db = getDbConnection();
+        $stmt = $db->prepare("INSERT INTO posts (title, content) VALUES (:title, :content)");
+        $stmt->execute(['title' => $data['title'], 'content' => $data['content']]);
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
+    }
+
+    // Actualizar una entrada
+    public function updatePost($id, $data) {
+        $db = getDbConnection();
+        $stmt = $db->prepare("UPDATE posts SET title = :title, content = :content WHERE id = :id");
+        $stmt->execute(['title' => $data['title'], 'content' => $data['content'], 'id' => $id]);
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
+    }
+
+    // Eliminar una entrada
+    public function deletePost($id) {
+        $db = getDbConnection();
+        $stmt = $db->prepare("DELETE FROM posts WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
+    }
+}
+```
+
+### 6. Archivo ```api/routes.php``` (enrutamiento)
+
+```php
+<?php
+// api/routes.php
+
+require_once 'BlogController.php';
+
+$request = $_GET['request'] ?? '';
+$controller = new BlogController();
+
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        if ($request === 'posts') {
+            $controller->getPosts();
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Not Found']);
+        }
+        break;
+
+    case 'POST':
+        if ($request === 'posts') {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $controller->createPost($data);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Not Found']);
+        }
+        break;
+
+    case 'PUT':
+        $id = explode('/', $request)[1] ?? null;
+        if ($id) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $controller->updatePost($id, $data);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Not Found']);
+        }
+        break;
+
+    case 'DELETE':
+        $id = explode('/', $request)[1] ?? null;
+        if ($id) {
+            $controller->deletePost($id);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Not Found']);
+        }
+        break;
+
+    default:
+        http_response_code(405);
+        echo json_encode(['error' => 'Method Not Allowed']);
+}
+```
+
+### 7. Configuración de la base de datos
+
+Crearemos una base de datos llamada ```blog_db``` y una tabla llamada ```posts``` con la siguiente estructura:
+
+
+
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
