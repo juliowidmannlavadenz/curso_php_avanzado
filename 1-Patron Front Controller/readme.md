@@ -827,6 +827,9 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
     Hola, Julio
 ```
 
+### **Simular una petición POST con la extensión Thunder Client**
+
+**1. Instalar Thunder Client:**
 
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
 * **DELETE:** Elimina un recurso del servidor.
