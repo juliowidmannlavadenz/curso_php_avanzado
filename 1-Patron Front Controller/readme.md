@@ -926,7 +926,6 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 
 ### Códigos de estado HTTP más comunes:
 
-
     
 | **Código**  |               **Categoría**               |                           **Descripción**                           |
 |-------------|-------------------------------------------|---------------------------------------------------------------------|
@@ -945,6 +944,29 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 | 503         |        Error del servidor (5xx)           |                    Service Unavailable - Servicio no disponible      |
 | 504         |        Error del servidor (5xx)           |                    Gateway Timeout - Tiempo de espera agotado       |
 
+### 1. Encabezados: 
+
+Metadatos sobre la respuesta, como el tipo de contenido ```(Content-Type)```, la longitud del contenido ```(Content-Length)```, políticas de caché ```(Cache-Control)```, entre otros.
+
+### Principales encabezados HTTP:
+
+| **Encabezado**          | **Descripción**                                                                 |
+|-------------------------|---------------------------------------------------------------------------------|
+| **Host**                | Especifica el nombre del servidor (dominio) y, opcionalmente, el número de puerto.|
+| **User-Agent**          | Información sobre el cliente (navegador o aplicación) que realiza la solicitud.  |
+| **Accept**              | Indica qué tipos de contenido el cliente es capaz de procesar (por ejemplo, `text/html`, `application/json`).|
+| **Accept-Language**     | Especifica los idiomas preferidos del cliente.                                   |
+| **Accept-Encoding**     | Informa al servidor de los tipos de codificación que el cliente puede manejar (como `gzip`, `deflate`).|
+| **Authorization**       | Envía credenciales de autenticación para acceder a un recurso protegido.         |
+| **Content-Type**        | Especifica el tipo de contenido del cuerpo de la solicitud o respuesta (por ejemplo, `application/json`).|
+| **Content-Length**      | Indica la longitud del cuerpo del mensaje en bytes.                              |
+| **Cache-Control**       | Controla cómo se debe almacenar en caché la respuesta, tanto en el cliente como en el servidor.|
+| **Cookie**              | Envía cookies del cliente al servidor.                                           |
+| **Set-Cookie**          | Instruye al cliente a almacenar cookies.                                         |
+| **Referer**             | Especifica la URL de la que proviene la solicitud.                               |
+| **Location**            | Se utiliza en redireccionamientos para especificar la nueva ubicación de un recurso.|
+| **Connection**          | Controla si la conexión debe mantenerse abierta o cerrarse después de completar la solicitud.|
+| **X-Forwarded-For**     | Identifica la dirección IP del cliente cuando hay servidores intermedios o proxies.|
 
 
 
