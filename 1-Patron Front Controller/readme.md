@@ -1271,6 +1271,35 @@ Al ejecutar este comando, cURL envía una solicitud HTTP GET (que es el método 
 </p>
 <br>
 
+### 3. Actualizar una entrada (PUT)
+
+```bash```
+
+```php
+curl -X PUT http://localhost/blog/api/posts/1 -H "Content-Type: application/json" -d '{"title": "Entrada actualizada", "content": "Contenido actualizado."}'
+```
+
+### Explicación:
+
+Al ejecutar este comando, cURL realiza una solicitud PUT para actualizar la publicación con el ID 1 en el servidor, cambiando tanto su título como su contenido a los valores proporcionados en el JSON.
+
+### intérprete bash:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/put_actualizar.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+### Actualizando la entrada (1) de la tabla post:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/put_actualizar_mysql.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
