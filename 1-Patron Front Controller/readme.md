@@ -837,6 +837,19 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 </p>
 <br>
 
+### **2. Abrir Thunder Client:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/abrir_thunder_client.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+### **3. Crear y enviar una Petición POST:**
+
+
+
+
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
 * **DELETE:** Elimina un recurso del servidor.
 
