@@ -1299,6 +1299,33 @@ Al ejecutar este comando, cURL realiza una solicitud PUT para actualizar la publ
 </p>
 <br>
 
+### 4. Eliminar una entrada (DELETE)
+
+```bash```
+
+```php
+curl -X DELETE http://localhost/blog/api/posts/1
+```
+
+### Explicación:
+
+Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publicación del blog con el ID ```3``` en el servidor localizado en ```localhost```.
+
+### intérprete bash:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/delete1.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+### Borreando la entrada (3) de la tabla post:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/delete2.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 
 # Ciclo de vida de una petición http
