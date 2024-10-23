@@ -775,7 +775,7 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 > * Autenticación básica: Se incluye una verificación de acceso que asegura que solo los usuarios autenticados puedan acceder a ciertas partes de la aplicación, añadiendo una capa básica de seguridad.
 
 # Petición y respuesta http
-## Definición:
+## Definición de petición:
 
 Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
 
@@ -915,6 +915,34 @@ Este código procesa una petición DELETE y obtiene un parámetro id que se env�
 <img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/delete_query_params.png?raw=true" alt="Imagen" style />
 </p>
 <br>
+
+## Definición de respuesta http:
+
+Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
+
+### 1. Código de estado HTTP: 
+
+Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún error (por ejemplo, 404 Not Found, 500 Internal Server Error).
+
+### códigos de estado HTTP más comunes:
+
+| **Código** | **Categoría**             | **Descripción**                           |
+|------------|---------------------------|-------------------------------------------|
+| 200        | Éxito (2xx)                | OK - Solicitud exitosa                    |
+| 201        | Éxito (2xx)                | Created - Recurso creado exitosamente     |
+| 204        | Éxito (2xx)                | No Content - Sin contenido en la respuesta|
+| 301        | Redirección (3xx)          | Moved Permanently - Recurso movido        |
+| 302        | Redirección (3xx)          | Found - Recurso temporalmente movido      |
+| 304        | Redirección (3xx)          | Not Modified - No se ha modificado        |
+| 400        | Error del cliente (4xx)    | Bad Request - Solicitud incorrecta        |
+| 401        | Error del cliente (4xx)    | Unauthorized - No autorizado              |
+| 403        | Error del cliente (4xx)    | Forbidden - Prohibido                     |
+| 404        | Error del cliente (4xx)    | Not Found - Recurso no encontrado         |
+| 500        | Error del servidor (5xx)   | Internal Server Error - Error interno     |
+| 502        | Error del servidor (5xx)   | Bad Gateway - Pasarela incorrecta         |
+| 503        | Error del servidor (5xx)   | Service Unavailable - Servicio no disponible|
+| 504        | Error del servidor (5xx)   | Gateway Timeout - Tiempo de espera agotado|
+
 
 
 # Ciclo de vida de una petición http
