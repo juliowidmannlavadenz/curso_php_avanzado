@@ -837,7 +837,7 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 </p>
 <br>
 
-### **2. Abrir Thunder Client:**
+### **2. Abrir y crear una petición en Thunder Client:**
 
 <br>
 <p align="center">
@@ -845,9 +845,13 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 </p>
 <br>
 
-### **3. Crear y enviar una Petición POST:**
+### **3. Enviar una Petición POST:**
 
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_post.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 
 * **PUT:** Reemplaza completamente un recurso existente con los datos enviados.
