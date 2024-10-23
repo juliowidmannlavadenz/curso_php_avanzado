@@ -788,9 +788,8 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 | **PUT**          | Actualizar completamente un recurso existente.     | `PUT /usuarios/1` → Actualiza los datos del usuario con ID 1.                  |
 | **DELETE**       | Eliminar un recurso del servidor.                  | `DELETE /usuarios/1` → Elimina el usuario con ID 1.                            |
 
-### Explicación:
-
-* **GET:** Se utiliza para solicitar datos sin modificar nada.
+### Petición GET:
+Se utiliza para solicitar datos sin modificar nada.
 
 ### **Ejemplo de uso:**
 
@@ -810,8 +809,8 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 <img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.jpg?raw=true" alt="Imagen" style />
 </p>
 
-
-* **POST:** Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
+### Petición POST:
+Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
 
 Archivo ```post/script.php```
 ```php
