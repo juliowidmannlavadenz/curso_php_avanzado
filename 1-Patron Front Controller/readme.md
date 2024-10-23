@@ -916,7 +916,7 @@ Este código procesa una petición DELETE y obtiene un parámetro id que se env�
 </p>
 <br>
 
-## Definición de respuesta http:
+### Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
 
@@ -1021,7 +1021,7 @@ Content-Length: 60
 * El cuerpo de la respuesta es un objeto JSON que incluye un mensaje, un estado y un objeto de datos con un ```id``` y un ```nombre```.
 
 
-## **Ejemplo completo de petición y respuesta http**
+### Ejemplo completo de petición y respuesta http
 
 En este ejemplo, implementaremos un sistema de blog que maneje diversas peticiones HTTP (```GET```, ```POST```, ```PUT```, ```DELETE```). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
 
@@ -1201,7 +1201,7 @@ CREATE TABLE posts (
 
 Este script primero crea la base de datos blog_db si no existe, luego selecciona esa base de datos con USE, y finalmente crea la tabla posts.
 
-## Ejemplos de uso
+### Ejemplos de uso
 Para utilizar los comandos de curl utilizaremos el intérprete de comandos Bash (Bourne Again Shell). Si no tienes instalado descargalo junto con Git desde el siguiente enlace (Windows): https://git-scm.com/downloads/win
 
 ### 1. Crear una entrada (POST)
