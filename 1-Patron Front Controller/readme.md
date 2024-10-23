@@ -1127,7 +1127,6 @@ class BlogController {
 
 ```php
 <?php
-// api/routes.php
 
 require_once 'BlogController.php';
 
@@ -1185,8 +1184,20 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 Crearemos una base de datos llamada ```blog_db``` y una tabla llamada ```posts``` con la siguiente estructura:
 
+```php
+CREATE DATABASE IF NOT EXISTS blog_db;
 
+USE blog_db;
 
+CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMPs
+);
+```
+
+Este script primero crea la base de datos blog_db si no existe, luego selecciona esa base de datos con USE, y finalmente crea la tabla posts.
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
