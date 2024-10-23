@@ -19,7 +19,7 @@ require 'Router.php';
 $router = new Router(); 
 $router->route($_SERVER['REQUEST_URI']); 
 ```
-**Explicación:**
+### Explicación:
 * Todas las peticiones que llegan a la aplicación pasan por index.php.
 * En este archivo, cargamos el archivo Router.php, que se encargará de dirigir las solicitudes a los controladores correspondientes.
 
@@ -50,7 +50,8 @@ class Router {
     }
 }
 ```
-**Explicación:**
+
+### Explicación:
 
 * En este enrutador, definimos las rutas posibles en la aplicación.
 * Se verifica la URL actual ($uri) y se despacha la solicitud al controlador y método apropiados.
@@ -76,7 +77,7 @@ class ProductController {
 }
 ```
 
-**Explicación:**
+### Explicación:
 
 * Cuando el enrutador determina qué controlador y método ejecutar, delega la responsabilidad a ese controlador.
 * En este caso, el controlador ProductController tiene dos métodos:
@@ -104,7 +105,7 @@ $router = new Router();
 $router->route($_SERVER['REQUEST_URI']);
 ```
 
-**Explicación:**
+### Explicación:
 
 * Antes de realizar el enrutamiento, se pueden agregar funcionalidades comunes, como manejo de errores o autenticación.
 * En este ejemplo, se incluye un sistema de autenticación y manejo de errores, lo que centraliza estas funciones en el punto de entrada principal (index.php).
@@ -176,7 +177,7 @@ return [
     ]
 ];
 ```
-**Explicación:**
+### Explicación:
 
 1. 'app_name' => 'Mi Aplicación':
 
@@ -224,7 +225,8 @@ class Router
     }
 }
 ```
-**Explicación:**
+
+### Explicación:
 
 1. class Router:
 
@@ -313,7 +315,7 @@ class BaseController
 }
 ```
 
-**Explicación:**
+### Explicación:
 
 1. class BaseController:
    
@@ -368,7 +370,7 @@ class HomeController extends BaseController
 }
 ```
 
-**Explicación:**
+### Explicación:
 
 1. Extensión de BaseController:
 
@@ -410,7 +412,7 @@ class ProductController extends BaseController
     }
 }
 ```
-**Explicación:**
+### Explicación:
 
 * Aquí definimos una clase llamada ProductController que extiende de BaseController. El propósito de esta clase es manejar la lógica para mostrar una lista de productos y renderizar una vista que muestra esa lista. 
 
@@ -446,7 +448,7 @@ class LoginController extends BaseController {
 }
 ```
 
-**Explicación:**
+### Explicación:
 
 1. Clase LoginController que extiende BaseController:
 
@@ -514,7 +516,7 @@ class User {
 }
 ```
 
-**Explicación:**
+### Explicación:
 
 1. Definición de la clase User.
 
@@ -558,7 +560,7 @@ La vista de la página de inicio. Creamos una plantilla en HTML con partes diná
 </html>
 ```
 
-**Explicación:**
+### Explicación:
 
 * Los enlaces usan la estructura ```index.php?route=...``` para navegar entre las diferentes rutas de la aplicación.
 
@@ -606,7 +608,7 @@ La vista de la página de productos.
 </html>
 ```
 
-**Explicación:**
+### Explicación:
 
 * (<?php foreach...): Aquí utilizamos un bucle foreach para recorrer la lista de productos almacenada en la variable $products, que es pasada desde el controlador. Por cada elemento de $products, se genera un <li> (elemento de lista) que contiene el nombre del producto.
   
@@ -696,7 +698,7 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
 $router->dispatch($route);
 ```
 
-**Explicación:**
+### Explicación:
 
 1. Inicio de sesión con session_start():
 
