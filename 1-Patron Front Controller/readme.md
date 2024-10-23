@@ -891,22 +891,28 @@ Elimina un recurso del servidor.
 Archivo ```delete/script.php```
 ```php
 <?php
-parse_str(file_get_contents("php://input"), $_DELETE);
-
-// Verificar si el campo 'id' está presente
-if (isset($_DELETE["id"])) {
-    echo "Eliminando recurso con ID: " . htmlspecialchars($_DELETE["id"]);
+if (isset($_GET["id"])) {
+    echo "Eliminando recurso con ID: " . htmlspecialchars($_GET["id"]);
 } else {
     echo "No se envió el campo 'id'.";
 }
 ?>
 ```
+Este código procesa una petición DELETE y obtiene un parámetro id que se envía como parametro en la URL.
 
-Este código procesa una petición DELETE y obtiene un parámetro id que se envía en el cuerpo de la solicitud.
+### Enviando datos DELETE en la URL (Query Params):
+
+**URL con parámetros:**
+
+```php
+    http://localhost:3000/script.php?id=123
+```
+
+**Vista en el navegador:**
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_put.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/delete_query_params.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
