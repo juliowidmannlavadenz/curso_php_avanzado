@@ -1263,6 +1263,14 @@ Al ejecutar este comando, cURL envía una solicitud HTTP GET (que es el método 
 </p>
 <br>
 
+### Lista de todas las entradas de la tabla post:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get_lista_mysql.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
