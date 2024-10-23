@@ -1210,7 +1210,7 @@ Para utilizar los comandos de curl utilizaremos el intérprete de comandos Bash 
 curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json" -d '{"title": "Mi primera entrada", "content": "Contenido de la entrada."}'
 ```
 
-**Explicación:**
+### Explicación:
 
 1. curl: Esta es la herramienta utilizada para transferir datos con URLs. Permite realizar diferentes tipos de solicitudes HTTP (GET, POST, PUT, DELETE, etc.).
 
