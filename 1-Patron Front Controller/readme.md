@@ -117,11 +117,15 @@ $router->route($_SERVER['REQUEST_URI']);
 > * La modularidad permite centralizar funcionalidades comunes, como la autenticación y el manejo de errores, de forma eficiente.
 
 ## **Ejemplo completo de front controller**
-En este ejemplo, implementar un sistema de blog simple en PHP que maneje diversas peticiones HTTP (GET, POST, PUT, DELETE). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
+En este ejemplo, implementaremos el patron front controller incluiremos las siguientes caracteristicas:
 
-* Para interactuar con el servidor, emplearemos cURL, facilitando el envío de estas peticiones desde el cliente.
-* La petición PUT permitirá a los autores actualizar entradas existentes.
-* DELETE se encargará de eliminar entradas del blog.
+* Controladores basados en clases: para organizar mejor las rutas y acciones.
+* Manejo de excepciones: que permite gestionar errores de forma controlada.
+* Redirección: para facilitar la navegación entre diferentes secciones.
+* Manejo de sesiones y autenticación básica: para gestionar usuarios y mantener sesiones activas.
+* Vistas dinámicas: para generar contenido adaptable y flexible.
+
+
 
 ### **1. Estructura del Proyecto:**
 
@@ -1017,7 +1021,11 @@ Content-Length: 60
 
 ## **Ejemplo completo de petición y respuesta http**
 
+En este ejemplo, implementar un sistema de blog simple en PHP que maneje diversas peticiones HTTP (GET, POST, PUT, DELETE). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
 
+* Para interactuar con el servidor, emplearemos cURL, facilitando el envío de estas peticiones desde el cliente.
+* La petición PUT permitirá a los autores actualizar entradas existentes.
+* DELETE se encargará de eliminar entradas del blog.
 
 
 # Ciclo de vida de una petición http
