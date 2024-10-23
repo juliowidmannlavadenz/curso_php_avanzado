@@ -875,7 +875,7 @@ if ($parsedData !== null && isset($parsedData["nombre"])) {
 
 Este código captura los datos enviados con una petición PUT (por ejemplo, un campo nombre) y los muestra en pantalla, simulando la actualización de un recurso.
 
-### *** Enviar una Petición PUT:**
+### Enviar una Petición PUT:
 
 <br>
 <p align="center">
