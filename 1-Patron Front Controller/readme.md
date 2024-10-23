@@ -861,14 +861,21 @@ Reemplaza completamente un recurso existente con los datos enviados.
 Archivo ```put/script.php```
 ```php
 <?php
-parse_str(file_get_contents("php://input"), $_PUT);
-echo "Actualizando a: " . htmlspecialchars($_PUT["nombre"]);
+$data = file_get_contents("php://input");
+
+$parsedData = json_decode($data, true);
+
+if ($parsedData !== null && isset($parsedData["nombre"])) {
+    echo "Actualizando a: " . htmlspecialchars($parsedData["nombre"]);
+} else {
+    echo "No se envió el campo 'nombre' o el JSON no es válido.";
+}
 ?>
 ```
 
 Este código captura los datos enviados con una petición PUT (por ejemplo, un campo nombre) y los muestra en pantalla, simulando la actualización de un recurso.
 
-### **3. Enviar una Petición PUT:**
+### *** Enviar una Petición PUT:**
 
 <br>
 <p align="center">
@@ -879,6 +886,23 @@ Este código captura los datos enviados con una petición PUT (por ejemplo, un c
 ### DELETE:
 Elimina un recurso del servidor.
 
+### **Ejemplo de uso:**
+
+Archivo ```delete/script.php```
+```php
+<?php
+parse_str(file_get_contents("php://input"), $_DELETE);
+echo "Eliminando recurso con ID: " . htmlspecialchars($_DELETE["id"]);
+?>
+```
+
+Este código procesa una petición DELETE y obtiene un parámetro id que se envía en el cuerpo de la solicitud.
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_put.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 
 # Ciclo de vida de una petición http
