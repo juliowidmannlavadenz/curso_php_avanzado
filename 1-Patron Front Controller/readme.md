@@ -925,7 +925,7 @@ Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un na
 Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún error (por ejemplo, 404 Not Found, 500 Internal Server Error).
 
 ### Códigos de estado HTTP más comunes:
-<center>
+<div style="text-align: center;">
 | **Código**  |               **Categoría**               |                           **Descripción**                           |
 |-------------|-------------------------------------------|---------------------------------------------------------------------|
 | 200         |        Éxito (2xx)                        |                    OK - Solicitud exitosa                           |
@@ -942,7 +942,7 @@ Indica si la solicitud fue exitosa (por ejemplo, 200 OK) o si ocurrió algún er
 | 502         |        Error del servidor (5xx)           |                    Bad Gateway - Pasarela incorrecta                |
 | 503         |        Error del servidor (5xx)           |                    Service Unavailable - Servicio no disponible      |
 | 504         |        Error del servidor (5xx)           |                    Gateway Timeout - Tiempo de espera agotado       |
-</center>
+</div>
 
 
 # Ciclo de vida de una petición http
