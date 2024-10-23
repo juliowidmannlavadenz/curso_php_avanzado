@@ -1327,6 +1327,16 @@ Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publica
 </p>
 <br>
 
+### Explicacion del ejemplo:
+
+1. **Estructura:** Hemos creado un sistema que sigue el patrón de diseño Front Controller y permite manejar diferentes tipos de peticiones HTTP a través de un único punto de entrada (index.php).
+2. **Controlador:** BlogController.php maneja las operaciones del blog, como obtener, crear, actualizar y eliminar entradas.
+3. **Conexión a la base de datos:** La conexión se establece en db.php, y utilizamos PDO para la interacción con la base de datos.
+4. **Enrutamiento:** routes.php se encarga de redirigir las peticiones a los métodos correspondientes en el controlador.
+5. **Métodos HTTP:** Cada operación (crear, leer, actualizar, eliminar) utiliza el método HTTP correspondiente (POST, GET, PUT, DELETE).
+
+### Resumen:
+> Este ejemplo proporciona una base para construir un blog simple y escalable. Comienza con las funciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar) usando los métodos HTTP (GET, POST, PUT, DELETE). Luego, puedes mejorar el sistema con autenticación de usuarios, validaciones del lado del servidor, y paginación para manejar grandes volúmenes de entradas. Otras mejoras incluyen un sistema de comentarios, búsqueda avanzada y soporte para categorías o etiquetas. La estructura es flexible, permitiendo añadir funcionalidades como SEO para facilitar el crecimiento del proyecto.
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
