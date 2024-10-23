@@ -968,7 +968,7 @@ Metadatos sobre la respuesta, como el tipo de contenido ```(Content-Type)```, la
 | **Connection**          | Controla si la conexión debe mantenerse abierta o cerrarse después de completar la solicitud.|
 | **X-Forwarded-For**     | Identifica la dirección IP del cliente cuando hay servidores intermedios o proxies.|
 
-### 2. Cuerpo: 
+### 3. Cuerpo: 
 
 El contenido real de la respuesta, que puede ser una página HTML, un archivo JSON, un archivo binario o cualquier otro tipo de recurso solicitado.
 
