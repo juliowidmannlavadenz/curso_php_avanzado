@@ -1235,6 +1235,14 @@ curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json"
 </p>
 <br>
 
+### Registro en la tabla post:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/post_mysql.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 # Ciclo de vida de una petición http
 # Relaciones entre clases
 
