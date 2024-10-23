@@ -1243,6 +1243,27 @@ curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json"
 </p>
 <br>
 
+### 2. Obtener todas las entradas (GET)
+
+```bash```
+
+```php
+curl http://localhost/blog/api/posts
+```
+
+### Explicación:
+
+Al ejecutar este comando, cURL envía una solicitud HTTP GET (que es el método predeterminado si no se especifica otro) a la URL proporcionada. Listamos todas las entradas del blog.
+
+### intérprete bash:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get_lista_entradas.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+
 # Ciclo de vida de una petición http
 # Relaciones entre clases
 
