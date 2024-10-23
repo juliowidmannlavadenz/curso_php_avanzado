@@ -833,7 +833,7 @@ Este código procesa un formulario enviado mediante el método POST y muestra el
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/thunder_client.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/thunder_client2.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
