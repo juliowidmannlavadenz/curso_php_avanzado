@@ -812,6 +812,8 @@ Si accedemos a este script con una URL como ```http://localhost:3000/script.php?
 ### Petición POST:
 Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
 
+### **Ejemplo de uso:**
+
 Archivo ```post/script.php```
 ```php
 <?php
