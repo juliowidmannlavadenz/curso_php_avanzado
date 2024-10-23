@@ -1027,6 +1027,16 @@ En este ejemplo, implementaremos un sistema de blog que maneje diversas peticion
 * La petición PUT permitirá a los autores actualizar entradas existentes.
 * DELETE se encargará de eliminar entradas del blog.
 
+### 1. Estructura de directorios y archivos:
+
+    /blog
+    │
+    ├── index.php
+    ├── api
+    │   ├── BlogController.php
+    │   ├── db.php
+    │   └── routes.php
+    └── .htaccess
 
 
 # Ciclo de vida de una petición http
