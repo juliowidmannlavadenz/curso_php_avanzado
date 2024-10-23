@@ -748,7 +748,7 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
     * Si la ruta existe, el enrutador crea una instancia del controlador correspondiente y llama al método handle() o el método que maneje la solicitud.
     * Si la ruta no existe, el enrutador probablemente devolverá un error 404, que indica que la página no fue encontrada.
 
-**Resumen del flujo:**
+### Resumen del flujo:
 
 1. **Iniciar sesión:** Se inicia la sesión con session_start(), lo que permite utilizar variables de sesión, como las relacionadas con la autenticación.
 2. **Cargar configuración:** Se carga el archivo de configuración de la aplicación, lo que puede incluir detalles como la conexión a la base de datos o ajustes generales.
