@@ -1204,9 +1204,9 @@ Para utilizar los comandos de curl utilizaremos el intérprete de comandos Bash 
 
 ### 1. Crear una entrada (POST)
 
+**bash**
 
 ```php
-bash
 curl -X POST http://localhost/blog/api/posts -H "Content-Type: application/json" -d '{"title": "Mi primera entrada", "content": "Contenido de la entrada."}'
 ```
 
