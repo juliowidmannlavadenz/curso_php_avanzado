@@ -872,7 +872,7 @@ Este código captura los datos enviados con una petición PUT (por ejemplo, un c
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_post2.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_put.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
