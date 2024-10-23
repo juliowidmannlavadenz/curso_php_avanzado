@@ -866,6 +866,16 @@ echo "Actualizando a: " . htmlspecialchars($_PUT["nombre"]);
 ?>
 ```
 
+Este código captura los datos enviados con una petición PUT (por ejemplo, un campo nombre) y los muestra en pantalla, simulando la actualización de un recurso.
+
+### **3. Enviar una Petición PUT:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_post2.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 ### DELETE:
 Elimina un recurso del servidor.
 
