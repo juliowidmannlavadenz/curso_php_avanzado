@@ -117,17 +117,11 @@ $router->route($_SERVER['REQUEST_URI']);
 > * La modularidad permite centralizar funcionalidades comunes, como la autenticación y el manejo de errores, de forma eficiente.
 
 ## **Ejemplo completo de front controller**
-En este ejemplo, gestionaremos las rutas de una aplicación web utilizando el patrón Front Controller.
-Detallamos las principales características que se implementarán:
+En este ejemplo, implementar un sistema de blog simple en PHP que maneje diversas peticiones HTTP (GET, POST, PUT, DELETE). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
 
-* Recepción y redirección de solicitudes: El Front Controller actuará como punto de entrada único, recibiendo todas las solicitudes y redirigiéndolas a los controladores correspondientes según la URL.
-* Controladores basados en clases: Utilizaremos controladores orientados a objetos, lo que permite una estructura más modular y organizada, facilitando la mantenibilidad del código.
-* Manejo de excepciones: Implementaremos un manejo centralizado de excepciones, lo que garantiza una captura y gestión uniforme de errores en toda la aplicación.
-* Redirección de rutas: Se añadirá lógica de redirección para gestionar flujos de navegación, enviando a los usuarios a las rutas correctas según el contexto o el resultado de operaciones específicas.
-* Manejo de sesiones y autenticación básica: Integraremos un sistema básico de autenticación y gestión de sesiones para proteger las rutas sensibles y gestionar las sesiones de usuario de forma centralizada.
-* Vistas dinámicas: Los controladores generarán vistas dinámicas basadas en los datos procesados, personalizando la experiencia del usuario según las interacciones con la aplicación.
-
-> Esta arquitectura proporcionará una mayor flexibilidad, modularidad y escalabilidad, mejorando tanto la organización interna del código como la experiencia del usuario.
+* Para interactuar con el servidor, emplearemos cURL, facilitando el envío de estas peticiones desde el cliente.
+* La petición PUT permitirá a los autores actualizar entradas existentes.
+* DELETE se encargará de eliminar entradas del blog.
 
 ### **1. Estructura del Proyecto:**
 
@@ -1019,6 +1013,9 @@ Content-Length: 60
 * La línea ```HTTP/1.1 200 OK``` indica que la solicitud fue exitosa.
 * El encabezado ```Content-Type``` especifica que el contenido es de tipo ```application/json```.
 * El cuerpo de la respuesta es un objeto JSON que incluye un mensaje, un estado y un objeto de datos con un ```id``` y un ```nombre```.
+
+
+## **Ejemplo completo de petición y respuesta http**
 
 
 
