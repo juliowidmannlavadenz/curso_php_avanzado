@@ -1649,7 +1649,7 @@ exit;
 
 ### Ciclo de vida completo:
 
-1. El navegador solicita ```http://tu-sitio.com/index.php```.
+**1. El navegador solicita ```http://tu-sitio.com/index.php```.**
     * El navegador envía la solicitud a Apache.
 
 2. Apache recibe la solicitud y delega a PHP el manejo del archivo ```index.php```.
