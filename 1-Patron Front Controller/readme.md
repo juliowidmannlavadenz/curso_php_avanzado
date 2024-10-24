@@ -1345,6 +1345,40 @@ Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publica
 # Ciclo de vida de una petición http
 # Relaciones entre clases
 
++-------------------+
+|  FrontController  |
++-------------------+
+| - request: Request|
+| - response: Response |
++-------------------+
+| + handleRequest() |
++-------------------+
+           |
+           |
+           v
++-------------------+
+|      Request      |
++-------------------+
+| - url             |
+| - params          |
++-------------------+
+           |
+           |
+           v
++-------------------+
+|      Response     |
++-------------------+
+| - content         |
+| - status          |
++-------------------+
+           |
+           |
+           v
++-------------------+
+|     Controller    |
++-------------------+
+| + execute(Request) |
++-------------------+
 
 
 
