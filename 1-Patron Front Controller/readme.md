@@ -1352,5 +1352,59 @@ Es el  proceso que ocurre desde que un usuario hace una solicitud a un servidor 
 </p>
 <br>
 
+### Pasos principles del ciclo:
+### 1. Solicitud del cliente (Cliente HTTP)
+
+El ciclo de vida comienza cuando el cliente (generalmente un navegador web o una aplicación) envía una solicitud HTTP a un servidor web. La solicitud contiene información como:
+
+* La URL del recurso solicitado.
+* El método HTTP (```GET```, ```POST```, ```PUT```, ```DELETE```, etc.).
+* Cabeceras HTTP que contienen metadatos (cookies, tipo de contenido, agente de usuario, etc.).
+* Datos en el cuerpo de la solicitud (principalmente en métodos ```POST``` o ```PUT```).
+
+### 2. Recepción de la solicitud por el servidor web
+
+El servidor web (como Apache, Nginx o IIS) recibe la solicitud HTTP. Según la configuración del servidor y la URL solicitada, el servidor determina qué recurso debe procesar la solicitud. Si la solicitud es para un archivo PHP, se delega el manejo de la petición al intérprete de PHP.
+
+### 3. Interprete PHP
+
+Una vez que el servidor web decide que la solicitud corresponde a un script PHP:
+
+* El intérprete de PHP se encarga de procesar el script.
+* Durante este paso, PHP puede realizar diferentes acciones, como acceder a bases de datos, leer o escribir archivos, o realizar cálculos.
+* También puede trabajar con los datos de la solicitud (por ejemplo, formularios enviados en POST o parámetros de URL en GET).
+
+### 4. Ejecución del código PHP
+
+* El archivo PHP es interpretado línea por línea.
+* Las variables de entorno como $_GET, $_POST, $_FILES, $_COOKIE se llenan con la información recibida en la solicitud.
+* Cualquier lógica de negocio implementada en el código (validaciones, autenticaciones, consultas a bases de datos, etc.) se ejecuta.
+* Se genera una respuesta en forma de HTML (o JSON, XML, etc.) que será devuelta al cliente.
+
+### 5. Respuesta del servidor (Respuesta HTTP)
+
+Una vez que PHP ha procesado la solicitud, devuelve los resultados al servidor web.
+
+* La respuesta incluye un código de estado HTTP (200 para una solicitud exitosa, 404 si no se encontró el recurso, 500 si hubo un error en el servidor, etc.).
+* También puede incluir cabeceras HTTP adicionales (tipo de contenido, cookies, longitud del contenido, etc.).
+* Finalmente, el cuerpo de la respuesta contiene el contenido generado por PHP (por ejemplo, HTML, un archivo, o datos en formato JSON).
+
+### 6. Envío de la respuesta al cliente
+
+El servidor web toma la respuesta generada por PHP, le añade sus propias cabeceras HTTP si es necesario, y envía la respuesta de vuelta al cliente.
+
+### 7. Interpretación de la respuesta por el cliente
+
+Una vez que el cliente (como el navegador) recibe la respuesta:
+
+* Si es un documento HTML, el navegador lo renderiza para mostrarlo en la pantalla.
+* Si es un archivo JSON o XML, la aplicación cliente puede procesar esos datos.
+* El ciclo de vida termina aquí, aunque el cliente podría iniciar una nueva petición, lo que iniciaría un nuevo ciclo.
+
+
+
+
+
+
 # Relaciones entre clases
 
