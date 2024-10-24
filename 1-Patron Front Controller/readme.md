@@ -1412,9 +1412,62 @@ Crearemos una aplicación de ejemplo que gestione usuarios la cual nos permitira
 Involucraremos tambien interacciones con la base de datos y el manejo de formularios, todo manejado dentro del ciclo de vida HTTP en PHP.
 
 ### 1. Estructura de directorios y archivos
+
+```php
+/mi-sitio/
+    index.php
+    add_user.php
+    delete_user.php
+    db.php
+    templates/
+        header.php
+        footer.php
+```
+
 ### 2. Creación de la base de datos
+
+Crearemos  la base de datos ```ejemplo_php``` y la tabla ```usuarios``` (si no están creadas):
+
+```php
+CREATE DATABASE IF NOT EXISTS ejemplo_php;
+
+USE ejemplo_php;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+```
+
 ### 3. Archivo ```db.php``` (Conexión a la base de datos)
+
+El archivo ```db.php``` maneja la conexión a la base de datos:
+
+```php
+<?php
+// db.php
+
+$host = 'localhost';  
+$db   = 'ejemplo_php'; // Nombre de la base de datos
+$user = 'root';       // Usuario MySQL (ajustar según tu configuración)
+$pass = '';           // Contraseña MySQL (ajustar según tu configuración)
+
+try {
+    // Conexión a la base de datos usando PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error al conectar a la base de datos: " . $e->getMessage());
+}
+?>
+```
+
 ### 4. Archivo ```header.php``` (Encabezado de la página)
+
+```php
+```
+
 ### 5. Archivo ```footer.php``` (Pie de la página)
 ### 6. Archivo ```index.php``` (Ver usuarios)
 
