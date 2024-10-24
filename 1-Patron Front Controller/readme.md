@@ -1543,19 +1543,129 @@ include 'templates/footer.php';
 ```
 
 ### Explicación del código anterior
+### 1. Ver usuarios:
+
+* index.php carga todos los usuarios desde la base de datos y los muestra en una lista.
+* Cada usuario tiene un botón "Eliminar", que envía el ID del usuario a delete_user.php a través de un formulario POST.
 
 
 ### 7. Archivo ```add_user.php``` (Añadir un usuario)
 
+Este archivo muestra un formulario para agregar un nuevo usuario, y luego procesa el formulario para insertar el usuario en la base de datos.
+
+```php
+<?php
+require 'db.php';
+
+include 'templates/header.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recoger los datos del formulario
+    $nombre = $_POST['nombre'] ?? '';
+    $email = $_POST['email'] ?? '';
+
+    // Validar los datos
+    if (!empty($nombre) && !empty($email)) {
+        try {
+            $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email) VALUES (?, ?)");
+            $stmt->execute([$nombre, $email]);
+
+            echo "<p>Usuario añadido con éxito</p>";
+        } catch (Exception $e) {
+            die("Error al añadir el usuario: " . $e->getMessage());
+        }
+    } else {
+        echo "<p>Por favor, completa todos los campos.</p>";
+    }
+}
+?>
+
+<main>
+    <h2>Añadir Usuario</h2>
+    <form method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="submit">Añadir</button>
+    </form>
+</main>
+
+<?php
+include 'templates/footer.php';
+?>
+```
+
 ### Explicación del código
+### 1. Formulario para añadir usuarios:
+
+* Cuando el usuario envía el formulario, el script valida si los campos están completos.
+* Si todo es correcto, inserta el nuevo usuario en la base de datos usando una sentencia preparada ```($stmt->execute([$nombre, $email]))```.
+
 
 ### 8. Archivo ```delete_user.php``` (Eliminar un usuario)
 
-### Explicación del código
+Este archivo maneja la eliminación de un usuario cuando el formulario de "Eliminar" en ```index.php``` es enviado.
+
+```php
+<?php
+// delete_user.php
+
+// Incluir conexión a la base de datos
+require 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'] ?? '';
+
+    if (!empty($id)) {
+        try {
+            // Eliminar el usuario por su ID
+            $stmt = $pdo->prepare("DELETE FROM usuarios WHERE id = ?");
+            $stmt->execute([$id]);
+
+            echo "<p>Usuario eliminado con éxito</p>";
+        } catch (Exception $e) {
+            die("Error al eliminar el usuario: " . $e->getMessage());
+        }
+    } else {
+        echo "<p>ID inválido.</p>";
+    }
+}
+
+// Redirigir a la página principal después de eliminar
+header('Location: index.php');
+exit;
+?>
+```
 
 ### Explicación del código
+### 1. Eliminar un usuario:
+
+* Este script recibe el ID del usuario que se va a eliminar a través de un formulario POST.
+* Elimina el usuario de la base de datos usando una sentencia preparada ($stmt->execute([$id])).
+* Después de eliminar, redirige al usuario de vuelta a index.php usando header('Location: index.php');.
 
 ### Ciclo de vida completo:
+
+1. El navegador solicita ```http://tu-sitio.com/index.php```.
+* El navegador envía la solicitud a Apache.
+
+2. Apache recibe la solicitud y delega a PHP el manejo del archivo ```index.php```.
+* Apache maneja la solicitud con PHP.
+
+3. PHP ejecuta el código en ```index.php```, obtiene datos de la base de datos y genera HTML.
+* PHP consulta la base de datos y muestra los usuarios.
+
+4. PHP devuelve el HTML generado al servidor Apache.
+* Una vez que PHP ha generado la página, la devuelve a Apache.
+
+5. Apache envía el HTML al navegador.
+* Apache transmite la respuesta al cliente.
+
+6. El navegador muestra la página web al usuario.
+* El navegador renderiza la lista de usuarios, y el usuario puede interactuar con la aplicación (añadir o eliminar usuarios).
 
 # Relaciones entre clases
 
