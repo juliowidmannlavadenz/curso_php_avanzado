@@ -1653,19 +1653,19 @@ exit;
     * El navegador envía la solicitud a Apache.
 
 2. Apache recibe la solicitud y delega a PHP el manejo del archivo ```index.php```.
-* Apache maneja la solicitud con PHP.
+    * Apache maneja la solicitud con PHP.
 
 3. PHP ejecuta el código en ```index.php```, obtiene datos de la base de datos y genera HTML.
-* PHP consulta la base de datos y muestra los usuarios.
+    * PHP consulta la base de datos y muestra los usuarios.
 
 4. PHP devuelve el HTML generado al servidor Apache.
-* Una vez que PHP ha generado la página, la devuelve a Apache.
+    * Una vez que PHP ha generado la página, la devuelve a Apache.
 
 5. Apache envía el HTML al navegador.
-* Apache transmite la respuesta al cliente.
+    * Apache transmite la respuesta al cliente.
 
 6. El navegador muestra la página web al usuario.
-* El navegador renderiza la lista de usuarios, y el usuario puede interactuar con la aplicación (añadir o eliminar usuarios).
+    * El navegador renderiza la lista de usuarios, y el usuario puede interactuar con la aplicación (añadir o eliminar usuarios).
 
 # Relaciones entre clases
 
