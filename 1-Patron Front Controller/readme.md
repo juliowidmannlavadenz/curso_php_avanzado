@@ -1411,10 +1411,26 @@ Crearemos una aplicación de ejemplo que gestione usuarios la cual nos permitira
 
 Involucraremos tambien interacciones con la base de datos y el manejo de formularios, todo manejado dentro del ciclo de vida HTTP en PHP.
 
+### 1. Estructura de directorios y archivos
+### 2. Creación de la base de datos
+### 3. Archivo ```db.php``` (Conexión a la base de datos)
+### 4. Archivo ```header.php``` (Encabezado de la página)
+### 5. Archivo ```footer.php``` (Pie de la página)
+### 6. Archivo ```index.php``` (Ver usuarios)
 
+### Explicación del código anterior
 
+### 7. Archivo ```add_user.php``` (Añadir un usuario)
 
+### Explicación del código
 
+### 8. Archivo ```delete_user.php``` (Eliminar un usuario)
+
+### Explicación del código
+
+### Explicación del código
+
+### Ciclo de vida completo:
 
 # Relaciones entre clases
 
