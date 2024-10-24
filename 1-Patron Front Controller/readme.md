@@ -1465,13 +1465,85 @@ try {
 
 ### 4. Archivo ```header.php``` (Encabezado de la página)
 
+Definimos un menú de navegación para mejorar la experiencia de usuario:
+
 ```php
+<!-- templates/header.php -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    <header>
+        <h1>Gestión de Usuarios</h1>
+        <nav>
+            <a href="index.php">Inicio</a>
+            <a href="add_user.php">Añadir Usuario</a>
+        </nav>
+    </header>
 ```
 
 ### 5. Archivo ```footer.php``` (Pie de la página)
+
+```php
+<!-- templates/footer.php -->
+    <footer>
+        <p>Todos los derechos reservados &copy; 2024</p>
+    </footer>
+</body>
+</html>
+```
+
 ### 6. Archivo ```index.php``` (Ver usuarios)
 
+En ```index.php``` se listan todos los usuarios, y cada usuario tiene un botón para eliminarlo:
+
+```php
+<?php
+// index.php
+
+// Incluir conexión a la base de datos
+require 'db.php';
+
+// Incluir el encabezado
+include 'templates/header.php';
+
+// Consultar los usuarios de la base de datos
+try {
+    $stmt = $pdo->query("SELECT id, nombre, email FROM usuarios");
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (Exception $e) {
+    die("Error al realizar la consulta: " . $e->getMessage());
+}
+?>
+
+<main>
+    <h2>Lista de Usuarios</h2>
+    <ul>
+        <?php foreach ($usuarios as $usuario): ?>
+            <li>
+                <?php echo htmlspecialchars($usuario['nombre']) . " (" . htmlspecialchars($usuario['email']) . ")"; ?>
+                <form method="POST" action="delete_user.php" style="display:inline;">
+                    <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</main>
+
+<?php
+// Incluir el pie de página
+include 'templates/footer.php';
+?>
+```
+
 ### Explicación del código anterior
+
 
 ### 7. Archivo ```add_user.php``` (Añadir un usuario)
 
