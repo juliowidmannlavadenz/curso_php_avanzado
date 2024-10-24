@@ -1667,5 +1667,8 @@ exit;
 **6. El navegador muestra la página web al usuario.**
 * El navegador renderiza la lista de usuarios, y el usuario puede interactuar con la aplicación (añadir o eliminar usuarios).
 
+### Resumen:
+> Este ejemplo crea una aplicación sencilla de gestión de usuarios con funcionalidad completa: listar, añadir y eliminar usuarios, todo manejado dentro del ciclo de vida HTTP en PHP.
+
 # Relaciones entre clases
 
