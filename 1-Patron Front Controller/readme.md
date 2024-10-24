@@ -1343,5 +1343,14 @@ Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publica
 > * La estructura es flexible, permitiendo añadir funcionalidades como SEO para facilitar el crecimiento del proyecto.
 
 # Ciclo de vida de una petición http
+
+Es el  proceso que ocurre desde que un usuario hace una solicitud a un servidor web hasta que el servidor responde con los datos solicitados.
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/ciclo_vida_php.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 # Relaciones entre clases
 
