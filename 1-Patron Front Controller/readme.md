@@ -1336,7 +1336,11 @@ Este comando de cURL envía una solicitud ```DELETE``` para eliminar una publica
 5. **Métodos HTTP:** Cada operación (crear, leer, actualizar, eliminar) utiliza el método HTTP correspondiente (POST, GET, PUT, DELETE).
 
 ### Resumen:
-> Este ejemplo proporciona una base para construir un blog simple y escalable. Comienza con las funciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar) usando los métodos HTTP (GET, POST, PUT, DELETE). Luego, puedes mejorar el sistema con autenticación de usuarios, validaciones del lado del servidor, y paginación para manejar grandes volúmenes de entradas. Otras mejoras incluyen un sistema de comentarios, búsqueda avanzada y soporte para categorías o etiquetas. La estructura es flexible, permitiendo añadir funcionalidades como SEO para facilitar el crecimiento del proyecto.
+> Este ejemplo proporciona una base para construir un blog simple y escalable:
+> * Comienza con las funciones básicas de CRUD (Crear, Leer, Actualizar, Eliminar) usando los métodos HTTP (GET, POST, PUT, DELETE).
+> * Luego, puedes mejorar el sistema con autenticación de usuarios, validaciones del lado del servidor, y paginación para manejar grandes volúmenes de entradas.
+> * Otras mejoras incluyen un sistema de comentarios, búsqueda avanzada y soporte para categorías o etiquetas.
+> * La estructura es flexible, permitiendo añadir funcionalidades como SEO para facilitar el crecimiento del proyecto.
 
 # Ciclo de vida de una petición http
 # Relaciones entre clases
