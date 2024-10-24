@@ -1401,6 +1401,16 @@ Una vez que el cliente (como el navegador) recibe la respuesta:
 * Si es un archivo JSON o XML, la aplicación cliente puede procesar esos datos.
 * El ciclo de vida termina aquí, aunque el cliente podría iniciar una nueva petición, lo que iniciaría un nuevo ciclo.
 
+## Ejemplo completo del ciclo de vida HTTP (PHP - Apache)
+
+Crearemos una aplicación de ejemplo que gestione usuarios la cual nos permitira: 
+
+* Ver una lista de usuarios.
+* Añadir un nuevo usuario a través de un formulario.
+* Eliminar usuarios de la lista.
+
+Involucraremos tambien interacciones con la base de datos y el manejo de formularios, todo manejado dentro del ciclo de vida HTTP en PHP.
+
 
 
 
