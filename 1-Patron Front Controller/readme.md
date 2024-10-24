@@ -1348,7 +1348,7 @@ Es el  proceso que ocurre desde que un usuario hace una solicitud a un servidor 
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/ciclo_vida_php.png?raw=true" alt="Imagen" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/ciclo_vida_php2.png?raw=true" alt="Imagen" style />
 </p>
 <br>
 
