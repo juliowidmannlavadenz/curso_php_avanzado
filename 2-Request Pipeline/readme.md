@@ -27,7 +27,6 @@ Laravel es un framework de desarrollo web de código abierto basado en PHP, dise
 * **Controladores (Controllers):** Son clases que manejan la lógica de las solicitudes, procesando datos y retornando respuestas adecuadas (como vistas o JSON).
 
 ## Componentes Clave del Request Pipeline
-Presentaremos un ejemplo de cada componente clave del Request Pipeline en Laravel 11.
 
 ### 1. Recepción de la Solicitud: 
 El servidor recibe una solicitud HTTP desde el cliente (navegador, aplicación móvil, etc.).
