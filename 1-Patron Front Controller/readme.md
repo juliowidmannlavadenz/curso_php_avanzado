@@ -916,7 +916,7 @@ Este código procesa una petición DELETE y obtiene un parámetro id que se env�
 </p>
 <br>
 
-### Definición de respuesta http:
+## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
 
