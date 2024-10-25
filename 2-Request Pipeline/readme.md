@@ -139,7 +139,7 @@ public function index()
 **PHP Intelephense:** https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client  
 
 ### 2. Instalación de Composer:
-**Instalación de Composer en Linux**
+* **Instalación de Composer en Linux**
 
  | Paso                                                                                  | Comando                                                                       |
 |---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -149,7 +149,7 @@ public function index()
 | Elimina el instalador de tu ordenador utilizando los siguientes comandos              | `php -r "unlink('composer-setup.php');"`                                      |
 | Ejecuta el siguiente comando en tu terminal para comprobar si Composer se ha instalado correctamente | `composer`                                                                    |
 
-### Instalar Composer en Windows
+* **Instalar Composer en Windows**
 
 Abre tu navegador y navega hasta el sitio web de Composer https://getcomposer.org/ , luego haz clic en el botón Getting started.  
 En la tabla de contenidos, navega hasta la sección Utilizar el instalador bajo el título Instalación – Windows.  
@@ -166,7 +166,7 @@ Ejecuta el instalador y sigue las instrucciones para instalar Composer. Tras la 
 composer
 
 
-### Instalar Composer en macOS
+* **Instalar Composer en macOS**
 
 | Paso                                                                                             | Comando                                                                           |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
