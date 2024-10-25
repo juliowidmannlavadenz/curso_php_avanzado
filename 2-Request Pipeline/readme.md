@@ -33,14 +33,33 @@ public function handle(Request $request, Closure $next)
 }
 ```
 
-*Este middleware verifica si el usuario tiene el rol de "admin" antes de permitirle acceder, redirigiéndolo a "home" si no cumple con la condición.
-
+* Este middleware verifica si el usuario tiene el rol de "admin" antes de permitirle acceder, redirigiéndolo a "home" si no cumple con la condición.
 
 ### 3. Enrutamiento (Routing): 
-* El pipeline pasa la solicitud al sistema de enrutamiento, que determina qué controlador o recurso manejará la solicitud según la URL y el método HTTP.
+El pipeline pasa la solicitud al sistema de enrutamiento, que determina qué controlador o recurso manejará la solicitud según la URL y el método HTTP.
+
+```Laravel 11```
+
+```php
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+```
+Este enrutamiento dirige la solicitud al método index del controlador ```DashboardController``` y aplica el middleware ```auth``` para asegurar que solo usuarios autenticados puedan acceder.
 
 ### 4. Controladores (Controllers): 
-* El controlador maneja la lógica de negocio, interactuando con modelos, bases de datos o servicios, para cumplir con la solicitud del cliente.
+El controlador maneja la lógica de negocio, interactuando con modelos, bases de datos o servicios, para cumplir con la solicitud del cliente.
+
+```Laravel 11```
+
+```php
+// En app/Http/Controllers/ProfileController.php
+public function show(Request $request)
+{
+    return view('profile', ['user' => $request->user()]);
+}
+```
+
+Este controlador maneja la solicitud y devuelve la vista ```profile```, pasando los datos del usuario autenticado a la vista.
+
 
 ### 5. Generación de la Respuesta: 
 * El controlador crea una respuesta, que puede ser una página HTML, JSON, XML, o cualquier otro formato solicitado.
