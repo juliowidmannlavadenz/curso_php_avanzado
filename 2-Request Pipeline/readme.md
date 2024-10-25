@@ -5,12 +5,12 @@ Request Pipeline (o "pipeline de solicitudes") es el conjunto de pasos o proceso
 
 ## Frameworks Web que usan Request Pipeline
 
-1. Laravel (PHP): Tiene un ciclo de vida de solicitudes que incluye middlewares globales y específicos de ruta.
-2. ASP.NET Core: Utiliza un middleware pipeline que configura el flujo de solicitudes en el archivo Startup.cs.
-3. Express.js (Node.js): Cada solicitud pasa por middlewares para manejar autenticación y validación antes del controlador.
-4. Django (Python): Procesa solicitudes con middlewares que se registran en settings.py antes y después de llegar a la vista.
-5. Ruby on Rails: Implementa filtros y middlewares que controlan el flujo de solicitudes antes de llegar al controlador.
-6. Flask (Python): Permite definir middlewares que gestionan y modifican solicitudes y respuestas.
+1. **Laravel (PHP):** Tiene un ciclo de vida de solicitudes que incluye middlewares globales y específicos de ruta.
+2. **ASP.NET Core:** Utiliza un middleware pipeline que configura el flujo de solicitudes en el archivo Startup.cs.
+3. **Express.js (Node.js):** Cada solicitud pasa por middlewares para manejar autenticación y validación antes del controlador.
+4. **Django (Python):** Procesa solicitudes con middlewares que se registran en settings.py antes y después de llegar a la vista.
+5. **Ruby on Rails:** Implementa filtros y middlewares que controlan el flujo de solicitudes antes de llegar al controlador.
+6. **Flask (Python):** Permite definir middlewares que gestionan y modifican solicitudes y respuestas.
 
 ## Componentes Clave del Request Pipeline
 Presentaremos un ejemplo de cada componente clave del Request Pipeline en Laravel 11.
