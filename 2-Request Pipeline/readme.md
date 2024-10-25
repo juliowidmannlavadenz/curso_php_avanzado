@@ -176,6 +176,33 @@ composer
 | Elimina el archivo de instalación tras la instalación                                            | `php -r "unlink('composer-setup.php');"`                                          |
 | Ejecuta Composer para comprobar si se ha instalado correctamente o no                            | `composer`                                                                        |
 
+### 3. Crear un nuevo proyecto de Laravel mediante Composer
+
+- Abrimos nuestra terminal, nos dirigirnos a la carpeta donde queremos que se encuentre la instalación de nuestra aplicación.
+- Ejecutamos el comando **create-project** de Composer.
+
+```php
+ composer create-project laravel/laravel mi-proyecto
+```
+### 4. Crear un nuevo proyecto  usando Laravel Installer
+- Primero ejecutar este comando, que hará que el instalador de Laravel esté disponible de manera global.
+
+```php
+composer global require laravel/installer
+```
+
+- Ejecutar este comando que creará un nuevo proyecto de Laravel.
+
+```php
+laravel new <mi-proyecto>
+```
+
+### 5. Lanzando el proyecto en nuestro servidor local
+Para ejecutar nuestro proyecto de Laravel 11, necesitaremos ejecutar el siguiente comando, dentro de la carpeta que hemos creado con composer o el instalador de laravel.
+
+```php
+php artisan serve
+```
 
 
 
