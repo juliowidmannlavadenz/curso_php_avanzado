@@ -72,14 +72,39 @@ public function show()
 }
 ```
 
-* Este código genera una respuesta en formato JSON con un mensaje de éxito y el código de estado HTTP 200.
+* Este código genera una respuesta en formato JSON con un mensaje de éxito y el código de estado HTTP ```200```.
 
 
 ### 6. Salida a través de Middlewares: 
-* Antes de enviarse al cliente, la respuesta puede pasar de nuevo a través de middlewares que pueden, por ejemplo, comprimir los datos o aplicar medidas de seguridad.
+Antes de enviarse al cliente, la respuesta puede pasar de nuevo a través de middlewares que pueden, por ejemplo, comprimir los datos o aplicar medidas de seguridad.
+
+```Laravel 11```
+
+```php
+public function handle(Request $request, Closure $next)
+{
+    $response = $next($request);
+    $response->headers->set('X-Custom-Header', 'ValorEjemplo'); // Añadir un encabezado personalizado
+    return $response;
+}
+```
+
+* Este middleware modifica la respuesta añadiendo un encabezado personalizado antes de enviarla al cliente.
 
 ### 7. Envío de la Respuesta: 
-* Finalmente, el servidor envía la respuesta generada de vuelta al cliente.
+Finalmente, el servidor envía la respuesta generada de vuelta al cliente.
+
+```Laravel 11```
+
+```php
+// En cualquier controlador
+public function index()
+{
+    return view('welcome'); // Enviar la vista 'welcome' como respuesta
+}
+```
+
+* Este código envía la vista ```welcome``` como respuesta a la solicitud del usuario.
 
 ## Frameworks Web que usan Request Pipeline
 
