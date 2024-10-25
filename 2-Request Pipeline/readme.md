@@ -12,10 +12,9 @@ El servidor recibe una solicitud HTTP desde el cliente (navegador, aplicación m
 ```Laravel 11```
 
 ```php
-// En app/Http/Middleware/ExampleMiddleware.php
 public function handle(Request $request, Closure $next)
 {
-    \Log::info("Solicitud recibida: " . $request->path()); // Log de la solicitud
+    \Log::info("Solicitud recibida: " . $request->path()); 
     return $next($request);
 }
 ```
@@ -23,7 +22,19 @@ public function handle(Request $request, Closure $next)
 * Este middleware registra en los logs el camino de cada solicitud recibida antes de enviarla al siguiente paso del pipeline.
 
 ### 2. Middlewares: 
-* La solicitud pasa a través de varios middlewares, que son filtros o capas de software que pueden modificar la solicitud o respuesta. Estos pueden autenticar al usuario, validar datos, registrar logs, entre otros.
+La solicitud pasa a través de varios middlewares, que son filtros o capas de software que pueden modificar la solicitud o respuesta. Estos pueden autenticar al usuario, validar datos, registrar logs, entre otros.
+
+```Laravel 11```
+
+```php
+public function handle(Request $request, Closure $next)
+{
+    return $request->user()->role === 'admin' ? $next($request) : redirect('home');
+}
+```
+
+*Este middleware verifica si el usuario tiene el rol de "admin" antes de permitirle acceder, redirigiéndolo a "home" si no cumple con la condición.
+
 
 ### 3. Enrutamiento (Routing): 
 * El pipeline pasa la solicitud al sistema de enrutamiento, que determina qué controlador o recurso manejará la solicitud según la URL y el método HTTP.
