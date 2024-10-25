@@ -130,13 +130,52 @@ public function index()
 
 ## Ejemplo completo de request pipeline en Laravel 11
 
-### Extensiones recomendadas de Laravel para Visual Studio Code
+### 1. Extensiones recomendadas de Laravel para Visual Studio Code
 
 **Laravel Blade formatter:** https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter  
 **Laravel Blade Snippets:** https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade  
 **Laravel goto view:** https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view  
 **Laravel Snippets:** https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets  
 **PHP Intelephense:** https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client  
+
+### 2. Instalación de Composer:
+### Instalación de Composer en Linux
+
+ | Paso                                                                                  | Comando                                                                       |
+|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Descarga Composer desde su sitio web                                                  | `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`   |
+| Instalar Composer localmente en tu sistema                                            | `php composer-setup.php`                                                      |
+| Instalar Composer globalmente en tu sistema                                           | `php composer-setup.php --install-dir=/usr/local/bin --filename=composer`     |
+| Elimina el instalador de tu ordenador utilizando los siguientes comandos              | `php -r "unlink('composer-setup.php');"`                                      |
+| Ejecuta el siguiente comando en tu terminal para comprobar si Composer se ha instalado correctamente | `composer`                                                                    |
+
+### Instalar Composer en Windows
+
+Abre tu navegador y navega hasta el sitio web de Composer https://getcomposer.org/ , luego haz clic en el botón Getting started.  
+En la tabla de contenidos, navega hasta la sección Utilizar el instalador bajo el título Instalación – Windows.  
+Haz clic en el enlace Composer-Setup.exe para descargar el instalador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_laravel/blob/main/assets/windows-composer-installer.png" alt="Logo de mi proyecto" width="700" style />
+</p>
+<br>
+
+Ejecuta el instalador y sigue las instrucciones para instalar Composer. Tras la instalación, puedes comprobar que todo funciona abriendo tu símbolo del sistema y escribiendo lo siguiente:
+
+composer
+
+
+### Instalar Composer en macOS
+
+| Paso                                                                                             | Comando                                                                           |
+|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Descarga el instalador de Composer                                                               | `sudo php -r "copy('https://getcomposer.org/installer','composer-setup.php');"`   |
+| Instalar Composer globalmente especificando manualmente un directorio de instalación que esté en tu PATH | `php composer-setup.php --install-dir=/usr/local/bin --filename=composer`         |
+| Elimina el archivo de instalación tras la instalación                                            | `php -r "unlink('composer-setup.php');"`                                          |
+| Ejecuta Composer para comprobar si se ha instalado correctamente o no                            | `composer`                                                                        |
+
+
 
 
 # Concepto de middleware
