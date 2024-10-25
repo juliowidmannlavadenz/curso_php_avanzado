@@ -43,7 +43,7 @@ El pipeline pasa la solicitud al sistema de enrutamiento, que determina qué con
 ```php
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 ```
-Este enrutamiento dirige la solicitud al método index del controlador ```DashboardController``` y aplica el middleware ```auth``` para asegurar que solo usuarios autenticados puedan acceder.
+* Este enrutamiento dirige la solicitud al método index del controlador ```DashboardController``` y aplica el middleware ```auth``` para asegurar que solo usuarios autenticados puedan acceder.
 
 ### 4. Controladores (Controllers): 
 El controlador maneja la lógica de negocio, interactuando con modelos, bases de datos o servicios, para cumplir con la solicitud del cliente.
@@ -51,18 +51,29 @@ El controlador maneja la lógica de negocio, interactuando con modelos, bases de
 ```Laravel 11```
 
 ```php
-// En app/Http/Controllers/ProfileController.php
 public function show(Request $request)
 {
     return view('profile', ['user' => $request->user()]);
 }
 ```
 
-Este controlador maneja la solicitud y devuelve la vista ```profile```, pasando los datos del usuario autenticado a la vista.
+* Este controlador maneja la solicitud y devuelve la vista ```profile```, pasando los datos del usuario autenticado a la vista.
 
 
 ### 5. Generación de la Respuesta: 
-* El controlador crea una respuesta, que puede ser una página HTML, JSON, XML, o cualquier otro formato solicitado.
+El controlador crea una respuesta, que puede ser una página HTML, JSON, XML, o cualquier otro formato solicitado.
+
+```Laravel 11```
+
+```php
+public function show()
+{
+    return response()->json(['message' => 'Solicitud procesada con éxito'], 200);
+}
+```
+
+* Este código genera una respuesta en formato JSON con un mensaje de éxito y el código de estado HTTP 200.
+
 
 ### 6. Salida a través de Middlewares: 
 * Antes de enviarse al cliente, la respuesta puede pasar de nuevo a través de middlewares que pueden, por ejemplo, comprimir los datos o aplicar medidas de seguridad.
