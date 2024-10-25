@@ -1352,7 +1352,7 @@ Es el  proceso que ocurre desde que un usuario hace una solicitud a un servidor 
 </p>
 <br>
 
-### Pasos principles del ciclo:
+## Pasos principles del ciclo:
 ### 1. Solicitud del cliente (Cliente HTTP)
 
 El ciclo de vida comienza cuando el cliente (generalmente un navegador web o una aplicación) envía una solicitud HTTP a un servidor web. La solicitud contiene información como:
