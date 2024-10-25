@@ -126,12 +126,6 @@ public function index()
 ### 6. Flask (Python): 
 * Aunque es más minimalista, Flask permite definir middlewares que actúan como filtros para gestionar y modificar solicitudes y respuestas.
 
-```php
-require 'Router.php'; 
-
-$router = new Router(); 
-$router->route($_SERVER['REQUEST_URI']); 
-```
 
 # Concepto de middleware
 # Patrón de diseño pipeline
