@@ -3,6 +3,15 @@
 
 Request Pipeline (o "pipeline de solicitudes") es el conjunto de pasos o procesos que una solicitud HTTP sigue desde que es recibida por el servidor hasta que se genera una respuesta y se envía de vuelta al cliente. 
 
+## Frameworks Web que usan Request Pipeline
+
+1. Laravel (PHP): Tiene un ciclo de vida de solicitudes que incluye middlewares globales y específicos de ruta.
+2. ASP.NET Core: Utiliza un middleware pipeline que configura el flujo de solicitudes en el archivo Startup.cs.
+3. Express.js (Node.js): Cada solicitud pasa por middlewares para manejar autenticación y validación antes del controlador.
+4. Django (Python): Procesa solicitudes con middlewares que se registran en settings.py antes y después de llegar a la vista.
+5. Ruby on Rails: Implementa filtros y middlewares que controlan el flujo de solicitudes antes de llegar al controlador.
+6. Flask (Python): Permite definir middlewares que gestionan y modifican solicitudes y respuestas.
+
 ## Componentes Clave del Request Pipeline
 Presentaremos un ejemplo de cada componente clave del Request Pipeline en Laravel 11.
 
@@ -106,25 +115,6 @@ public function index()
 
 * Este código envía la vista ```welcome``` como respuesta a la solicitud del usuario.
 
-## Frameworks Web que usan Request Pipeline
-
-### 1. ASP.NET Core: 
-* Utiliza el middleware pipeline, donde cada solicitud HTTP atraviesa una serie de middlewares. Este flujo se configura en el archivo Startup.cs (o ahora, en .NET 6+, en el archivo de configuración inicial de la aplicación).
-
-### 2. Laravel (PHP): 
-* Laravel 11, entre otras versiones, tiene un Request Lifecycle que incluye middleware globales y específicos de ruta. Cada middleware procesa la solicitud antes de que llegue al controlador y, si es necesario, puede rechazarla o modificarla.
-
-### 3. Express.js (Node.js): 
-* En Express, cada solicitud pasa por una serie de middlewares definidos en el código, donde se puede manejar la autenticación, la validación de datos y otras funciones antes de pasar al controlador.
-
-### 4. Django (Python): 
-* Django utiliza una serie de middlewares que procesan la solicitud antes y después de que llegue a la vista. Estos middlewares se registran en la configuración (settings.py), y procesan o rechazan la solicitud según se requiera.
-
-### 5. Ruby on Rails: 
-* Rails implementa el pipeline mediante filtros y middlewares que se ejecutan antes de la llegada de la solicitud al controlador, permitiendo controlar el flujo de la solicitud.
-
-### 6. Flask (Python): 
-* Aunque es más minimalista, Flask permite definir middlewares que actúan como filtros para gestionar y modificar solicitudes y respuestas.
 
 
 # Concepto de middleware
