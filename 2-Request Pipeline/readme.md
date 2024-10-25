@@ -128,6 +128,8 @@ public function index()
 
 * Este código envía la vista ```welcome``` como respuesta a la solicitud del usuario.
 
+## Ejemplo completo de request pipeline en Laravel 11
+
 
 
 # Concepto de middleware
