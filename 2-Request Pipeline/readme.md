@@ -26,7 +26,7 @@ Laravel es un framework de desarrollo web de código abierto basado en PHP, dise
 * **Enrutamiento (Routing):** Es el sistema que asocia URLs específicas con controladores, gestionando a qué parte de la aplicación se dirige cada solicitud.
 * **Controladores (Controllers):** Son clases que manejan la lógica de las solicitudes, procesando datos y retornando respuestas adecuadas (como vistas o JSON).
 
-## Componentes Clave del Request Pipeline
+## Componentes principales del request pipeline
 
 ### 1. Recepción de la Solicitud: 
 El servidor recibe una solicitud HTTP desde el cliente (navegador, aplicación móvil, etc.).
