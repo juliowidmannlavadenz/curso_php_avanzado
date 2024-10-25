@@ -163,8 +163,9 @@ Haz clic en el enlace Composer-Setup.exe para descargar el instalador:
 
 Ejecuta el instalador y sigue las instrucciones para instalar Composer. Tras la instalación, puedes comprobar que todo funciona abriendo tu símbolo del sistema y escribiendo lo siguiente:
 
+```php
 composer
-
+```
 
 * **Instalar Composer en macOS**
 
