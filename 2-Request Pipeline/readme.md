@@ -4,9 +4,21 @@
 Request Pipeline (o "pipeline de solicitudes") es el conjunto de pasos o procesos que una solicitud HTTP sigue desde que es recibida por el servidor hasta que se genera una respuesta y se envía de vuelta al cliente. 
 
 ## Componentes Clave del Request Pipeline
+Mostraremos un ejemplo en Laravel 11 de cada uno de los componentes clave.
 
 ### 1. Recepción de la Solicitud: 
-* El servidor recibe una solicitud HTTP desde el cliente (navegador, aplicación móvil, etc.).
+El servidor recibe una solicitud HTTP desde el cliente (navegador, aplicación móvil, etc.).
+
+```php
+// En app/Http/Middleware/ExampleMiddleware.php
+public function handle(Request $request, Closure $next)
+{
+    \Log::info("Solicitud recibida: " . $request->path()); // Log de la solicitud
+    return $next($request);
+}
+```
+
+* Este middleware registra en los logs el camino de cada solicitud recibida antes de enviarla al siguiente paso del pipeline.
 
 ### 2. Middlewares: 
 * La solicitud pasa a través de varios middlewares, que son filtros o capas de software que pueden modificar la solicitud o respuesta. Estos pueden autenticar al usuario, validar datos, registrar logs, entre otros.
