@@ -1021,7 +1021,7 @@ Content-Length: 60
 * El cuerpo de la respuesta es un objeto JSON que incluye un mensaje, un estado y un objeto de datos con un ```id``` y un ```nombre```.
 
 
-### Ejemplo completo de petición y respuesta http
+## Ejemplo completo de petición y respuesta http
 
 En este ejemplo, implementaremos un sistema de blog que maneje diversas peticiones HTTP (```GET```, ```POST```, ```PUT```, ```DELETE```). Utilizaremos GET para recuperar y mostrar entradas, y POST para permitir a los usuarios crear nuevas entradas enviando datos como título y contenido.
 
