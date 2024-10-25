@@ -139,7 +139,7 @@ public function index()
 **PHP Intelephense:** https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client  
 
 ### 2. Instalación de Composer:
-### Instalación de Composer en Linux
+**Instalación de Composer en Linux**
 
  | Paso                                                                                  | Comando                                                                       |
 |---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
