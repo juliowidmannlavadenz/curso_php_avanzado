@@ -348,6 +348,8 @@ Para crear el controlador ```ExampleController``` mediante un comando en la cons
 php artisan make:controller ExampleController
 ```
 
+Esto generará un archivo ```ExampleController.php``` en el directorio ```app/Http/Controllers```, el archivo de controlador tendrá una estructura básica.
+
 **Archivo:** ```app/Http/Controllers/ExampleController.php```
 
 ```php
