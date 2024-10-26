@@ -156,7 +156,7 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon_php.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon_php2.png?raw=true" alt="Imagen width="400" style />
 </p>
 <br>
 
