@@ -439,12 +439,19 @@ Verifica que el usuario esté autenticado y tenga los permisos necesarios.
    if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') die('Acceso denegado'); 
 ```
 
-* Este fragmento verifica si el usuario está autenticado (```$_SESSION['user']``` está definido) y si tiene el rol de ```'admin'```. Si no cumple estos requisitos, muestra un mensaje de "Acceso denegado" y detiene la ejecución.
-
-
+* Verificar si el usuario está autenticado (```$_SESSION['user']``` está definido) y si tiene el rol de ```'admin'```. Si no cumple estos requisitos, muestra un mensaje de "Acceso denegado" y detiene la ejecución.
 
 ### 2. Registro de Actividad (Logging): 
 Guarda un registro de las solicitudes o eventos para fines de auditoría.
+
+```PHP```
+
+```php
+  file_put_contents('log.txt', date('Y-m-d H:i:s') . " - Acceso a " . $_SERVER['REQUEST_URI'] . "\n", FILE_APPEND);
+```
+
+* Agregar una entrada al archivo ```log.txt``` con la fecha, hora y la URL solicitada cada vez que alguien accede a una página, registrando así la actividad.
+
 
 ### 3. Manejo de Excepciones y Errores: 
 Captura errores para personalizar la respuesta en caso de fallos.
