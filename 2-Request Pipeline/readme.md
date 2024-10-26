@@ -574,6 +574,27 @@ class AuthMiddleware
 * Si el usuario no está autenticado, redirige a la página de inicio de sesión y muestra un mensaje de error.
 * Se utiliza ```session_start()``` para acceder a la sesión actual.
 
+### 4. Crear el Middleware de Roles
+**Archivo:** ```middleware/RoleMiddleware.php```
+
+### 5. Crear la Página de Inicio de Sesión
+**Archivo:** ```pages/login.php```
+
+### 6. Procesar el Inicio de Sesión
+**Archivo:** ```login_process.php```
+
+### 7. Crear Páginas Protegidas
+**Archivo:** ```pages/protected_page.php```
+
+### 8. Crear Página de Usuario
+**Archivo:** ```pages/user_page.php```
+
+### 9. Crear Página de Administración
+**Archivo:** ```pages/admin_page.php```
+
+### 10. Cerrar Sesión
+**Archivo:** ```logout.php```
+
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
