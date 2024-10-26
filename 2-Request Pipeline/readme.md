@@ -208,6 +208,17 @@ extension=zip
 
 ## Ejemplo completo de request pipeline en Laravel 11
 
+El proyecto simula un pipeline completo mediante el uso de middlewares personalizados, un controlador básico y una vista para responder a una solicitud. La aplicación sigue los pasos que normalmente atravesaría una solicitud HTTP en Laravel:
+
+* **Recepción y Registro de la Solicitud:** Un middleware inicial intercepta y registra los datos de la solicitud (como URL, método y datos enviados).
+* **Enrutamiento: La solicitud se dirige a un controlador específico según la ruta solicitada.
+* **Procesamiento en el Controlador:** El controlador maneja la lógica de la solicitud y prepara los datos para la vista.
+* **Generación de la Respuesta:** Laravel utiliza una vista Blade para generar una respuesta HTML que se mostrará al usuario.
+* **Registro de la Respuesta:** Un middleware final intercepta y registra la respuesta antes de enviarla.
+* **Envío de la Respuesta:** Laravel entrega la respuesta generada al cliente, completando el flujo de la solicitud.
+
+
+
 # Concepto de middleware
 # Patrón de diseño pipeline
 # Routing en php
