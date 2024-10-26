@@ -583,7 +583,13 @@ class RoleMiddleware
 * Se pasa un array de roles permitidos al constructor. Si el rol del usuario no está en esa lista, se redirige a la página de inicio de sesión con un mensaje de error.
 * Al igual que el middleware de autenticación, utiliza session_start() para acceder a la información del usuario almacenada en la sesión.
 
+### 4. Crear el Middleware de Roles
 
+**Archivo:** ```middleware/RoleMiddleware.php```
+
+```php
+
+```
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
