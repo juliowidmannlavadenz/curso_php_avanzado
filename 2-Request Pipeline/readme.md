@@ -144,7 +144,7 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
 * **Descargar Laragon desde la siguiente dirección:** https://laragon.org/download
 * **Actualizar PHP a la version mas reciente:** Laravel 11 requiere la version 8.2 de PHP como minimo  (Laragon viene con la version 8.1)
   decargamos PHP (version 8.2 o superior) desde: https://windows.php.net/download/ 
-  
+* **Copiar el archivo descargado:** Copiamos la nueva version de PHP en el directorio: C:\laragon\bin\php.
 
   
 
