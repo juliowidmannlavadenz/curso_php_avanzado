@@ -278,7 +278,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Log;
+use Illuminate\Support\Facades\Log; 
 
 class LogRequestMiddleware
 {
@@ -301,9 +301,8 @@ class LogRequestMiddleware
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Log; 
 use Closure;
-use Log;
 
 class LogResponseMiddleware
 {
@@ -321,7 +320,11 @@ class LogResponseMiddleware
 ```
 
 * **Explicación:** Ambos middlewares registran respectivamente la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
+* Importamos la clase log en nuestros archivos definiendo el namespace en el encabezado:
 
+```php
+use Illuminate\Support\Facades\Log;
+```
 
 ### 5. Enrutamiento (Routing)
 ### 6. Crear el controlador
