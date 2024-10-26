@@ -278,7 +278,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Facades\Log; // Añadimos esta línea 
 
 class LogRequestMiddleware
 {
@@ -301,7 +301,7 @@ class LogRequestMiddleware
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Facades\Log; // Añadimos esta línea 
 use Closure;
 
 class LogResponseMiddleware
