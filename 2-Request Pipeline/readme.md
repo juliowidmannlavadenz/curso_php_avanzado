@@ -487,6 +487,54 @@ if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL
 
 * Este fragmento verifica si el campo ```email``` está vacío o no es un correo electrónico válido. Si falla la validación, muestra un mensaje de "Email inválido" y detiene la ejecución de la aplicación.
 
+## Ejemplo completo de autenticación con roles utilizando middlewares
+
+Este ejemplo incluye los siguientes puntos:
+
+* Middleware de autenticación para verificar si el usuario está autenticado.
+* Middleware de autorización para verificar si el usuario tiene permisos específicos.
+* Una simulación de base de datos de usuarios con roles.
+* Páginas protegidas según el rol del usuario.
+
+### 1. Estructura de archivos
+Organizamos el proyecto de la siguiente manera:
+
+```php
+/mi-aplicacion
+│
+├── index.php
+├── middleware
+│   ├── AuthMiddleware.php
+│   └── RoleMiddleware.php
+├── pages
+│   ├── admin_page.php
+│   ├── user_page.php
+│   ├── login.php
+│   └── protected_page.php
+├── users.php
+└── logout.php
+```
+### 2. Simulación de Base de Datos de Usuarios
+
+Creamos un archivo ```users.php``` que contendrá los usuarios y sus roles:
+
+```php
+<?php
+
+return [
+    'user1' => [
+        'password' => 'password1', // Hashear en producción
+        'role' => 'user',
+    ],
+    'admin' => [
+        'password' => 'admin123', // Hashear en producción
+        'role' => 'admin',
+    ],
+];
+```
+
+
+
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
