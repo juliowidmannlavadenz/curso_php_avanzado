@@ -548,29 +548,20 @@ return [
 * En un entorno de producción, las contraseñas deben ser almacenadas de forma segura utilizando funciones de hashing como ```password_hash```.
 
 ### 3. Crear el Middleware de Autenticación
-**Archivo:** ```middleware/RoleMiddleware.php```
+**Archivo:** ```middleware/AuthMiddleware.php```
 
 ```php
 <?php
 
 namespace Middleware;
 
-class RoleMiddleware
+class AuthMiddleware
 {
-    private $allowedRoles;
-
-    public function __construct($allowedRoles = [])
-    {
-        $this->allowedRoles = $allowedRoles;
-    }
-
     public function handle()
     {
         session_start();
-
-        // Verifica si el usuario tiene uno de los roles permitidos
-        if (!empty($this->allowedRoles) && !in_array($_SESSION['role'], $this->allowedRoles)) {
-            header('Location: /pages/login.php?error=forbidden');
+        if (!isset($_SESSION['user'])) {
+            header('Location: /pages/login.php?error=not_authenticated');
             exit();
         }
     }
@@ -579,17 +570,10 @@ class RoleMiddleware
 
 ### Explicación:
 
-* Este middleware verifica si el usuario tiene un rol que le permite acceder a una página específica.
-* Se pasa un array de roles permitidos al constructor. Si el rol del usuario no está en esa lista, se redirige a la página de inicio de sesión con un mensaje de error.
-* Al igual que el middleware de autenticación, utiliza session_start() para acceder a la información del usuario almacenada en la sesión.
+* Este middleware se encarga de verificar si un usuario ha iniciado sesión.
+* Si el usuario no está autenticado, redirige a la página de inicio de sesión y muestra un mensaje de error.
+* Se utiliza ```session_start()``` para acceder a la sesión actual.
 
-### 4. Crear el Middleware de Roles
-
-**Archivo:** ```middleware/RoleMiddleware.php```
-
-```php
-
-```
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
