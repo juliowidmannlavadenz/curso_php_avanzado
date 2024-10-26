@@ -433,6 +433,16 @@ Es un componente de software en aplicaciones web que actúa como una capa interm
 ### 1. Autenticación y Autorización: 
 Verifica que el usuario esté autenticado y tenga los permisos necesarios.
 
+```PHP```
+
+```php
+   if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') die('Acceso denegado'); 
+```
+
+* Este fragmento verifica si el usuario está autenticado (```$_SESSION['user']``` está definido) y si tiene el rol de ```'admin'```. Si no cumple estos requisitos, muestra un mensaje de "Acceso denegado" y detiene la ejecución.
+
+
+
 ### 2. Registro de Actividad (Logging): 
 Guarda un registro de las solicitudes o eventos para fines de auditoría.
 
