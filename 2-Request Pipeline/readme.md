@@ -268,6 +268,61 @@ return [
 
 
 ### 4. Middlewares de registro de solicitud y respuesta
+
+**Archivo:** ```app/Http/Middleware/LogRequestMiddleware.php```
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Log;
+
+class LogRequestMiddleware
+{
+    public function handle(Request $request, Closure $next)
+    {
+        Log::info('Request received:', [
+            'url' => $request->url(),
+            'method' => $request->method(),
+            'data' => $request->all(),
+        ]);
+
+        return $next($request);
+    }
+}
+```
+
+**Archivo:** ```app/Http/Middleware/LogResponseMiddleware.php```
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Log;
+
+class LogResponseMiddleware
+{
+    public function handle($request, Closure $next)
+    {
+        $response = $next($request);
+
+        Log::info('Response sent:', [
+            'content' => $response->getContent(),
+        ]);
+
+        return $response;
+    }
+}
+```
+
+* **Explicación:** Ambos middlewares funcionan igual que en versiones anteriores, registrando la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
+
+
 ### 5. Enrutamiento (Routing)
 ### 6. Crear el controlador
 ### 7. Generación de la respuesta
