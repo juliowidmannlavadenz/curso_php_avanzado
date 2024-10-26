@@ -217,6 +217,31 @@ El proyecto simula un pipeline completo mediante el uso de middlewares personali
 * **Registro de la Respuesta:** Un middleware final intercepta y registra la respuesta antes de enviarla.
 * **Envío de la Respuesta:** Laravel entrega la respuesta generada al cliente, completando el flujo de la solicitud.
 
+### 1. Estructura del Proyecto
+
+```php
+    project_root/
+    ├── app/
+    │   ├── Http/
+    │   │   ├── Controllers/
+    │   │   │   └── ExampleController.php
+    │   │   └── Middleware/
+    │   │       ├── LogRequestMiddleware.php
+    │   │       └── LogResponseMiddleware.php
+    ├── routes/
+    │   └── web.php
+    └── resources/
+        └── views/
+            └── response.blade.php
+```
+
+### 1. Estructura y Propósito de Cada Componente
+
+* Middlewares (```LogRequestMiddleware``` y ```LogResponseMiddleware```): Se configuran en el archivo ```config/http.php``` y registran la solicitud y la respuesta, brindando puntos de auditoría y control.
+* Enrutamiento (```routes/web.php```): Define la ruta /example que se enlaza con el controlador.
+* Controlador (```ExampleController```): Maneja la lógica principal y prepara los datos para la vista.
+* Vista (```response.blade.php```): Genera el HTML que se enviará como respuesta.
+
 
 
 # Concepto de middleware
