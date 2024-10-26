@@ -242,6 +242,15 @@ El proyecto simula un pipeline completo mediante el uso de middlewares personali
 * **Controlador** (```ExampleController```): Maneja la lógica principal y prepara los datos para la vista.
 * **Vista** (```response.blade.php```): Genera el HTML que se enviará como respuesta.
 
+### 3. EConfiguración de middlewares globales
+### 4. Middlewares de registro de solicitud y respuesta
+### 5. Enrutamiento (Routing)
+### 6. Crear el controlador
+### 7. Generación de la respuesta
+
+
+
+
 
 
 # Concepto de middleware
