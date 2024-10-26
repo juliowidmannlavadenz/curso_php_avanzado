@@ -424,11 +424,20 @@ Es un componente de software en aplicaciones web que actúa como una capa interm
 
 ## Funciones comunes del middleware:
 
-### 1. Autenticación y Autorización: Verifica que el usuario esté autenticado y tenga los permisos necesarios.
-### 2. Registro de Actividad (Logging): Guarda un registro de las solicitudes o eventos para fines de auditoría.
-### 3. Manejo de Excepciones y Errores: Captura errores para personalizar la respuesta en caso de fallos.
-### 4. Caché y Compresión: Optimiza el rendimiento al servir contenido de forma más rápida o comprimida.
-### 5. Validación de Datos: Verifica la estructura de los datos antes de pasarla al controlador.
+### 1. Autenticación y Autorización: 
+Verifica que el usuario esté autenticado y tenga los permisos necesarios.
+
+### 2. Registro de Actividad (Logging): 
+Guarda un registro de las solicitudes o eventos para fines de auditoría.
+
+### 3. Manejo de Excepciones y Errores: 
+Captura errores para personalizar la respuesta en caso de fallos.
+
+### 4. Caché y Compresión: 
+Optimiza el rendimiento al servir contenido de forma más rápida o comprimida.
+
+### 5. Validación de Datos: 
+Verifica la estructura de los datos antes de pasarla al controlador.
 
 # Patrón de diseño pipeline
 # Routing en php
