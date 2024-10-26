@@ -407,6 +407,15 @@ A través de la siguiente URL accedemos a la respuesta generada por el navegador
 </p>
 <br>
 
+### 9. Flujo Completo del Request Pipeline en Laravel 11
+
+1. **Recepción de Solicitud:** La solicitud se recibe y Laravel aplica los middlewares globales definidos en ```config/http.php```.
+2. **Registro de Solicitud:** ```LogRequestMiddleware``` registra la información de la solicitud.
+3. **Enrutamiento:** La solicitud es enrutada al controlador a través de ```routes/web.php```.
+4. **Procesamiento en Controlador:** ```ExampleController``` maneja la solicitud y prepara los datos.
+5. **Generación de Respuesta:** Laravel genera la vista y prepara la respuesta.
+6. **Registro de Respuesta:** ```LogResponseMiddleware``` registra la respuesta.
+7. **Envío de Respuesta:** Laravel envía la respuesta HTML generada al cliente.
 
 
 
