@@ -264,7 +264,9 @@ return [
 ];
 ```
 
-* **Explicación:** Este archivo centraliza la configuración de los middlewares en el grupo web. Aquí hemos añadido ```LogRequestMiddleware``` y ```LogResponseMiddleware``` para interceptar y procesar la solicitud y respuesta globalmente.
+### Explicación:
+
+* Este archivo centraliza la configuración de los middlewares en el grupo web. Aquí hemos añadido ```LogRequestMiddleware``` y ```LogResponseMiddleware``` para interceptar y procesar la solicitud y respuesta globalmente.
 
 
 ### 4. Middlewares de registro de solicitud y respuesta
@@ -319,7 +321,9 @@ class LogResponseMiddleware
 }
 ```
 
-* **Explicación:** Ambos middlewares registran respectivamente la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
+### Explicación:
+
+* Ambos middlewares registran respectivamente la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
 * Importamos la clase log en nuestros archivos definiendo el namespace en el encabezado:
 
 ```php
@@ -337,7 +341,9 @@ use App\Http\Controllers\ExampleController;
 Route::get('/example', [ExampleController::class, 'showExample']);
 ```
 
-* **Explicación:** Aquí definimos una ruta simple que llama al método showExample del controlador ExampleController.
+### Explicación:
+
+* Aquí definimos una ruta simple que llama al método showExample del controlador ExampleController.
 
 ### 6. Crear el controlador
 
@@ -373,7 +379,9 @@ class ExampleController extends Controller
 }
 ```
 
-* **Explicación:** El controlador ExampleController envía los datos necesarios a la vista para construir la respuesta.
+### Explicación:
+
+* El controlador ExampleController envía los datos necesarios a la vista para construir la respuesta.
 
 ### 7. Generación de la respuesta
 
@@ -393,7 +401,9 @@ class ExampleController extends Controller
 </body>
 </html>
 ```
-* **Explicación:** La vista response.blade.php muestra la respuesta que se envía al usuario, utilizando los datos preparados en el controlador.
+### Explicación:
+
+* La vista response.blade.php muestra la respuesta que se envía al usuario, utilizando los datos preparados en el controlador.
 
 ### 8. Vista en el navegador
 A través de la siguiente URL accedemos a la respuesta generada por el navegador:
