@@ -417,9 +417,19 @@ A través de la siguiente URL accedemos a la respuesta generada por el navegador
 6. **Registro de Respuesta:** ```LogResponseMiddleware``` registra la respuesta.
 7. **Envío de Respuesta:** Laravel envía la respuesta HTML generada al cliente.
 
+# Middleware
+## Concepto
 
+Es un componente de software en aplicaciones web que actúa como una capa intermedia entre el servidor y las solicitudes del usuario. Su función principal es interceptar las solicitudes HTTP entrantes y realizar acciones específicas antes de que lleguen al controlador de la aplicación, o bien, procesar la respuesta antes de que llegue al cliente.
 
-# Concepto de middleware
+## Funciones comunes del middleware:
+
+### 1. Autenticación y Autorización: Verifica que el usuario esté autenticado y tenga los permisos necesarios.
+### 2. Registro de Actividad (Logging): Guarda un registro de las solicitudes o eventos para fines de auditoría.
+### 3. Manejo de Excepciones y Errores: Captura errores para personalizar la respuesta en caso de fallos.
+### 4. Caché y Compresión: Optimiza el rendimiento al servir contenido de forma más rápida o comprimida.
+### 5. Validación de Datos: Verifica la estructura de los datos antes de pasarla al controlador.
+
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
