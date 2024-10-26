@@ -211,7 +211,7 @@ extension=zip
 El proyecto simula un pipeline completo mediante el uso de middlewares personalizados, un controlador básico y una vista para responder a una solicitud. La aplicación sigue los pasos que normalmente atravesaría una solicitud HTTP en Laravel:
 
 * **Recepción y Registro de la Solicitud:** Un middleware inicial intercepta y registra los datos de la solicitud (como URL, método y datos enviados).
-* **Enrutamiento: La solicitud se dirige a un controlador específico según la ruta solicitada.
+* **Enrutamiento:** La solicitud se dirige a un controlador específico según la ruta solicitada.
 * **Procesamiento en el Controlador:** El controlador maneja la lógica de la solicitud y prepara los datos para la vista.
 * **Generación de la Respuesta:** Laravel utiliza una vista Blade para generar una respuesta HTML que se mostrará al usuario.
 * **Registro de la Respuesta:** Un middleware final intercepta y registra la respuesta antes de enviarla.
@@ -235,12 +235,12 @@ El proyecto simula un pipeline completo mediante el uso de middlewares personali
             └── response.blade.php
 ```
 
-### 1. Estructura y Propósito de Cada Componente
+### 2. Estructura y Propósito de Cada Componente
 
-* Middlewares (```LogRequestMiddleware``` y ```LogResponseMiddleware```): Se configuran en el archivo ```config/http.php``` y registran la solicitud y la respuesta, brindando puntos de auditoría y control.
-* Enrutamiento (```routes/web.php```): Define la ruta /example que se enlaza con el controlador.
-* Controlador (```ExampleController```): Maneja la lógica principal y prepara los datos para la vista.
-* Vista (```response.blade.php```): Genera el HTML que se enviará como respuesta.
+* **Middlewares** (```LogRequestMiddleware``` y ```LogResponseMiddleware```): Se configuran en el archivo ```config/http.php``` y registran la solicitud y la respuesta, brindando puntos de auditoría y control.
+* **Enrutamiento** (```routes/web.php```): Define la ruta /example que se enlaza con el controlador.
+* **Controlador** (```ExampleController```): Maneja la lógica principal y prepara los datos para la vista.
+* **Vista** (```response.blade.php```): Genera el HTML que se enviará como respuesta.
 
 
 
