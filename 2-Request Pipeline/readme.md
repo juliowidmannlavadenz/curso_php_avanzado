@@ -152,6 +152,15 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
 </p>
 <br>
 
+* **Activar la nueva versiónd de PHP:** Clic derecho y seleccionamos la version de PHP que vamos a usar (8.3).
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon_php.pngraw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
+
 # Concepto de middleware
 # Patrón de diseño pipeline
 # Routing en php
