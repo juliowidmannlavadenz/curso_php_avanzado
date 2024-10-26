@@ -190,7 +190,7 @@ extension=zip
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon2.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon3.png?raw=true" alt="Imagen width="400" style />
 </p>
 <br>
 
