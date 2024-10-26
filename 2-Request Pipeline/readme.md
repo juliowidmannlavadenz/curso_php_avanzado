@@ -242,16 +242,35 @@ El proyecto simula un pipeline completo mediante el uso de middlewares personali
 * **Controlador** (```ExampleController```): Maneja la lógica principal y prepara los datos para la vista.
 * **Vista** (```response.blade.php```): Genera el HTML que se enviará como respuesta.
 
-### 3. EConfiguración de middlewares globales
+### 3. Configuración de middlewares globales
+
+Configuraremos los middlewares en el archivo de configuración para asignarlos globalmente.
+* Al crear este archivo en config/http.php, podemos definir opciones personalizadas como el grupo de middlewares que Laravel aplicará en el pipeline de solicitudes. 
+
+**Archivo:** ```config/http.php```
+
+Agregamos los middlewares de solicitud y respuesta en el grupo middleware:
+
+```php
+<?php
+
+return [
+    'middleware' => [
+        'web' => [
+            \App\Http\Middleware\LogRequestMiddleware::class,
+            \App\Http\Middleware\LogResponseMiddleware::class,
+        ],
+    ],
+];
+```
+
+* **Explicación:** Este archivo centraliza la configuración de los middlewares en el grupo web. Aquí hemos añadido LogRequestMiddleware y LogResponseMiddleware para interceptar y procesar la solicitud y respuesta globalmente.
+
+
 ### 4. Middlewares de registro de solicitud y respuesta
 ### 5. Enrutamiento (Routing)
 ### 6. Crear el controlador
 ### 7. Generación de la respuesta
-
-
-
-
-
 
 # Concepto de middleware
 # Patrón de diseño pipeline
