@@ -152,7 +152,7 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
 </p>
 <br>
 
-* **Activar la nueva versiónd de PHP:** Clic derecho y seleccionamos la version de PHP que vamos a usar (8.3).
+* **Activar la nueva versiónd de PHP:** Clic derecho y seleccionamos la version de PHP que vamos a usar (8.3), reiniciamos todos los servicios.
 
 <br>
 <p align="center">
