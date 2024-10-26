@@ -186,6 +186,14 @@ extension=zip
 </p>
 <br>
 
+* **Crear un nuevo proyecto de Laravel 11 en Laragon:**
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/instalar_laravel.pngraw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 
 # Concepto de middleware
 # Patrón de diseño pipeline
