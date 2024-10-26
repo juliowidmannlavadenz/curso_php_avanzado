@@ -422,6 +422,12 @@ A través de la siguiente URL accedemos a la respuesta generada por el navegador
 
 Es un componente de software en aplicaciones web que actúa como una capa intermedia entre el servidor y las solicitudes del usuario. Su función principal es interceptar las solicitudes HTTP entrantes y realizar acciones específicas antes de que lleguen al controlador de la aplicación, o bien, procesar la respuesta antes de que llegue al cliente.
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/middleware.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ## Funciones comunes del middleware:
 
 ### 1. Autenticación y Autorización: 
