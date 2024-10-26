@@ -456,6 +456,16 @@ Guarda un registro de las solicitudes o eventos para fines de auditoría.
 ### 3. Manejo de Excepciones y Errores: 
 Captura errores para personalizar la respuesta en caso de fallos.
 
+```PHP```
+
+```php
+set_exception_handler(fn($e) => file_put_contents('errors.log', $e->getMessage() . "\n", FILE_APPEND));
+try { /* Lógica de la aplicación aquí */ } catch (Exception $e) { throw $e; }
+```
+
+* Establecemos un manejador de excepciones que registra los errores en un archivo errors.log cuando ocurren excepciones durante la ejecución de la aplicación.
+
+
 ### 4. Caché y Compresión: 
 Optimiza el rendimiento al servir contenido de forma más rápida o comprimida.
 
