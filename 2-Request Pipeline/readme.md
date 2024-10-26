@@ -194,6 +194,18 @@ extension=zip
 </p>
 <br>
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon4.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon5.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 
 # Concepto de middleware
 # Patrón de diseño pipeline
