@@ -525,8 +525,7 @@ Organizamos el proyecto de la siguiente manera:
 └── logout.php
 ```
 ### 2. Simulación de Base de Datos de Usuarios
-
-Creamos un archivo ```users.php``` que contendrá los usuarios y sus roles:
+**Archivo:** ```users.php```
 
 ```php
 <?php
@@ -543,6 +542,46 @@ return [
 ];
 ```
 
+### Explicación:
+
+* Este archivo simula una base de datos de usuarios. Cada usuario tiene un nombre, una contraseña y un rol (usuario o administrador).
+* En un entorno de producción, las contraseñas deben ser almacenadas de forma segura utilizando funciones de hashing como ```password_hash```.
+
+### 3. Crear el Middleware de Autenticación
+**Archivo:** ```middleware/RoleMiddleware.php```
+
+```php
+<?php
+
+namespace Middleware;
+
+class RoleMiddleware
+{
+    private $allowedRoles;
+
+    public function __construct($allowedRoles = [])
+    {
+        $this->allowedRoles = $allowedRoles;
+    }
+
+    public function handle()
+    {
+        session_start();
+
+        // Verifica si el usuario tiene uno de los roles permitidos
+        if (!empty($this->allowedRoles) && !in_array($_SESSION['role'], $this->allowedRoles)) {
+            header('Location: /pages/login.php?error=forbidden');
+            exit();
+        }
+    }
+}
+```
+
+### Explicación:
+
+* Este middleware verifica si el usuario tiene un rol que le permite acceder a una página específica.
+* Se pasa un array de roles permitidos al constructor. Si el rol del usuario no está en esa lista, se redirige a la página de inicio de sesión con un mensaje de error.
+* Al igual que el middleware de autenticación, utiliza session_start() para acceder a la información del usuario almacenada en la sesión.
 
 
 # Patrón de diseño pipeline
