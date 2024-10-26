@@ -393,8 +393,21 @@ class ExampleController extends Controller
 </body>
 </html>
 ```
-
 * **Explicación:** La vista response.blade.php muestra la respuesta que se envía al usuario, utilizando los datos preparados en el controlador.
+
+### 8. Vista en el navegador
+A través de la siguiente URL accedemos a la respuesta generada por el navegador:
+
+```php
+    http://request-laravel.test/example
+```
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/salida_blade.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
+
 
 
 # Concepto de middleware
