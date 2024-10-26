@@ -327,7 +327,52 @@ use Illuminate\Support\Facades\Log;
 ```
 
 ### 5. Enrutamiento (Routing)
+
+**Archivo:** ```routes/web.php```
+
+```php
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExampleController;
+
+Route::get('/example', [ExampleController::class, 'showExample']);
+```
+
+* **Explicación:** Aquí definimos una ruta simple que llama al método showExample del controlador ExampleController.
+
 ### 6. Crear el controlador
+
+Para crear el controlador ```ExampleController``` mediante un comando en la consola de Artisan, utilizamos el siguiente comando:
+
+```bash```
+```php
+php artisan make:controller ExampleController
+```
+
+**Archivo:** ```app/Http/Controllers/ExampleController.php```
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ExampleController extends Controller
+{
+    public function showExample(Request $request)
+    {
+        $data = [
+            'title' => 'Laravel Request Pipeline',
+            'message' => 'Este es un ejemplo de REQUEST PIPELINE en Laravel 11.',
+        ];
+
+        return view('response', $data);
+    }
+}
+```
+
+* **Explicación:** El controlador ExampleController envía los datos necesarios a la vista para construir la respuesta.
+
 ### 7. Generación de la respuesta
 
 # Concepto de middleware
