@@ -479,6 +479,14 @@ ob_start("ob_gzhandler");
 ### 5. Validación de Datos: 
 Verifica la estructura de los datos antes de pasarla al controlador.
 
+```PHP```
+
+```php
+if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) die('Email inválido');
+```
+
+* Este fragmento verifica si el campo ```email``` está vacío o no es un correo electrónico válido. Si falla la validación, muestra un mensaje de "Email inválido" y detiene la ejecución de la aplicación.
+
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
