@@ -377,6 +377,26 @@ class ExampleController extends Controller
 
 ### 7. Generación de la respuesta
 
+**Archivo:** ```resources/views/response.blade.php```
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title }}</title>
+</head>
+<body>
+    <h1>{{ $title }}</h1>
+    <p>{{ $message }}</p>
+</body>
+</html>
+```
+
+* **Explicación:** La vista response.blade.php muestra la respuesta que se envía al usuario, utilizando los datos preparados en el controlador.
+
+
 # Concepto de middleware
 # Patrón de diseño pipeline
 # Routing en php
