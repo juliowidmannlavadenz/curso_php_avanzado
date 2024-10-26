@@ -161,11 +161,13 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
 <br>
 
 * **Habilitar la extensión zip en PHP:** Clic derecho y seleccionamos la version de PHP que vamos a usar (8.3), reiniciamos todos los servicios.
+* 
     * Abrimos el archivo php.ini:
 
 ```php
 C:\laragon\bin\php\php-8.3.13-nts-Win32-vs16-x64\php.ini
 ```
+
     * Buscamos la línea que contiene ```;extension=zip```.
     * Quitamos el punto y coma ```(;)``` al inicio de la línea para habilitar la extensión.
 
