@@ -320,7 +320,7 @@ class LogResponseMiddleware
 }
 ```
 
-* **Explicación:** Ambos middlewares funcionan igual que en versiones anteriores, registrando la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
+* **Explicación:** Ambos middlewares registran respectivamente la solicitud y respuesta. Laravel aplicará estos middlewares automáticamente al grupo ```web```, gracias a la configuración en ```http.php```.
 
 
 ### 5. Enrutamiento (Routing)
