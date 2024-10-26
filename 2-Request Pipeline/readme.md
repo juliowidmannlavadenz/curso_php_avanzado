@@ -146,10 +146,11 @@ Laragon es un entorno de desarrollo local para Windows que facilita la configura
   decargamos PHP (version 8.2 o superior) desde: https://windows.php.net/download/ 
 * **Copiar el archivo descargado:** Copiamos la nueva version de PHP en el directorio: C:\laragon\bin\php.
 
-  
-
-
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
 
 # Concepto de middleware
 # Patrón de diseño pipeline
