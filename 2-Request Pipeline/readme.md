@@ -652,6 +652,14 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 * Si hay un error (como no estar autenticado o no tener permiso), se muestra un mensaje correspondiente.
 * El formulario envía los datos a ```login_process.php``` para procesar el inicio de sesión.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/login_middleware.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### 6. Procesar el Inicio de Sesión
 **Archivo:** ```login_process.php```
 
