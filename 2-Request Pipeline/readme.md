@@ -1149,7 +1149,39 @@ Este ejemplo implementa un sistema de Kardex de productos, utilizando enrutamien
 * Controladores para manejar la lógica.
 * Un formulario para ingresar productos a la base de datos MySQL.
 
-### Configuraciones iniciales
+### Configuraciones iniciales:
+Para nuestro desarrollo estamos utilizando el servidor local ```Laragon```.
+
+**Confirmar el DocumentRoot correcto en Laragon**
+Es importante que el ```DocumentRoot``` esté configurado para que Apache sirva la aplicación desde la carpeta ```public```.
+
+1. Vamos a **Menu > Apache > sites-enabled** y localizamos el archivo de configuración que corresponde a nuestro ejemplo de desarrollo.
+2. Asegúrate de que esté configurado así:
+
+```php
+<VirtualHost *:80> 
+    DocumentRoot "C:/laragon/www/routingPHP/public"
+    ServerName routingPHP.test
+    ServerAlias *.routingPHP.test
+    <Directory "C:/laragon/www/routingPHP/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+**Crear el archivo .htaccess en la carpeta public**
+Creamos el archivo ```.htaccess``` dentro de la carpeta public para redirigir todas las solicitudes a ```index.php```, como sigue:
+
+```php
+Options -MultiViews
+RewriteEngine On
+
+# Redirige todas las solicitudes a index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+```
 
 ### 1. Estructura de archivos del Proyecto
 
