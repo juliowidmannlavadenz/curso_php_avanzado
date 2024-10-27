@@ -605,6 +605,10 @@ class RoleMiddleware
 
 ### Explicación:
 
+* Este middleware verifica si el usuario tiene un rol que le permite acceder a una página específica.
+* Se pasa un array de roles permitidos al constructor. Si el rol del usuario no está en esa lista, se redirige a la página de inicio de sesión con un mensaje de error.
+* Al igual que el middleware de autenticación, utiliza session_start() para acceder a la información del usuario almacenada en la sesión.
+
 ### 5. Crear la Página de Inicio de Sesión
 **Archivo:** ```pages/login.php```
 
@@ -644,6 +648,10 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 
 ### Explicación:
 
+* Esta es la página de inicio de sesión donde los usuarios pueden ingresar sus credenciales.
+* Si hay un error (como no estar autenticado o no tener permiso), se muestra un mensaje correspondiente.
+* El formulario envía los datos a ```login_process.php``` para procesar el inicio de sesión.
+
 ### 6. Procesar el Inicio de Sesión
 **Archivo:** ```login_process.php```
 
@@ -667,6 +675,10 @@ if (isset($users[$username]) && $users[$username]['password'] === $password) {
 ```
 
 ### Explicación:
+
+* Este archivo procesa las credenciales enviadas desde ```login.php```.
+* Verifica si el usuario existe y si la contraseña es correcta. Si es así, establece las variables de sesión para el usuario y su rol.
+* Si las credenciales son incorrectas, redirige de nuevo a la página de inicio de sesión con un mensaje de error.
 
 ### 7. Crear Páginas Protegidas
 **Archivo:** ```pages/protected_page.php```
@@ -711,6 +723,10 @@ $userRole = $_SESSION['role'] ?? null;
 
 ### Explicación:
 
+* Esta página está protegida por el middleware de autenticación, que verifica si el usuario ha iniciado sesión.
+* Si el usuario está autenticado, puede ver el contenido de la página.
+* Se proporcionan enlaces a otras páginas, incluyendo la página de usuario y la página de administración.
+
 ### 8. Crear Página de Usuario
 **Archivo:** ```pages/user_page.php```
 
@@ -740,6 +756,9 @@ $authMiddleware->handle();
 ```
 
 ### Explicación:
+
+* Esta página también está protegida por el middleware de autenticación, permitiendo solo el acceso a usuarios autenticados.
+* Si el usuario tiene una sesión activa, puede ver el contenido de la página.
 
 ### 9. Crear Página de Administración
 **Archivo:** ```pages/admin_page.php```
@@ -772,6 +791,9 @@ $authMiddleware->handle();
 
 ### Explicación:
 
+* Esta página requiere tanto autenticación como un rol específico (en este caso, "admin").
+* Si el usuario no es un administrador, será redirigido a la página de inicio de sesión.
+
 ### 10. Cerrar Sesión
 **Archivo:** ```logout.php```
 
@@ -784,6 +806,10 @@ exit();
 ```
 
 ### Explicación:
+
+* Este archivo maneja el cierre de sesión.
+* Utiliza session_start() para acceder a la sesión y luego la destruye, eliminando todas las variables de sesión.
+* Después de cerrar la sesión, redirige al usuario a la página de inicio de sesión.
 
 # Patrón de diseño pipeline
 # Routing en php
