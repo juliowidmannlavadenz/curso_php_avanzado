@@ -811,6 +811,26 @@ exit();
 * Utiliza session_start() para acceder a la sesión y luego la destruye, eliminando todas las variables de sesión.
 * Después de cerrar la sesión, redirige al usuario a la página de inicio de sesión.
 
+### Conclusiones:
+
+Este sistema de autenticación y autorización utiliza middlewares para proteger el acceso según el rol del usuario. A continuación, se explica cada parte clave:
+
+**1. Middleware de Autenticación (```AuthMiddleware```):**
+
+* La función handle() verifica si el usuario ha iniciado sesión comprobando la existencia de la variable $_SESSION['user'].
+* Si no está autenticado, redirige al usuario a la página de inicio de sesión, asegurando que solo los usuarios logueados accedan a páginas protegidas.
+
+**2. Middleware de Autorización (```RoleMiddleware```):**
+
+* La función ```handle()``` de ```RoleMiddleware``` revisa el rol del usuario, almacenado en ```$_SESSION['role']```, para verificar si el usuario tiene los permisos adecuados para la página solicitada.
+* Por ejemplo, el middleware garantiza que solo los administradores puedan acceder a la página de administración.
+  
+**3. Manejo de Sesiones y Redireccionamiento:**
+
+* La autenticación y autorización se gestionan con variables de sesión (```$_SESSION['user']``` y ```$_SESSION['role']```).
+* Según el rol, los usuarios son redirigidos a páginas específicas como ```user_page.php``` o ```admin_page.php```, proporcionando una experiencia controlada y segura.
+
+
 # Patrón de diseño pipeline
 # Routing en php
 # Expresiones regulares
