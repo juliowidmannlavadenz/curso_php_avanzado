@@ -886,6 +886,18 @@ echo Pipeline::make(5, [fn($x) => $x * 2, fn($x) => $x + 3, fn($x) => $x * 4]); 
 ### 3. Mantenimiento:
 El código es más fácil de mantener porque cada etapa tiene su propia responsabilidad.
 
+```PHP```
+
+```php
+class Pipeline { public static function make($input, $stages) { foreach ($stages as $stage) $input = (new $stage)->handle($input); return $input; }}
+class MultiplyByTwo { public function handle($input) { return $input * 2; }}
+class AddThree { public function handle($input) { return $input + 3; }}
+echo Pipeline::make(5, [MultiplyByTwo::class, AddThree::class]); // Salida: 13
+```
+
+* La clase ```Pipeline``` acepta un valor de entrada y una lista de clases de "etapas" (```$stages```).
+* Cada clase de etapa (```MultiplyByTwo```, ```AddThree```, etc.) tiene un método ```handle``` que aplica una operación.
+* Es fácil mantener y extender el pipeline agregando nuevas clases para operaciones adicionales.
 
 
 ### 4. Inmutabilidad (Opcional): 
