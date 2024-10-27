@@ -1373,6 +1373,21 @@ class Database {
 * **Rol:** Muestra el Kardex de productos en una tabla HTML.
 * **Funcionamiento:** Recibe los datos de productos (obtenidos del controlador) y los presenta en una tabla. Cada fila muestra el ID, nombre, cantidad y precio de cada producto en la base de datos.
 
+### Resumen:
+
+Este proyecto demuestra cómo implementar un sistema de enrutamiento básico y controlador en PHP puro, sin un framework. Consta de los siguientes elementos:
+
+1. **Punto de Entrada:** ```public/index.php``` gestiona la entrada de todas las solicitudes y las envía al enrutador.
+2. **Rutas:** ```routes.php``` define el mapeo de rutas URI y métodos HTTP para determinar qué controlador debe responder.
+3. **Controlador: ```ProductController.php``` maneja la lógica de negocio (agregar productos, ver Kardex).
+4. **Base de Datos:** ```Database.php``` se conecta a la base de datos.
+5. **Vistas:** Formularios y tablas que muestran la interfaz de usuario para agregar y ver productos.
+
+### Conclusiones:
+> Este ejemplo logra estructurar una aplicación de PHP puro utilizando enrutamiento y controladores de forma sencilla, ideal para proyectos pequeños.
+> La separación de responsabilidades permite que cada archivo tenga un propósito claro, facilitando el mantenimiento y la expansión futura del proyecto.
+> Este esquema también es una introducción útil para aprender sobre arquitecturas de controladores y rutas en PHP antes de avanzar a frameworks más robustos como Laravel.
+
 # Expresiones regulares
 
 
