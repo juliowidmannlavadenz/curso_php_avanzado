@@ -735,6 +735,14 @@ $userRole = $_SESSION['role'] ?? null;
 * Si el usuario está autenticado, puede ver el contenido de la página.
 * Se proporcionan enlaces a otras páginas, incluyendo la página de usuario y la página de administración.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/protected_middleware.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### 8. Crear Página de Usuario
 **Archivo:** ```pages/user_page.php```
 
