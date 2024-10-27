@@ -1370,6 +1370,13 @@ class Database {
 * **Rol:** Formulario HTML que permite al usuario ingresar un nuevo producto.
 * **Funcionamiento:** Incluye un formulario que envía los datos al controlador ```ProductController.php``` a través de la ruta ```/add-product``` utilizando el método POST.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/agregar_producto_routing.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
 
 ### 8. Vista del kardex
 **Archivo:** ```views/kardex.php```
