@@ -1152,7 +1152,7 @@ Este ejemplo implementa un sistema de Kardex de productos, utilizando enrutamien
 ### Configuraciones iniciales:
 Para nuestro desarrollo estamos utilizando el servidor local ```Laragon```.
 
-**Confirmar el DocumentRoot correcto en Laragon**
+* **Confirmar el DocumentRoot correcto en Laragon**
 Es importante que el ```DocumentRoot``` esté configurado para que Apache sirva la aplicación desde la carpeta ```public```.
 
 1. Vamos a **Menu > Apache > sites-enabled** y localizamos el archivo de configuración que corresponde a nuestro ejemplo de desarrollo.
@@ -1170,7 +1170,7 @@ Es importante que el ```DocumentRoot``` esté configurado para que Apache sirva 
 </VirtualHost>
 ```
 
-**Crear el archivo .htaccess en la carpeta public**
+* **Crear el archivo .htaccess en la carpeta public**
 
 Creamos el archivo ```.htaccess``` dentro de la carpeta public para redirigir todas las solicitudes a ```index.php```, como sigue:
 
