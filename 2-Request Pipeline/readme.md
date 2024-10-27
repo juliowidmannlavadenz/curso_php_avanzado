@@ -1076,6 +1076,23 @@ Este código permite que el usuario ingrese un texto, lo procese y vea el result
 <br>
 
 # Routing en php
+## Concepto 
+
+El routing (o enrutamiento) en PHP es el proceso de dirigir las solicitudes HTTP a funciones, controladores o archivos específicos en función de la URL solicitada. Esto permite crear aplicaciones web donde cada URL apunta a una lógica específica, facilitando la organización del código y permitiendo URLs amigables.
+
+En una aplicación sin routing, cada página se asocia directamente con un archivo PHP. Con routing, en cambio, existe un punto de entrada (generalmente ```index.php```) que decide qué lógica ejecutar según la URL solicitada, organizando mejor la aplicación y permitiendo URLs más limpias y personalizables.
+
+## Tipos de Routing en PHP
+
+### 1. Routing estático: 
+Cada ruta se asocia con una URL fija. Es el tipo más sencillo, donde cada URL está definida explícitamente. Ejemplo: /about apunta a una función o archivo específico.
+
+### 2. Routing dinámico: Permite rutas que contienen variables, adaptándose a URLs que pueden cambiar en tiempo de ejecución. Ejemplo: /products/{id}, donde {id} puede ser cualquier identificador de producto.
+
+### 3. Routing basado en controladores: 
+Se asignan rutas a métodos en controladores, ideal para aplicaciones grandes, donde la organización en controladores facilita el mantenimiento y la escalabilidad.
+
+
 # Expresiones regulares
 
 
