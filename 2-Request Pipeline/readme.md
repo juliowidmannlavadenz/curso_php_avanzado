@@ -1412,6 +1412,14 @@ class Database {
 * **Rol:** Muestra el Kardex de productos en una tabla HTML.
 * **Funcionamiento:** Recibe los datos de productos (obtenidos del controlador) y los presenta en una tabla. Cada fila muestra el ID, nombre, cantidad y precio de cada producto en la base de datos.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/kardex_routing.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### Resumen:
 
 Este proyecto demuestra cómo implementar un sistema de enrutamiento básico y controlador en PHP puro, sin un framework. Consta de los siguientes elementos:
