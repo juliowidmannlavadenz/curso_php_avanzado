@@ -1412,13 +1412,26 @@ class Database {
 * **Rol:** Muestra el Kardex de productos en una tabla HTML.
 * **Funcionamiento:** Recibe los datos de productos (obtenidos del controlador) y los presenta en una tabla. Cada fila muestra el ID, nombre, cantidad y precio de cada producto en la base de datos.
 
-### Vista en el navegador:
+### 9. Acceso a las paginas:
+Para ver la pagina ```Agregar Producto``` vamos a la siguiente URL:
+
+```php
+http://routingphp.test/add-product
+```
+
+Para ver la pagina ```Kardex de Productos``` vamos a la siguiente URL:
+
+```php
+http://routingphp.test/kardex
+```
 
 <br>
 <p align="center">
 <img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/kardex_routing.png?raw=true" alt="Imagen width="400" style />
 </p>
 <br>
+
+### 9. Vista del kardex
 
 ### Resumen:
 
