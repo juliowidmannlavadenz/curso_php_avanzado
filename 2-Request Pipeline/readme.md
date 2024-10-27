@@ -1234,16 +1234,16 @@ function route($uri, $method) {
     * ```GET /kardex```: Muestra la vista del Kardex con los productos.
 
 ### 5. Creación del controlador
-**Archivo:** ```src/Controllers/ProductController.php``
+**Archivo:** ```src/Controllers/ProductController.php```
 
 ### 6. Conexion a la base de datos
-**Archivo:** ```src/Database.php``
+**Archivo:** ```src/Database.php```
 
 ### 7. Formulario para agregar productos
-**Archivo:** ```views/add_product.php``
+**Archivo:** ```views/add_product.php```
 
 ### 8. Vista del kardex
-**Archivo:** ```views/kardex.php``
+**Archivo:** ```views/kardex.php```
 
 
 
