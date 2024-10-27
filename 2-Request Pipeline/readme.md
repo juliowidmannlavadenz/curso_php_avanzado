@@ -1379,7 +1379,7 @@ Este proyecto demuestra cómo implementar un sistema de enrutamiento básico y c
 
 1. **Punto de Entrada:** ```public/index.php``` gestiona la entrada de todas las solicitudes y las envía al enrutador.
 2. **Rutas:** ```routes.php``` define el mapeo de rutas URI y métodos HTTP para determinar qué controlador debe responder.
-3. **Controlador: ```ProductController.php``` maneja la lógica de negocio (agregar productos, ver Kardex).
+3. **Controlador:** ```ProductController.php``` maneja la lógica de negocio (agregar productos, ver Kardex).
 4. **Base de Datos:** ```Database.php``` se conecta a la base de datos.
 5. **Vistas:** Formularios y tablas que muestran la interfaz de usuario para agregar y ver productos.
 
