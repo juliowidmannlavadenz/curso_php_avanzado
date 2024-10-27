@@ -927,6 +927,113 @@ Veamos un ejemplo de un pipeline en PHP para procesar una cadena de texto. Este 
 
 > Este ejemplo incluye la clase principal Pipeline y las clases de procesamiento que definen cada operación.
 
+**Archivo:** ```pipeline/index.php```
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline de Procesamiento de Texto</title>
+</head>
+<body>
+    <h2>Ingrese una palabra o frase para procesar</h2>
+    <form method="POST" action="">
+        <label for="inputText">Texto:</label>
+        <input type="text" id="inputText" name="inputText" required>
+        <button type="submit">Procesar</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Incluimos la lógica del Pipeline aquí
+        interface StageInterface {
+            public function handle(string $input): string;
+        }
+
+        class ConvertToLowercase implements StageInterface {
+            public function handle(string $input): string {
+                return strtolower($input);
+            }
+        }
+
+        class RemoveExtraSpaces implements StageInterface {
+            public function handle(string $input): string {
+                return preg_replace('/\s+/', ' ', trim($input));
+            }
+        }
+
+        class ReplaceWords implements StageInterface {
+            protected $search;
+            protected $replace;
+
+            public function __construct(array $search, array $replace) {
+                $this->search = $search;
+                $this->replace = $replace;
+            }
+
+            public function handle(string $input): string {
+                return str_replace($this->search, $this->replace, $input);
+            }
+        }
+
+        class Pipeline {
+            private $stages = [];
+
+            public function addStage(StageInterface $stage): self {
+                $this->stages[] = $stage;
+                return $this;
+            }
+
+            public function process(string $input): string {
+                foreach ($this->stages as $stage) {
+                    $input = $stage->handle($input);
+                }
+                return $input;
+            }
+        }
+
+        // Obtenemos el texto ingresado
+        $inputText = $_POST['inputText'];
+
+        // Configuramos el Pipeline con las etapas
+        $pipeline = (new Pipeline())
+            ->addStage(new ConvertToLowercase())
+            ->addStage(new RemoveExtraSpaces())
+            ->addStage(new ReplaceWords(['hello', 'world', 'name'], ['hola', 'mundo', 'nombre']));
+
+        // Procesamos el texto
+        $result = $pipeline->process($inputText);
+
+        echo "<h3>Texto procesado:</h3>";
+        echo "<p>" . htmlspecialchars($result) . "</p>";
+    }
+    ?>
+</body>
+</html>
+```
+
+### Explicación del código
+
+1. **Formulario HTML:**
+
+* Contiene un campo de texto (inputText) donde el usuario ingresa una palabra o frase y un botón "Procesar" para enviar el formulario.
+
+2. **Lógica de procesamiento en PHP:**
+
+* El procesamiento del pipeline se define en PHP. Primero, verifica que el formulario fue enviado (```$_SERVER["REQUEST_METHOD"] === "POST"```).
+* Define las clases ```ConvertToLowercase```, ```RemoveExtraSpaces```, y ```ReplaceWords```, junto con la clase ```Pipeline```.
+  
+3. **Pipeline:**
+
+* Se crea una instancia del Pipeline, y se añaden las etapas de procesamiento en el orden deseado.
+* Se procesa el texto ingresado y se muestra el resultado.
+
+4. **Salida:**
+* Muestra el texto procesado, que ha pasado por todas las etapas del pipeline.
+
+Este código permite que el usuario ingrese un texto, lo procese y vea el resultado directamente en la página web.
 
 # Routing en php
 # Expresiones regulares
