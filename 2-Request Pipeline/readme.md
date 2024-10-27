@@ -836,6 +836,53 @@ También conocido como ```Pipeline Pattern``` o ```Chain of Responsibility```, e
 
 En PHP, un Pipeline típico funciona mediante clases que procesan datos y pasan los resultados al siguiente procesador en la secuencia. Esto es particularmente útil cuando quieres construir sistemas extensibles y modulares donde las etapas del procesamiento pueden añadirse, quitarse o cambiarse sin afectar otras partes del sistema.
 
+### 1. Encadenamiento de Operaciones:
+Cada etapa del proceso toma una entrada, realiza una operación y produce una salida que se utiliza en el siguiente paso.
+
+```PHP```
+
+```php
+class Pipeline {
+    public static function make($input) {
+        return (new static)->step1($input)->step2()->step3();
+    }
+    public function step1($input) { $this->data = $input * 2; return $this; }
+    public function step2() { $this->data += 3; return $this; }
+    public function step3() { echo $this->data * 4; }
+}
+Pipeline::make(5); // Salida: 52
+```
+* step1 multiplica el valor de entrada por 2.
+* step2 suma 3 al valor actual.
+* step3 multiplica el resultado por 4 y lo muestra en pantalla.
+
+### 2. Modularidad y Extensibilidad: 
+Las etapas pueden añadirse, quitarse o cambiarse sin cambiar la estructura general.
+
+```PHP```
+
+```php
+class Pipeline {
+    public static function make($input, $operations) {
+        return array_reduce($operations, fn($carry, $operation) => $operation($carry), $input);
+    }
+}
+echo Pipeline::make(5, [fn($x) => $x * 2, fn($x) => $x + 3, fn($x) => $x * 4]); // Salida: 52
+```
+
+* La función ```make``` toma un valor de entrada (```$input```) y una lista de operaciones (```$operations```).
+* Cada operación se aplica de manera secuencial usando ```array_reduce```, permitiendo agregar o modificar fácilmente cualquier operación.
+* El resultado final de las operaciones encadenadas es ```52``` con el valor inicial ``` 5 ```.
+
+
+### 3. Mantenimiento:
+El código es más fácil de mantener porque cada etapa tiene su propia responsabilidad.
+
+
+
+### 4. Inmutabilidad (Opcional): 
+Cada operación no altera el estado global, sino que opera sobre los datos que se le pasan.
+
 
 
 # Routing en php
