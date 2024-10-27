@@ -1085,14 +1085,43 @@ En una aplicación sin routing, cada página se asocia directamente con un archi
 ## Tipos de Routing en PHP
 
 ### 1. Routing estático: 
-Cada ruta se asocia con una URL fija. Es el tipo más sencillo, donde cada URL está definida explícitamente. Ejemplo: /about apunta a una función o archivo específico.
+Cada ruta se asocia con una URL fija. Es el tipo más sencillo, donde cada URL está definida explícitamente. 
+
+```PHP```
+
+```php
+$uri = $_SERVER['REQUEST_URI'];
+if ($uri == '/home') echo "Bienvenido a la página de inicio";
+elseif ($uri == '/about') echo "Acerca de nosotros";
+```
+* Este código redirige según la URL (```/home```, ```/about```) y muestra contenido específico para cada ruta.
 
 ### 2. Routing dinámico: 
 Permite rutas que contienen variables, adaptándose a URLs que pueden cambiar en tiempo de ejecución. Ejemplo: /products/{id}, donde {id} puede ser cualquier identificador de producto.
 
+```PHP```
+
+```php
+$routes = ['home' => 'Inicio', 'about' => 'Acerca de nosotros'];
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+echo $routes[$uri] ?? "Página no encontrada";
+```
+
+* Este código define rutas dinámicas en un array y muestra el contenido según la URL ingresada, o un mensaje de error si la ruta no existe.
+
 ### 3. Routing basado en controladores: 
 Se asignan rutas a métodos en controladores, ideal para aplicaciones grandes, donde la organización en controladores facilita el mantenimiento y la escalabilidad.
 
+```PHP```
+
+```php
+$routes = ['home' => 'HomeController@index', 'about' => 'AboutController@show'];
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+list($controller, $method) = explode('@', $routes[$uri] ?? 'ErrorController@notFound');
+(new $controller)->$method();
+```
+
+* Este código llama al controlador y método correspondiente según la URL, o al controlador de error si la ruta no existe.
 
 # Expresiones regulares
 
