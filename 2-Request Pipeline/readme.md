@@ -830,8 +830,14 @@ Este sistema de autenticación y autorización utiliza middlewares para proteger
 * La autenticación y autorización se gestionan con variables de sesión (```$_SESSION['user']``` y ```$_SESSION['role']```).
 * Según el rol, los usuarios son redirigidos a páginas específicas como ```user_page.php``` o ```admin_page.php```, proporcionando una experiencia controlada y segura.
 
-
 # Patrón de diseño pipeline
+
+También conocido como ```Pipeline Pattern``` o ```Chain of Responsibility```, es útil cuando deseas procesar datos en una serie de pasos secuenciales o en una cadena de operaciones. Este patrón permite dividir una tarea en etapas independientes, donde cada etapa realiza una operación específica y pasa los datos al siguiente paso.
+
+En PHP, un Pipeline típico funciona mediante clases que procesan datos y pasan los resultados al siguiente procesador en la secuencia. Esto es particularmente útil cuando quieres construir sistemas extensibles y modulares donde las etapas del procesamiento pueden añadirse, quitarse o cambiarse sin afectar otras partes del sistema.
+
+
+
 # Routing en php
 # Expresiones regulares
 
