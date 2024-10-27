@@ -1123,6 +1123,23 @@ list($controller, $method) = explode('@', $routes[$uri] ?? 'ErrorController@notF
 
 * Este código llama al controlador y método correspondiente según la URL, o al controlador de error si la ruta no existe.
 
+## Pasos para Implementar Routing en PHP
+
+### 1. Definir el punto de entrada: 
+Crear un archivo index.php como punto de entrada de todas las solicitudes.
+
+### 2. Capturar la solicitud: 
+Obtener la URL solicitada mediante ```$_SERVER['REQUEST_URI']``` o funciones específicas del framework (si se usa uno).
+
+### 3. Configurar las rutas:
+Crear una lista de rutas, con sus correspondientes controladores o funciones, almacenándola en un arreglo o una estructura más compleja.
+
+### 4. Determinar la ruta correspondiente: 
+Buscar la URL en el arreglo de rutas y ejecutar la lógica asociada (puede ser una función o un método del controlador).
+
+### 5. Manejar rutas dinámicas:
+Utilizar expresiones regulares o patrones para reconocer rutas que contienen variables.
+
 # Expresiones regulares
 
 
