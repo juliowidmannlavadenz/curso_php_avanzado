@@ -1035,6 +1035,14 @@ Veamos un ejemplo de un pipeline en PHP para procesar una cadena de texto. Este 
 
 Este código permite que el usuario ingrese un texto, lo procese y vea el resultado directamente en la página web.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/pipeline_texto.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 # Routing en php
 # Expresiones regulares
 
