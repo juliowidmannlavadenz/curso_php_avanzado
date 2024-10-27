@@ -1171,6 +1171,7 @@ Es importante que el ```DocumentRoot``` esté configurado para que Apache sirva 
 ```
 
 **Crear el archivo .htaccess en la carpeta public**
+
 Creamos el archivo ```.htaccess``` dentro de la carpeta public para redirigir todas las solicitudes a ```index.php```, como sigue:
 
 ```php
