@@ -603,6 +603,8 @@ class RoleMiddleware
 }
 ```
 
+### Explicación:
+
 ### 5. Crear la Página de Inicio de Sesión
 **Archivo:** ```pages/login.php```
 
@@ -640,6 +642,8 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 </html>
 ```
 
+### Explicación:
+
 ### 6. Procesar el Inicio de Sesión
 **Archivo:** ```login_process.php```
 
@@ -661,6 +665,8 @@ if (isset($users[$username]) && $users[$username]['password'] === $password) {
     exit();
 }
 ```
+
+### Explicación:
 
 ### 7. Crear Páginas Protegidas
 **Archivo:** ```pages/protected_page.php```
@@ -703,6 +709,8 @@ $userRole = $_SESSION['role'] ?? null;
 </html>
 ```
 
+### Explicación:
+
 ### 8. Crear Página de Usuario
 **Archivo:** ```pages/user_page.php```
 
@@ -730,6 +738,8 @@ $authMiddleware->handle();
 </body>
 </html>
 ```
+
+### Explicación:
 
 ### 9. Crear Página de Administración
 **Archivo:** ```pages/admin_page.php```
@@ -760,6 +770,8 @@ $authMiddleware->handle();
 </html>
 ```
 
+### Explicación:
+
 ### 10. Cerrar Sesión
 **Archivo:** ```logout.php```
 
@@ -770,6 +782,8 @@ session_destroy();
 header('Location: /pages/login.php');
 exit();
 ```
+
+### Explicación:
 
 # Patrón de diseño pipeline
 # Routing en php
