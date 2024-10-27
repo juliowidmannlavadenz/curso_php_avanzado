@@ -903,7 +903,20 @@ echo Pipeline::make(5, [MultiplyByTwo::class, AddThree::class]); // Salida: 13
 ### 4. Inmutabilidad (Opcional): 
 Cada operación no altera el estado global, sino que opera sobre los datos que se le pasan.
 
+```PHP```
 
+```php
+class Pipeline {
+    public static function make($input, $operations) {
+        return array_reduce($operations, fn($carry, $operation) => $operation($carry), $input);
+    }
+}
+echo Pipeline::make(5, [fn($x) => $x * 2, fn($x) => $x + 3, fn($x) => $x * 4]); // Salida: 52
+```
+
+* Cada operación toma el resultado del paso anterior sin modificarlo directamente.
+* Usamos ```array_reduce``` para aplicar cada operación de forma inmutable.
+* El resultado es ```52```, y el pipeline asegura que cada paso produce un nuevo valor sin alterar el original.
 
 # Routing en php
 # Expresiones regulares
