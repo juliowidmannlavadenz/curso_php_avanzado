@@ -776,6 +776,14 @@ $authMiddleware->handle();
 * Esta página también está protegida por el middleware de autenticación, permitiendo solo el acceso a usuarios autenticados.
 * Si el usuario tiene una sesión activa, puede ver el contenido de la página.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/usuario_middleware.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### 9. Crear Página de Administración
 **Archivo:** ```pages/admin_page.php```
 
