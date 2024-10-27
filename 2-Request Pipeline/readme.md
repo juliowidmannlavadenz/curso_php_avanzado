@@ -1087,7 +1087,8 @@ En una aplicación sin routing, cada página se asocia directamente con un archi
 ### 1. Routing estático: 
 Cada ruta se asocia con una URL fija. Es el tipo más sencillo, donde cada URL está definida explícitamente. Ejemplo: /about apunta a una función o archivo específico.
 
-### 2. Routing dinámico: Permite rutas que contienen variables, adaptándose a URLs que pueden cambiar en tiempo de ejecución. Ejemplo: /products/{id}, donde {id} puede ser cualquier identificador de producto.
+### 2. Routing dinámico: 
+Permite rutas que contienen variables, adaptándose a URLs que pueden cambiar en tiempo de ejecución. Ejemplo: /products/{id}, donde {id} puede ser cualquier identificador de producto.
 
 ### 3. Routing basado en controladores: 
 Se asignan rutas a métodos en controladores, ideal para aplicaciones grandes, donde la organización en controladores facilita el mantenimiento y la escalabilidad.
