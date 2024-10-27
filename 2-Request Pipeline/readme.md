@@ -818,6 +818,14 @@ $authMiddleware->handle();
 * Esta página requiere tanto autenticación como un rol específico (en este caso, "admin").
 * Si el usuario no es un administrador, será redirigido a la página de inicio de sesión.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/admin_middleware.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### 10. Cerrar Sesión
 **Archivo:** ```logout.php```
 
