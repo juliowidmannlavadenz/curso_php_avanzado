@@ -918,6 +918,16 @@ echo Pipeline::make(5, [fn($x) => $x * 2, fn($x) => $x + 3, fn($x) => $x * 4]); 
 * Usamos ```array_reduce``` para aplicar cada operación de forma inmutable.
 * El resultado es ```52```, y el pipeline asegura que cada paso produce un nuevo valor sin alterar el original.
 
+## Ejemplo de un pipeline
+
+Veamos un ejemplo de un pipeline en PHP para procesar una cadena de texto. Este pipeline realiza tres pasos:
+1. Convertir el texto a minúsculas.
+2. Eliminar espacios en blanco adicionales.
+3. Reemplazar ciertas palabras en el texto.
+
+> Este ejemplo incluye la clase principal Pipeline y las clases de procesamiento que definen cada operación.
+
+
 # Routing en php
 # Expresiones regulares
 
