@@ -577,23 +577,199 @@ class AuthMiddleware
 ### 4. Crear el Middleware de Roles
 **Archivo:** ```middleware/RoleMiddleware.php```
 
+```php
+<?php
+
+namespace Middleware;
+
+class RoleMiddleware
+{
+    private $allowedRoles;
+
+    public function __construct($allowedRoles = [])
+    {
+        $this->allowedRoles = $allowedRoles;
+    }
+
+    public function handle()
+    {
+        session_start();
+
+        if (!empty($this->allowedRoles) && !in_array($_SESSION['role'], $this->allowedRoles)) {
+            header('Location: /pages/login.php?error=forbidden');
+            exit();
+        }
+    }
+}
+```
+
 ### 5. Crear la Página de Inicio de Sesión
 **Archivo:** ```pages/login.php```
+
+```php
+<?php
+session_start();
+$error = isset($_GET['error']) ? $_GET['error'] : '';
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <?php if ($error): ?>
+        <p style="color:red;">
+            <?php
+            if ($error == 'not_authenticated') {
+                echo "Debes iniciar sesión primero.";
+            } elseif ($error == 'forbidden') {
+                echo "No tienes permiso para acceder a esta página.";
+            }
+            ?>
+        </p>
+    <?php endif; ?>
+    <form method="POST" action="login_process.php">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+</body>
+</html>
+```
 
 ### 6. Procesar el Inicio de Sesión
 **Archivo:** ```login_process.php```
 
+```php
+<?php
+session_start();
+$users = require __DIR__ . '/../users.php';  // Ruta corregida para cargar correctamente users.php
+
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
+
+if (isset($users[$username]) && $users[$username]['password'] === $password) {
+    $_SESSION['user'] = $username;
+    $_SESSION['role'] = $users[$username]['role'];
+    header('Location: /pages/protected_page.php');
+    exit();
+} else {
+    header('Location: /pages/login.php?error=invalid_credentials');
+    exit();
+}
+```
+
 ### 7. Crear Páginas Protegidas
 **Archivo:** ```pages/protected_page.php```
+
+```php
+<?php
+
+require_once __DIR__ . '/../middleware/AuthMiddleware.php';
+use Middleware\AuthMiddleware;
+
+$authMiddleware = new AuthMiddleware();
+$authMiddleware->handle();
+$userRole = $_SESSION['role'] ?? null;
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Protegida</title>
+</head>
+<body>
+    <h1>Bienvenido a la Página Protegida</h1>
+    
+    <?php if ($userRole === 'admin'): ?>
+        <p>Como administrador, tienes acceso a todas las páginas.</p>
+        <a href="/pages/user_page.php">Ir a la página de usuario</a>
+        <br>
+        <a href="/pages/admin_page.php">Ir a la página de administración</a>
+    <?php elseif ($userRole === 'user'): ?>
+        <p>Como usuario, solo tienes acceso a tu página.</p>
+        <a href="/pages/user_page.php">Ir a tu página de usuario</a>
+    <?php else: ?>
+        <p>No tienes permiso para acceder a esta página.</p>
+    <?php endif; ?>
+
+    <a href="/logout.php">Cerrar sesión</a>
+</body>
+</html>
+```
 
 ### 8. Crear Página de Usuario
 **Archivo:** ```pages/user_page.php```
 
+```php
+<?php
+
+require_once __DIR__ . '/../middleware/AuthMiddleware.php';
+use Middleware\AuthMiddleware;
+
+$authMiddleware = new AuthMiddleware();
+$authMiddleware->handle();
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Usuario</title>
+</head>
+<body>
+    <h1>Bienvenido a la Página de Usuario</h1>
+    <p>Solo los usuarios autenticados pueden ver esta página.</p>
+    <a href="/logout.php">Cerrar sesión</a>
+</body>
+</html>
+```
+
 ### 9. Crear Página de Administración
 **Archivo:** ```pages/admin_page.php```
 
+```php
+<?php
+
+require_once __DIR__ . '/../middleware/AuthMiddleware.php';
+use Middleware\AuthMiddleware;
+
+$authMiddleware = new AuthMiddleware();
+
+$authMiddleware->handle();
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Administración</title>
+</head>
+<body>
+    <h1>Bienvenido a la Página de Administración</h1>
+    <p>Solo los administradores pueden ver esta página.</p>
+    <a href="/logout.php">Cerrar sesión</a>
+</body>
+</html>
+```
+
 ### 10. Cerrar Sesión
 **Archivo:** ```logout.php```
+
+```php
+<?php
+session_start();
+session_destroy();
+header('Location: /pages/login.php');
+exit();
+```
 
 # Patrón de diseño pipeline
 # Routing en php
