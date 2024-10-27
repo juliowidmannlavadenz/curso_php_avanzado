@@ -836,6 +836,12 @@ También conocido como ```Pipeline Pattern``` o ```Chain of Responsibility```, e
 
 En PHP, un Pipeline típico funciona mediante clases que procesan datos y pasan los resultados al siguiente procesador en la secuencia. Esto es particularmente útil cuando quieres construir sistemas extensibles y modulares donde las etapas del procesamiento pueden añadirse, quitarse o cambiarse sin afectar otras partes del sistema.
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/patron_pipeline.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ## Características principales:
 
 ### 1. Encadenamiento de Operaciones:
