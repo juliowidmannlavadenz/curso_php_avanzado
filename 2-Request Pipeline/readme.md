@@ -1384,9 +1384,9 @@ Este proyecto demuestra cómo implementar un sistema de enrutamiento básico y c
 5. **Vistas:** Formularios y tablas que muestran la interfaz de usuario para agregar y ver productos.
 
 ### Conclusiones:
-> Este ejemplo logra estructurar una aplicación de PHP puro utilizando enrutamiento y controladores de forma sencilla, ideal para proyectos pequeños.
-> La separación de responsabilidades permite que cada archivo tenga un propósito claro, facilitando el mantenimiento y la expansión futura del proyecto.
-> Este esquema también es una introducción útil para aprender sobre arquitecturas de controladores y rutas en PHP antes de avanzar a frameworks más robustos como Laravel.
+> * Este ejemplo logra estructurar una aplicación de PHP puro utilizando enrutamiento y controladores de forma sencilla, ideal para proyectos pequeños.
+> * La separación de responsabilidades permite que cada archivo tenga un propósito claro, facilitando el mantenimiento y la expansión futura del proyecto.
+> * Este esquema también es una introducción útil para aprender sobre arquitecturas de controladores y rutas en PHP antes de avanzar a frameworks más robustos como Laravel.
 
 # Expresiones regulares
 
