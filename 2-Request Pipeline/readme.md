@@ -1236,18 +1236,142 @@ function route($uri, $method) {
 ### 5. Creación del controlador
 **Archivo:** ```src/Controllers/ProductController.php```
 
+```php
+<?php
+
+require_once __DIR__ . '/../Database.php';
+
+class ProductController {
+    private $db;
+
+    public function __construct() {
+        $this->db = new Database();
+    }
+
+    public function showAddProductForm() {
+        require_once __DIR__ . '/../../views/add_product.php';
+    }
+
+    public function addProduct() {
+        $name = $_POST['name'];
+        $quantity = $_POST['quantity'];
+        $price = $_POST['price'];
+
+        $stmt = $this->db->getConnection()->prepare("INSERT INTO products (name, quantity, price) VALUES (?, ?, ?)");
+        $stmt->bind_param("sid", $name, $quantity, $price);
+        $stmt->execute();
+
+        header("Location: /kardex");
+    }
+
+    public function showKardex() {
+        $result = $this->db->getConnection()->query("SELECT * FROM products");
+        $products = $result->fetch_all(MYSQLI_ASSOC);
+
+        require_once __DIR__ . '/../../views/kardex.php';
+    }
+}
+```
+### Explicación:
+
+* **Rol:** Contiene la lógica de negocio relacionada con los productos, como agregar productos y mostrar el Kardex.
+* **Funcionamiento:** Tiene tres métodos principales:
+  
+    * ```showAddProductForm```: Carga la vista ```add_product.php``` para agregar productos.
+    * ```addProduct```: Procesa los datos del formulario, inserta el producto en la base de datos y redirige al Kardex.
+    * ```showKardex```: Recupera todos los productos de la base de datos y carga la vista ```kardex.php``` para mostrarlos.
+
 ### 6. Conexion a la base de datos
 **Archivo:** ```src/Database.php```
+
+```php
+<?php
+
+class Database {
+    private $connection;
+
+    public function __construct() {
+        $this->connection = new mysqli("localhost", "root", "", "routingphp");
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+    }
+
+    public function getConnection() {
+        return $this->connection;
+    }
+}
+```
+
+### Explicación:
+
+* **Rol:** Establece la conexión con la base de datos MySQL.
+* **Funcionamiento:** Usa la extensión ```mysqli``` de PHP para conectarse a una base de datos llamada "kardex" en el servidor local. Si la conexión falla, muestra un mensaje de error. Proporciona un método ```getConnection``` para obtener esta conexión en los controladores.
 
 ### 7. Formulario para agregar productos
 **Archivo:** ```views/add_product.php```
 
+```php
+<!DOCTYPE html>
+<html>
+<head><title>Agregar Producto</title></head>
+<body>
+    <h1>Agregar Producto</h1>
+    <form action="/add-product" method="POST">
+        <label>Nombre del Producto:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Cantidad:</label><br>
+        <input type="number" name="quantity" required><br><br>
+
+        <label>Precio:</label><br>
+        <input type="text" name="price" required><br><br>
+
+        <input type="submit" value="Agregar">
+    </form>
+</body>
+</html>
+```
+
+### Explicación:
+
+* **Rol:** Formulario HTML que permite al usuario ingresar un nuevo producto.
+* **Funcionamiento:** Incluye un formulario que envía los datos al controlador ```ProductController.php``` a través de la ruta ```/add-product``` utilizando el método POST.
+
+
 ### 8. Vista del kardex
 **Archivo:** ```views/kardex.php```
 
+```php
+<!DOCTYPE html>
+<html>
+<head><title>Kardex de Productos</title></head>
+<body>
+    <h1>Kardex de Productos</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+        <?php foreach ($products as $product): ?>
+            <tr>
+                <td><?= $product['id'] ?></td>
+                <td><?= $product['name'] ?></td>
+                <td><?= $product['quantity'] ?></td>
+                <td><?= $product['price'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>
+```
 
+### Explicación:
 
-
+* **Rol:** Muestra el Kardex de productos en una tabla HTML.
+* **Funcionamiento:** Recibe los datos de productos (obtenidos del controlador) y los presenta en una tabla. Cada fila muestra el ID, nombre, cantidad y precio de cada producto en la base de datos.
 
 # Expresiones regulares
 
