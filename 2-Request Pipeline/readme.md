@@ -1140,6 +1140,115 @@ Buscar la URL en el arreglo de rutas y ejecutar la lógica asociada (puede ser u
 ### 5. Manejar rutas dinámicas:
 Utilizar expresiones regulares o patrones para reconocer rutas que contienen variables.
 
+## Ejemplo completo de routing en PHP
+
+Este ejemplo implementa un sistema de Kardex de productos, utilizando enrutamiento básico y estructurado en archivos individuales para mantener la claridad y la organización del código. 
+
+* El sistema permite agregar productos y visualizar una lista de ellos, o "Kardex".
+* Usa rutas para procesar y redirigir solicitudes.
+* Controladores para manejar la lógica.
+* Un formulario para ingresar productos a la base de datos MySQL.
+
+### Configuraciones iniciales
+
+### 1. Estructura de archivos del Proyecto
+
+```php
+routingPHP/
+├── public/
+│   └── index.php         # Punto de entrada
+├── src/
+│   ├── Controllers/
+│   │   ├── ProductController.php
+│   └── Database.php      # Conexión a la base de datos
+├── views/
+│   ├── add_product.php   # Formulario para agregar productos
+│   └── kardex.php        # Página para ver el kardex de productos
+└── routes.php            # Definición de rutas
+```
+### 2. Configuración de la base de datos MySQL
+
+```php
+CREATE DATABASE routingphp;
+USE routingphp;
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT DEFAULT 0,
+    price DECIMAL(10, 2) NOT NULL
+);
+```
+
+### 3. Punto de entrada
+**Archivo:** ```public/index.php```
+
+```php
+<?php
+
+require_once __DIR__ . '/../src/Database.php';
+require_once __DIR__ . '/../routes.php';
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+route($uri, $_SERVER['REQUEST_METHOD']);
+```
+
+### Explicación:
+
+* **Rol:** Punto de entrada principal de la aplicación. Captura la solicitud del usuario, determina la URI (parte de la URL que viene después del dominio) y redirige la solicitud a la ruta correspondiente.
+* **Funcionamiento:** Usa parse_url para obtener la URI y $_SERVER['REQUEST_METHOD'] para conocer el método HTTP usado. Llama a la función route de routes.php con esta información para procesar la solicitud.
+
+### 4. Configuración de las rutas  
+**Archivo:** ```routes.php```
+
+```php
+<?php
+// routes.php
+
+require_once __DIR__ . '/src/Controllers/ProductController.php';
+
+function route($uri, $method) {
+    if ($uri === '/' && $method === 'GET') {
+        // Redirige automáticamente a la página kardex o muestra la página principal
+        header("Location: /kardex");
+        exit();
+    } elseif ($uri === '/add-product' && $method === 'GET') {
+        (new ProductController())->showAddProductForm();
+    } elseif ($uri === '/add-product' && $method === 'POST') {
+        (new ProductController())->addProduct();
+    } elseif (preg_match('/^\/kardex$/', $uri)) {
+        (new ProductController())->showKardex();
+    } else {
+        echo "404 Not Found";
+    }
+}
+```
+### Explicación:
+
+* **Rol:** Define las rutas de la aplicación y asigna una acción específica a cada ruta según la URI y el método HTTP.
+* **Funcionamiento:** Evalúa la URI recibida y el método HTTP. Usa expresiones regulares y condicionales ```if-else``` para verificar qué ruta debe ejecutarse. Las rutas posibles son:
+  
+    * ```GET /add-product```: Muestra el formulario de productos.
+    * ```POST /add-product```: Envía los datos del formulario a la base de datos.
+    * ```GET /kardex```: Muestra la vista del Kardex con los productos.
+
+### 5. Creación del controlador
+**Archivo:** ```src/Controllers/ProductController.php``
+
+### 6. Conexion a la base de datos
+**Archivo:** ```src/Database.php``
+
+### 7. Formulario para agregar productos
+**Archivo:** ```views/add_product.php``
+
+### 8. Vista del kardex
+**Archivo:** ```views/kardex.php``
+
+
+
+
+
 # Expresiones regulares
 
 
