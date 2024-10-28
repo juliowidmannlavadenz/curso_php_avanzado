@@ -1456,13 +1456,13 @@ Las expresiones regulares (```regex``` o ```regexp```) son secuencias de caracte
 Una expresión regular se compone de símbolos, caracteres y operadores que representan patrones específicos. Al aplicar una expresión regular a un texto, el motor de búsqueda compara el patrón con el texto y busca coincidencias, lo que permite:
 
 ### 1. Validar entradas: 
-Comprobar si una cadena sigue un formato específico, como un correo electrónico o un número de teléfono.
+* Comprobar si una cadena sigue un formato específico, como un correo electrónico o un número de teléfono.
 
 ### 2. Buscar y extraer información: 
-Localizar palabras o patrones específicos dentro de un texto.
+* Localizar palabras o patrones específicos dentro de un texto.
 
 ### 3. Reemplazar texto: 
-Cambiar partes del texto que coinciden con el patrón por otro valor.
+* Cambiar partes del texto que coinciden con el patrón por otro valor.
 
 
 
