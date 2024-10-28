@@ -1567,6 +1567,33 @@ print_r($array);  // Devuelve ["uno", "dos", "tres", "cuatro"]
 ?>
 ```
 
+## Caracteres Especiales en Expresiones Regulares de PHP
+
+Algunos de los caracteres más usados en las expresiones regulares de PHP son:
+
+| Expresión | Descripción                              | Ejemplo           | Coincidencia                               |
+|-----------|------------------------------------------|-------------------|--------------------------------------------|
+| `.`       | Cualquier carácter (excepto nueva línea) | `c.t`            | `cat`, `cut`, `cot`                       |
+| `^`       | Inicio de línea                          | `^Hola`          | Coincide con `Hola` solo al inicio de una línea |
+| `$`       | Fin de línea                             | `adios$`         | Coincide con `adios` solo al final de una línea |
+| `*`       | Cero o más repeticiones                  | `a*`             | `a`, `aa`, `aaa`, o vacío                 |
+| `+`       | Una o más repeticiones                   | `a+`             | `a`, `aa`, `aaa`                          |
+| `?`       | Cero o una repetición                    | `colou?r`        | `color`, `colour`                         |
+| `{n}`     | Exactamente n repeticiones               | `a{3}`           | `aaa`                                     |
+| `{n,}`    | n o más repeticiones                     | `a{2,}`          | `aa`, `aaa`, `aaaa`, etc.                 |
+| `{n,m}`   | Entre n y m repeticiones                 | `a{2,4}`         | `aa`, `aaa`, `aaaa`                       |
+| `[]`      | Conjunto de caracteres                   | `[abc]`          | `a`, `b`, o `c`                           |
+| `[^]`     | Negación de un conjunto                  | `[^abc]`         | Cualquier carácter excepto `a`, `b`, o `c`|
+| `|`       | Alternancia (OR)                         | `a|b`            | `a` o `b`                                 |
+| `\d`      | Dígito                                   | `\d{3}`          | Tres dígitos seguidos, como `123`         |
+| `\D`      | No es un dígito                          | `\D`             | Cualquier carácter excepto dígitos        |
+| `\w`      | Caracter alfanumérico                    | `\w+`            | `hola`, `123`, `abc123`                   |
+| `\W`      | No es alfanumérico                       | `\W`             | Cualquier símbolo o espacio               |
+| `\s`      | Espacio en blanco                        | `\s+`            | Uno o más espacios                        |
+| `\S`      | No es un espacio en blanco               | `\S`             | Cualquier carácter que no sea espacio     |
+
+
+
 
 
 
