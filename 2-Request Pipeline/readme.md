@@ -1787,7 +1787,9 @@ Cada expresión regular se utiliza para definir patrones específicos que coinci
 
 * **Coincidencia:** Coincide únicamente con la URL /contacto. Si un usuario accede a esta URL, la función asociada se ejecutará.
 
+### Resumen:
 
+El código implementa un sistema de routing básico en PHP que permite gestionar diferentes rutas utilizando expresiones regulares. Con la clase Router, se pueden registrar rutas, resolver la acción correspondiente a una URL solicitada y manejar errores de forma efectiva. 
 
 
 
