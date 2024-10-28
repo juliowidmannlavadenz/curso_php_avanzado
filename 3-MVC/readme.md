@@ -44,6 +44,26 @@ class Producto extends Model
 
 * Este modelo tiene funciones básicas para gestionar productos y calcular el valor del inventario.
 
+## Vista:
+
+La vista es la capa de presentación de la aplicación, responsable de mostrar los datos y recibir la interacción del usuario. Su función principal es:
+
+* Mostrar la información de manera comprensible y amigable.
+* Presentar formularios o interfaces de entrada para que el usuario pueda interactuar con la aplicación.
+* Recibir los datos que el modelo envía y reflejar cualquier cambio que se realice en ellos.
+
+### Ejemplo:
+En una tienda en línea, la vista podría ser una página de productos donde el usuario puede ver la lista de artículos disponibles y seleccionar uno para obtener más información.
+
+```Laravel 11```
+
+```php
+@foreach($productos as $producto)
+    <div>{{ $producto->nombre }} - <a href="{{ route('productos.show', $producto->id) }}">Ver más</a></div>
+@endforeach
+```
+
+* Esta vista recorre una lista de productos y muestra el nombre de cada uno con un enlace para ver más detalles.
 
 
 
