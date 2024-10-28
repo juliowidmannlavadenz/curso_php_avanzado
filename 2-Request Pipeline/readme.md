@@ -1447,5 +1447,26 @@ Este proyecto demuestra cómo implementar un sistema de enrutamiento básico y c
 > * Este esquema también es una introducción útil para aprender sobre arquitecturas de controladores y rutas en PHP antes de avanzar a frameworks más robustos como Laravel.
 
 # Expresiones regulares
+## ¿Qué son las expresiones regulares?
+
+Las expresiones regulares (```regex``` o ```regexp```) son secuencias de caracteres que forman un patrón de búsqueda. Este patrón se utiliza para realizar coincidencias, búsqueda y manipulación de texto en cadenas. Las expresiones regulares son una herramienta poderosa para validar, encontrar y reemplazar texto de forma eficiente y flexible.
+
+## ¿Como funcionan?
+
+Una expresión regular se compone de símbolos, caracteres y operadores que representan patrones específicos. Al aplicar una expresión regular a un texto, el motor de búsqueda compara el patrón con el texto y busca coincidencias, lo que permite:
+
+### 1. Validar entradas: 
+Comprobar si una cadena sigue un formato específico, como un correo electrónico o un número de teléfono.
+
+### 2. Buscar y extraer información: 
+Localizar palabras o patrones específicos dentro de un texto.
+
+### 3. Reemplazar texto: 
+Cambiar partes del texto que coinciden con el patrón por otro valor.
+
+
+
+
+
 
 
