@@ -1464,7 +1464,11 @@ Una expresión regular se compone de símbolos, caracteres y operadores que repr
 ### 3. Reemplazar texto: 
 * Cambiar partes del texto que coinciden con el patrón por otro valor.
 
+## Ejemplos comunes de expresiones regulares
 
+* **Validar correo electrónico:** ```^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$```
+* **Buscar números:** ```\d+``` (encuentra secuencias de uno o más dígitos)
+* **Extraer palabras:** ```\b\w+\b``` (encuentra palabras completas en un texto)
 
 
 
