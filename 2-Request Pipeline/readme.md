@@ -1766,12 +1766,12 @@ Cada expresión regular se utiliza para definir patrones específicos que coinci
 
 * **Componentes:**
   
-* ```^```: Marca el inicio de la cadena.
-* ```\/```: Coincide con el carácter ```/```.
-* ```categorias```: Coincide con la palabra "categorias".
-* ```\/```: Coincide con otro carácter ```/```.
-* ```(\w+)```: Captura uno o más caracteres de palabra. ```\w``` representa letras, números y guiones bajos, y el signo ```+``` indica que debe haber al menos uno o más caracteres.
-* ```$```: Marca el final de la cadena.
+    * ```^```: Marca el inicio de la cadena.
+    * ```\/```: Coincide con el carácter ```/```.
+    * ```categorias```: Coincide con la palabra "categorias".
+    * ```\/```: Coincide con otro carácter ```/```.
+    * ```(\w+)```: Captura uno o más caracteres de palabra. ```\w``` representa letras, números y guiones bajos, y el signo ```+``` indica que debe haber al menos uno o más caracteres.
+    * ```$```: Marca el final de la cadena.
   
 * **Coincidencia:** Coincide con URLs como ```/categorias/electronica```, donde ```electronica``` es el nombre de la categoría. El nombre de la categoría se captura y se pasa como parámetro a la función asociada.
 
