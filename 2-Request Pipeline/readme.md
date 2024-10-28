@@ -1671,7 +1671,7 @@ $router->resolver($url);
 ```
 ### 3. Explicación de las Funciones
 
-**1. ```registrarRuta($patron, $accion)```**
+1. ```registrarRuta($patron, $accion)```
 * Propósito: Permite registrar una nueva ruta en el router.
 * Parámetros:
 
@@ -1680,7 +1680,7 @@ $router->resolver($url);
 
 * **Función:** Esta función añade el patrón y su correspondiente acción al array ```$rutas```, que se utiliza posteriormente para resolver las rutas.
 
-**2. ```resolver($url)```**
+2. ```resolver($url)```
 
 * **Propósito:** Determina la acción correspondiente a la URL solicitada y la ejecuta.
 * **Parámetros:**
@@ -1689,7 +1689,7 @@ $router->resolver($url);
       
 * **Función:** Esta función itera sobre las rutas registradas, verifica si hay coincidencias utilizando ```preg_match```, y si encuentra una coincidencia, ejecuta la acción asociada a esa ruta. Si no hay coincidencias, llama a ```mostrarError404()```.
 
-**3. ```mostrarError404()```**
+3. ```mostrarError404()```
 
 * ```Propósito:``` Muestra un mensaje de error cuando la URL solicitada no coincide con ninguna de las rutas registradas.
 * ```Función:``` Esta función establece el código de estado HTTP en 404 y muestra el mensaje "Ruta no encontrada: 404" al usuario. Esto es útil para informar que la página solicitada no existe.
