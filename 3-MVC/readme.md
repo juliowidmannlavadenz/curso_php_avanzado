@@ -20,7 +20,31 @@ El modelo es el componente que maneja toda la lógica de negocios, las reglas de
 * Aplicar las reglas de negocio y la lógica específica de la aplicación.
 * Notificar cambios en los datos a la vista para que ésta se actualice.
 
-**Ejemplo:** En una aplicación de inventario de productos, el modelo se encargaría de gestionar el inventario, incluyendo funciones para agregar, actualizar o eliminar productos y calcular el valor del inventario.
+### Ejemplo:
+En una aplicación de inventario de productos, el modelo se encargaría de gestionar el inventario, incluyendo funciones para agregar, actualizar o eliminar productos y calcular el valor del inventario.
+
+```Laravel 11```
+
+```php
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Producto extends Model
+{
+    protected $fillable = ['nombre', 'cantidad', 'precio'];
+
+    public function agregarProducto($data) { /* lógica para agregar */ }
+    public function actualizarProducto($id, $data) { /* lógica para actualizar */ }
+    public function eliminarProducto($id) { /* lógica para eliminar */ }
+    public function calcularValorInventario() { return $this->sum(DB::raw('cantidad * precio')); }
+}
+```
+
+* Este modelo tiene funciones básicas para gestionar productos y calcular el valor del inventario.
+
+
 
 
 
