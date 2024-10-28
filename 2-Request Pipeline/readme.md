@@ -1678,5 +1678,43 @@ $router->resolver($url);
 * ```Propósito:``` Muestra un mensaje de error cuando la URL solicitada no coincide con ninguna de las rutas registradas.
 * ```Función:``` Esta función establece el código de estado HTTP en 404 y muestra el mensaje "Ruta no encontrada: 404" al usuario. Esto es útil para informar que la página solicitada no existe.
 
+### Acceder a las Rutas:
+Abrimos el navegador y probamos las siguientes URLs para ver cómo la clase Router resuelve las rutas:
+
+1. **Página de inicio:**
+
+```php
+http://routing.test/
+```
+2.  **Producto específico:**
+
+```php
+http://routing.test/productos/123
+```
+* Debería mostrar: "Página de producto con ID: 123".
+
+3.  **Categoría específica:**
+
+```php
+http://routing.test/categorias/electronica
+```
+* Debería mostrar: "Página de categoría: electronica".
+
+4.  **Página de contacto:**
+
+```php
+http://routing.test/contacto
+```
+* Debería mostrar: "Página de contacto".
+
+5.  **Ruta no Encontrada:**
+Si accedes a una ruta no definida, como:
+
+```php
+http://routing.test/no-existe
+```
+* El router mostrará Ruta no encontrada: ```404``` y devolverá el código de respuesta ```404``` para indicar que la página no existe.
+
+
 
 
