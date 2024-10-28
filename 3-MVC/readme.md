@@ -11,6 +11,12 @@ El modelo MVC divide una aplicación en tres componentes independientes:
   
 > Esta separación mejora la organización del código y permite el desarrollo paralelo, ya que los desarrolladores pueden trabajar en cada componente de manera independiente.
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/mvc_grafico.png?raw=true" alt="Imagen style />
+</p>
+<br>
+
 ## Partes del modelo MVC
 ## Modelo:
 
