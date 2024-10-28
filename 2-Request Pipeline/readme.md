@@ -1775,7 +1775,17 @@ Cada expresión regular se utiliza para definir patrones específicos que coinci
   
 * **Coincidencia:** Coincide con URLs como ```/categorias/electronica```, donde ```electronica``` es el nombre de la categoría. El nombre de la categoría se captura y se pasa como parámetro a la función asociada.
 
+3. ```/^\/contacto$/```
 
+* **Descripción:** Esta expresión regular se utiliza para coincidir con la URL de la página de contacto.
+* **Componentes:**
+
+    * ```^```: Marca el inicio de la cadena.
+    * ```\/```: Coincide con el carácter /.
+    * ```contacto```: Coincide con la palabra "contacto".
+    * ```$```: Marca el final de la cadena.
+
+* **Coincidencia:** Coincide únicamente con la URL /contacto. Si un usuario accede a esta URL, la función asociada se ejecutará.
 
 
 
