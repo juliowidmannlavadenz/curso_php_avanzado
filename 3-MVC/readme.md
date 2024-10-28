@@ -13,7 +13,7 @@ El modelo MVC divide una aplicación en tres componentes independientes:
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/mvc_grafico.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/mvc_grafico2.png?raw=true" alt="Imagen width="400" style />
 </p>
 <br>
 
