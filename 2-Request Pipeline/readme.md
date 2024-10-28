@@ -1735,6 +1735,33 @@ http://regex.test/no-existe
 
 Cada expresión regular se utiliza para definir patrones específicos que coinciden con las URLs solicitadas.
 
+1. ```/^\/$/```
+
+* **Descripción:** Esta expresión regular se utiliza para coincidir con la raíz del sitio (homepage).
+* **Componentes:**
+
+    * ```^```: Marca el inicio de la cadena.
+    * ```\/```: Coincide con el carácter / (la barra inclinada). Se escapa con \ para indicar que es un carácter literal.
+    * ```$```: Marca el final de la cadena.
+  
+* **Coincidencia:** Coincide únicamente con la URL ```/```. Por lo tanto, si un usuario accede a la raíz del dominio (por ejemplo, ```http://regex.test/```), esta expresión se activa y se ejecuta la función correspondiente.
+
+2. ```/^\/productos\/(\d+)$/```
+   
+* **Descripción:** Esta expresión regular se utiliza para coincidir con las URLs que representan páginas de productos específicos.
+* **Componentes:**
+
+    * ```^```: Marca el inicio de la cadena.
+    * ```\/```: Coincide con el carácter /.
+    * ```productos```: Coincide con la palabra "productos".
+    * ```\/```: Coincide con otro carácter /.
+    * ```(\d+)```: Captura uno o más dígitos. \d representa cualquier dígito (equivalente a [0-9]) y el signo + indica que debe haber al menos uno o más dígitos.
+    * ```$```: Marca el final de la cadena.
+  
+* Coincidencia: Coincide con URLs como /productos/45, donde 45 sería el ID del producto. El ID del producto se captura y se pasa como parámetro a la función asociada.
+
+
+
 
 
 
