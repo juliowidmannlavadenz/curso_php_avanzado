@@ -1592,9 +1592,91 @@ Algunos de los caracteres más usados en las expresiones regulares de PHP son:
 | `\s`      | Espacio en blanco                        | `\s+`            | Uno o más espacios                        |
 | `\S`      | No es un espacio en blanco               | `\S`             | Cualquier carácter que no sea espacio     |
 
+## Ejemplo de expresiones regulares con PHP
+
+Este ejemplo permite gestionar diferentes URLs y redirigirlas a funciones específicas que procesan la lógica de cada página. 
+
+* Al utilizar expresiones regulares, el router puede identificar patrones en las URLs, lo que permite crear rutas dinámicas y amigables para el usuario.
+* Este enfoque modular facilita la organización del código y mejora la mantenibilidad de las aplicaciones web.
+
+**Archivo:** ```regex.test/index.php```
+
+```php
+<?php
+
+class Router {
+    private $rutas = [];
+
+    public function registrarRuta($patron, $accion) {
+        $this->rutas[$patron] = $accion;
+    }
+
+    public function resolver($url) {
+        foreach ($this->rutas as $patron => $accion) {
+            if (preg_match($patron, $url, $matches)) {
+                array_shift($matches); 
+                call_user_func_array($accion, $matches); 
+                return;
+            }
+        }
+      
+        $this->mostrarError404();
+    }
+
+    private function mostrarError404() {
+        http_response_code(404);
+        echo "Ruta no encontrada: 404";
+    }
+}
 
 
+$router = new Router();
 
+$router->registrarRuta("/^\/$/", function() {
+    echo "<h1>Página de inicio</h1>";
+});
+
+$router->registrarRuta("/^\/productos\/(\d+)$/", function($id) {
+    echo "<h1>Página de producto con ID: $id<h1>";
+});
+
+$router->registrarRuta("/^\/categorias\/(\w+)$/", function($categoria) {
+    echo "<h1>Página de categoría: $categoria<h1>";
+});
+
+$router->registrarRuta("/^\/contacto$/", function() {
+    echo "<h1>Página de contacto<h1>";
+});
+
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$router->resolver($url);
+
+?>
+```
+### Explicación de las Funciones
+
+**1. ```registrarRuta($patron, $accion)```**
+* Propósito: Permite registrar una nueva ruta en el router.
+* Parámetros:
+
+    * ```$patron:``` Una expresión regular que define el patrón de la URL
+    * ```$accion:``` Una función de callback que se ejecutará si la URL coincide con el patrón.
+
+* **Función:** Esta función añade el patrón y su correspondiente acción al array ```$rutas```, que se utiliza posteriormente para resolver las rutas.
+
+**2. ```resolver($url)```**
+
+* **Propósito:** Determina la acción correspondiente a la URL solicitada y la ejecuta.
+* **Parámetros:**
+
+    * ```$url```: La URL que se va a analizar para encontrar una coincidencia.
+      
+* **Función:** Esta función itera sobre las rutas registradas, verifica si hay coincidencias utilizando ```preg_match```, y si encuentra una coincidencia, ejecuta la acción asociada a esa ruta. Si no hay coincidencias, llama a ```mostrarError404()```.
+
+**3. ```mostrarError404()```**
+
+* ```Propósito:``` Muestra un mensaje de error cuando la URL solicitada no coincide con ninguna de las rutas registradas.
+* ```Función:``` Esta función establece el código de estado HTTP en 404 y muestra el mensaje "Ruta no encontrada: 404" al usuario. Esto es útil para informar que la página solicitada no existe.
 
 
 
