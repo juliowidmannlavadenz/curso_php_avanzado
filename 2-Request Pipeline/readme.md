@@ -1731,6 +1731,11 @@ http://regex.test/no-existe
 ```
 * El router mostrará Ruta no encontrada: ```404``` y devolverá el código de respuesta ```404``` para indicar que la página no existe.
 
+### 4. Expresiones regulares utilizadas en el routing:
+
+Cada expresión regular se utiliza para definir patrones específicos que coinciden con las URLs solicitadas.
+
+
 
 
 
