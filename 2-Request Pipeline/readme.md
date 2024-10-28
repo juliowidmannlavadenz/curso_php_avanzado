@@ -1760,6 +1760,20 @@ Cada expresión regular se utiliza para definir patrones específicos que coinci
   
 * Coincidencia: Coincide con URLs como /productos/45, donde 45 sería el ID del producto. El ID del producto se captura y se pasa como parámetro a la función asociada.
 
+3. ```/^\/categorias\/(\w+)$/```
+
+* **Descripción:** Esta expresión regular se utiliza para coincidir con las URLs que representan páginas de categorías específicas.
+
+* **Componentes:**
+  
+* ```^```: Marca el inicio de la cadena.
+* ```\/```: Coincide con el carácter ```/```.
+* ```categorias```: Coincide con la palabra "categorias".
+* ```\/```: Coincide con otro carácter ```/```.
+* ```(\w+)```: Captura uno o más caracteres de palabra. ```\w``` representa letras, números y guiones bajos, y el signo ```+``` indica que debe haber al menos uno o más caracteres.
+* ```$```: Marca el final de la cadena.
+  
+* **Coincidencia:** Coincide con URLs como ```/categorias/electronica```, donde ```electronica``` es el nombre de la categoría. El nombre de la categoría se captura y se pasa como parámetro a la función asociada.
 
 
 
