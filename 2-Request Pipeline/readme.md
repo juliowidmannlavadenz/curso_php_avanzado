@@ -1495,5 +1495,19 @@ Cuadro que describe algunas de las expresiones regulares más comunes:
 | `\s`      | Espacio en blanco                        | `\s+`            | Uno o más espacios                        |
 | `\S`      | No es un espacio en blanco               | `\S`             | Cualquier carácter que no sea espacio     |
 
+## Expresiones regulares en PHP
+
+En PHP, las expresiones regulares se pueden manejar utilizando dos tipos principales de funciones:
+
+### 1. PCRE (Perl Compatible Regular Expressions): 
+Usan funciones como ```preg_match```, ```preg_match_all```, ```preg_replace```, y son las más comunes por su compatibilidad y flexibilidad.
+
+### 2. POSIX: 
+Aunque existen funciones de POSIX como ```ereg```, están obsoletas en versiones modernas de PHP y no se recomiendan.
+
+
+
+
+
 
 
