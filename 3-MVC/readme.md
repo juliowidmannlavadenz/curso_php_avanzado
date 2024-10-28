@@ -65,8 +65,43 @@ En una tienda en línea, la vista podría ser una página de productos donde el 
 
 * Esta vista recorre una lista de productos y muestra el nombre de cada uno con un enlace para ver más detalles.
 
+## Controlador:
 
+El controlador actúa como intermediario entre la vista y el modelo, gestionando la lógica de entrada del usuario. Sus principales responsabilidades son:
 
+* Interpretar las acciones del usuario (como clics o datos de formularios).
+* Actualizar el modelo en respuesta a las entradas del usuario.
+* Solicitar a la vista que se actualice para reflejar los cambios en el modelo.
+
+### Ejemplo:
+En una aplicación bancaria, si el usuario desea transferir dinero, el controlador recibe esta acción, procesa la solicitud, consulta o actualiza el modelo (como el saldo de las cuentas involucradas) y finalmente actualiza la vista con el saldo actual.
+
+```Laravel 11```
+
+```php
+<?php
+namespace App\Http\Controllers;
+
+use App\Models\Cuenta;
+
+class TransferenciaController extends Controller
+{
+    public function transferir($cuentaOrigenId, $cuentaDestinoId, $monto) {
+        $cuentaOrigen = Cuenta::find($cuentaOrigenId);
+        $cuentaDestino = Cuenta::find($cuentaDestinoId);
+        
+        $cuentaOrigen->saldo -= $monto;
+        $cuentaDestino->saldo += $monto;
+
+        $cuentaOrigen->save();
+        $cuentaDestino->save();
+
+        return view('saldo.actual', ['cuenta' => $cuentaOrigen]);
+    }
+}
+```
+
+* Este controlador procesa la transferencia, actualiza los saldos y devuelve la vista con el saldo actualizado de la cuenta de origen.
 
 
 # Sintaxis alternativa a las estructuras repetitivas
