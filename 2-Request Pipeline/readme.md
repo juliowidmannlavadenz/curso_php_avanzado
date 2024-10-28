@@ -1505,7 +1505,67 @@ Usan funciones como ```preg_match```, ```preg_match_all```, ```preg_replace```, 
 ### 2. POSIX: 
 Aunque existen funciones de POSIX como ```ereg```, están obsoletas en versiones modernas de PHP y no se recomiendan.
 
+## Ejemplos y Funciones Comunes de PCRE
 
+Algunos ejemplos y las funciones más usadas:
+
+### 1. ```preg_match``` (Coincidir patrón en una cadena)
+Esta función verifica si una cadena cumple con un patrón de expresión regular.
+
+```php
+<?php
+$cadena = "hola@example.com";
+$patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+
+if (preg_match($patron, $cadena)) {
+    echo "El correo es válido";
+} else {
+    echo "El correo no es válido";
+}
+?>
+```
+
+### 2. ```preg_match_all`` (Coincidir todas las apariciones de un patrón en una cadena)
+
+Esta función encuentra todas las coincidencias de un patrón en una cadena y las almacena en un array.
+
+```php
+<?php
+$cadena = "123-456-7890 y 987-654-3210 son números de ejemplo.";
+$patron = "/\d{3}-\d{3}-\d{4}/";
+
+preg_match_all($patron, $cadena, $coincidencias);
+print_r($coincidencias[0]);  // Muestra todos los números encontrados
+?>
+```
+
+### 3. ```preg_replace``` (Reemplazar texto con expresiones regulares)
+
+Esta función busca coincidencias de un patrón y las reemplaza con otra cadena.
+
+```php
+<?php
+$texto = "Visita mi sitio web en http://miweb.com.";
+$patron = "/http:\/\/[a-zA-Z0-9.-]+/";
+
+$resultado = preg_replace($patron, "https://example.com", $texto);
+echo $resultado;  // Reemplaza la URL original por "https://example.com"
+?>
+```
+
+### 4. ```preg_split``` (Dividir una cadena con expresiones regulares)
+
+Esta función divide una cadena en un array usando un patrón de expresión regular.
+
+```php
+<?php
+$cadena = "uno, dos, tres, cuatro";
+$patron = "/,\s*/";
+
+$array = preg_split($patron, $cadena);
+print_r($array);  // Devuelve ["uno", "dos", "tres", "cuatro"]
+?>
+```
 
 
 
