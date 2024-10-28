@@ -8,8 +8,8 @@ El modelo MVC divide una aplicación en tres componentes independientes:
 * **Modelo:** Representa los datos y la lógica de negocio.
 * **Vista:** Se encarga de la presentación de los datos y la interacción con el usuario.
 * **Controlador:** Maneja la lógica de entrada del usuario, coordina la actualización de los datos en el modelo y la presentación de esos datos en la vista.
-* 
-> * Esta separación mejora la organización del código y permite el desarrollo paralelo, ya que los desarrolladores pueden trabajar en cada componente de manera independiente.
+  
+> Esta separación mejora la organización del código y permite el desarrollo paralelo, ya que los desarrolladores pueden trabajar en cada componente de manera independiente.
 
 ## Partes del modelo MVC
 ## Modelo:
