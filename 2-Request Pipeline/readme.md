@@ -1525,7 +1525,7 @@ if (preg_match($patron, $cadena)) {
 ?>
 ```
 
-### 2. ```preg_match_all`` (Coincidir todas las apariciones de un patrón en una cadena)
+### 2. ```preg_match_all``` (Coincidir todas las apariciones de un patrón en una cadena)
 
 Esta función encuentra todas las coincidencias de un patrón en una cadena y las almacena en un array.
 
