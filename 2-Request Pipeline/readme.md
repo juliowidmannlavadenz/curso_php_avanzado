@@ -1599,6 +1599,22 @@ Este ejemplo permite gestionar diferentes URLs y redirigirlas a funciones espec�
 * Al utilizar expresiones regulares, el router puede identificar patrones en las URLs, lo que permite crear rutas dinámicas y amigables para el usuario.
 * Este enfoque modular facilita la organización del código y mejora la mantenibilidad de las aplicaciones web.
 
+### 1. Configurar el archivo ```.htaccess```
+
+Creamos un archivo llamado ```.htaccess```, este archivo es necesario para permitir que el servidor reescriba las URLs correctamente.
+
+```php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
+```
+
+### 2. Creación del archivo index.php
 **Archivo:** ```regex.test/index.php```
 
 ```php
@@ -1653,7 +1669,7 @@ $router->resolver($url);
 
 ?>
 ```
-### Explicación de las Funciones
+### 3. Explicación de las Funciones
 
 **1. ```registrarRuta($patron, $accion)```**
 * Propósito: Permite registrar una nueva ruta en el router.
@@ -1678,7 +1694,7 @@ $router->resolver($url);
 * ```Propósito:``` Muestra un mensaje de error cuando la URL solicitada no coincide con ninguna de las rutas registradas.
 * ```Función:``` Esta función establece el código de estado HTTP en 404 y muestra el mensaje "Ruta no encontrada: 404" al usuario. Esto es útil para informar que la página solicitada no existe.
 
-### Acceder a las Rutas:
+### 4. Acceder a las Rutas:
 Abrimos el navegador y probamos las siguientes URLs para ver cómo la clase Router resuelve las rutas:
 
 1. **Página de inicio:**
@@ -1686,14 +1702,14 @@ Abrimos el navegador y probamos las siguientes URLs para ver cómo la clase Rout
 ```php
 http://regex.test
 ```
-2.  **Producto específico:**
+2. **Producto específico:**
 
 ```php
 http://regex.test/productos/123
 ```
 * Debería mostrar: "Página de producto con ID: 123".
 
-3.  **Categoría específica:**
+3. **Categoría específica:**
 
 ```php
 http://regex.test/categorias/electronica
