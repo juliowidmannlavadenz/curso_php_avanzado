@@ -232,7 +232,6 @@ php artisan make:controller AutoController
 ```
 * Dentro del controlador, añadimos dos funciones: una para mostrar todos los autos y otra para incrementar el contador de votos cuando un usuario vota.
 
-**Codigo del controlador:**
 **Archivo:**  ```Http/Controllers/AutoController.php```
 
 ```php
@@ -268,8 +267,6 @@ class AutoController extends Controller
 ### 5. Crear las Vistas
 
 Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fotos y un botón de votación para cada uno.
-
-**Codigo de la vista:**
 
 **Archivo:** ```resources/views/autos/index.blade.php```
 
