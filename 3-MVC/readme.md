@@ -145,7 +145,7 @@ VotacionAutos/
 laravel new VotacionAutos
 ```
 
-    * Esto crea la estructura básica del proyecto en Laravel en la carpeta ```VotacionAutos```.
+* Esto crea la estructura básica del proyecto en Laravel en la carpeta ```VotacionAutos```.
 
 2. Configurar el archivo ```.env``` para conectar el proyecto a la base de datos. Ajustamos los datos de conexión, usaremos una base de datos MySql.
 
@@ -155,7 +155,7 @@ DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_contraseña
 ```
 
-    * El archivo .env es el archivo de configuración donde definimos las credenciales de la base de datos.
+* El archivo .env es el archivo de configuración donde definimos las credenciales de la base de datos.
 
 3. Ejecutamos la migración inicial para que Laravel cree la tabla ```migrations```.
 
