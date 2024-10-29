@@ -359,7 +359,16 @@ Iniciamos el servidor y accedemos a la aplicación en el navegador:
 ```php
 php artisan serve
 ```
-Luego visita http://127.0.0.1:8000/autos para ver y votar por los autos.
+
+
+### 10. Vista en el navegador
+Si estamos usando algun servidor local como Xampp Laragon u otros, accedemos a traves de sus respectivas URLs generadas.
+
+* Visitamos http://127.0.0.1:8000/autos para ver y votar por los autos (servidor de Laravel).
+* http://votacionautos.test/autos (usando Laragon).
+
+
+
 
 
 # Sintaxis alternativa a las estructuras repetitivas
