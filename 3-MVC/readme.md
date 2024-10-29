@@ -264,7 +264,7 @@ class AutoController extends Controller
 * La función ```index``` recupera todos los autos y pasa los datos a la vista ```index.blade.php```.  
 * La función ```votar``` busca el auto por su ID y usa el método ```increment``` para sumar 1 al contador de votos, luego redirige al usuario con un mensaje de éxito.
 
-### 5. Crear las Vistas
+### 5. Crear las vistas
 
 Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fotos y un botón de votación para cada uno.
 
@@ -304,6 +304,51 @@ Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fo
 
 * En esta vista, iteramos sobre cada ```auto``` y mostramos su nombre, imagen, contador de votos y un formulario con un botón para votar. La acción del formulario envía una solicitud ```POST``` para votar en el auto correspondiente.
 
+### 6. Crear las rutas
+**Archivo:** ```routes/web.php``
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutoController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/autos', [AutoController::class, 'index'])->name('autos.index');
+Route::post('/autos/votar/{id}', [AutoController::class, 'votar'])->name('autos.votar');
+```
+
+*  Estas rutas enlazan las URLs ```/autos``` y ```/autos/votar/{id}``` con las funciones ```index``` y ```votar``` de ```AutoController```. La ruta ```votar``` usa el método ```POST``` para registrar votos de forma segura.
+
+### 7. Añadir fotos de los automóviles
+
+Para almacenar imágenes , subi las fotos a ```storage/app/public/```. Luego, enlazamos el directorio ```storage``` con ```public``` ejecutando:
+
+```php
+php artisan storage:link
+```
+
+* Con esto, las imágenes almacenadas en ```storage/app/public``` estarán accesibles a través del navegador desde ```public/storage```.
+
+### 8. Insertar Datos de Prueba
+
+Usamos ```Tinker``` para agregar datos de prueba (autos) directamente desde la línea de comandos:
+
+```php
+php artisan tinker
+```
+
+Estamos dentro de Tinker:
+
+```php
+App\Models\Auto::create(['nombre' => 'BMW 2024', 'imagen' => 'auto1.jpg']);
+App\Models\Auto::create(['nombre' => 'BMW 2024', 'imagen' => 'auto2.jpg']);
+App\Models\Auto::create(['nombre' => 'X-4', 'imagen' => 'auto3.jpg']);
+
+```
 
 # Sintaxis alternativa a las estructuras repetitivas
 
