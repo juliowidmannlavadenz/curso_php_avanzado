@@ -360,12 +360,15 @@ Iniciamos el servidor y accedemos a la aplicación en el navegador:
 php artisan serve
 ```
 
-
 ### 10. Vista en el navegador
 Visitamos http://127.0.0.1:8000/autos para ver y votar por los autos.
 
 
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/votacion_autos.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
 
 
 
