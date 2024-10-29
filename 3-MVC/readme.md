@@ -270,6 +270,7 @@ class AutoController extends Controller
 Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fotos y un botón de votación para cada uno.
 
 **Codigo de la vista:**
+
 **Archivo:** ```resources/views/autos/index.blade.php```
 
 ```php
