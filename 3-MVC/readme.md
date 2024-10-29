@@ -227,6 +227,12 @@ php artisan migrate
 
 Generamos un controlador llamado ```AutoController``` para gestionar las funciones de la aplicación:
 
+```php
+php artisan make:controller AutoController
+```
+* Dentro del controlador, añadimos dos funciones: una para mostrar todos los autos y otra para incrementar el contador de votos cuando un usuario vota.
+
+**Codigo del controlador:**
 **Archivo:**  ```Http/Controllers/AutoController.php```
 
 ```php
@@ -256,9 +262,49 @@ class AutoController extends Controller
 }
 ```
 
-Dentro del controlador, añadimos dos funciones: una para mostrar todos los autos y otra para incrementar el contador de votos cuando un usuario vota.
+* La función ```index``` recupera todos los autos y pasa los datos a la vista ```index.blade.php```.  
+* La función ```votar``` busca el auto por su ID y usa el método ```increment``` para sumar 1 al contador de votos, luego redirige al usuario con un mensaje de éxito.
 
+### 5. Crear las Vistas
 
+Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fotos y un botón de votación para cada uno.
+
+**Codigo de la vista:**
+**Archivo:** ```resources/views/autos/index.blade.php```
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación de Autos</title>
+</head>
+<body>
+    <h1>Vota por tu Auto Favorito</h1>
+
+    @if(session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
+
+    <div style="display: flex; flex-wrap: wrap;">
+        @foreach($autos as $auto)
+            <div style="margin: 10px; text-align: center;">
+                <h3>{{ $auto->nombre }}</h3>
+                <img src="{{ asset('storage/' . $auto->imagen) }}" alt="{{ $auto->nombre }}" style="width: 200px;">
+                <p>Votos: {{ $auto->votos }}</p>
+                <form action="{{ route('autos.votar', $auto->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">Votar</button>
+                </form>
+            </div>
+        @endforeach
+    </div>
+</body>
+</html>
+```
+
+* En esta vista, iteramos sobre cada ```auto``` y mostramos su nombre, imagen, contador de votos y un formulario con un botón para votar. La acción del formulario envía una solicitud ```POST``` para votar en el auto correspondiente.
 
 
 # Sintaxis alternativa a las estructuras repetitivas
