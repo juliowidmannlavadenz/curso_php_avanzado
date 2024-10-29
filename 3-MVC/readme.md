@@ -305,7 +305,7 @@ Crea la vista en ```index.blade.php``` para mostrar la lista de autos con las fo
 * En esta vista, iteramos sobre cada ```auto``` y mostramos su nombre, imagen, contador de votos y un formulario con un botón para votar. La acción del formulario envía una solicitud ```POST``` para votar en el auto correspondiente.
 
 ### 6. Crear las rutas
-**Archivo:** ```routes/web.php``
+**Archivo:** ```routes/web.php```
 
 ```php
 <?php
@@ -362,10 +362,9 @@ php artisan serve
 
 
 ### 10. Vista en el navegador
-Si estamos usando algun servidor local como Xampp Laragon u otros, accedemos a traves de sus respectivas URLs generadas.
+Visitamos http://127.0.0.1:8000/autos para ver y votar por los autos.
 
-* Visitamos http://127.0.0.1:8000/autos para ver y votar por los autos (servidor de Laravel).
-* http://votacionautos.test/autos (usando Laragon).
+
 
 
 
