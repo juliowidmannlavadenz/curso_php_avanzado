@@ -216,5 +216,50 @@ return new class extends Migration
 
 * Este código crea una tabla ```autos``` con columnas para el nombre, la imagen (como una cadena que almacena la ruta) y los votos (inicialmente 0). ```timestamps()``` añade campos ```created_at``` y ```updated_at``` automáticamente.
 
+**Ejecutar la migración:**
+Ejecutamos la migración para crear la tabla ```autos``` en la base de datos.
+
+```php
+php artisan migrate
+```
+
+### 4. Crear el Controlador
+
+Generamos un controlador llamado ```AutoController``` para gestionar las funciones de la aplicación:
+
+**Archivo:**  ```Http/Controllers/AutoController.php```
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Auto; // Importar el modelo Auto
+use Illuminate\Http\Request;
+
+class AutoController extends Controller
+{
+    public function index()
+    {
+        // Recupera todos los autos desde la base de datos
+        $autos = Auto::all();
+        return view('autos.index', compact('autos'));
+    }
+
+    public function votar($id)
+    {
+        // Encuentra el auto por su ID e incrementa el contador de votos
+        $auto = Auto::findOrFail($id);
+        $auto->increment('votos');
+        return redirect()->back()->with('success', '¡Voto registrado!');
+    }
+}
+```
+
+Dentro del controlador, añadimos dos funciones: una para mostrar todos los autos y otra para incrementar el contador de votos cuando un usuario vota.
+
+
+
+
 # Sintaxis alternativa a las estructuras repetitivas
 
