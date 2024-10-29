@@ -109,6 +109,58 @@ class TransferenciaController extends Controller
 
 * Este controlador procesa la transferencia, actualiza los saldos y devuelve la vista con el saldo actualizado de la cuenta de origen.
 
+## Ejemplo completo de MVC (modelo, vista, controlador) en Laravel 11
+Este proyecto consiste en una aplicación sencilla en Laravel donde puedes ver una lista de automóviles con sus fotos y votar por cualquiera de ellos. Implementaremos el patrón de arquitectura MVC (```Modelo-Vista-Controlador```), lo que facilita la separación de lógica y presentación en el desarrollo de aplicaciones web.
+
+### 1. Estructura de archivos del proyecto
+El proyecto tendra una estructura como esta.
+
+```php
+VotacionAutos/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── AutoController.php  // Controlador del auto
+│   └── Models/
+│       └── Auto.php                // Modelo del auto
+├── database/
+│   └── migrations/
+│       └── 2024_xx_xx_create_autos_table.php  // Migración para la tabla autos
+├── public/
+│   └── storage/
+│       └── autos/                  // Carpeta para las fotos de los autos
+├── resources/
+│   └── views/
+│       └── autos/
+│           └── index.blade.php     // Vista para mostrar autos y votar
+└── routes/
+    └── web.php                     // Definición de rutas
+```
+
+### 2. Configuración del proyecto
+
+1. Creamos un nuevo proyecto en Laravel llamado ```VotacionAutos```.
+
+```php
+laravel new VotacionAutos
+```
+* Esto crea la estructura básica del proyecto en Laravel en la carpeta ```VotacionAutos```.
+
+2. Configurar el archivo ```.env``` para conectar el proyecto a la base de datos. Ajustamos los datos de conexión, usaremos una base de datos MySql.
+
+```php
+DB_DATABASE=votacion_autos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
+* El archivo .env es el archivo de configuración donde definimos las credenciales de la base de datos.
+
+3. Ejecutamos la migración inicial para que Laravel cree la tabla ```migrations```.
+
+```php
+php artisan migrate
+```
+
 
 # Sintaxis alternativa a las estructuras repetitivas
 
