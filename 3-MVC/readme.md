@@ -214,5 +214,7 @@ return new class extends Migration
 };
 ```
 
+* Este código crea una tabla ```autos``` con columnas para el nombre, la imagen (como una cadena que almacena la ruta) y los votos (inicialmente 0). ```timestamps()``` añade campos ```created_at``` y ```updated_at``` automáticamente.
+
 # Sintaxis alternativa a las estructuras repetitivas
 
