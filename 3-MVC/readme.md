@@ -163,6 +163,56 @@ DB_PASSWORD=tu_contraseña
 php artisan migrate
 ```
 
+### 3. Crear el Modelo y la Migración
+Creamos el modelo ```Auto```, que representa cada automóvil. A cada automóvil le añadiremos una imagen y un contador de votos.
+
+```php
+php artisan make:model Auto -m
+```
+
+Este comando generará dos archivos:
+
+* Un archivo de modelo en ```app/Models/Auto.php```.
+* Un archivo de migración en ```database/migrations```.
+
+**Archivo de Migración:**
+
+Abrimos el archivo de migración recién creado en ```database/migrations```, y definimos la estructura de la tabla autos:
+
+**Archivo:** ```database/migrations/2024_10_29_001716_create_autos_table.php```
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('autos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->string('imagen'); // Ruta de la imagen
+            $table->integer('votos')->default(0); // Contador de votos
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('autos');
+    }
+};
+```
 
 # Sintaxis alternativa a las estructuras repetitivas
 
