@@ -341,7 +341,7 @@ Usamos ```Tinker``` para agregar datos de prueba (autos) directamente desde la l
 php artisan tinker
 ```
 
-Estamos dentro de Tinker:
+Estando dentro de Tinker:
 
 ```php
 App\Models\Auto::create(['nombre' => 'BMW 2024', 'imagen' => 'auto1.jpg']);
@@ -349,6 +349,18 @@ App\Models\Auto::create(['nombre' => 'BMW 2024', 'imagen' => 'auto2.jpg']);
 App\Models\Auto::create(['nombre' => 'X-4', 'imagen' => 'auto3.jpg']);
 
 ```
+
+* Aquí creamos 3 autos de ejemplo con sus respectivas rutas de imagen. Podemos añadir tantos autos como queramos en la base de datos.
+
+### 9. Ejecutar la aplicación
+
+Iniciamos el servidor y accedemos a la aplicación en el navegador:
+
+```php
+php artisan serve
+```
+Luego visita http://127.0.0.1:8000/autos para ver y votar por los autos.
+
 
 # Sintaxis alternativa a las estructuras repetitivas
 
