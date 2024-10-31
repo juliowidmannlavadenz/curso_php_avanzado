@@ -112,6 +112,13 @@ PDO soporta transacciones, permitiendo ejecutar una serie de consultas de forma 
 
 Las transacciones deben cumplir con cuatro propiedades conocidas como ACID:
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/acid.pngraw=true" style />
+</p>
+<br>
+
+
 ### Ejemplo de transacción
 
 ```php
