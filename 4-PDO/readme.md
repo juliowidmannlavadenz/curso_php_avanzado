@@ -69,7 +69,25 @@ Esta tabla muestra los controladores de PDO correspondientes y una breve descrip
 
 
 ### 3. Prepared Statements (Consultas preparadas):
-Esto ayuda a proteger contra inyecciones SQL, ya que permite separar los datos de la consulta SQL.
+Son una técnica para ejecutar consultas SQL de forma segura y eficiente, especialmente cuando se trabaja con datos de usuarios en aplicaciones web o de escritorio. Esta técnica se utiliza para prevenir ataques de inyección SQL (ya que permite separar los datos de la consulta) y mejorar el rendimiento en bases de datos.
+
+### Funcionamiento de los Prepared Statements
+En una consulta preparada, el proceso se divide en dos fases:
+
+1. **Preparación:**
+* La consulta se envía a la base de datos con marcadores de posición (placeholders) en lugar de los datos específicos.
+
+```aql```
+
+```php
+SELECT * FROM usuarios WHERE nombre = ? AND edad = ?
+```
+
+* Aquí, los signos de interrogación (```?```) son los marcadores de posición para los valores que se proporcionarán después.
+
+2. **Ejecución:**
+* Se proporcionan los valores específicos de los marcadores de posición, y la base de datos ejecuta la consulta.
+* En este proceso, los valores se vinculan a los placeholders, de modo que la base de datos trata estos valores solo como datos y no como parte de la lógica de la consulta.
 
 ### Ejemplo de uso de Prepared Statements
 
