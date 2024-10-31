@@ -419,7 +419,7 @@ foreach (obtenerPares(10) as $par) {
     echo $par . "\n"; // Imprime 0, 2, 4, 6, 8, 10
 }
 ```
-Aquí, ```obtenerPares(10)``` genera los números pares de forma incremental. Solo se produce cada valor a medida que se necesita en el bucle ```foreach```.
+* Aquí, ```obtenerPares(10)``` genera los números pares de forma incremental. Solo se produce cada valor a medida que se necesita en el bucle ```foreach```.
 
 
 
