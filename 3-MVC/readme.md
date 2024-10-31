@@ -397,7 +397,7 @@ echo "<ul>" . implode('', $productosFormateados) . "</ul>";
 
 * Este código convierte un array de productos en una lista HTML utilizando array_map y implode para facilitar el formateo y la impresión en un solo paso.
 
-### 1. Generadores
+### 2. Generadores
 Un generador es un tipo especial de función que permite iterar sobre una secuencia de valores de forma eficiente, generando cada valor solo cuando se necesita. Los generadores utilizan la palabra clave ```yield``` en lugar de ```return```, lo que permite que la función conserve su estado entre ejecuciones y produzca un valor a la vez, "pausando" su ejecución hasta que se solicite el siguiente valor.
 Permiten iterar sobre una colección sin la necesidad de crear un array completo en memoria.
 
@@ -422,5 +422,31 @@ foreach (obtenerPares(10) as $par) {
 * Aquí, ```obtenerPares(10)``` genera los números pares de forma incremental. Solo se produce cada valor a medida que se necesita en el bucle ```foreach```.
 
 
+### 3. Template engines
+Utilizar un motor de plantillas como Twig (Symfony) o Blade (Laravel) puede simplificar la forma en que se presentan las estructuras repetitivas. Estas herramientas permiten una sintaxis más limpia y legible.
+
+```Ejemplo en Twig:```
+
+```php
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto }}</li>
+    {% endfor %}
+</ul>
+```
+
+* Este código en Twig genera una lista ```<ul>```. Recorre el array ```productos``` e imprime cada elemento dentro de un ```<li>```. El resultado es una lista de productos en HTML.
+
+```Ejemplo en Blade:```
+
+```php
+<ul>
+    @foreach ($productos as $producto)
+        <li>{{ $producto }}</li>
+    @endforeach
+</ul>
+```
+
+* Este código en Blade genera una lista HTML ```<ul>```. Utiliza ```@foreach``` para recorrer el array $productos y muestra cada elemento dentro de un ```<li>```. El resultado es una lista con cada producto en un elemento de lista.
 
 
