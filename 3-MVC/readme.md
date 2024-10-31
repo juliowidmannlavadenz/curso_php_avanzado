@@ -370,8 +370,29 @@ Visitamos http://127.0.0.1:8000/autos para ver y votar por los autos.
 </p>
 <br>
 
-
-
-
 # Sintaxis alternativa a las estructuras repetitivas
 
+En PHP podemos utilizar diversas alternativas a las estructuras repetitivas como foreach o for para recorrer colecciones de datos:
+
+* Utilizar funciones.
+* Generadores.
+* Template Engines.
+* Componentes.
+* Clases y Métodos.
+
+### Utilizar funciones 
+Podemos usar funciones como ```array_map```, ```array_walk```, o ```array_reduce``` para manipular y recorrer arrays sin usar estructuras repetitivas explícitas.
+
+```php
+$productos = ['Producto 1', 'Producto 2', 'Producto 3'];
+
+// Usando array_map para crear un nuevo array con una función
+$productosFormateados = array_map(function($producto) {
+    return "<li>{$producto}</li>";
+}, $productos);
+
+// Imprimir los productos
+echo "<ul>" . implode('', $productosFormateados) . "</ul>";
+```
+
+* Este código convierte un array de productos en una lista HTML utilizando array_map y implode para facilitar el formateo y la impresión en un solo paso
