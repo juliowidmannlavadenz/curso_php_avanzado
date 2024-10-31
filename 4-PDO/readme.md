@@ -138,8 +138,8 @@ $pdo->commit();
 
 * En este código, ```beginTransaction()``` inicia una transacción, ```exec()``` ejecuta una consulta SQL, y ```commit()``` confirma la transacción, haciendo permanentes los cambios en la base de datos.
 
-## Manejo de errores en PDO
 ## Conexión con PDO
 ## Consultas con PDO
 ## Patrones de la capa de datos: activerecord y repository
+## Manejo de errores en PDO
 
