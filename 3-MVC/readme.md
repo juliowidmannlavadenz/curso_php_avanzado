@@ -470,4 +470,4 @@ echo "</ul>";
 
 * Este código define una función ```productoComponent``` que toma un nombre de producto y lo envuelve en un elemento ```<li>```. Luego, se crea un array ```$productos``` con tres productos. Usando un bucle ```foreach```, se recorre cada producto y se aplica la función ```productoComponent``` para generar un ```<li>``` por cada uno. Finalmente, se muestra todo dentro de una lista no ordenada (```<ul>```).
 
-
+> Este componente funciona tanto en Laravel como en Symfony, ya que es una simple función en PHP que genera un elemento HTML. Ambos frameworks soportan código PHP nativo, por lo que podemos incluir y utilizar esta función en cualquier parte de tu aplicación.
