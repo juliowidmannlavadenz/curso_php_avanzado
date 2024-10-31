@@ -41,7 +41,7 @@ echo $resultado_pg[0]['nombre'];
 ?>
 ```
 
-###Explicación:
+### Explicación:
 
 1. **Clase Database:** Abstrae la conexión y el acceso a bases de datos.
 2. **Constructor:** Recibe el tipo de base de datos ($driver), host, nombre de la base de datos, usuario y contraseña.
