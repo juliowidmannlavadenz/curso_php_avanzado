@@ -71,6 +71,20 @@ Esta tabla muestra los controladores de PDO correspondientes y una breve descrip
 ### 3. Prepared Statements (Consultas preparadas):
 Esto ayuda a proteger contra inyecciones SQL, ya que permite separar los datos de la consulta SQL.
 
+```php
+$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
+$stmt->execute(['id' => $id]);
+$result = $stmt->fetchAll();
+```
+
+### Explicación:
+
+1. **Preparar la consulta:** ```$pdo->prepare("SELECT * FROM usuarios WHERE id = :id");``` crea una consulta con un marcador de posición ```:id```.
+2. **Ejecutar la consulta:** ```$stmt->execute(['id' => $id]);``` reemplaza ```:id``` por el valor de $id y ejecuta la consulta.
+3. **Obtener resultados:** ```$stmt->fetchAll()```; recupera todos los registros que coinciden y los almacena en ```$result```.
+
+### Ejemplo de uso de Prepared Statements
+
 ### 4. Transacciones:
 PDO soporta transacciones, permitiendo ejecutar una serie de consultas de forma segura, revirtiendo los cambios en caso de fallo.
 
