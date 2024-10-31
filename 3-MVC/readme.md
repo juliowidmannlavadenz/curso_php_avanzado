@@ -406,18 +406,21 @@ A diferencia de una función tradicional que devuelve todos los resultados a la 
 
 > Cuando llamas a un generador, PHP no ejecuta el código de inmediato; en su lugar, devuelve un objeto del tipo ```Generator```, que se puede iterar con un ```foreach``` o métodos de generadores (como ```->current()``` o ```->next()```).
 
+Imaginemos un generador que devuelve números pares hasta un cierto límite:
 
 ```php
-function obtenerProductos() {
-    yield 'Producto 1';
-    yield 'Producto 2';
-    yield 'Producto 3';
+function obtenerPares($limite) {
+    for ($i = 0; $i <= $limite; $i += 2) {
+        yield $i;
+    }
 }
 
-foreach (obtenerProductos() as $producto) {
-    echo "<li>{$producto}</li>";
+foreach (obtenerPares(10) as $par) {
+    echo $par . "\n"; // Imprime 0, 2, 4, 6, 8, 10
 }
 ```
+Aquí, ```obtenerPares(10)``` genera los números pares de forma incremental. Solo se produce cada valor a medida que se necesita en el bucle ```foreach```.
+
 
 
 
