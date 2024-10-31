@@ -88,7 +88,17 @@ $result = $stmt->fetchAll();
 ### 4. Transacciones:
 PDO soporta transacciones, permitiendo ejecutar una serie de consultas de forma segura, revirtiendo los cambios en caso de fallo.
 
+### Ejemplo de transacción
 
+```php
+$pdo->beginTransaction();
+$pdo->exec("INSERT INTO usuarios (nombre) VALUES ('Juan')");
+$pdo->commit();
+```
+
+### Explicación
+
+* En este código, ```beginTransaction()``` inicia una transacción, ```exec()``` ejecuta una consulta SQL, y ```commit()``` confirma la transacción, haciendo permanentes los cambios en la base de datos.
 
 ## Manejo de errores en PDO
 ## Conexión con PDO
