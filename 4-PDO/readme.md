@@ -51,7 +51,22 @@ echo $resultado_pg[0]['nombre'];
 * Este enfoque permite que, si necesitas cambiar de MySQL a PostgreSQL, solo debas cambiar el valor del ```$driver``` al crear una instancia de ```Database```.
 
 ### 2. Soporte para múltiples bases de datos:
-Incluye soporte para MySQL, PostgreSQL, SQLite, Oracle, entre otros, mediante diferentes controladores.
+Esta tabla muestra los controladores de PDO correspondientes y una breve descripción para cada base de datos que PDO soporta de forma nativa en PHP.
+
+| Base de Datos           | Driver PDO           | Descripción                                         |
+|-------------------------|----------------------|-----------------------------------------------------|
+| MySQL                   | `mysql`              | Soporte para bases de datos MySQL                   |
+| PostgreSQL              | `pgsql`              | Soporte para bases de datos PostgreSQL              |
+| SQLite                  | `sqlite`             | Soporte para bases de datos SQLite                  |
+| Microsoft SQL Server    | `sqlsrv`             | Soporte para SQL Server en sistemas Windows         |
+| IBM DB2                 | `ibm`                | Soporte para bases de datos IBM DB2                 |
+| Informix                | `informix`           | Soporte para bases de datos Informix                |
+| Firebird/InterBase      | `firebird`           | Soporte para bases de datos Firebird/InterBase      |
+| Oracle                  | `oci`                | Soporte para bases de datos Oracle                  |
+| ODBC                    | `odbc`               | Soporte para conexión a bases de datos mediante ODBC|
+| Cubrid                  | `cubrid`             | Soporte para bases de datos Cubrid                  |
+| 4D                      | `4d`                 | Soporte para bases de datos 4D                      |
+
 
 ### 3. Prepared Statements (Consultas preparadas):
 Esto ayuda a proteger contra inyecciones SQL, ya que permite separar los datos de la consulta SQL.
