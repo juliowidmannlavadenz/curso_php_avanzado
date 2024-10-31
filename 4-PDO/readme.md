@@ -118,6 +118,13 @@ Las transacciones deben cumplir con cuatro propiedades conocidas como ACID:
 </p>
 <br>
 
+1. **Atomicidad (Atomicity):** Una transacción es una operación "todo o nada". Si alguna parte de la transacción falla, toda la transacción se revierte (rollback), y no se guardan cambios parciales en la base de datos.
+
+2. **Consistencia (Consistency):** Una transacción lleva la base de datos de un estado válido a otro estado válido, manteniendo reglas y restricciones definidas, como claves primarias, claves foráneas, etc.
+
+3. **Aislamiento (Isolation):** Las transacciones se ejecutan de forma aislada entre sí, de modo que los resultados intermedios no son visibles para otras transacciones hasta que la transacción actual se complete. Esto evita conflictos y asegura que las transacciones no se afecten entre ellas.
+
+4. **Durabilidad (Durability):** Una vez que una transacción se completa y confirma, sus cambios persisten en la base de datos, incluso si ocurre una falla del sistema.
 
 ### Ejemplo de transacción
 
