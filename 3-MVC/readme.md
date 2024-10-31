@@ -449,4 +449,5 @@ Utilizar un motor de plantillas como Twig (Symfony) o Blade (Laravel) puede simp
 
 * Este código en Blade genera una lista HTML ```<ul>```. Utiliza ```@foreach``` para recorrer el array $productos y muestra cada elemento dentro de un ```<li>```. El resultado es una lista con cada producto en un elemento de lista.
 
+### 4. Componentes
 
