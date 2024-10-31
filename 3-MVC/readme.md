@@ -380,7 +380,7 @@ En PHP podemos utilizar diversas alternativas a las estructuras repetitivas como
 * Componentes.
 * Clases y Métodos.
 
-### Utilizar funciones 
+### 1. Utilizar funciones 
 Podemos usar funciones como ```array_map```, ```array_walk```, o ```array_reduce``` para manipular y recorrer arrays sin usar estructuras repetitivas explícitas.
 
 ```php
@@ -395,4 +395,29 @@ $productosFormateados = array_map(function($producto) {
 echo "<ul>" . implode('', $productosFormateados) . "</ul>";
 ```
 
-* Este código convierte un array de productos en una lista HTML utilizando array_map y implode para facilitar el formateo y la impresión en un solo paso
+* Este código convierte un array de productos en una lista HTML utilizando array_map y implode para facilitar el formateo y la impresión en un solo paso.
+
+### 1. Generadores
+Un generador es un tipo especial de función que permite iterar sobre una secuencia de valores de forma eficiente, generando cada valor solo cuando se necesita. Los generadores utilizan la palabra clave ```yield``` en lugar de ```return```, lo que permite que la función conserve su estado entre ejecuciones y produzca un valor a la vez, "pausando" su ejecución hasta que se solicite el siguiente valor.
+Permiten iterar sobre una colección sin la necesidad de crear un array completo en memoria.
+
+### ¿Como funcionan los generadores?
+A diferencia de una función tradicional que devuelve todos los resultados a la vez en un array o lista, un generador produce valores de uno en uno. Esto es útil cuando necesitamos manejar grandes cantidades de datos o secuencias infinitas sin ocupar demasiada memoria.
+
+> Cuando llamas a un generador, PHP no ejecuta el código de inmediato; en su lugar, devuelve un objeto del tipo ```Generator```, que se puede iterar con un ```foreach``` o métodos de generadores (como ```->current()``` o ```->next()```).
+
+
+```php
+function obtenerProductos() {
+    yield 'Producto 1';
+    yield 'Producto 2';
+    yield 'Producto 3';
+}
+
+foreach (obtenerProductos() as $producto) {
+    echo "<li>{$producto}</li>";
+}
+```
+
+
+
