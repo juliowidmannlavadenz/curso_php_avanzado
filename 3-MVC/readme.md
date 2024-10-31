@@ -451,3 +451,23 @@ Utilizar un motor de plantillas como Twig (Symfony) o Blade (Laravel) puede simp
 
 ### 4. Componentes
 
+Si estás trabajando con un framework que soporte componentes, podemos crear un componente para la representación de elementos repetitivos.
+
+```PHP```
+
+```php
+function productoComponent($nombre) {
+    return "<li>{$nombre}</li>";
+}
+
+$productos = ['Producto 1', 'Producto 2', 'Producto 3'];
+echo "<ul>";
+foreach ($productos as $producto) {
+    echo productoComponent($producto);
+}
+echo "</ul>";
+```
+
+* Este código define una función ```productoComponent``` que toma un nombre de producto y lo envuelve en un elemento ```<li>```. Luego, se crea un array ```$productos``` con tres productos. Usando un bucle ```foreach```, se recorre cada producto y se aplica la función ```productoComponent``` para generar un ```<li>``` por cada uno. Finalmente, se muestra todo dentro de una lista no ordenada (```<ul>```).
+
+
