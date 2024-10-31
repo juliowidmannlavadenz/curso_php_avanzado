@@ -471,3 +471,24 @@ echo "</ul>";
 * Este código define una función ```productoComponent``` que toma un nombre de producto y lo envuelve en un elemento ```<li>```. Luego, se crea un array ```$productos``` con tres productos. Usando un bucle ```foreach```, se recorre cada producto y se aplica la función ```productoComponent``` para generar un ```<li>``` por cada uno. Finalmente, se muestra todo dentro de una lista no ordenada (```<ul>```).
 
 > Este componente funciona tanto en Laravel como en Symfony, ya que es una simple función en PHP que genera un elemento HTML. Ambos frameworks soportan código PHP nativo, por lo que podemos incluir y utilizar esta función en cualquier parte de tu aplicación.
+
+### 5. Clases y métodos
+
+Podemos crear una clase que encapsule la lógica de renderizado, evitando así las estructuras repetitivas en la vista.
+
+```php
+class Producto {
+    public static function listar($productos) {
+        echo "<ul>";
+        foreach ($productos as $producto) {
+            echo "<li>{$producto}</li>";
+        }
+        echo "</ul>";
+    }
+}
+Producto::listar(['Producto 1', 'Producto 2', 'Producto 3']);
+```
+
+* Este código define una clase ```Producto``` con un método estático ```listar``` que recibe un array de productos. El método crea una lista HTML (```<ul>```) y, dentro de un bucle ```foreach```, genera un elemento ```<li>``` por cada producto en el array. Luego, se llama al método ```listar``` de la clase ```Producto```, pasando un array de productos para mostrar la lista en HTML.
+
+
