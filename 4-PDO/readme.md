@@ -77,7 +77,7 @@ En una consulta preparada, el proceso se divide en dos fases:
 1. **Preparación:**
 * La consulta se envía a la base de datos con marcadores de posición (placeholders) en lugar de los datos específicos.
 
-```aql```
+```sql```
 
 ```php
 SELECT * FROM usuarios WHERE nombre = ? AND edad = ?
