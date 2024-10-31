@@ -104,7 +104,13 @@ $result = $stmt->fetchAll();
 3. **Obtener resultados:** ```$stmt->fetchAll()```; recupera todos los registros que coinciden y los almacena en ```$result```.
 
 ### 4. Transacciones:
+Es un conjunto de operaciones que se ejecutan como una unidad indivisible. Esto significa que todas las operaciones dentro de la transacción deben completarse con éxito para que los cambios se confirmen en la base de datos. Si alguna de las operaciones falla, la transacción se cancela y la base de datos vuelve a su estado original, garantizando que no haya datos incompletos o inconsistentes.
+
 PDO soporta transacciones, permitiendo ejecutar una serie de consultas de forma segura, revirtiendo los cambios en caso de fallo.
+
+### Propiedades de las Transacciones: ACID
+
+Las transacciones deben cumplir con cuatro propiedades conocidas como ACID:
 
 ### Ejemplo de transacción
 
