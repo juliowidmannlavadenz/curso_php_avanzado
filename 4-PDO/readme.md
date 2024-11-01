@@ -169,7 +169,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Conexión exitosa<br>Bienvenido";
 } catch (PDOException $e) {
-    echo "Error en la conexión: " . $e->getMessage();
+    echo "Error en la conexión:<br>" . $e->getMessage();
 }
 ?>
 ```
@@ -183,6 +183,10 @@ try {
 ```php
 php -S localhost:8000
 ```
+
+### Vista en el navegador
+
+
 
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
