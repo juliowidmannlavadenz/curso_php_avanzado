@@ -1,6 +1,5 @@
-# PDO
-## Que es PDO (PHP Data Objects) 
-Ss una extensión en PHP que proporciona una interfaz uniforme para acceder a bases de datos. Permite trabajar con diferentes sistemas de bases de datos (como MySQL, PostgreSQL, SQLite, entre otros) utilizando el mismo conjunto de funciones, lo que facilita la portabilidad de la aplicación si decides cambiar el sistema de base de datos en el futuro.
+# PDO Que es PDO (PHP Data Objects) 
+Es una extensión en PHP que proporciona una interfaz uniforme para acceder a bases de datos. Permite trabajar con diferentes sistemas de bases de datos (como MySQL, PostgreSQL, SQLite, entre otros) utilizando el mismo conjunto de funciones, lo que facilita la portabilidad de la aplicación si decides cambiar el sistema de base de datos en el futuro.
 
 ## Características de PDO:
 
@@ -139,7 +138,9 @@ $pdo->commit();
 
 * En este código, ```beginTransaction()``` inicia una transacción, ```exec()``` ejecuta una consulta SQL, y ```commit()``` confirma la transacción, haciendo permanentes los cambios en la base de datos.
 
-## Conexión con PDO
+# Manejo de errores con PDO
+
+# Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
 
@@ -149,7 +150,7 @@ Para establecer una conexión, PDO requiere tres elementos:
 2. **Usuario:** nombre de usuario para acceder a la base de datos.
 3. **Contraseña:** clave de acceso al sistema de base de datos.
 
-## Consultas con PDO
-## Patrones de la capa de datos: activerecord y repository
-## Manejo de errores en PDO
+# Consultas con PDO
+# Patrones de la capa de datos: activerecord y repository
+
 
