@@ -154,7 +154,23 @@ Nombre de usuario para acceder a la base de datos.
 ### 3. Contraseña: 
 Clave de acceso al sistema de base de datos.
 
-## Ejemplo básico de una coenxións
+## Ejemplo básico de una conexión
+
+```php
+<?php
+$dsn = 'mysql:host=localhost;dbname=testdb';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO($dsn, $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Conexión exitosa";
+} catch (PDOException $e) {
+    echo "Error en la conexión: " . $e->getMessage();
+}
+?>
+```
 
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
