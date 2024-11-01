@@ -150,6 +150,8 @@ Para establecer una conexión, PDO requiere tres elementos:
 2. **Usuario:** nombre de usuario para acceder a la base de datos.
 3. **Contraseña:** clave de acceso al sistema de base de datos.
 
+
+
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
 
