@@ -161,13 +161,13 @@ Para establecer una conexión, PDO requiere tres elementos:
 ```php
 <?php
 $dsn = 'mysql:host=localhost;dbname=testdb';
-$username = 'root';
-$password = '';
+$username = 'admin_user';
+$password = '1[MtFTvccbIEvcIu';
 
 try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conexión exitosa";
+    echo "Conexión exitosa<br>Bienvenido";
 } catch (PDOException $e) {
     echo "Error en la conexión: " . $e->getMessage();
 }
