@@ -148,11 +148,13 @@ Una conexión con PDO  es una forma de interactuar con bases de datos en PHP uti
 Para establecer una conexión, PDO requiere tres elementos:
 
 ### 1. DSN (Data Source Name): 
-Define el tipo de base de datos y otros detalles de conexión.
+* Define el tipo de base de datos y otros detalles de conexión.
+
 ### 2. Usuario: 
-Nombre de usuario para acceder a la base de datos.
+* Nombre de usuario para acceder a la base de datos.
+
 ### 3. Contraseña: 
-Clave de acceso al sistema de base de datos.
+* Clave de acceso al sistema de base de datos.
 
 ## Ejemplo básico de una conexión
 
