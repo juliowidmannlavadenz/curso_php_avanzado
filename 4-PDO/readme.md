@@ -118,6 +118,12 @@ Las transacciones deben cumplir con cuatro propiedades conocidas como ACID:
 </p>
 <br>
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon.png?raw=true" style />
+</p>
+<br>
+
 1. **Atomicidad (Atomicity):** Una transacción es una operación "todo o nada". Si alguna parte de la transacción falla, toda la transacción se revierte (rollback), y no se guardan cambios parciales en la base de datos.
 
 2. **Consistencia (Consistency):** Una transacción lleva la base de datos de un estado válido a otro estado válido, manteniendo reglas y restricciones definidas, como claves primarias, claves foráneas, etc.
