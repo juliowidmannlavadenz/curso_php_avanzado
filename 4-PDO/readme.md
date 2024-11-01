@@ -114,7 +114,7 @@ Las transacciones deben cumplir con cuatro propiedades conocidas como ACID:
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/acid.png style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/acid.png?raw=true style />
 </p>
 <br>
 
