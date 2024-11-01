@@ -186,7 +186,11 @@ php -S localhost:8000
 
 ### Vista en el navegador
 
-
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/conexion.png?raw=true" style />
+</p>
+<br>
 
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
