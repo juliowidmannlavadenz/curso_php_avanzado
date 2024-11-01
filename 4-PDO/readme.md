@@ -177,7 +177,12 @@ try {
 ### Explicación:
 * Establecemos una conexión a una base de datos MySQL usando PDO. Utilizamos un bloque ```try-catch``` para manejar posibles errores de conexión, configurando un modo de error que lanza excepciones, lo que permite un manejo más seguro y efectivo de errores en la conexión.
 
+### Ejecutando el servidor integrado 
+* Usamos el siguiente comando para iniciar el servidor:
 
+```php
+php -S localhost:8000
+```
 
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
