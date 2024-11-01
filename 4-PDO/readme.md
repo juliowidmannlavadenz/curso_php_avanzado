@@ -143,6 +143,8 @@ $pdo->commit();
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
 
+Para establecer una conexión, PDO requiere tres elementos:
+
 1. **DSN (Data Source Name):** define el tipo de base de datos y otros detalles de conexión.
 2. **Usuario:** nombre de usuario para acceder a la base de datos.
 3. **Contraseña:** clave de acceso al sistema de base de datos.
