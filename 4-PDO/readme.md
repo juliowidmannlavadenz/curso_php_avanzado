@@ -192,6 +192,53 @@ php -S localhost:8000
 </p>
 <br>
 
+## Ejemplos de conexiones PDO
+
+### 1. MySQL
+```php
+$dsn = 'mysql:host=localhost;dbname=nombreBD;charset=utf8mb4';
+$username = 'usuario';
+$password = 'contraseña';
+```
+### 2. PostgreSQL
+```php
+$dsn = 'pgsql:host=localhost;port=5432;dbname=nombreBD;user=usuario;password=contraseña';
+```
+
+### 3. SQLite
+```php
+$dsn = 'sqlite:/ruta/al/archivo.db';
+```
+* Para una base de datos SQLite, la cadena de conexión apunta directamente al archivo de la base de datos.
+
+### 4. SQL Server
+```php
+$dsn = 'sqlsrv:Server=localhost;Database=nombreBD';
+$username = 'usuario';
+$password = 'contraseña';
+```
+
+### 5. Oracle
+```php
+$dsn = 'oci:dbname=//localhost:1521/nombreBD';
+$username = 'usuario';
+$password = 'contraseña';
+```
+
+### 6. IBM Db2
+```php
+$dsn = 'ibm:DRIVER={IBM DB2 ODBC DRIVER};DATABASE=nombreBD;HOSTNAME=localhost;PORT=50000;PROTOCOL=TCPIP;';
+$username = 'usuario';
+$password = 'contraseña';
+```
+
+### 7. Firebird
+```php
+$dsn = 'firebird:dbname=/ruta/al/archivo.fdb';
+$username = 'usuario';
+$password = 'contraseña';
+```
+
 # Consultas con PDO
 # Patrones de la capa de datos: activerecord y repository
 
