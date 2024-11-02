@@ -618,6 +618,84 @@ class Book {
     * ```update()```: Actualiza los detalles de un libro específico.
     * ```delete()```: Elimina un libro de la base de datos.
 
+### 6. Controlador de libro
+**Archivo:**```controllers/BookController.php```
+
+```php
+<?php
+require_once '../config/database.php';
+require_once '../models/Book.php';
+
+class BookController {
+    private $db;
+    private $book;
+
+    public function __construct() {
+        $database = new Database();
+        $this->db = $database->getConnection();
+        $this->book = new Book($this->db);
+    }
+
+    public function create($title, $author, $price) {
+        $this->book->title = $title;
+        $this->book->author = $author;
+        $this->book->price = $price;
+
+        $this->db->beginTransaction();
+        if ($this->book->create()) {
+            $this->db->commit();
+            return true;
+        } else {
+            $this->db->rollBack();
+            return false;
+        }
+    }
+
+    public function read() {
+        return $this->book->read();
+    }
+
+    public function update($id, $title, $author, $price) {
+        $this->book->id = $id;
+        $this->book->title = $title;
+        $this->book->author = $author;
+        $this->book->price = $price;
+
+        $this->db->beginTransaction();
+        if ($this->book->update()) {
+            $this->db->commit();
+            return true;
+        } else {
+            $this->db->rollBack();
+            return false;
+        }
+    }
+
+    public function delete($id) {
+        $this->book->id = $id;
+
+        $this->db->beginTransaction();
+        if ($this->book->delete()) {
+            $this->db->commit();
+            return true;
+        } else {
+            $this->db->rollBack();
+            return false;
+        }
+    }
+}
+```
+### Explicación:
+* **Clase BookController:** Controlador que gestiona las operaciones relacionadas con los libros.
+* **Propiedades:**
+    * ```$db```: Conexión a la base de datos.
+    * ```$book```: Instancia del modelo ```Book```.
+* **Métodos:**
+    * ```create()```: Crea un nuevo libro, utilizando transacciones para asegurar la operación.
+    * ```read()```: Devuelve todos los libros.
+    * ```update()```: Actualiza los datos de un libro específico, usando transacciones.
+    * ```delete()```: Elimina un libro específico, utilizando transacciones.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
