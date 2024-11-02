@@ -696,6 +696,58 @@ class BookController {
     * ```update()```: Actualiza los datos de un libro específico, usando transacciones.
     * ```delete()```: Elimina un libro específico, utilizando transacciones.
 
+  ### 7. Vista principal
+  **Archivo:**```views/index.php```
+
+  ```php
+  <?php
+require_once '../controllers/BookController.php';
+
+$bookController = new BookController();
+$books = $bookController->read();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Libros</title>
+</head>
+<body>
+    <h1>Lista de Libros</h1>
+    <a href="create.php">Agregar Libro</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        <?php while ($row = $books->fetch(PDO::FETCH_ASSOC)): ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['title']; ?></td>
+                <td><?php echo $row['author']; ?></td>
+                <td><?php echo $row['price']; ?></td>
+                <td>
+                    <a href="edit.php?id=<?php echo $row['id']; ?>">Editar</a>
+                    <a href="delete.php?id=<?php echo $row['id']; ?>">Eliminar</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+</body>
+</html>
+```
+
+### Explicación:
+* **Código PHP:** Incluye el controlador y obtiene la lista de libros.
+* **Estructura HTML:**
+    * Título de la página.
+    * Enlace para agregar un nuevo libro.
+    * Tabla que muestra todos los libros con ID, título, autor, precio y acciones (editar y eliminar).
+* **Bucle while:** Itera a través de los resultados y los muestra en la tabla.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
