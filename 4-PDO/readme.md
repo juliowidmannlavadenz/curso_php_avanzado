@@ -699,7 +699,7 @@ class BookController {
   ### 7. Vista principal
   **Archivo:**```views/index.php```
 
-  ```php
+```php
   <?php
 require_once '../controllers/BookController.php';
 
