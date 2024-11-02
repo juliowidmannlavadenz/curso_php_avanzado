@@ -873,6 +873,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     * Título de la página.
     * Formulario para editar los detalles del libro (título, autor y precio).
     * Botón para actualizar y enlace para volver a la lista de libros.
+ 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/editar_libro.png?raw=true" style />
+</p>
+<br>
 
 ### 10. Vista para borrar un libro
 **Archivo:**```views/delete.php```
