@@ -858,6 +858,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     * Formulario para editar los detalles del libro (título, autor y precio).
     * Botón para actualizar y enlace para volver a la lista de libros.
 
+### 10. Vista para borrar un libro
+**Archivo:**```views/delete.php```
+
+```php
+<?php
+require '../config/database.php';
+try {
+
+    $db = (new Database())->getConnection();
+
+    if (isset($_GET['id'])) {
+        $bookId = intval($_GET['id']); 
+
+        $db->beginTransaction();
+
+        $query = "DELETE FROM books WHERE id = :id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $bookId, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            $db->commit();
+            echo "El libro ha sido eliminado correctamente.";
+            echo '<br><a href="index.php">Regresar al listado de libros</a>'; 
+        } else {
+            $db->rollBack();
+            echo "Error al eliminar el libro.";
+        }
+    } else {
+        echo "No se ha proporcionado un ID de libro.";
+    }
+} catch (PDOException $e) {
+ 
+    if (isset($db)) {
+        $db->rollBack(); 
+    }
+    echo "Error: " . $e->getMessage();
+}
+```
+
+### Explicación:
+* **Código PHP:** Se incluye el archivo de configuración para establecer la conexión a la base de datos.
+* **Conexión a la base de datos:** Se obtiene una conexión usando la clase ```Database```.
+* Método GET: Se verifica si se proporciona un ID de libro en la URL y se convierte a entero.
+* Transacción: Se inicia una transacción y se prepara una consulta SQL para eliminar el libro.
+* Ejecución y manejo de la consulta: Se ejecuta la consulta; si tiene éxito, se confirma la transacción y se muestra un mensaje de éxito con un enlace para regresar. Si falla, se revierte la transacción y se muestra un mensaje de error.
+* Validación de ID: Si no hay ID, se informa al usuario. Se capturan excepciones y se revierte la transacción si es necesario.
+
+
 
 # Patrones de la capa de datos: activerecord y repository
 
