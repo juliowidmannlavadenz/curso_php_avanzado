@@ -1158,5 +1158,27 @@ class AutoController {
 ### Explicación:
 * ```AutoController``` es responsable de manejar la lógica entre la vista y el modelo. Tiene métodos para listar autos y agregar nuevos.
 
+### 5. Creación de la vista 
+**Archivo:** ```views/listar_autos.php```
 
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Autos</title>
+</head>
+<body>
+    <h1>Listado de Autos</h1>
+    <a href="views/agregar_auto.php">Agregar Auto</a>
+    <ul>
+        <?php foreach ($autos as $auto): ?>
+            <li><?php echo "{$auto->marca} - {$auto->modelo} - $ {$auto->precio}"; ?></li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
+```
 
+### Explicación:
+* La vista muestra la lista de autos obtenidos del método ```listarAutos()``` del controlador.
