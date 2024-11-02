@@ -267,7 +267,7 @@ PDO tiene soporte nativo para transacciones, lo que permite realizar operaciones
 
 ## Tipos de consultas
 
-### 1. Consultas de Selección (```SELECT```)
+### 1. Consultas de selección (```SELECT```)
 Permiten obtener datos de la base de datos.
 
 **Ejemplo: Consultas básicas con** ```SELECT```
