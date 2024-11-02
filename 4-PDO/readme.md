@@ -489,7 +489,7 @@ CREATE TABLE IF NOT EXISTS books (
 );
 ```
 
-### 2. Creacion del archivo ```.htaccess```
+### 3. Creacion del archivo ```.htaccess```
 Creamos el archivo ```.htaccess``` para redirigir todas las solicitudes al archivo ```public/index.php```:
 
 ```php
@@ -506,8 +506,39 @@ RewriteRule ^(.*)$ http://libreria.test/public/index.php [L]
 * ```RewriteCond %{REQUEST_FILENAME} !-d```: Verifica que la solicitud no sea un directorio existente.
 * ```RewriteRule ^(.*)$ /public/index.php [L]```: Redirige todas las solicitudes que no sean archivos o directorios existentes al archivo public/index.php. La bandera [L] indica que es la última regla a ejecutar si coincide.
 
+### 4. Configuración de la Base de Datos 
+**Archivo:**```config/database.php```
 
+```php
+<?php
+class Database {
+    private $host = 'localhost';
+    private $db_name = 'libreria';
+    private $username = 'root';
+    private $password = '';
+    public $conn;
 
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            echo "Error de conexión: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
+}
+```
+
+### Explicación:
+* **Clase Database:** Esta clase se encarga de gestionar la conexión a la base de datos.
+* **Propiedades:**
+    * ```$host```, ```$db_name```, ```$username```, ```$password```: Almacenan los detalles necesarios para conectarse a la base de datos.
+    * ```$conn```: Almacena la conexión a la base de datos.
+* **Método getConnection:**
+    * Establece la conexión utilizando PDO.
+    * Maneja excepciones para capturar errores de conexión.
 
 
 # Patrones de la capa de datos: activerecord y repository
