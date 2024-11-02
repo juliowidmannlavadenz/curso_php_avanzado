@@ -445,7 +445,7 @@ Construiremos un sistema de gestión de una librería (CRUD)utilizando PDO. Este
 * Conexión avanzada: Usaremos un patrón de diseño para manejar la conexión a la base de datos.
 * Consultas avanzadas: Realizaremos consultas avanzadas para filtrar y ordenar los libros.
 
-### 1. Estructura de archivos y direcctorios
+### 1. Estructura de archivos y directorios
 
 ```php
 libreria/
@@ -469,8 +469,46 @@ libreria/
 │   └── index.php             # Punto de entrada de la aplicación
 │
 └── .htaccess                 # Configuración del servidor (opcional)
-
 ```
+
+### 2. Creacion de la base de datos y tabla
+Código SQL para crear la tabla ```books``` en la base de datos ```libreria```:
+
+```sql```
+
+```php
+CREATE DATABASE IF NOT EXISTS libreria;
+USE libreria;
+
+CREATE TABLE IF NOT EXISTS books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 2. Creacion del archivo ```.htaccess```
+Creamos el archivo ```.htaccess``` para redirigir todas las solicitudes al archivo ```public/index.php```:
+
+```php
+RewriteEngine On
+
+# Rewrite all requests to the public/index.php file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://libreria.test/public/index.php [L]
+```
+### Explicación:
+* ```RewriteEngine On```: Habilita el módulo de reescritura de URLs.
+* ```RewriteCond %{REQUEST_FILENAME} !-f```: Verifica que la solicitud no sea un archivo existente.
+* ```RewriteCond %{REQUEST_FILENAME} !-d```: Verifica que la solicitud no sea un directorio existente.
+* ```RewriteRule ^(.*)$ /public/index.php [L]```: Redirige todas las solicitudes que no sean archivos o directorios existentes al archivo public/index.php. La bandera [L] indica que es la última regla a ejecutar si coincide.
+
+
+
+
 
 # Patrones de la capa de datos: activerecord y repository
 
