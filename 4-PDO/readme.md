@@ -438,7 +438,39 @@ echo 'Total de usuarios: ' . $totalUsuarios['total'];
 * ```execute()``` con arrays: Para pasar parámetros de forma simplificada.
 
 ## Ejemplo completo: Crud utilizando PDO 
+Construiremos un sistema de gestión de una librería (CRUD)utilizando PDO. Este sistema permitirá realizar operaciones de creación, lectura, actualización y eliminación de libros. Incluiremos las siguientes caracteristicas.
+* Abstracción: Crearemos una clase base para manejar la conexión a la base de datos y las operaciones CRUD.
+* Consultas preparadas: Utilizaremos consultas preparadas para evitar la inyección de SQL.
+* Transacciones: Implementaremos transacciones para asegurar que las operaciones críticas se completen correctamente.
+* Conexión avanzada: Usaremos un patrón de diseño para manejar la conexión a la base de datos.
+* Consultas avanzadas: Realizaremos consultas avanzadas para filtrar y ordenar los libros.
 
+### 1. Estructura de archivos y direcctorios
+
+```php
+libreria/
+│
+├── config/
+│   └── database.php          # Configuración de la base de datos
+│
+├── models/
+│   └── Book.php              # Modelo de libro
+│
+├── controllers/
+│   └── BookController.php     # Controlador de libro
+│
+├── views/
+│   ├── index.php             # Vista principal (lista de libros)
+│   ├── create.php            # Vista para crear un libro
+│   ├── edit.php              # Vista para editar un libro
+│   └── DELETE.php            # Vista para eliminar un libro
+│
+├── public/
+│   └── index.php             # Punto de entrada de la aplicación
+│
+└── .htaccess                 # Configuración del servidor (opcional)
+
+```
 
 # Patrones de la capa de datos: activerecord y repository
 
