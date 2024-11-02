@@ -259,7 +259,11 @@ Las consultas preparadas en PDO son más seguras y eficientes, ya que separan la
 ### 5. Flexibilidad en el manejo de resultados: 
 PDO permite obtener resultados en distintos formatos, como objetos, arrays asociativos, etc., proporcionando flexibilidad al momento de procesar los datos.
 
+### 6. Mayor consistencia: 
+Usar una única clase para todas las conexiones y consultas de la base de datos aporta consistencia al proyecto, reduciendo el esfuerzo de aprendizaje y el código redundante.
 
+### 7. Manejo de transacciones: 
+PDO tiene soporte nativo para transacciones, lo que permite realizar operaciones complejas que pueden ser confirmadas o revertidas de forma sencilla con ```beginTransaction()```, ```commit()``` y ```rollBack()```.
 
 # Patrones de la capa de datos: activerecord y repository
 
