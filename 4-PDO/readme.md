@@ -267,8 +267,9 @@ PDO tiene soporte nativo para transacciones, lo que permite realizar operaciones
 
 ## Tipos de consultas
 
-### 1. Consultas de Selección (SELECT)
+### 1. Consultas de Selección (```SELECT```)
 Permiten obtener datos de la base de datos.
+
 **Ejemplo: Consultas básicas con** ```SELECT```
 
 ```php
@@ -294,6 +295,22 @@ try {
 ?>
 ```
 
+* Este script conecta a una base de datos MySQL, ejecuta una consulta para obtener todos los registros de la tabla ```usuarios``` y muestra los nombres de los usuarios en la página. Si hay un error en la conexión o la consulta, lo muestra en pantalla.
+
+**Ejemplo: Consulta preparada con parámetros** 
+
+```php
+<?php
+$id = 1;
+$stmt = $conexion->prepare('SELECT * FROM usuarios WHERE id = :id');
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+print_r($resultado);
+?>
+```
+
+* Este script selecciona un registro de la tabla usuarios cuyo id es igual a 1, lo ejecuta de forma segura usando sentencias preparadas y muestra el resultado en pantalla.
 
 # Patrones de la capa de datos: activerecord y repository
 
