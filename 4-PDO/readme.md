@@ -929,6 +929,14 @@ try {
 * Ejecución y manejo de la consulta: Se ejecuta la consulta; si tiene éxito, se confirma la transacción y se muestra un mensaje de éxito con un enlace para regresar. Si falla, se revierte la transacción y se muestra un mensaje de error.
 * Validación de ID: Si no hay ID, se informa al usuario. Se capturan excepciones y se revierte la transacción si es necesario.
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/borrar_libro.png?raw=true" style />
+</p>
+<br>
+
 ### 11. Punto de entrada de la aplicación
 **Archivo:**```public/index.php```
 
