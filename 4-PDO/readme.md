@@ -396,6 +396,8 @@ try {
 }
 ?>
 ```
+* Este script realiza una transacción en la base de datos que inserta un nuevo usuario y actualiza otro. Si ambas operaciones son exitosas, se confirma la transacción; si hay un error, se revierte. Esto garantiza la consistencia de los datos en la base de datos.
+
 
 ### 5. Consultas usando ```execute()``` con arrays
 Una forma rápida de pasar los parámetros a una consulta.
