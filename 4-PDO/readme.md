@@ -613,10 +613,10 @@ class Book {
     * ```$table_name```: Nombre de la tabla que contiene los libros.
     * ```$id```, ```$title```, ```$author```, ```$price```: Atributos del libro.
 * **Métodos:**
-* ```create()```: Inserta un nuevo libro en la base de datos.
-* ```read()```: Lee todos los libros de la base de datos.
-* ```update()```: Actualiza los detalles de un libro específico.
-* ```delete()```: Elimina un libro de la base de datos.
+    * ```create()```: Inserta un nuevo libro en la base de datos.
+    * ```read()```: Lee todos los libros de la base de datos.
+    * ```update()```: Actualiza los detalles de un libro específico.
+    * ```delete()```: Elimina un libro de la base de datos.
 
 # Patrones de la capa de datos: activerecord y repository
 
