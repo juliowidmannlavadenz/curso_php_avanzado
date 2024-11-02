@@ -1013,7 +1013,27 @@ $usuario->eliminar();
 * Operaciones CRUD usando el patrón Active Record.
 
 ### 3. Representación de tabla: 
-Normalmente, una clase representa una tabla en la base de datos, y una instancia de la clase representa una fila de esa tabla.
+La representación de tabla es una estrategia de mapeo objeto-relacional (ORM) en la que se mapea una clase de la aplicación a una tabla de la base de datos. Los atributos de la clase se corresponden con las columnas de la tabla, y cada objeto de la clase representa una fila de la tabla.
+
+### Relación entre clases y tablas
+* **Clase = Tabla:** Cada clase del modelo representa una tabla en la base de datos.
+* **Instancia de clase = Fila:** Cada objeto de la clase representa una fila de la tabla.
+* **Propiedades = Columnas:** Cada propiedad o atributo de la clase corresponde a una columna de la tabla.
+
+### Ejemplo: 
+Imagina que tienes una tabla de base de datos llamada usuarios con las siguientes columnas: id, nombre y email. La representación de tabla en un modelo PHP usando Active Record podría verse así:
+
+```php
+class Usuario {
+    public $id;
+    public $nombre;
+    public $email;
+
+    // Métodos para operaciones CRUD van aquí...
+}
+```
+
+* La clase ```Usuario``` representa la tabla ```usuarios```, y las propiedades ```id```, ```nombre``` y ```email``` corresponden a las columnas de la tabla.
 
 
 
