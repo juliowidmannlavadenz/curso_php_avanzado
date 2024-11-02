@@ -905,6 +905,18 @@ try {
 * Ejecución y manejo de la consulta: Se ejecuta la consulta; si tiene éxito, se confirma la transacción y se muestra un mensaje de éxito con un enlace para regresar. Si falla, se revierte la transacción y se muestra un mensaje de error.
 * Validación de ID: Si no hay ID, se informa al usuario. Se capturan excepciones y se revierte la transacción si es necesario.
 
+### 11. Punto de entrada de la aplicación
+**Archivo:**```public/index.php```
+
+```php
+<?php
+header('Location: ../views/index.php');
+exit;
+```
+### Explicación:
+* **Redirección:** Este archivo redirige automáticamente a la vista principal donde se muestra la lista de libros. Proporciona un punto de entrada simple para la aplicación.
+
+
 
 
 # Patrones de la capa de datos: activerecord y repository
