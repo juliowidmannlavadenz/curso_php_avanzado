@@ -975,12 +975,43 @@ La clase actúa como un modelo de datos y contiene toda la lógica necesaria par
 ```php
 $usuario = new Usuario();
 $usuario->nombre = 'Juan';
-$usuario->guardar(); // Guarda o actualiza el registro en la base de datos
+$usuario->guardar(); 
 ```
 * Creamos una instancia de la clase ```Usuario```, se asigna un valor a un atributo y se llama al método ```guardar()``` para insertar o actualizar el registro en la base de datos. Este enfoque muestra la simplicidad y cohesión que ofrece el patrón Active Record.
 
 ### 2. Operaciones CRUD: 
 Las clases que implementan este patrón pueden leer, insertar, actualizar y eliminar registros sin depender de otras capas de abstracción.
+
+### Ejemplo: 
+
+**Crear** ```create```
+```php
+$usuario = new Usuario();
+$usuario->nombre = 'Ana';
+$usuario->guardar(); 
+```
+
+**Leer** ```read```
+```php
+$usuario = Usuario::obtenerPorId(1); 
+echo $usuario->nombre;
+```
+
+**Actualizar** ```update```
+```php
+$usuario = Usuario::obtenerPorId(1);
+$usuario->nombre = 'Ana María';
+$usuario->guardar(); // Actualiza el registro existente
+```
+
+**Eliminar** ```delete```
+```php
+$usuario = Usuario::obtenerPorId(1);
+$usuario = Usuario::obtenerPorId(1);
+$usuario->eliminar(); 
+```
+* Operaciones CRUD usando el patrón Active Record.
+
 ### 3. Representación de tabla: 
 Normalmente, una clase representa una tabla en la base de datos, y una instancia de la clase representa una fila de esa tabla.
 
