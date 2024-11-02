@@ -801,6 +801,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     * Botón para enviar el formulario.
     * Enlace para volver a la lista de libros.
 
+### 9. Vista para editar un libro
+**Archivo:**```views/edit.php```
+
+```php
+<?php
+require_once '../controllers/BookController.php';
+
+$bookController = new BookController();
+$book = $bookController->read()->fetch(PDO::FETCH_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $price = $_POST['price'];
+
+    if ($bookController->update($id, $title, $author, $price)) {
+        header('Location: index.php');
+    } else {
+        echo "Error al actualizar el libro.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Libro</title>
+</head>
+<body>
+    <h1>Editar Libro</h1>
+    <form method="POST">
+        <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
+        <label>Título:</label>
+        <input type="text" name="title" value="<?php echo $book['title']; ?>" required>
+        <br>
+        <label>Autor:</label>
+        <input type="text" name="author" value="<?php echo $book['author']; ?>" required>
+        <br>
+        <label>Precio:</label>
+        <input type="number" name="price" value="<?php echo $book['price']; ?>" required>
+        <br>
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
+```
+
+### Explicación:
+* **Código PHP:** Incluye el controlador y carga los datos del libro a editar.
+* **Método GET:** Obtiene el ID del libro de la URL y busca sus datos.
+* **Método POST:** Captura los datos del formulario y llama al método update del controlador.
+* **Estructura HTML:**
+    * Título de la página.
+    * Formulario para editar los detalles del libro (título, autor y precio).
+    * Botón para actualizar y enlace para volver a la lista de libros.
+
 
 # Patrones de la capa de datos: activerecord y repository
 
