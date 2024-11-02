@@ -429,6 +429,14 @@ echo 'Total de usuarios: ' . $totalUsuarios['total'];
 
 * Este script cuenta y muestra el número total de usuarios en la tabla usuarios, imprimiendo el resultado en un formato legible.
 
+### Resumen:
+* ```SELECT```: Para obtener datos.
+* ```INSERT```: Para insertar datos.
+* ```UPDATE```: Para actualizar datos.
+* ```DELETE```: Para eliminar datos.
+* Transacciones: Para ejecutar múltiples consultas de manera segura.
+* ```execute()``` con arrays: Para pasar parámetros de forma simplificada.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
