@@ -696,8 +696,8 @@ class BookController {
     * ```update()```: Actualiza los datos de un libro específico, usando transacciones.
     * ```delete()```: Elimina un libro específico, utilizando transacciones.
 
-  ### 7. Vista principal
-  **Archivo:**```views/index.php```
+### 7. Vista principal
+**Archivo:**```views/index.php```
 
 ```php
   <?php
