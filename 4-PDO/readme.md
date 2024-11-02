@@ -353,6 +353,25 @@ echo 'Usuario actualizado con éxito';
 
 * Actualizamos el campo ```nombre``` de un registro en la tabla ```usuarios```, donde ```id``` es igual a ```1```, usando una consulta preparada para mayor seguridad y eficiencia.
 
+### 3. Consultas de eliminación (```DELETE```)
+Se utilizan para modificar datos existentes.
+
+**Ejemplo:** ```DELETE``` **con parámetros**
+
+```php
+<?php
+$id = 1;
+
+$stmt = $conexion->prepare('DELETE FROM usuarios WHERE id = :id');
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
+
+echo 'Usuario eliminado con éxito';
+?>
+```
+
+*  Eliminamos de forma segura un registro de la tabla ```usuarios``` cuyo ```id``` es ```1```, utilizando una consulta preparada para proteger contra inyecciones SQL.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
