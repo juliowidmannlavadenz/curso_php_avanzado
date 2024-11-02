@@ -312,7 +312,7 @@ print_r($resultado);
 
 * Este script selecciona un registro de la tabla usuarios cuyo id es igual a 1, lo ejecuta de forma segura usando sentencias preparadas y muestra el resultado en pantalla.
 
-### 1. Consultas de inserción (```INSERT```)
+### 2. Consultas de inserción (```INSERT```)
 Estas consultas se utilizan para agregar datos nuevos a la base de datos.
 
 **Ejemplo:** ```INSERT``` **con parámetros**
@@ -331,6 +331,27 @@ echo 'Usuario insertado con éxito';
 ?>
 ```
 * insertamos un nuevo registro en la tabla ```usuarios``` con el nombre y el email especificados, usando una consulta preparada para evitar inyecciones SQL y asegurar una inserción segura.
+
+### 2. Consultas de actualización (```UPDATE``)
+Se utilizan para modificar datos existentes.
+
+**Ejemplo:** ```UPDATE``` **con parámetros**
+
+```php
+<?php
+$id = 1;
+$nuevoNombre = 'Juan Actualizado';
+
+$stmt = $conexion->prepare('UPDATE usuarios SET nombre = :nombre WHERE id = :id');
+$stmt->bindParam(':nombre', $nuevoNombre);
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
+
+echo 'Usuario actualizado con éxito';
+?>
+```
+
+* Actualizamos el campo ```nombre``` de un registro en la tabla ```usuarios```, donde ```id``` es igual a ```1```, usando una consulta preparada para mayor seguridad y eficiencia.
 
 # Patrones de la capa de datos: activerecord y repository
 
