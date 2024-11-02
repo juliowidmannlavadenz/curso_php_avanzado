@@ -399,7 +399,7 @@ try {
 * Este script realiza una transacción en la base de datos que inserta un nuevo usuario y actualiza otro. Si ambas operaciones son exitosas, se confirma la transacción; si hay un error, se revierte. Esto garantiza la consistencia de los datos en la base de datos.
 
 
-### 5. Consultas usando ```execute()``` con arrays
+### 6. Consultas usando ```execute()``` con arrays
 Una forma rápida de pasar los parámetros a una consulta.
 
 **Ejemplo: Uso de** ```execute()``` **con arrays**
@@ -413,6 +413,21 @@ print_r($resultado);
 ?>
 ```
 * Buscamos en la tabla ```usuarios``` registros donde el nombre sea ```'Juan'``` y el email sea ```'juan@example.com'```, y luego imprimimos los resultados encontrados en un formato legible.
+
+### 7. Consultas de Solo Lectura (```SELECT``` ```COUNT```, ```SUM```, ```AVG```)
+Se usan para obtener estadísticas de la base de datos.
+
+**Ejemplo:** ```SELECT COUNT``` 
+
+```php
+<?php
+$stmt = $conexion->query('SELECT COUNT(*) AS total FROM usuarios');
+$totalUsuarios = $stmt->fetch(PDO::FETCH_ASSOC);
+echo 'Total de usuarios: ' . $totalUsuarios['total'];
+?>
+```
+
+* Este script cuenta y muestra el número total de usuarios en la tabla usuarios, imprimiendo el resultado en un formato legible.
 
 # Patrones de la capa de datos: activerecord y repository
 
