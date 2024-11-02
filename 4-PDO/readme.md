@@ -353,7 +353,7 @@ echo 'Usuario actualizado con éxito';
 
 * Actualizamos el campo ```nombre``` de un registro en la tabla ```usuarios```, donde ```id``` es igual a ```1```, usando una consulta preparada para mayor seguridad y eficiencia.
 
-### 3. Consultas de eliminación (```DELETE```)
+### 4. Consultas de eliminación (```DELETE```)
 Se utilizan para modificar datos existentes.
 
 **Ejemplo:** ```DELETE``` **con parámetros**
@@ -371,6 +371,34 @@ echo 'Usuario eliminado con éxito';
 ```
 
 *  Eliminamos de forma segura un registro de la tabla ```usuarios``` cuyo ```id``` es ```1```, utilizando una consulta preparada para proteger contra inyecciones SQL.
+
+### 5. Consultas con transacciones
+Se usan para realizar varias operaciones como una sola transacción. Si una de las operaciones falla, todas las demás también se deshacen.
+
+**Ejemplo: Uso de transacciones** 
+
+```php
+<?php
+try {
+    $conexion->beginTransaction();
+
+    $stmt1 = $conexion->prepare('INSERT INTO usuarios (nombre, email) VALUES (:nombre, :email)');
+    $stmt1->execute([':nombre' => 'Pedro', ':email' => 'pedro@example.com']);
+
+    $stmt2 = $conexion->prepare('UPDATE usuarios SET nombre = :nombre WHERE id = :id');
+    $stmt2->execute([':nombre' => 'Pedro Actualizado', ':id' => 2]);
+
+    $conexion->commit();
+    echo 'Transacción completada con éxito';
+} catch (PDOException $e) {
+    $conexion->rollBack();
+    echo 'Error en la transacción: ' . $e->getMessage();
+}
+?>
+```
+
+### 5. Consultas usando ```execute()``` con arrays
+Una forma rápida de pasar los parámetros a una consulta.
 
 # Patrones de la capa de datos: activerecord y repository
 
