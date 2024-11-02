@@ -402,6 +402,18 @@ try {
 ### 5. Consultas usando ```execute()``` con arrays
 Una forma rápida de pasar los parámetros a una consulta.
 
+**Ejemplo: Uso de** ```execute()``` **con arrays**
+
+```php
+<?php
+$stmt = $conexion->prepare('SELECT * FROM usuarios WHERE nombre = ? AND email = ?');
+$stmt->execute(['Juan', 'juan@example.com']);
+$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($resultado);
+?>
+```
+* Buscamos en la tabla ```usuarios``` registros donde el nombre sea ```'Juan'``` y el email sea ```'juan@example.com'```, y luego imprimimos los resultados encontrados en un formato legible.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
