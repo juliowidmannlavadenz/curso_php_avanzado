@@ -332,7 +332,7 @@ echo 'Usuario insertado con éxito';
 ```
 * insertamos un nuevo registro en la tabla ```usuarios``` con el nombre y el email especificados, usando una consulta preparada para evitar inyecciones SQL y asegurar una inserción segura.
 
-### 2. Consultas de actualización (```UPDATE``)
+### 3. Consultas de actualización (```UPDATE``)
 Se utilizan para modificar datos existentes.
 
 **Ejemplo:** ```UPDATE``` **con parámetros**
