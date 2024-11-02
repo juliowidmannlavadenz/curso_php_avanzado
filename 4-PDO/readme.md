@@ -250,15 +250,6 @@ PDO soporta múltiples sistemas de gestión de bases de datos como MySQL, Postgr
 ### 2. Protección contra inyecciones SQL: 
 Al usar consultas preparadas, PDO ayuda a proteger contra ataques de inyección SQL, ya que los parámetros de las consultas son tratados de forma segura.
 
-### 3. Mejor manejo de errores: PDO ofrece un control más robusto sobre el manejo de errores a través de excepciones (PDOException). Esto permite capturar errores y manejar las fallas de forma controlada.
-
-### 4. Soporte de consultas preparadas: Las consultas preparadas en PDO son más seguras y eficientes, ya que separan la lógica de la consulta de los datos que se envían. Esto también ayuda a mejorar el rendimiento, ya que las consultas preparadas pueden ser reutilizadas.
-
-### 5. Flexibilidad en el manejo de resultados: PDO permite obtener resultados en distintos formatos, como objetos, arrays asociativos, etc., proporcionando flexibilidad al momento de procesar los datos.
-
-### 6. Mayor consistencia: Usar una única clase para todas las conexiones y consultas de la base de datos aporta consistencia al proyecto, reduciendo el esfuerzo de aprendizaje y el código redundante.
-
-### 7. Manejo de transacciones: PDO tiene soporte nativo para transacciones, lo que permite realizar operaciones complejas que pueden ser confirmadas o revertidas de forma sencilla con beginTransaction(), commit() y rollBack().
 
 # Patrones de la capa de datos: activerecord y repository
 
