@@ -312,6 +312,26 @@ print_r($resultado);
 
 * Este script selecciona un registro de la tabla usuarios cuyo id es igual a 1, lo ejecuta de forma segura usando sentencias preparadas y muestra el resultado en pantalla.
 
+### 1. Consultas de inserción (```INSERT```)
+Estas consultas se utilizan para agregar datos nuevos a la base de datos.
+
+**Ejemplo:** ```INSERT``` **con parámetros**
+
+```php
+<?php
+$nombre = 'Juan';
+$email = 'juan@example.com';
+
+$stmt = $conexion->prepare('INSERT INTO usuarios (nombre, email) VALUES (:nombre, :email)');
+$stmt->bindParam(':nombre', $nombre);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+
+echo 'Usuario insertado con éxito';
+?>
+```
+* insertamos un nuevo registro en la tabla ```usuarios``` con el nombre y el email especificados, usando una consulta preparada para evitar inyecciones SQL y asegurar una inserción segura.
+
 # Patrones de la capa de datos: activerecord y repository
 
 
