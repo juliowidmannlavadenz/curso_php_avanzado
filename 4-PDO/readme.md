@@ -437,6 +437,9 @@ echo 'Total de usuarios: ' . $totalUsuarios['total'];
 * Transacciones: Para ejecutar múltiples consultas de manera segura.
 * ```execute()``` con arrays: Para pasar parámetros de forma simplificada.
 
+## Ejemplo completo: Crud utilizando PDO 
+
+
 # Patrones de la capa de datos: activerecord y repository
 
 
