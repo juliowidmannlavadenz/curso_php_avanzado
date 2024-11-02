@@ -808,6 +808,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     * Formulario para ingresar los detalles del libro (título, autor y precio).
     * Botón para enviar el formulario.
     * Enlace para volver a la lista de libros.
+ 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/agregar_libro.png?raw=true" style />
+</p>
+<br>
 
 ### 9. Vista para editar un libro
 **Archivo:**```views/edit.php```
