@@ -1091,7 +1091,7 @@ try {
 ### Explicación:
 * Se establece una conexión a la base de datos usando PDO, que permite manejar la base de datos de forma segura.
 
-### 3. Creación de la clase ```Auto```
+### 4. Creación de la clase ```Auto```
 **Archivo:** ```models/Auto.php```
 
 ```php
@@ -1131,7 +1131,32 @@ class Auto {
 ### Explicación:
 * La clase ```Auto``` contiene propiedades que representan las columnas de la tabla ```autos```. El método ```save()``` inserta o actualiza un registro en la base de datos, y el método ```findAll()``` devuelve todos los registros de la tabla.
 
+### 5. Creación del controlador
+**Archivo:** ```controllers/AutoController.php```
 
+```php
+<?php
+require_once 'models/Auto.php';
+
+class AutoController {
+    public function listarAutos() {
+        $autos = Auto::findAll();
+        require 'Views/listar_autos.php';
+    }
+
+    public function agregarAuto($marca, $modelo, $precio) {
+        $auto = new Auto();
+        $auto->marca = $marca;
+        $auto->modelo = $modelo;
+        $auto->precio = $precio;
+        $auto->save();
+        header('Location: index.php');
+    }
+}
+```
+
+### Explicación:
+* ```AutoController``` es responsable de manejar la lógica entre la vista y el modelo. Tiene métodos para listar autos y agregar nuevos.
 
 
 
