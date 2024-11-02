@@ -916,7 +916,8 @@ exit;
 ### Explicación:
 * **Redirección:** Este archivo redirige automáticamente a la vista principal donde se muestra la lista de libros. Proporciona un punto de entrada simple para la aplicación.
 
-
+### Conclusión y resumen:
+Este ejemplo de gestión de una librería en PHP utiliza PDO para manejar la base de datos con un enfoque de programación orientada a objetos, proporcionando una capa de abstracción. Se implementan consultas preparadas para prevenir la inyección de SQL, y se utilizan transacciones para asegurar que las operaciones se realicen de manera consistente.
 
 
 # Patrones de la capa de datos: activerecord y repository
