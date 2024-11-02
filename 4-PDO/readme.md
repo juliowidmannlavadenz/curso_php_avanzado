@@ -1035,6 +1035,101 @@ class Usuario {
 
 * La clase ```Usuario``` representa la tabla ```usuarios```, y las propiedades ```id```, ```nombre``` y ```email``` corresponden a las columnas de la tabla.
 
+## Ejemplo utilizando active record
+En este ejemplo, crearemos un sistema simple de venta de autos usando el patrón Active Record.
+
+### 1. Estructura de archivos
+
+```php
+/venta-autos
+    /models
+        Auto.php
+    /controllers
+        AutoController.php
+    /views
+        listar_autos.php
+        agregar_auto.php
+    config.php
+    index.php
+```
+
+### 2. Creación de la BBDD y la tabla 
+
+```sql```
+
+```php
+CREATE DATABASE IF NOT EXISTS venta_autos;
+USE venta_autos;
+
+CREATE TABLE IF NOT EXISTS autos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marca VARCHAR(100) NOT NULL,
+    modelo VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL
+);
+```
+
+### 3. Configuración de la base de datos
+**Archivo:** ```config.php```
+
+```php
+<?php
+// config.php
+$host = 'localhost';
+$dbname = 'venta_autos';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error al conectar a la base de datos: " . $e->getMessage());
+}
+```
+
+### Explicación:
+* Se establece una conexión a la base de datos usando PDO, que permite manejar la base de datos de forma segura.
+
+### 3. Creación de la clase ```Auto```
+**Archivo:** ```models/Auto.php```
+
+```php
+<?php
+require_once 'config.php';
+
+class Auto {
+    private $pdo;
+    public $id;
+    public $marca;
+    public $modelo;
+    public $precio;
+
+    public function __construct() {
+        global $pdo;
+        $this->pdo = $pdo;
+    }
+
+    public function save() {
+        if (isset($this->id)) {
+            $stmt = $this->pdo->prepare("UPDATE autos SET marca = ?, modelo = ?, precio = ? WHERE id = ?");
+            $stmt->execute([$this->marca, $this->modelo, $this->precio, $this->id]);
+        } else {
+            $stmt = $this->pdo->prepare("INSERT INTO autos (marca, modelo, precio) VALUES (?, ?, ?)");
+            $stmt->execute([$this->marca, $this->modelo, $this->precio]);
+            $this->id = $this->pdo->lastInsertId();
+        }
+    }
+
+    public static function findAll() {
+        global $pdo;
+        $stmt = $pdo->query("SELECT * FROM autos");
+        return $stmt->fetchAll(PDO::FETCH_CLASS, 'Auto');
+    }
+}
+```
+### Explicación:
+* La clase ```Auto``` contiene propiedades que representan las columnas de la tabla ```autos```. El método ```save()``` inserta o actualiza un registro en la base de datos, y el método ```findAll()``` devuelve todos los registros de la tabla.
 
 
 
