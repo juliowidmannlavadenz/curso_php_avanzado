@@ -756,7 +756,7 @@ $books = $bookController->read();
 </p>
 <br>
 
-### 8. Vista para crear un libro
+### 8. Vista para agregar un libro
 **Archivo:**```views/create.php```
 
 ```php
