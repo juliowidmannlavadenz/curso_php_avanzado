@@ -969,6 +969,16 @@ El patrón Active Record combina los datos y el comportamiento relacionado en un
 ## Características principales
 ### 1. Simplicidad y cohesión: 
 La clase actúa como un modelo de datos y contiene toda la lógica necesaria para manejar los datos de una base de datos.
+
+### Ejemplo: 
+
+```php
+$usuario = new Usuario();
+$usuario->nombre = 'Juan';
+$usuario->guardar(); // Guarda o actualiza el registro en la base de datos
+```
+* Creamos una instancia de la clase ```Usuario```, se asigna un valor a un atributo y se llama al método ```guardar()``` para insertar o actualizar el registro en la base de datos. Este enfoque muestra la simplicidad y cohesión que ofrece el patrón Active Record.
+
 ### 2. Operaciones CRUD: 
 Las clases que implementan este patrón pueden leer, insertar, actualizar y eliminar registros sin depender de otras capas de abstracción.
 ### 3. Representación de tabla: 
