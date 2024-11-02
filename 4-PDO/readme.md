@@ -748,6 +748,14 @@ $books = $bookController->read();
     * Tabla que muestra todos los libros con ID, título, autor, precio y acciones (editar y eliminar).
 * **Bucle while:** Itera a través de los resultados y los muestra en la tabla.
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/vista.png?raw=true" style />
+</p>
+<br>
+
 ### 8. Vista para crear un libro
 **Archivo:**```views/create.php```
 
@@ -916,13 +924,6 @@ exit;
 ### Explicación:
 * **Redirección:** Este archivo redirige automáticamente a la vista principal donde se muestra la lista de libros. Proporciona un punto de entrada simple para la aplicación.
 
-### Vista en el navegador
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/vista.png?raw=true" style />
-</p>
-<br>
 
 ### Conclusión y resumen:
 Este ejemplo de gestión de una librería en PHP utiliza PDO para manejar la base de datos con un enfoque de programación orientada a objetos, proporcionando una capa de abstracción. Se implementan consultas preparadas para prevenir la inyección de SQL, y se utilizan transacciones para asegurar que las operaciones se realicen de manera consistente.
