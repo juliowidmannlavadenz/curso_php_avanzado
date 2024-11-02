@@ -265,6 +265,36 @@ Usar una única clase para todas las conexiones y consultas de la base de datos 
 ### 7. Manejo de transacciones: 
 PDO tiene soporte nativo para transacciones, lo que permite realizar operaciones complejas que pueden ser confirmadas o revertidas de forma sencilla con ```beginTransaction()```, ```commit()``` y ```rollBack()```.
 
+## Tipos de consultas
+
+### 1. Consultas de Selección (SELECT)
+Permiten obtener datos de la base de datos.
+**Ejemplo: Consultas básicas con** ```SELECT```
+
+```php
+<?php
+$dsn = 'mysql:host=localhost;dbname=ejemplo';
+$usuario = 'root';
+$contrasena = '';
+
+try {
+    $conexion = new PDO($dsn, $usuario, $contrasena);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Consulta simple sin parámetros
+    $stmt = $conexion->query('SELECT * FROM usuarios');
+    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($resultado as $fila) {
+        echo 'Nombre: ' . $fila['nombre'] . '<br>';
+    }
+} catch (PDOException $e) {
+    echo 'Error: ' . $e->getMessage();
+}
+?>
+```
+
+
 # Patrones de la capa de datos: activerecord y repository
 
 
