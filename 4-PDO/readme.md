@@ -540,6 +540,83 @@ class Database {
     * Establece la conexión utilizando PDO.
     * Maneja excepciones para capturar errores de conexión.
 
+### 5. Modelo de libro
+**Archivo:**```models/Book.php```
+
+```php
+<?php
+class Book {
+    private $conn;
+    private $table_name = 'books';
+
+    public $id;
+    public $title;
+    public $author;
+    public $price;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function create() {
+        $query = "INSERT INTO " . $this->table_name . " (title, author, price) VALUES (:title, :author, :price)";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':price', $this->price);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function read() {
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY id DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function update() {
+        $query = "UPDATE " . $this->table_name . " SET title = :title, author = :author, price = :price WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':price', $this->price);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function delete() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $this->id);
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+### Explicación:
+* **Clase Book:** Modelo que representa un libro en la base de datos.
+* **Propiedades:**
+    * ```$conn```: Conexión a la base de datos.
+    * ```$table_name```: Nombre de la tabla que contiene los libros.
+    * ```$id```, ```$title```, ```$author```, ```$price```: Atributos del libro.
+* **Métodos:**
+* ```create()```: Inserta un nuevo libro en la base de datos.
+* ```read()```: Lee todos los libros de la base de datos.
+* ```update()```: Actualiza los detalles de un libro específico.
+* ```delete()```: Elimina un libro de la base de datos.
 
 # Patrones de la capa de datos: activerecord y repository
 
