@@ -961,5 +961,21 @@ Este ejemplo de gestión de una librería en PHP utiliza PDO para manejar la bas
 
 
 # Patrones de la capa de datos: activerecord y repository
+## ¿Qué es active record?
+Es uno de los patrones de diseño más utilizados para trabajar con bases de datos y modelos de datos. Es popular en muchos frameworks y lenguajes de programación como Ruby on Rails, Laravel y Django, aunque también se puede implementar en otros entornos. 
+
+El patrón Active Record combina los datos y el comportamiento relacionado en una sola clase. Cada objeto de la clase representa una fila en una tabla de base de datos, y los métodos de la clase permiten realizar operaciones CRUD (crear, leer, actualizar, eliminar) directamente sobre la base de datos.
+
+## Características principales
+### 1. Simplicidad y cohesión: 
+La clase actúa como un modelo de datos y contiene toda la lógica necesaria para manejar los datos de una base de datos.
+### 2. Operaciones CRUD: 
+Las clases que implementan este patrón pueden leer, insertar, actualizar y eliminar registros sin depender de otras capas de abstracción.
+### 3. Representación de tabla: 
+Normalmente, una clase representa una tabla en la base de datos, y una instancia de la clase representa una fila de esa tabla.
+
+
+
+
 
 
