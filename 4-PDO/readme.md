@@ -748,6 +748,60 @@ $books = $bookController->read();
     * Tabla que muestra todos los libros con ID, título, autor, precio y acciones (editar y eliminar).
 * **Bucle while:** Itera a través de los resultados y los muestra en la tabla.
 
+### 8. Vista para crear un libro
+**Archivo:**```views/create.php```
+
+```php
+<?php
+require_once '../controllers/BookController.php';
+
+$bookController = new BookController();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $price = $_POST['price'];
+
+    if ($bookController->create($title, $author, $price)) {
+        header('Location: index.php');
+    } else {
+        echo "Error al agregar el libro.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Libro</title>
+</head>
+<body>
+    <h1>Agregar Libro</h1>
+    <form method="POST">
+        <label>Título:</label>
+        <input type="text" name="title" required>
+        <br>
+        <label>Autor:</label>
+        <input type="text" name="author" required>
+        <br>
+        <label>Precio:</label>
+        <input type="number" name="price" required>
+        <br>
+        <input type="submit" value="Agregar">
+    </form>
+</body>
+</html>
+```
+### Explicación:
+* **Código PHP:** Incluye el controlador y gestiona el envío del formulario.
+* **Método POST:** Captura los datos del formulario y llama al método create del controlador.
+* **Estructura HTML:**
+    * Título de la página.
+    * Formulario para ingresar los detalles del libro (título, autor y precio).
+    * Botón para enviar el formulario.
+    * Enlace para volver a la lista de libros.
+
+
 # Patrones de la capa de datos: activerecord y repository
 
 
