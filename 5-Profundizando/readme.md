@@ -177,7 +177,7 @@ abstract class Transporte {
 
 3. **Método concreto** ```tipoTransporte()```: Se define con una implementación en la clase abstracta. Las clases hijas pueden usar este método tal como está o sobrescribirlo si es necesario.
 
-# Miembros estáticos, patrones de diseño (GOF) introducción a sistemas distribuidos
+# Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
 
