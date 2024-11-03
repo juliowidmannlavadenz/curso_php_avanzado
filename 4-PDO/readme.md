@@ -202,7 +202,7 @@ try {
 * Este archivo establece la conexión a la base de datos y lanza un error si no es posible conectarse, utilizando un ```try-catch``` básico.
 
 ### 3. Definición de las funciones de error
-**Archivo:** ```funciones.php``
+**Archivo:** ```funciones.php```
 
 ```php
 <?php
