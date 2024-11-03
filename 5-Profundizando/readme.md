@@ -35,6 +35,52 @@ Es una clase que no se puede instanciar directamente; es decir, no se pueden cre
 ### 1. No se puede instanciar: 
 No se puede crear un objeto de una clase abstracta directamente.
 
+### Ejemplo:
+```php
+abstract class Animal {
+    abstract public function hacerSonido();
+}
+```
+### Explicación:
+
+1. La clase ```Animal``` es abstracta, lo que significa que no se puede instanciar directamente (no puedes hacer ```$animal = new Animal()```).
+2. Contiene un método abstracto ```hacerSonido()```, que es solo una declaración sin implementación. Las clases que extiendan ```Animal``` deben implementar el método ```hacerSonido()``` para definir su comportamiento específico.
+
+### Extendiendo la clase ```Animal```
+
+```php
+abstract class Animal {
+    abstract public function hacerSonido();
+}
+
+class Perro extends Animal {
+    public function hacerSonido() {
+        echo "Guau guau";
+    }
+}
+
+class Gato extends Animal {
+    public function hacerSonido() {
+        echo "Miau miau";
+    }
+}
+
+// Crear instancias de las clases derivadas y llamar al método hacerSonido
+$perro = new Perro();
+$perro->hacerSonido(); // Salida: Guau guau
+
+$gato = new Gato();
+$gato->hacerSonido(); // Salida: Miau miau
+```
+
+### Explicación:
+
+1. La clase ```Animal``` es una clase abstracta que declara un método abstracto ```hacerSonido()```. Esto significa que cualquier clase que herede de ```Animal``` está obligada a implementar el método ```hacerSonido()```.
+2. La clase ```Perro``` extiende ```Animal``` e implementa el método ```hacerSonido()``` con la salida específica "Guau guau".
+3. La clase ```Gato``` también extiende ```Animal``` e implementa su propia versión del método ```hacerSonido()``` con la salida "Miau miau".
+4. Cuando se crean instancias de ```Perro``` y ```Gato``` y se llama al método ```hacerSonido()```, cada una muestra su comportamiento específico. Esto es un ejemplo de **polimorfismo**, donde las clases derivadas tienen diferentes implementaciones del mismo método declarado en la clase base abstracta.
+
+
 
 ### 2. Métodos abstractos: 
 Puede contener métodos abstractos, que son métodos sin cuerpo (implementación). Las clases que heredan de la clase abstracta deben proporcionar la implementación de estos métodos.
