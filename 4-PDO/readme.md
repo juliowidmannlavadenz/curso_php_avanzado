@@ -1454,3 +1454,158 @@ $userRepo = new MockUserRepository();
 echo $userRepo->find(1); // Salida: Mock Usuario 1
 ```
 * Este ejemplo usa un repositorio simulado (MockUserRepository) que facilita la prueba de la lógica de negocio sin depender de una base de datos real, haciendo que las pruebas sean rápidas y predecibles.
+
+## Ejemplo utilizando active record
+En este ejemplo implementaremos un CRUD completo para ilustrar como se aplica active record. 
+
+### 1. Estrcutura de archivos
+
+```php
+/proyecto-repository/
+│
+├── /src/
+│   ├── Database.php
+│   ├── RepositoryInterface.php
+│   ├── UserRepository.php
+│   └── User.php
+│
+└── /public/
+     └── index.php
+```
+
+### 2. Creación de la BBDD y la tabla asociada
+
+```sql```
+
+```php
+CREATE DATABASE IF NOT EXISTS proyecto_repository;
+
+USE proyecto_repository;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 3. Conexión a la base de datos
+**Archivo:** ```Database.php```
+
+```php
+<?php
+namespace App;
+
+use PDO;
+use PDOException;
+
+class Database
+{
+    private $host = 'localhost';
+    private $db = 'proyecto_repository';
+    private $user = 'root';
+    private $pass = '';
+    private $charset = 'utf8mb4';
+    private $pdo;
+
+    public function connect()
+    {
+        if ($this->pdo == null) {
+            try {
+                $dsn = "mysql:host={$this->host};dbname={$this->db};charset={$this->charset}";
+                $this->pdo = new PDO($dsn, $this->user, $this->pass);
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Error de conexión: " . $e->getMessage());
+            }
+        }
+        return $this->pdo;
+    }
+}
+```
+
+### Explicación:
+Esta clase proporciona una conexión a la base de datos usando PDO. La conexión se encapsula para que el acceso a los datos se gestione de manera uniforme.
+
+### 4. Definición de la interfaz y los métodos básicos
+**Archivo:** ```RepositoryInterface.php``
+
+```php
+<?php
+namespace App;
+
+interface RepositoryInterface
+{
+    public function getAll();
+    public function getById($id);
+    public function create($data);
+    public function update($id, $data);
+    public function delete($id);
+}
+```
+### Explicación:
+* Esta interfaz define un contrato para los repositorios, asegurando que implementen métodos consistentes para CRUD.
+
+### 5. Inplementación del repositorio de usuarios
+**Archivo:** ```UserRepository.php``
+
+```php
+<?php
+namespace App;
+
+use PDO;
+
+class UserRepository implements RepositoryInterface
+{
+    private $db;
+
+    public function __construct(Database $database)
+    {
+        $this->db = $database->connect();
+    }
+
+    public function getAll()
+    {
+        $stmt = $this->db->query("SELECT * FROM users");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getById($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function create($data)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->execute(['email' => $data['email']]);
+        if ($stmt->fetch()) {
+            throw new \Exception("El correo electrónico '{$data['email']}' ya está registrado.");
+        }
+    
+
+        $stmt = $this->db->prepare("INSERT INTO users (name, email) VALUES (:name, :email)");
+        return $stmt->execute(['name' => $data['name'], 'email' => $data['email']]);
+    }
+
+    public function update($id, $data)
+    {
+        $stmt = $this->db->prepare("UPDATE users SET name = :name, email = :email WHERE id = :id");
+        return $stmt->execute(['name' => $data['name'], 'email' => $data['email'], 'id' => $id]);
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->db->prepare("DELETE FROM users WHERE id = :id");
+        return $stmt->execute(['id' => $id]);
+    }
+}
+```
+
+* ```UserRepository``` implementa la interfaz ```RepositoryInterface``` y proporciona una implementación específica de los métodos CRUD. Esto facilita la reutilización de código y el encapsulamiento de la lógica de acceso a datos.
+
+
+
