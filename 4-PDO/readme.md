@@ -1607,5 +1607,65 @@ class UserRepository implements RepositoryInterface
 
 * ```UserRepository``` implementa la interfaz ```RepositoryInterface``` y proporciona una implementación específica de los métodos CRUD. Esto facilita la reutilización de código y el encapsulamiento de la lógica de acceso a datos.
 
+### 6. Representación de la entidad ```User```
+**Archivo:** ```User.php```
+
+```php
+<?php
+namespace App;
+
+class User
+{
+    private $id;
+    private $name;
+    private $email;
+
+    // Getters y setters
+    public function getId() { return $this->id; }
+    public function getName() { return $this->name; }
+    public function getEmail() { return $this->email; }
+
+    public function setId($id) { $this->id = $id; }
+    public function setName($name) { $this->name = $name; }
+    public function setEmail($email) { $this->email = $email; }
+}
+```
+
+* Esta clase representa la estructura de un usuario y es útil para encapsular los datos de las entidades.
+
+### 7. Punto de entrada de la aplicación
+**Archivo:** ```index.php``
+
+```php
+<?php
+require_once '../src/Database.php';
+require_once '../src/RepositoryInterface.php';
+require_once '../src/UserRepository.php';
+require_once '../src/User.php';
+
+use App\Database;
+use App\UserRepository;
+
+$database = new Database();
+$userRepo = new UserRepository($database);
+
+// Crear un usuario
+$userRepo->create(['name' => 'John Doe', 'email' => 'john@example.com']);
+
+// Actualizar un usuario
+$userRepo->update(1, ['name' => 'John Doe**', 'email' => 'john@example**.com']);
+
+// Borrar un usuario
+$userRepo->update(1, ['name' => 'John Doe**', 'email' => 'john@example**.com']);
+
+$users = $userRepo->getAll();
+print_r($users);
+```
+
+* Este archivo es el punto de entrada para probar las operaciones del CRUD. Crea un repositorio de usuarios y ejecuta algunos métodos.
+
+
+
+
 
 
