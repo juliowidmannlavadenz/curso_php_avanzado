@@ -165,6 +165,11 @@ Lanza una excepción PDOException y permite capturar errores en bloques try-catc
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ```
 
+### Consejos de seguridad:
+> * No muestres mensajes de error detallados en un entorno de producción. En su lugar, registra los errores en un archivo de log para revisarlos posteriormente.
+> * Sanitiza la salida del mensaje de error para evitar que información sensible quede expuesta.
+
+
 # Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
