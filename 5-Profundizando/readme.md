@@ -117,6 +117,41 @@ class Moto extends Vehiculo {
 ### 3. Métodos concretos: 
 También puede contener métodos con implementación, lo que permite definir comportamientos comunes que pueden ser heredados por las subclases.
 
+### Ejemplo:
+
+```php
+abstract class DispositivoElectronico {
+    // Método abstracto (debe ser implementado por las clases hijas)
+    abstract public function encender();
+
+    // Método concreto (tiene implementación y puede ser heredado)
+    public function informacion() {
+        echo "Este es un dispositivo electrónico.";
+    }
+}
+
+class Televisor extends DispositivoElectronico {
+    public function encender() {
+        echo "El televisor se está encendiendo.";
+    }
+}
+```
+
+### Explicación:
+1. **Clase abstracta** ```DispositivoElectronico```: No se puede instanciar directamente. Contiene un método abstracto ```encender()``` que debe ser implementado por las clases que la extiendan y un método concreto ```informacion()``` con una implementación que puede ser heredada por las clases hijas.
+
+2. **Método concreto** ```informacion()```: Este método tiene una implementación completa en la clase abstracta y puede ser llamado por las instancias de las clases derivadas sin necesidad de ser redefinido.
+
+3. **Clase** ```Televisor```: Extiende ```DispositivoElectronico``` e implementa el método abstracto ```encender()```, proporcionando la funcionalidad específica para encender el televisor.
+
+### Uso del método concreto:
+
+```php
+$tv = new Televisor();
+$tv->encender(); // Salida: El televisor se está encendiendo.
+$tv->informacion(); // Salida: Este es un dispositivo electrónico.
+```
+* Aquí, ```encender()``` es implementado en la clase ```Televisor```, mientras que ```informacion()``` es heredado de ```DispositivoElectronico``` y se usa sin modificación.
 
 ### 4. Declaración: 
 Se usa la palabra clave abstract antes de la definición de la clase y de los métodos abstractos.
