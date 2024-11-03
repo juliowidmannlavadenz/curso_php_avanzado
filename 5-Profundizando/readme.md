@@ -28,6 +28,26 @@ SPL (Standard PHP Library) es una colección de interfaces y clases que se inclu
 
 
 # Gestión de los abstractos (clases abstractas e interfaces)
+## Concepto de clase abstracta
+Es una clase que no se puede instanciar directamente; es decir, no se pueden crear objetos de ella. Sirve como una plantilla para que otras clases la extiendan. Las clases abstractas se utilizan para definir métodos que deben ser implementados por las subclases, asegurando una estructura consistente en todas las clases derivadas.
+
+## Características principales
+### 1. No se puede instanciar: 
+No se puede crear un objeto de una clase abstracta directamente.
+
+
+### 2. Métodos abstractos: 
+Puede contener métodos abstractos, que son métodos sin cuerpo (implementación). Las clases que heredan de la clase abstracta deben proporcionar la implementación de estos métodos.
+
+
+### 3. Métodos concretos: 
+También puede contener métodos con implementación, lo que permite definir comportamientos comunes que pueden ser heredados por las subclases.
+
+
+### 4. Declaración: 
+Se usa la palabra clave abstract antes de la definición de la clase y de los métodos abstractos.
+
+
 # Miembros estáticos, patrones de diseño (GOF) introducción a sistemas distribuidos
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
