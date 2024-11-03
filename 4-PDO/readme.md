@@ -238,6 +238,28 @@ function ejecutarConsultaModoException($pdo) {
 * ```ejecutarConsultaModoWarning:``` Configura el modo WARNING, donde PDO emite un aviso de PHP.
 * ```ejecutarConsultaModoException:``` Configura el modo EXCEPTION, envolviendo la consulta en un bloque ```try-catch``` para capturar y mostrar el error.
 
+### 4. Punto de entrada donde se ejecutan las funciones de prueba
+**Archivo:** ```index.php```
+
+```php
+<?php
+require 'config.php';
+require 'funciones.php';
+
+echo "<h3>Modo SILENT:</h3>";
+ejecutarConsultaModoSilent($pdo);
+
+echo "<h3>Modo WARNING:</h3>";
+ejecutarConsultaModoWarning($pdo);
+
+echo "<h3>Modo EXCEPTION:</h3>";
+ejecutarConsultaModoException($pdo);
+?>
+```
+
+### Explicación:
+* ```index.php``` importa los archivos de configuración y funciones, y ejecuta las pruebas de cada modo de manejo de errores con salidas diferenciadas.
+
 # Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
