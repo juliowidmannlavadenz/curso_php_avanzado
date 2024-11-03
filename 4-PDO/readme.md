@@ -181,6 +181,63 @@ errores-pdo/
 |-- funciones.php
 ```
 
+### 2. Configuracion de la conexión a la BBDD
+**Archivo:** ```config.php```
+
+```php
+<?php
+$dsn = 'mysql:host=localhost;dbname=ejemplo_db';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO($dsn, $username, $password);
+} catch (PDOException $e) {
+    die("Error al conectar a la base de datos: " . $e->getMessage());
+}
+?>
+```
+
+### Explicación:
+* Este archivo establece la conexión a la base de datos y lanza un error si no es posible conectarse, utilizando un ```try-catch``` básico.
+
+### 3. Definición de las funciones de error
+**Archivo:** ```funciones.php``
+
+```php
+<?php
+function ejecutarConsultaModoSilent($pdo) {
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+    $stmt = $pdo->query("SELECT * FROM tabla_inexistente");
+
+    if (!$stmt) {
+        echo "Error detectado en modo SILENT (verificado manualmente).<br>";
+    }
+}
+
+function ejecutarConsultaModoWarning($pdo) {
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    $stmt = $pdo->query("SELECT * FROM tabla_inexistente");
+    // PDO emite una advertencia de PHP automáticamente.
+}
+
+function ejecutarConsultaModoException($pdo) {
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    try {
+        $stmt = $pdo->query("SELECT * FROM tabla_inexistente");
+    } catch (PDOException $e) {
+        echo "Error capturado en modo EXCEPTION: " . $e->getMessage() . "<br>";
+    }
+}
+?>
+```
+
+### Explicación:
+* ```ejecutarConsultaModoSilent:``` Configura el modo SILENT y muestra un mensaje si la consulta falla, pero el error no se muestra automáticamente.
+* ```ejecutarConsultaModoWarning:``` Configura el modo WARNING, donde PDO emite un aviso de PHP.
+* ```ejecutarConsultaModoException:``` Configura el modo EXCEPTION, envolviendo la consulta en un bloque ```try-catch``` para capturar y mostrar el error.
+
 # Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
