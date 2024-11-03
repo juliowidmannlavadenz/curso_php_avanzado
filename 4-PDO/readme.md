@@ -1252,5 +1252,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ### Resumen y conclusión:
 Este ejemplo muestra cómo implementar el patrón Active Record en PHP puro, estructurando la aplicación en modelos, controladores y vistas para una mayor organización y separación de responsabilidades. ```Auto.php``` representa el modelo de datos con métodos para interactuar con la base de datos, ```AutoController.php``` actúa como un intermediario entre la vista y el modelo, y ```index.php``` maneja las solicitudes del usuario.
 
+## ¿Qué es repository?
+Es un patrón de diseño en software que actúa como un intermediario entre la lógica de negocio de una aplicación y la fuente de datos, que puede ser una base de datos, un servicio web, o cualquier otro tipo de almacenamiento. Este patrón se utiliza principalmente en aplicaciones que necesitan una forma de abstraer el acceso a datos, facilitando la separación de preocupaciones y mejorando la mantenibilidad del código.
+
+## Características principales
+### 1. Abstracción de Datos: 
+Proporciona una interfaz que abstrae la lógica de acceso a datos, de modo que la lógica de negocio no tenga que preocuparse por cómo se obtienen los datos o dónde se almacenan.
+
+### 2. Encapsulamiento:
+Encapsula la lógica relacionada con la obtención y almacenamiento de datos, lo que permite que la lógica de negocio permanezca limpia y enfocada en sus responsabilidades.
+
+### 3. Interfaz Común: 
+Define una interfaz común para realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la fuente de datos, lo que permite cambiar la implementación del acceso a datos sin afectar a la lógica de negocio.
+
+### 4. Reutilización de Código: 
+Facilita la reutilización del código de acceso a datos, ya que el mismo repositorio puede ser utilizado en diferentes partes de la aplicación.
+
+### 5. Facilidad de Pruebas: 
+Permite realizar pruebas más fácilmente, ya que se pueden usar simulaciones (mocks) de los repositorios en lugar de depender de una base de datos real.
 
 
