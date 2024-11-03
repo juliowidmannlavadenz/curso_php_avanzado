@@ -1529,7 +1529,7 @@ class Database
 Esta clase proporciona una conexión a la base de datos usando PDO. La conexión se encapsula para que el acceso a los datos se gestione de manera uniforme.
 
 ### 4. Definición de la interfaz y los métodos básicos
-**Archivo:** ```RepositoryInterface.php``
+**Archivo:** ```RepositoryInterface.php```
 
 ```php
 <?php
@@ -1548,7 +1548,7 @@ interface RepositoryInterface
 * Esta interfaz define un contrato para los repositorios, asegurando que implementen métodos consistentes para CRUD.
 
 ### 5. Inplementación del repositorio de usuarios
-**Archivo:** ```UserRepository.php``
+**Archivo:** ```UserRepository.php```
 
 ```php
 <?php
