@@ -268,6 +268,16 @@ ejecutarConsultaModoException($pdo);
 </p>
 <br>
 
+### Conclusión:
+Este ejemplo demuestra cómo se comportan los distintos modos de manejo de errores de PDO:
+
+* **SILENT:** No muestra errores automáticamente; el manejo es manual.
+* **WARNING:** Muestra advertencias que son útiles para depuración.
+* **EXCEPTION:** Lanza excepciones que se pueden capturar y manejar adecuadamente.
+
+### Resumen:
+> Es importante seleccionar el modo de manejo de errores adecuado según la necesidad de la aplicación. En producción, se recomienda ```PDO::ERRMODE_EXCEPTION``` para un control más preciso de los errores.
+
 # Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
