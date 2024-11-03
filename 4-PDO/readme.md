@@ -1216,6 +1216,14 @@ class AutoController {
 ### Explicación:
 * Formulario  que envía datos a ```index.php``` para agregar un nuevo auto.
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/ingresar_auto.png?raw=true" style />
+</p>
+<br>
+
 ### 7. Punto de entrada para manejar las solicitudes
 **Archivo:** ```index.php```
 
