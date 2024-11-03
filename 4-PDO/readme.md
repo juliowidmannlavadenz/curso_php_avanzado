@@ -260,6 +260,14 @@ ejecutarConsultaModoException($pdo);
 ### Explicación:
 * ```index.php``` importa los archivos de configuración y funciones, y ejecuta las pruebas de cada modo de manejo de errores con salidas diferenciadas.
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/manejo_errores.png?raw=true" style />
+</p>
+<br>
+
 # Conexión con PDO
 
 Una conexión con PDO  es una forma de interactuar con bases de datos en PHP utilizando una interfaz orientada a objetos. PDO proporciona una manera consistente y segura de acceder a varias bases de datos, como MySQL, PostgreSQL, SQLite, entre otras.
