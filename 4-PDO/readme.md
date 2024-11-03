@@ -1259,8 +1259,27 @@ Es un patrón de diseño en software que actúa como un intermediario entre la l
 ### 1. Abstracción de Datos: 
 Proporciona una interfaz que abstrae la lógica de acceso a datos, de modo que la lógica de negocio no tenga que preocuparse por cómo se obtienen los datos o dónde se almacenan.
 
+### Ejemplo: 
+
+```php
+class UserRepository { public function findById($id) { return "Usuario con ID: $id"; } }
+$userRepo = new UserRepository();
+echo $userRepo->findById(1); // Salida: Usuario con ID: 1
+```
+
+*  Este ejemplo muestra cómo crear una clase ```UserRepository``` que abstrae la lógica para encontrar un usuario por ID, y luego se utiliza esa clase para obtener un usuario específico.
+
 ### 2. Encapsulamiento:
 Encapsula la lógica relacionada con la obtención y almacenamiento de datos, lo que permite que la lógica de negocio permanezca limpia y enfocada en sus responsabilidades.
+
+### Ejemplo: 
+
+```php
+class ProductRepository { private $products = []; public function add($product) { $this->products[] = $product; } }
+$productRepo = new ProductRepository();
+$productRepo->add('Producto 1');
+```
+* En este ejemplo, la clase ```ProductRepository``` encapsula un array privado de productos y proporciona un método ```add``` para agregar productos a ese array, manteniendo la implementación interna oculta.
 
 ### 3. Interfaz Común: 
 Define una interfaz común para realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la fuente de datos, lo que permite cambiar la implementación del acceso a datos sin afectar a la lógica de negocio.
