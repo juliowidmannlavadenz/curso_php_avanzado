@@ -1634,7 +1634,7 @@ class User
 * Esta clase representa la estructura de un usuario y es útil para encapsular los datos de las entidades.
 
 ### 7. Punto de entrada de la aplicación
-**Archivo:** ```index.php``
+**Archivo:** ```index.php```
 
 ```php
 <?php
@@ -1664,8 +1664,28 @@ print_r($users);
 
 * Este archivo es el punto de entrada para probar las operaciones del CRUD. Crea un repositorio de usuarios y ejecuta algunos métodos.
 
+### 8. Probar la funcionalidad de la aplicación
 
+### Creación de un usuario:
 
+```php
+$userRepo->create(['name' => 'Julio Widmann', 'email' => 'lavadenz@micorreo.com']);
+```
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/crear_usuario.png?raw=true" style />
+</p>
+<br>
+
+### Vista en la base de datos
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/crear_usuario_bbdd.png?raw=true" style />
+</p>
+<br>
 
 
