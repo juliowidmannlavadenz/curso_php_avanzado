@@ -85,6 +85,34 @@ $gato->hacerSonido(); // Salida: Miau miau
 ### 2. Métodos abstractos: 
 Puede contener métodos abstractos, que son métodos sin cuerpo (implementación). Las clases que heredan de la clase abstracta deben proporcionar la implementación de estos métodos.
 
+### Ejemplo:
+
+```php
+abstract class Vehiculo {
+    abstract public function arrancar();
+}
+
+class Coche extends Vehiculo {
+    public function arrancar() {
+        echo "El coche está arrancando";
+    }
+}
+
+class Moto extends Vehiculo {
+    public function arrancar() {
+        echo "La moto está arrancando";
+    }
+}
+```
+
+### Explicación:
+1. **Clase abstracta** ```Vehiculo```: Es una clase que no puede ser instanciada directamente. Contiene un método abstracto ```arrancar()```, que solo se declara y no tiene implementación. Las clases que hereden de ```Vehiculo``` deben implementar este método.
+
+2. **Clase** ```Coche```: Extiende la clase abstracta ```Vehiculo``` e implementa el método ```arrancar()```, definiendo su propia funcionalidad que imprime "El coche está arrancando".
+
+3. **Clase** ```Moto```: También extiende ```Vehiculo``` e implementa su propia versión del método ```arrancar()```, que imprime "La moto está arrancando".
+
+4. **Polimorfismo**: Las clases ```Coche``` y ```Moto``` implementan el método ```arrancar()``` de formas diferentes, lo que permite que cada clase tenga su propia versión del método abstracto.
 
 ### 3. Métodos concretos: 
 También puede contener métodos con implementación, lo que permite definir comportamientos comunes que pueden ser heredados por las subclases.
