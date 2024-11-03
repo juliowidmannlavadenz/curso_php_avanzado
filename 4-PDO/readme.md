@@ -139,6 +139,31 @@ $pdo->commit();
 * En este código, ```beginTransaction()``` inicia una transacción, ```exec()``` ejecuta una consulta SQL, y ```commit()``` confirma la transacción, haciendo permanentes los cambios en la base de datos.
 
 # Manejo de errores con PDO
+Es importante para identificar problemas en las consultas a la base de datos y evitar que estos se traduzcan en fallos de la aplicación o filtren información sensible.
+
+## Modos de manejo de errores
+PDO tiene tres modos de manejo de errores que se pueden configurar:
+
+### 1. PDO::ERRMODE_SILENT: 
+El modo predeterminado. Solo se configura un código de error interno, pero no se genera ninguna notificación visible.
+
+```php
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+```
+
+### 2. PDO::ERRMODE_WARNING: 
+Emite una advertencia de PHP, útil para depuración rápida.
+
+```php
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+```
+
+### 3. PDO::ERRMODE_EXCEPTION: 
+Lanza una excepción PDOException y permite capturar errores en bloques try-catch. Este es el modo más recomendado para manejar errores en producción, ya que facilita la gestión de errores de forma más controlada.
+
+```php
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+```
 
 # Conexión con PDO
 
