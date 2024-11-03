@@ -1680,5 +1680,23 @@ $userRepo->create(['name' => 'Julio Widmann', 'email' => 'lavadenz@micorreo.com'
 </p>
 <br>
 
+### Actualización de un usuario:
+
+```php
+$userRepo->update(1, ['name' => 'Julio Widmann UPDATE', 'email' => 'lavadenz@micorreo.com-UPDATE']);
+```
+
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/actualizar_usuario.png?raw=true" style />
+</p>
+<br>
+
+
+
+
+
 
 
