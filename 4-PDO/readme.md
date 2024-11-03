@@ -1183,6 +1183,14 @@ class AutoController {
 ### Explicación:
 * La vista muestra la lista de autos obtenidos del método ```listarAutos()``` del controlador.
 
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/listar_autos.png?raw=true" style />
+</p>
+<br>
+
 ### 6. Formulario para agregar un auto nuevo 
 **Archivo:** ```views/agregar_auto.php```
 
@@ -1224,6 +1232,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ```
 * Este archivo decide si mostrar la lista de autos o procesar la solicitud de agregar un nuevo auto, dependiendo del método HTTP utilizado.
+
+### Vista en el navegador
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/listar_autos.png?raw=true" style />
+</p>
+<br>
 
 ### Resumen y conclusión:
 Este ejemplo muestra cómo implementar el patrón Active Record en PHP puro, estructurando la aplicación en modelos, controladores y vistas para una mayor organización y separación de responsabilidades. ```Auto.php``` representa el modelo de datos con métodos para interactuar con la base de datos, ```AutoController.php``` actúa como un intermediario entre la vista y el modelo, y ```index.php``` maneja las solicitudes del usuario.
