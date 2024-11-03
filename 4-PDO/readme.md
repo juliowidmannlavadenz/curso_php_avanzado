@@ -1284,10 +1284,35 @@ $productRepo->add('Producto 1');
 ### 3. Interfaz Común: 
 Define una interfaz común para realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la fuente de datos, lo que permite cambiar la implementación del acceso a datos sin afectar a la lógica de negocio.
 
+### Ejemplo: 
+
+```php
+interface UserRepositoryInterface { public function find($id); }
+class UserRepository implements UserRepositoryInterface { public function find($id) { return "Usuario $id"; } }
+echo (new UserRepository())->find(1);
+```
+* Este ejemplo define una interfaz ```UserRepositoryInterface``` que declara el método ```find```, y ```UserRepository``` implementa esa interfaz, garantizando una estructura común para los repositorios.
+
 ### 4. Reutilización de Código: 
 Facilita la reutilización del código de acceso a datos, ya que el mismo repositorio puede ser utilizado en diferentes partes de la aplicación.
+
+### Ejemplo: 
+
+```php
+class BaseRepository { public function findAll() { return "Obteniendo todos los registros"; } }
+class UserRepository extends BaseRepository {}
+echo (new UserRepository())->findAll(); 
+```
+* En este ejemplo, ```UserRepository``` hereda de ```BaseRepository```, reutilizando la lógica del método ```findAll``` sin necesidad de volver a implementarlo.
 
 ### 5. Facilidad de Pruebas: 
 Permite realizar pruebas más fácilmente, ya que se pueden usar simulaciones (mocks) de los repositorios en lugar de depender de una base de datos real.
 
+### Ejemplo: 
 
+```php
+class MockUserRepository { public function find($id) { return "Mock Usuario $id"; } }
+$userRepo = new MockUserRepository();
+echo $userRepo->find(1); // Salida: Mock Usuario 1
+```
+* Este ejemplo usa un repositorio simulado (MockUserRepository) que facilita la prueba de la lógica de negocio sin depender de una base de datos real, haciendo que las pruebas sean rápidas y predecibles.
