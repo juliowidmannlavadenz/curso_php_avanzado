@@ -1676,16 +1676,9 @@ $userRepo->create(['name' => 'Julio Widmann', 'email' => 'lavadenz@micorreo.com'
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/crear_usuario2.png?raw=true" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/registro_AR.png?raw=true" style />
 </p>
 <br>
 
-### Vista en la base de datos
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/crear_usuario_bbdd2.png?raw=true" style />
-</p>
-<br>
 
 
