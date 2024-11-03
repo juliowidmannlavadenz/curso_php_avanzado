@@ -156,6 +156,26 @@ $tv->informacion(); // Salida: Este es un dispositivo electrónico.
 ### 4. Declaración: 
 Se usa la palabra clave abstract antes de la definición de la clase y de los métodos abstractos.
 
+### Ejemplo:
+
+```php
+abstract class Transporte {
+    // Declaración de un método abstracto
+    abstract public function mover();
+
+    // Método concreto con implementación
+    public function tipoTransporte() {
+        echo "Este es un medio de transporte.";
+    }
+}
+```
+
+### Explicación:
+1. **Declaración de la clase abstracta** ```Transporte```: La palabra clave ```abstract``` se utiliza para definir una clase abstracta. Esto significa que ```Transporte``` no puede ser instanciada directamente. Es una clase base que debe ser extendida por otras clases.
+
+2. **Método abstracto** ```mover()```: Se declara sin cuerpo (sin implementación). Las clases que hereden de ```Transporte``` están obligadas a implementar este método, definiendo su propia lógica de cómo "moverse".
+
+3. **Método concreto** ```tipoTransporte()```: Se define con una implementación en la clase abstracta. Las clases hijas pueden usar este método tal como está o sobrescribirlo si es necesario.
 
 # Miembros estáticos, patrones de diseño (GOF) introducción a sistemas distribuidos
 # Introducción a sistemas distribuidos
