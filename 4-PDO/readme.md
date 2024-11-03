@@ -1666,13 +1666,13 @@ print_r($users);
 
 ### 8. Probar la funcionalidad de la aplicación
 
-### Creación de un usuario:
+#### Creación de un usuario:
 
 ```php
 $userRepo->create(['name' => 'Julio Widmann', 'email' => 'lavadenz@micorreo.com']);
 ```
 
-### Vista en el navegador
+#### Vista en el navegador
 
 <br>
 <p align="center">
@@ -1680,13 +1680,13 @@ $userRepo->create(['name' => 'Julio Widmann', 'email' => 'lavadenz@micorreo.com'
 </p>
 <br>
 
-### Actualización de un usuario:
+#### Actualización de un usuario:
 
 ```php
 $userRepo->update(1, ['name' => 'Julio Widmann UPDATE', 'email' => 'lavadenz@micorreo.com-UPDATE']);
 ```
 
-### Vista en el navegador
+#### Vista en el navegador
 
 <br>
 <p align="center">
@@ -1694,19 +1694,26 @@ $userRepo->update(1, ['name' => 'Julio Widmann UPDATE', 'email' => 'lavadenz@mic
 </p>
 <br>
 
-### Borrar un usuario:
+#### Borrar un usuario:
 
 ```php
 $userRepo->delete(6, ['name' => 'Julio Widmann UPDATE', 'email' => 'lavadenz@micorreo.com-UPDATE']);
 ```
 
-### Vista en el navegador
+#### Vista en el navegador
 
 <br>
 <p align="center">
 <img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/borrar_usuario.png?raw=true" style />
 </p>
 <br>
+
+### Conclusión:
+El patrón Repository ofrece una forma clara de organizar la lógica de acceso a datos, proporcionando abstracción, encapsulamiento y una interfaz común. Este enfoque mejora la mantenibilidad y facilita la creación de pruebas unitarias, permitiendo cambios en la implementación sin afectar la lógica de negocio.
+
+### Resumen:
+> Implementar el patrón Repository en PHP permite un acceso a datos más estructurado y limpio. Utilizar interfaces comunes y encapsular la lógica de la base de datos proporciona un sistema más fácil de mantener y probar, lo que favorece la reutilización del código y la separación de responsabilidades.
+
 
 
 
