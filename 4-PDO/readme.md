@@ -169,6 +169,17 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 > * No muestres mensajes de error detallados en un entorno de producción. En su lugar, registra los errores en un archivo de log para revisarlos posteriormente.
 > * Sanitiza la salida del mensaje de error para evitar que información sensible quede expuesta.
 
+## Ejemplo de uso y configuración en el manejo de errores con PDO
+En este ejemplo, veremos cómo configurar y usar los tres modos de manejo de errores de PDO: ```ERRMODE_SILENT```, ```ERRMODE_WARNING```, y ```ERRMODE_EXCEPTION```. La finalidad es entender cómo se comportan cada uno y cómo manejar los errores de forma adecuada en aplicaciones PHP.
+
+### 1. Estructura del proyecto
+
+```php
+errores-pdo/
+|-- index.php
+|-- config.php
+|-- funciones.php
+```
 
 # Conexión con PDO
 
