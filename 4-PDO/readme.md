@@ -1455,8 +1455,8 @@ echo $userRepo->find(1); // Salida: Mock Usuario 1
 ```
 * Este ejemplo usa un repositorio simulado (MockUserRepository) que facilita la prueba de la lógica de negocio sin depender de una base de datos real, haciendo que las pruebas sean rápidas y predecibles.
 
-## Ejemplo utilizando active record
-En este ejemplo implementaremos un CRUD completo para ilustrar como se aplica active record. 
+## Ejemplo utilizando repository
+En este ejemplo implementaremos un CRUD completo para ilustrar como se aplica repository. 
 
 ### 1. Estrcutura de archivos
 
