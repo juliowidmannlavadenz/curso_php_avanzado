@@ -1091,5 +1091,29 @@ La comunicación entre nodos puede ser lenta y limitada por el ancho de banda de
 Proteger los datos en tránsito y en reposo, y asegurar que solo los usuarios autorizados tengan acceso a los recursos.
 
 # Desarrollo de una API REST
+Una API REST (Representational State Transfer) es un conjunto de convenciones y principios para la creación de servicios web que permiten la comunicación entre diferentes aplicaciones a través de HTTP. 
 
+## Características de una API REST
+### 1. Recursos: 
+En REST, los recursos son objetos o representaciones de datos que se pueden identificar mediante URL. Cada recurso tiene una URI (Uniform Resource Identifier) única.
+
+### 2. Métodos HTTP: 
+
+REST utiliza los métodos HTTP para realizar operaciones sobre los recursos:
+* **GET:** Recuperar información sobre un recurso.
+* **POST:** Crear un nuevo recurso.
+* **PUT:** Actualizar un recurso existente.
+* **DELETE:** Eliminar un recurso.
+
+### 3. Estado: 
+REST es stateless (sin estado), lo que significa que cada solicitud del cliente al servidor debe contener toda la información necesaria para que el servidor pueda entender y procesar la solicitud. No se guarda información del cliente entre solicitudes.
+
+### 4. Representaciones: 
+Los recursos pueden ser representados en diferentes formatos, como JSON, XML, HTML, etc. El formato más común es JSON debido a su simplicidad y facilidad de uso en aplicaciones web.
+
+### 5. Interoperabilidad: 
+Las APIs REST están diseñadas para ser utilizadas por diferentes clientes (navegadores web, aplicaciones móviles, etc.) independientemente de la plataforma.
+
+### 6. Cacheabilidad: 
+Las respuestas de las APIs REST pueden ser almacenadas en caché para mejorar el rendimiento y reducir la carga en el servidor.
 
