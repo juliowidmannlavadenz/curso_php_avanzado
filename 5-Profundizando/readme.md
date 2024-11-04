@@ -1205,6 +1205,14 @@ $mascotas = obtenerMascotas();
 * Se obtienen todas las mascotas de la base de datos.
 * Se muestra una tabla con las mascotas y opciones para agregar, editar y eliminar.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/punto_entrada.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### 4. Conexión a las base de datos
 **Archivo:** ```db.php```
 
