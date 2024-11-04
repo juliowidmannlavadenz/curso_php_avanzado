@@ -741,7 +741,16 @@ Este cuadro resume las principales diferencias entre clases abstractas e interfa
 | **Constantes**          | Pueden tener constantes.                                        | Pueden tener constantes.                                    |
 
 
-# Miembros estáticos, patrones de diseño (GOF)
+# Miembros estáticos
+Son propiedades y métodos que pertenecen a la clase en lugar de a una instancia específica de la clase. Esto significa que puedes acceder a ellos sin tener que crear un objeto de la clase. 
+
+## Definición de miembros estáticos
+### 1. Propiedades Estáticas: 
+Se definen usando la palabra clave ```static``` y se accede a ellas a través del operador de resolución de ámbito (```::```).
+### 2. Métodos Estáticos: 
+También se definen con ```static``` y pueden ser llamados sin crear una instancia de la clase.
+
+# Patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
 
