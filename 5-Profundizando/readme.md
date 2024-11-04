@@ -1321,7 +1321,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/agregar_mascota.png?raw=true" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/agregar_mascota2.png?raw=true" style />
 </p>
 <br>
 
