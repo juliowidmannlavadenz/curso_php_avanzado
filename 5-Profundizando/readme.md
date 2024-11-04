@@ -177,6 +177,72 @@ abstract class Transporte {
 
 3. **Método concreto** ```tipoTransporte()```: Se define con una implementación en la clase abstracta. Las clases hijas pueden usar este método tal como está o sobrescribirlo si es necesario.
 
+## Ejemplo completo de clases abstractas
+Ejemplo de un sistema CRUD (Crear, Leer, Actualizar, Borrar) que utiliza clases abstractas para gestionar tickets de soporte.
+
+### 1. Estructura de archivos
+```php
+support-tickets/
+│
+├── index.php              # Archivo principal para manejar las solicitudes
+├── Ticket.php             # Clase abstracta Ticket
+├── TicketRepository.php    # Clase para manejar la lógica CRUD
+├── Database.php           # Clase para manejar la conexión a la base de datos
+└── config.php             # Configuración de la base de datos
+```
+
+### 2. Creación de la BBDD y tabla relacionada
+```php
+CREATE DATABASE IF NOT EXISTS support_tickets;
+
+USE support_tickets;
+
+CREATE TABLE IF NOT EXISTS tickets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    status ENUM('open', 'closed') NOT NULL DEFAULT 'open'
+);
+```
+### 3. Configuración de la base de datos
+**Archivo:** ```config.php```
+
+```php
+<?php
+// config.php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'support_tickets');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+?>
+```
+### 4.Gestionar la conexión a la base de datos
+**Archivo:** ```Database.php```
+
+```php
+<?php
+class Database {
+    private $host = DB_HOST;
+    private $dbname = DB_NAME;
+    private $username = DB_USER;
+    private $password = DB_PASS;
+    public $conn;
+
+    public function __construct() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Connection error: " . $e->getMessage();
+        }
+    }
+}
+?>
+```
+* Se define la clase ```Database``` que maneja la conexión a la base de datos utilizando PDO. Si la conexión falla, se captura la excepción y se muestra un mensaje de error.
+
+
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
