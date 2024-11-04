@@ -479,6 +479,243 @@ class MiClase implements Ejemplo { public function metodoA() { echo "Implementac
 ```
 * En este ejemplo, el método ```metodoA()``` declarado en la interfaz ```Ejemplo``` es automáticamente público, y la clase ```MiClase``` lo implementa con la misma visibilidad.
 
+## Ejemplo completo de interface: Creación de CRUD 
+Vamos a crear un sistema de gestión de estudiantes que permita registrar, listar, obtener detalles de los estudiantes y borrar estudiantes. La interfaz garantizará que todas las clases que implementan la funcionalidad relacionada con los estudiantes sigan un mismo esquema.
+
+### 1. Estructura de archivos
+
+```php
+colegio/
+├── index.php
+├── StudentInterface.php
+├── Student.php
+├── StudentRepository.php
+├── db.php
+└── database.sql
+```
+
+### 2. Creacion de la BBDD y tabla asociada
+```php
+CREATE DATABASE colegio_db;
+
+USE colegio_db;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    edad INT NOT NULL,
+    grado VARCHAR(50) NOT NULL
+);
+```
+### 3. Conexión a la base de datos
+**Archivo:** ```db.php```
+
+```php
+<?php
+function getConnection() {
+    try {
+        $dsn = 'mysql:host=localhost;dbname=colegio_db';
+        $username = 'root';
+        $password = '';
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ];
+        return new PDO($dsn, $username, $password, $options);
+    } catch (PDOException $e) {
+        die('Error de conexión: ' . $e->getMessage());
+    }
+}
+```
+### Explicación:
+* Este archivo establece una conexión con la base de datos usando PDO.
+
+### 4. Definición de la interfaz del estudiante
+**Archivo:** ```StudentInterface.php``
+
+```php
+<?php
+interface StudentInterface {
+    public function agregarEstudiante($nombre, $edad, $grado);
+    public function obtenerEstudiantes();
+    public function obtenerEstudiantePorId($id);
+}
+```
+### Explicación:
+* Esta es la interfaz StudentInterface que define el contrato para manejar los estudiantes. Cualquier clase que implemente esta interfaz debe definir estos tres métodos.
+
+### 5. Creación de la clase estudiante ```Student```
+**Archivo:** ```Student.php``
+
+```php
+<?php
+class Student {
+    private $id;
+    private $nombre;
+    private $edad;
+    private $grado;
+
+    public function __construct($id, $nombre, $edad, $grado) {
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->grado = $grado;
+    }
+
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function getEdad() {
+        return $this->edad;
+    }
+
+    public function getGrado() {
+        return $this->grado;
+    }
+}
+```
+### Explicación:
+* La clase ```Student``` modela a un estudiante con sus atributos y proporciona métodos para acceder a ellos.
+
+### 6. Creación del repositorio que implementa la interfaz 
+**Archivo:** ```StudentRepository.php`
+
+```php
+<?php
+require_once 'StudentInterface.php';
+require_once 'db.php';
+
+class StudentRepository implements StudentInterface {
+    private $conn;
+
+    public function __construct() {
+        $this->conn = getConnection();
+    }
+
+    public function agregarEstudiante($nombre, $edad, $grado) {
+        $sql = "INSERT INTO students (nombre, edad, grado) VALUES (:nombre, :edad, :grado)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['nombre' => $nombre, 'edad' => $edad, 'grado' => $grado]);
+    }
+
+    public function obtenerEstudiantes() {
+        $sql = "SELECT * FROM students";
+        $stmt = $this->conn->query($sql);
+        return $stmt->fetchAll();
+    }
+
+    public function obtenerEstudiantePorId($id) {
+        $sql = "SELECT * FROM students WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
+
+    public function eliminarEstudiante($id) {
+        $sql = "DELETE FROM students WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    }    
+
+}
+```
+
+### Explicación:
+* La clase StudentRepository implementa la interfaz StudentInterface y proporciona la lógica para interactuar con la base de datos.
+
+### 7. Punto de entrada del proyecto
+**Archivo:** ```index.php```
+
+```php
+<?php
+require_once 'StudentRepository.php';
+
+$repo = new StudentRepository();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['edad'], $_POST['grado'])) {
+    $nombre = $_POST['nombre'];
+    $edad = (int)$_POST['edad'];
+    $grado = $_POST['grado'];
+    
+    $repo->agregarEstudiante($nombre, $edad, $grado);
+    echo "Estudiante agregado exitosamente.<br>";
+}
+
+if (isset($_GET['eliminar_id'])) {
+    $id = (int)$_GET['eliminar_id'];
+    $repo->eliminarEstudiante($id);
+    echo "Estudiante con ID $id eliminado exitosamente.<br>";
+}
+
+$estudiantes = $repo->obtenerEstudiantes();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Estudiantes</title>
+</head>
+<body>
+    <h1>Gestión de Estudiantes</h1>
+
+    <h2>Agregar un nuevo estudiante</h2>
+    <form method="post" action="">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br>
+        <label for="grado">Grado:</label>
+        <input type="text" id="grado" name="grado" required><br>
+        <button type="submit">Agregar Estudiante</button>
+    </form>
+
+    <h2>Lista de Estudiantes</h2>
+    <?php if (!empty($estudiantes)): ?>
+        <ul>
+            <?php foreach ($estudiantes as $estudiante): ?>
+                <li>
+                    <?php echo "Nombre: " . htmlspecialchars($estudiante['nombre']) . " - Edad: " . htmlspecialchars($estudiante['edad']) . " - Grado: " . htmlspecialchars($estudiante['grado']); ?>
+                    <a href="?eliminar_id=<?php echo $estudiante['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este estudiante?');">[Eliminar]</a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No hay estudiantes registrados.</p>
+    <?php endif; ?>
+
+    <h2>Detalles del Estudiante por ID</h2>
+    <form method="get" action="">
+        <label for="id">ID del Estudiante:</label>
+        <input type="number" id="id" name="id" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <?php
+    if (isset($_GET['id'])) {
+        $id = (int)$_GET['id'];
+        $detalles = $repo->obtenerEstudiantePorId($id);
+        
+        if ($detalles) {
+            echo "<h3>Detalles del estudiante con ID $id:</h3>";
+            echo "Nombre: " . htmlspecialchars($detalles['nombre']) . "<br>";
+            echo "Edad: " . htmlspecialchars($detalles['edad']) . "<br>";
+            echo "Grado: " . htmlspecialchars($detalles['grado']) . "<br>";
+        } else {
+            echo "<p>No se encontró el estudiante con ID $id.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+```
+### Explicación:
+* ```index.php``` es el punto de entrada del proyecto. Usa el repositorio para agregar un estudiante, listar todos los estudiantes y obtener detalles de un estudiante por su ID.
+
+### Resumen:
+Este ejemplo muestra cómo usar interfaces para definir un contrato que clases deben seguir, asegurando consistencia y claridad en la implementación de funcionalidades. La separación entre la lógica de negocio y la conexión a la base de datos también ayuda a mantener el código organizado y más fácil de mantener.
+
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
