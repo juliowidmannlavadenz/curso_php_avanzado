@@ -803,6 +803,14 @@ echo "Número de instancias creadas: " . Contador::obtenerContador();
 * No se puede acceder a miembros no estáticos desde un contexto estático.
 * Útil para datos que son comunes a todas las instancias, como contadores, configuraciones, o métodos de utilidad.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/miembros_estaticos.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 # Patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
