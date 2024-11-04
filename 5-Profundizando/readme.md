@@ -437,7 +437,7 @@ Este ejemplo proporciona una base sólida para un sistema de gestión de tickets
 Una interfaz es un contrato que define un conjunto de métodos que una clase debe implementar, pero no proporciona la implementación de esos métodos. Las interfaces se utilizan para establecer un estándar que las clases pueden seguir, lo que permite la creación de código más estructurado y flexible.
 
 ## Características
-### 1. Definición de Métodos: 
+### 1. Definición de métodos: 
 Una interfaz solo puede declarar métodos, no puede contener implementaciones. Cualquier clase que implemente la interfaz debe proporcionar la implementación de estos métodos.
 
 ### Ejemplo:
@@ -449,7 +449,7 @@ interface Ejemplo {
 ```
 * Este fragmento muestra cómo se define una interfaz ```Ejemplo``` con dos métodos que cualquier clase que la implemente debe definir.
 
-### 2. Múltiples Interfaces: 
+### 2. Múltiples interfaces: 
 Una clase puede implementar múltiples interfaces, lo que permite que una clase tenga más de un tipo de comportamiento.
 
 ### Ejemplo:
@@ -461,13 +461,23 @@ class MiClase implements Interfaz1, Interfaz2 { public function metodoA() {} pub
 ```
 * La clase ```MiClase``` implementa tanto ```Interfaz1``` como ```Interfaz2``` y proporciona la implementación de ```metodoA()``` y ```metodoB()```.
 
-
-### 3. No Se Pueden Instanciar: 
+### 3. No se pueden instanciar: 
 Las interfaces no se pueden instanciar directamente. Solo se pueden usar como tipos de referencia para las clases que las implementan.
 
-### 4. Visibilidad de Métodos: 
+```php
+interface MiInterfaz { public function metodo(); }
+$instancia = new MiInterfaz(); // Error: no se puede instanciar una interfaz
+```
+* Este código muestra que intentar crear una instancia de ```MiInterfaz``` provoca un error, ya que las interfaces no se pueden instanciar directamente.
+
+### 4. Visibilidad de métodos: 
 Todos los métodos declarados en una interfaz son públicos por defecto y no se puede especificar una visibilidad diferente.
 
+```php
+interface Ejemplo { public function metodoA(); }
+class MiClase implements Ejemplo { public function metodoA() { echo "Implementación de metodoA"; } }
+```
+* En este ejemplo, el método ```metodoA()``` declarado en la interfaz ```Ejemplo``` es automáticamente público, y la clase ```MiClase``` lo implementa con la misma visibilidad.
 
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
