@@ -218,7 +218,7 @@ define('DB_PASS', '');
 ```
 * Aquí se definen las constantes para la configuración de la base de datos.
 
-### 4.Gestionar la conexión a la base de datos
+### 4. Gestionar la conexión a la base de datos
 **Archivo:** ```Database.php```
 
 ```php
@@ -244,6 +244,182 @@ class Database {
 ```
 * Se define la clase ```Database``` que maneja la conexión a la base de datos utilizando PDO. Si la conexión falla, se captura la excepción y se muestra un mensaje de error.
 
+### 5. Definir la clase abstracta Ticket
+**Archivo:** ```Ticket.php```
+
+```php
+<?php
+abstract class Ticket {
+    protected $id;
+    protected $title;
+    protected $description;
+    protected $status;
+
+    abstract public function create();
+    abstract public function read();
+    abstract public function update();
+    abstract public function delete();
+
+    // Getters y setters
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+    }
+}
+?>
+```
+* La clase abstracta ```Ticket``` define la estructura básica de un ticket. Incluye propiedades para el título, la descripción y el estado, así como métodos abstractos para las operaciones CRUD.
+
+### 6. Implementar la lógica CRUD para los tickets
+**Archivo:** ```TicketRepository.php```
+
+```php
+<?php
+require_once 'Database.php';
+require_once 'Ticket.php';
+require_once 'config.php'; // Asegúrate de incluir el archivo de configuración
+
+class TicketRepository extends Ticket {
+    private $db;
+
+    public function __construct() {
+        $this->db = (new Database())->conn;
+    }
+
+    public function create() {
+        $query = "INSERT INTO tickets (title, description, status) VALUES (:title, :description, :status)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':description', $this->description);
+        $stmt->bindParam(':status', $this->status);
+        return $stmt->execute();
+    }
+
+    public function read() {
+        $query = "SELECT * FROM tickets";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function update() {
+        $query = "UPDATE tickets SET title = :title, description = :description, status = :status WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':description', $this->description);
+        $stmt->bindParam(':status', $this->status);
+        $stmt->bindParam(':id', $this->id);
+        return $stmt->execute();
+    }
+
+    public function delete() {
+        $query = "DELETE FROM tickets WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $this->id);
+        return $stmt->execute();
+    }
+}
+?>
+```
+
+* Esta clase extiende la clase abstracta ```Ticket``` y proporciona la implementación concreta de los métodos CRUD. Utiliza consultas SQL para interactuar con la base de datos y manipular los tickets.
+
+### 7. Punto de entrada para manejar las solicitudes
+**Archivo:** ```index.php```
+
+```php
+<?php
+
+require_once 'TicketRepository.php';
+
+$ticketRepo = new TicketRepository();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['create'])) {
+        $ticketRepo->setTitle($_POST['title']);
+        $ticketRepo->setDescription($_POST['description']);
+        $ticketRepo->setStatus('open');
+        $ticketRepo->create();
+    } elseif (isset($_POST['update'])) {
+        $ticketRepo->setId($_POST['id']);
+        $ticketRepo->setTitle($_POST['title']);
+        $ticketRepo->setDescription($_POST['description']);
+        $ticketRepo->setStatus($_POST['status']);
+        $ticketRepo->update();
+    } elseif (isset($_POST['delete'])) {
+        $ticketRepo->setId($_POST['id']);
+        $ticketRepo->delete();
+    }
+}
+
+$tickets = $ticketRepo->read();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Tickets</title>
+</head>
+<body>
+    <h1>Tickets de Soporte</h1>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Título" required>
+        <textarea name="description" placeholder="Descripción" required></textarea>
+        <button type="submit" name="create">Crear Ticket</button>
+    </form>
+    
+    <h2>Lista de Tickets</h2>
+    <ul>
+        <?php foreach ($tickets as $ticket): ?>
+            <li>
+                <strong><?php echo htmlspecialchars($ticket['title']); ?></strong> - <?php echo htmlspecialchars($ticket['status']); ?>
+                <form method="POST">
+                    <input type="hidden" name="id" value="<?php echo $ticket['id']; ?>">
+                    <input type="text" name="title" value="<?php echo htmlspecialchars($ticket['title']); ?>" required>
+                    <textarea name="description" required><?php echo htmlspecialchars($ticket['description']); ?></textarea>
+                    <select name="status">
+                        <option value="open" <?php echo $ticket['status'] == 'open' ? 'selected' : ''; ?>>Abierto</option>
+                        <option value="closed" <?php echo $ticket['status'] == 'closed' ? 'selected' : ''; ?>>Cerrado</option>
+                    </select>
+                    <button type="submit" name="update">Actualizar</button>
+                    <button type="submit" name="delete">Eliminar</button>
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
+```
+
+* Este archivo es la interfaz de usuario que permite a los usuarios crear, actualizar y eliminar tickets. Utiliza formularios para capturar datos de entrada y muestra una lista de tickets existentes. La lógica de manejo de solicitudes se basa en el método HTTP utilizado.
 
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
