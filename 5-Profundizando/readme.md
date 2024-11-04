@@ -1400,6 +1400,14 @@ if (isset($_GET['id'])) {
 ### Explicación:
 * Si se recibe un ```ID``` a través de la URL, se llama a la función para eliminar la mascota y se redirige al usuario de vuelta a la lista de mascotas.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/eliminar_mascota.png?raw=true" style />
+</p>
+<br>
+
 ### Resumen:
 Este ejemplo de API REST en PHP para una veterinaria presenta un CRUD completo para gestionar mascotas. La estructura modular del código facilita la extensión y el mantenimiento. Cada archivo tiene una función específica, desde la gestión de la base de datos hasta la presentación de la interfaz HTML.
 
