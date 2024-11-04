@@ -421,6 +421,14 @@ $tickets = $ticketRepo->read();
 
 * Este archivo es la interfaz de usuario que permite a los usuarios crear, actualizar y eliminar tickets. Utiliza formularios para capturar datos de entrada y muestra una lista de tickets existentes. La lógica de manejo de solicitudes se basa en el método HTTP utilizado.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/tickets.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
 ### Conclusión:
 Este ejemplo proporciona una base sólida para un sistema de gestión de tickets de soporte, mostrando el uso de clases abstractas en PHP, así como la implementación de las operaciones básicas de un CRUD. 
 
