@@ -750,6 +750,59 @@ Se definen usando la palabra clave ```static``` y se accede a ellas a través de
 ### 2. Métodos Estáticos: 
 También se definen con ```static``` y pueden ser llamados sin crear una instancia de la clase.
 
+## Ejemplo de miembros estáticos
+Vamos a crear una clase llamada ```Contador``` que tendrá un miembro estático para contar cuántas instancias de la clase se han creado.
+
+### 1. Estructura de archivos
+```php
+/miembros_estaticos
+│
+├── Contador.php
+└── index.php
+```
+
+### 2. Contador: ```Contador.php```
+
+```php
+<?php
+
+class Contador {
+    private static $contador = 0;
+
+    // Constructor
+    public function __construct() {
+        self::$contador++; 
+    }
+
+    public static function obtenerContador() {
+        return self::$contador;
+    }
+}
+```
+### 3. Punto de entrada: ```index.php```
+
+```php
+<?php
+
+require_once 'Contador.php';
+
+$nuevaInstancia1 = new Contador();
+$nuevaInstancia2 = new Contador();
+$nuevaInstancia3 = new Contador();
+
+echo "Número de instancias creadas: " . Contador::obtenerContador(); 
+```
+
+### Explicación:
+1. **Propiedad Estática:** ```private static $contador = 0```; es una propiedad estática que mantiene el conteo de las instancias.
+2. **Constructor:** Cada vez que se crea una nueva instancia de ```Contador```, se incrementa la propiedad estática ```$contador```.
+3. **Método Estático:** ```obtenerContador()``` es un método estático que devuelve el número total de instancias creadas. Se accede a él utilizando ```Contador::obtenerContador()```.
+
+### Consideraciones:
+* Los miembros estáticos son compartidos por todas las instancias de la clase.
+* No se puede acceder a miembros no estáticos desde un contexto estático.
+* Útil para datos que son comunes a todas las instancias, como contadores, configuraciones, o métodos de utilidad.
+
 # Patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
