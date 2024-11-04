@@ -1055,6 +1055,21 @@ class LightOnCommand implements Command {
 > Los patrones de diseño son herramientas valiosas que pueden mejorar la calidad y la flexibilidad del código. La elección de un patrón depende del contexto del problema que se está resolviendo. 
 
 # Introducción a sistemas distribuidos
+Es un conjunto de ordenadores que se presentan a los usuarios como un solo sistema coherente. Estos ordenadores están interconectados a través de una red y pueden estar ubicados en diferentes lugares geográficos. El objetivo principal de un sistema distribuido es trabajar juntos para resolver problemas o proporcionar servicios de manera eficiente y fiable.
+
+## Características principales
+
+### 1. Descentralización: 
+No hay un solo punto de control. Las decisiones y el procesamiento se distribuyen entre varias máquinas.
+### 2. Transparencia: 
+Los usuarios deben poder interactuar con el sistema sin tener que preocuparse por la ubicación de los recursos o los detalles de la comunicación. La transparencia puede ser de acceso, ubicación, replicación y migración.
+### 3. Escalabilidad: 
+Un sistema distribuido debe ser capaz de crecer, ya sea añadiendo más máquinas o aumentando los recursos de las existentes.
+### 4. Confiabilidad: 
+Los sistemas deben ser capaces de continuar funcionando correctamente incluso en caso de fallos de hardware o software.
+### 5. Concurrencia: 
+Múltiples procesos pueden ejecutarse al mismo tiempo en diferentes nodos, lo que permite una mayor eficiencia y velocidad.
+
 # Desarrollo de una API REST
 
 
