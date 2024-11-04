@@ -216,6 +216,8 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 ?>
 ```
+* Aquí se definen las constantes para la configuración de la base de datos.
+
 ### 4.Gestionar la conexión a la base de datos
 **Archivo:** ```Database.php```
 
