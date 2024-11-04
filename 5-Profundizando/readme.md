@@ -531,7 +531,7 @@ function getConnection() {
 * Este archivo establece una conexión con la base de datos usando PDO.
 
 ### 4. Definición de la interfaz del estudiante
-**Archivo:** ```StudentInterface.php``
+**Archivo:** ```StudentInterface.php```
 
 ```php
 <?php
@@ -545,7 +545,7 @@ interface StudentInterface {
 * Esta es la interfaz StudentInterface que define el contrato para manejar los estudiantes. Cualquier clase que implemente esta interfaz debe definir estos tres métodos.
 
 ### 5. Creación de la clase estudiante ```Student```
-**Archivo:** ```Student.php``
+**Archivo:** ```Student.php```
 
 ```php
 <?php
@@ -579,7 +579,7 @@ class Student {
 * La clase ```Student``` modela a un estudiante con sus atributos y proporciona métodos para acceder a ellos.
 
 ### 6. Creación del repositorio que implementa la interfaz 
-**Archivo:** ```StudentRepository.php`
+**Archivo:** ```StudentRepository.php```
 
 ```php
 <?php
