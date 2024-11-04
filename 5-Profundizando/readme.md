@@ -1213,6 +1213,12 @@ $mascotas = obtenerMascotas();
 </p>
 <br>
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/punto_entrada2.png?raw=true" style />
+</p>
+<br>
+
 ### 4. Conexión a las base de datos
 **Archivo:** ```db.php```
 
