@@ -1060,7 +1060,7 @@ Es un conjunto de ordenadores que se presentan a los usuarios como un solo siste
 ## Características principales
 
 ### 1. Descentralización: 
-* No hay un solo punto de control. Las decisiones y el procesamiento se distribuyen entre varias máquinas.
+No hay un solo punto de control. Las decisiones y el procesamiento se distribuyen entre varias máquinas.
 ### 2. Transparencia: 
 Los usuarios deben poder interactuar con el sistema sin tener que preocuparse por la ubicación de los recursos o los detalles de la comunicación. La transparencia puede ser de acceso, ubicación, replicación y migración.
 ### 3. Escalabilidad: 
@@ -1079,6 +1079,16 @@ Permiten el almacenamiento y la gestión de datos en múltiples ubicaciones (eje
 Proporcionan recursos informáticos a través de Internet, permitiendo el acceso y la escalabilidad (ejemplo: AWS, Google Cloud).
 ### 4. Sistemas de mensajería: 
 Facilitan la comunicación entre diferentes componentes de un sistema distribuido (ejemplo: Apache Kafka, RabbitMQ).
+
+## Desafíos en sistemas distribuidos
+### 1. Fallo de nodos: 
+Manejar la recuperación ante fallos es crucial para garantizar la fiabilidad.
+### 2. Sincronización: 
+Coordinar el acceso a recursos compartidos y garantizar la coherencia de los datos.
+### 3. Latencia y ancho de banda: 
+La comunicación entre nodos puede ser lenta y limitada por el ancho de banda de la red.
+### 4. Seguridad: Proteger los datos en tránsito y en reposo, y asegurar que solo los usuarios autorizados tengan acceso a los recursos.
+
 
 # Desarrollo de una API REST
 
