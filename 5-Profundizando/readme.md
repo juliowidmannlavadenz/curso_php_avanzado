@@ -812,6 +812,162 @@ echo "Número de instancias creadas: " . Contador::obtenerContador();
 <br>
 
 # Patrones de diseño (GOF)
+"Gang of Four" (GOF) son un conjunto de soluciones reutilizables a problemas comunes en el desarrollo de software. Estos patrones se dividen en tres categorías: creacionales, estructurales y de comportamiento. 
+
+## 1. Patrones creacionales
+Estos patrones se centran en la creación de objetos, proporcionando mecanismos adecuados para crear instancias de clases.
+
+### 1.1 Singleton
+Asegura que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
+
+```php
+class Singleton {
+    private static $instance;
+
+    private function __construct() {}
+
+    public static function getInstance() {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+}
+```
+### 1.2 Factory Method
+Define una interfaz para crear un objeto, pero permite a las subclases decidir qué clase instanciar.
+
+```php
+abstract class Product {
+    abstract public function operation();
+}
+
+class ConcreteProductA extends Product {
+    public function operation() {
+        return "Resultado de la operación A";
+    }
+}
+
+class Creator {
+    abstract public function factoryMethod(): Product;
+
+    public function someOperation() {
+        $product = $this->factoryMethod();
+        return $product->operation();
+    }
+}
+
+class ConcreteCreatorA extends Creator {
+    public function factoryMethod(): Product {
+        return new ConcreteProductA();
+    }
+}
+```
+
+### 1.3 Abstract Factory
+Proporciona una interfaz para crear familias de objetos relacionados sin especificar sus clases concretas.
+
+```php
+interface AbstractFactory {
+    public function createProductA(): ProductA;
+    public function createProductB(): ProductB;
+}
+
+class ConcreteFactory1 implements AbstractFactory {
+    public function createProductA(): ProductA {
+        return new ConcreteProductA1();
+    }
+
+    public function createProductB(): ProductB {
+        return new ConcreteProductB1();
+    }
+}
+```
+## 2. Patrones estructurales
+Estos patrones se centran en la composición de clases y objetos, creando relaciones entre ellos.
+
+### 2.1 Adapter
+Permite que clases con interfaces incompatibles trabajen juntas.
+
+```php
+class Adaptee {
+    public function specificRequest() {
+        return "Solicitud específica";
+    }
+}
+
+interface Target {
+    public function request();
+}
+
+class Adapter implements Target {
+    private $adaptee;
+
+    public function __construct(Adaptee $adaptee) {
+        $this->adaptee = $adaptee;
+    }
+
+    public function request() {
+        return $this->adaptee->specificRequest();
+    }
+}
+```
+### 2.2 Composite
+Permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme.
+
+```php
+interface Component {
+    public function operation();
+}
+
+class Leaf implements Component {
+    public function operation() {
+        return "Hoja";
+    }
+}
+
+class Composite implements Component {
+    private $children = [];
+
+    public function add(Component $component) {
+        $this->children[] = $component;
+    }
+
+    public function operation() {
+        return "Composite: " . implode(", ", array_map(function($child) {
+            return $child->operation();
+        }, $this->children));
+    }
+}
+```
+### 2.3 Decorator
+Permite agregar funcionalidad a objetos de manera dinámica.
+
+```php
+interface Coffee {
+    public function cost();
+}
+
+class SimpleCoffee implements Coffee {
+    public function cost() {
+        return 5;
+    }
+}
+
+class MilkDecorator implements Coffee {
+    private $coffee;
+
+    public function __construct(Coffee $coffee) {
+        $this->coffee = $coffee;
+    }
+
+    public function cost() {
+        return $this->coffee->cost() + 2;
+    }
+}
+```
+
+
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
 
