@@ -716,6 +716,15 @@ $estudiantes = $repo->obtenerEstudiantes();
 ### Resumen:
 Este ejemplo muestra cómo usar interfaces para definir un contrato que clases deben seguir, asegurando consistencia y claridad en la implementación de funcionalidades. La separación entre la lógica de negocio y la conexión a la base de datos también ayuda a mantener el código organizado y más fácil de mantener.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/interfaces.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
+
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
