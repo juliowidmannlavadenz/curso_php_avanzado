@@ -1227,7 +1227,7 @@ function conectarDB() {
 * Se definen las variables para la conexión a la base de datos.
 * La función ```conectarDB()``` devuelve una conexión PDO a la base de datos.
 
-### 5. Archivo de funciones con las operaciones CRUD 
+### 5. Crear funciones con las operaciones CRUD 
 **Archivo:** ```mascotas.php``
 
 ```php
@@ -1270,7 +1270,7 @@ function eliminarMascota($id) {
 ### Explicación:
 * Se definen funciones para obtener todas las mascotas, agregar una nueva mascota, obtener una mascota específica, editar y eliminar mascotas. Cada función interactúa con la base de datos usando PDO.
 
-### 6. Archivo con formulario para agregar nuevas mascotas
+### 6. Agregar nuevas mascotas
 **Archivo:** ```agregar.php```
 
 ```php
@@ -1309,7 +1309,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 * Si se recibe una solicitud ```POST```, se agregan los datos de la nueva mascota a la base de datos.
 * Se muestra un formulario para ingresar el nombre y la especie de la mascota.
 
-### 7. Archivo para editar la información de una mascota
+### 7. Editar la información de una mascota
 **Archivo:** ```editar.php```
 
 ```php
@@ -1358,5 +1358,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 * Se obtiene la mascota a editar a través de su ```ID```.
 * Si se recibe una solicitud ```POST```, se actualiza la información de la mascota.
 * Se muestra un formulario pre-llenado con los datos de la mascota.
+
+### 8. Eliminar la información de una mascota
+**Archivo:** ```eliminar.php```
+
+```php
+<?php
+include_once 'mascotas.php';
+
+if (isset($_GET['id'])) {
+    eliminarMascota($_GET['id']);
+    header('Location: index.php');
+}
+?>
+```
+
+### Explicación:
+* Si se recibe un ```ID``` a través de la URL, se llama a la función para eliminar la mascota y se redirige al usuario de vuelta a la lista de mascotas.
+
+### Resumen:
+Este ejemplo de API REST en PHP para una veterinaria presenta un CRUD completo para gestionar mascotas. La estructura modular del código facilita la extensión y el mantenimiento. Cada archivo tiene una función específica, desde la gestión de la base de datos hasta la presentación de la interfaz HTML.
+
+### Conclusión:
+> La implementación de una API REST utilizando PHP y HTML permite crear aplicaciones web interactivas y dinámicas que pueden manejar datos de manera eficiente. La modularidad y organización del código son esenciales para mantener un desarrollo ordenado y escalable.
+
 
 
