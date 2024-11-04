@@ -27,8 +27,8 @@ SPL (Standard PHP Library) es una colección de interfaces y clases que se inclu
 | Interfaces SPL      | Interfaces para implementar funcionalidades comunes.      | `class MiClase implements Countable { ... }`           |
 
 
-# Gestión de los abstractos (clases abstractas e interfaces)
-## Concepto de clase abstracta
+
+# Clases abstractas
 Es una clase que no se puede instanciar directamente; es decir, no se pueden crear objetos de ella. Sirve como una plantilla para que otras clases la extiendan. Las clases abstractas se utilizan para definir métodos que deben ser implementados por las subclases, asegurando una estructura consistente en todas las clases derivadas.
 
 ## Características principales
@@ -432,6 +432,7 @@ $tickets = $ticketRepo->read();
 ### Conclusión:
 Este ejemplo proporciona una base sólida para un sistema de gestión de tickets de soporte, mostrando el uso de clases abstractas en PHP, así como la implementación de las operaciones básicas de un CRUD. 
 
+# Interfaces
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
