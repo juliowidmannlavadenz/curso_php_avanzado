@@ -724,6 +724,22 @@ Este ejemplo muestra cómo usar interfaces para definir un contrato que clases d
 </p>
 <br>
 
+## Diferencias entre las clases abstractas y las interfaces
+Este cuadro resume las principales diferencias entre clases abstractas e interfaces, facilitando la elección según las necesidades del diseño en PHP.
+
+| **Aspecto**             | **Clases Abstractas**                                           | **Interfaces**                                              |
+|-------------------------|-----------------------------------------------------------------|-------------------------------------------------------------|
+| **Definición**          | Plantillas para clases que pueden incluir métodos abstractos y concretos. | Contratos que las clases deben cumplir; solo pueden tener métodos abstractos. |
+| **Métodos**             | Pueden tener métodos abstractos (sin cuerpo) y métodos concretos (con cuerpo). | Solo pueden tener métodos sin cuerpo (abstractos) hasta PHP 8. PHP 8 permite métodos con cuerpo. |
+| **Propiedades**         | Pueden definir propiedades con visibilidad (p. ej., `protected`, `private`). | No pueden definir propiedades; solo constantes.             |
+| **Herencia**            | Una clase solo puede heredar de una clase abstracta.            | Una clase puede implementar múltiples interfaces.           |
+| **Uso de `abstract`**   | Los métodos abstractos deben declararse con la palabra clave `abstract`. | No se usa `abstract` para los métodos en las interfaces.    |
+| **Constructor**         | Pueden tener un constructor.                                    | No pueden tener un constructor.                             |
+| **Compatibilidad**      | Usadas cuando se necesita compartir código común entre clases relacionadas. | Usadas para garantizar que las clases sigan un contrato específico sin compartir implementación. |
+| **Visibilidad de métodos** | Los métodos pueden tener cualquier visibilidad (`public`, `protected`, `private`). | Los métodos son siempre `public` (implícitamente).          |
+| **Extensibilidad**      | Pueden extender de una sola clase abstracta.                   | Las clases pueden implementar múltiples interfaces.         |
+| **Constantes**          | Pueden tener constantes.                                        | Pueden tener constantes.                                    |
+
 
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
