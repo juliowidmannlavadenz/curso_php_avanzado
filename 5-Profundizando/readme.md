@@ -1209,7 +1209,7 @@ $mascotas = obtenerMascotas();
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/punto_entrada.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/punto_entrada.png?raw=true" style />
 </p>
 <br>
 
