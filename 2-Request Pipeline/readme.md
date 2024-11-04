@@ -510,7 +510,7 @@ Este ejemplo incluye los siguientes puntos:
 Organizamos el proyecto de la siguiente manera:
 
 ```php
-/mi-aplicacion
+/middleware
 │
 ├── index.php
 ├── middleware
