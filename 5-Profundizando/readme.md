@@ -1375,6 +1375,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 * Si se recibe una solicitud ```POST```, se actualiza la información de la mascota.
 * Se muestra un formulario pre-llenado con los datos de la mascota.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/editar_mascota.png?raw=true" style />
+</p>
+<br>
+
 ### 8. Eliminar la información de una mascota
 **Archivo:** ```eliminar.php```
 
