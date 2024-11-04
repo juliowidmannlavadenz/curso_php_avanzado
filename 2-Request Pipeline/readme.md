@@ -220,7 +220,7 @@ El proyecto simula un pipeline completo mediante el uso de middlewares personali
 ### 1. Estructura del Proyecto
 
 ```php
-    project_root/
+    request-laravel/
     ├── app/
     │   ├── Http/
     │   │   ├── Controllers/
