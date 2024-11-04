@@ -1117,3 +1117,13 @@ Las APIs REST están diseñadas para ser utilizadas por diferentes clientes (nav
 ### 6. Cacheabilidad: 
 Las respuestas de las APIs REST pueden ser almacenadas en caché para mejorar el rendimiento y reducir la carga en el servidor.
 
+## Ventajas de usar una API REST:
+* **Simplicidad:** Utiliza protocolos y estándares ampliamente utilizados (HTTP).
+* **Escalabilidad:** Su naturaleza sin estado facilita la escalabilidad horizontal.
+* **Flexibilidad:** Puede ser consumida por diferentes tipos de clientes.
+* **Desacoplamiento:** Permite que el frontend y el backend sean desarrollados y escalados de manera independiente.
+
+
+
+
+
