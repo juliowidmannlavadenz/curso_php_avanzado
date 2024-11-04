@@ -1123,7 +1123,191 @@ Las respuestas de las APIs REST pueden ser almacenadas en caché para mejorar el
 * **Flexibilidad:** Puede ser consumida por diferentes tipos de clientes.
 * **Desacoplamiento:** Permite que el frontend y el backend sean desarrollados y escalados de manera independiente.
 
+## Ejemplo completo de gestión de un CRUD con API REST 
+Este ejemplo presenta una API REST en PHP para una veterinaria que permite gestionar un CRUD (Crear, Leer, Actualizar y Eliminar) de las mascotas. A través de una interfaz HTML, los usuarios podrán interactuar con la API para agregar nuevas mascotas, visualizar la lista de mascotas existentes, actualizar la información de una mascota y eliminar registros.
 
+### 1. Estructura de directorios y archivos
+
+```php
+veterinaria-guau/
+│
+├── index.php
+├── db.php
+├── mascotas.php
+├── agregar.php
+├── editar.php
+└── eliminar.php
+```
+
+### 2. Creación de la base de datos
+
+```sql```
+
+```php
+CREATE DATABASE IF NOT EXISTS veterinaria;
+
+USE veterinaria;
+
+CREATE TABLE IF NOT EXISTS mascotas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especie VARCHAR(100) NOT NULL
+);
+```
+
+### 3. Punto de entrada de la aplicación
+**Archivo:** ```index.php```
+
+```php
+<?php
+include_once 'db.php';
+include_once 'mascotas.php';
+
+$mascotas = obtenerMascotas();
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinaria - Lista de Mascotas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Mascotas</h1>
+    <a href="agregar.php">Agregar Nueva Mascota</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Acciones</th>
+        </tr>
+        <?php foreach ($mascotas as $mascota): ?>
+            <tr>
+                <td><?php echo $mascota['id']; ?></td>
+                <td><?php echo $mascota['nombre']; ?></td>
+                <td><?php echo $mascota['especie']; ?></td>
+                <td>
+                    <a href="editar.php?id=<?php echo $mascota['id']; ?>">Editar</a>
+                    <a href="eliminar.php?id=<?php echo $mascota['id']; ?>">Eliminar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>
+```
+
+### Explicación:
+* Se incluyen ```db.php``` y ```mascotas.php``` para manejar la conexión a la base de datos y las operaciones relacionadas con las mascotas.
+* Se obtienen todas las mascotas de la base de datos.
+* Se muestra una tabla con las mascotas y opciones para agregar, editar y eliminar.
+
+### 4. Conexión a las base de datos
+**Archivo:** ```db.php``
+
+```php
+<?php
+$host = 'localhost';
+$db = 'veterinaria';
+$user = 'root';
+$pass = '';
+
+function conectarDB() {
+    global $host, $db, $user, $pass;
+    $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+    return new PDO($dsn, $user, $pass);
+}
+?>
+```
+
+### Explicación:
+* Se definen las variables para la conexión a la base de datos.
+* La función ```conectarDB()``` devuelve una conexión PDO a la base de datos.
+
+### 5. Archivo de funciones con las operaciones CRUD 
+**Archivo:** ```mascotas.php``
+
+```php
+<?php
+include_once 'db.php';
+
+function obtenerMascotas() {
+    $db = conectarDB();
+    $stmt = $db->query('SELECT * FROM mascotas');
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function agregarMascota($nombre, $especie) {
+    $db = conectarDB();
+    $stmt = $db->prepare("INSERT INTO mascotas (nombre, especie) VALUES (:nombre, :especie)");
+    $stmt->execute(['nombre' => $nombre, 'especie' => $especie]);
+}
+
+function obtenerMascota($id) {
+    $db = conectarDB();
+    $stmt = $db->prepare("SELECT * FROM mascotas WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function editarMascota($id, $nombre, $especie) {
+    $db = conectarDB();
+    $stmt = $db->prepare("UPDATE mascotas SET nombre = :nombre, especie = :especie WHERE id = :id");
+    $stmt->execute(['nombre' => $nombre, 'especie' => $especie, 'id' => $id]);
+}
+
+function eliminarMascota($id) {
+    $db = conectarDB();
+    $stmt = $db->prepare("DELETE FROM mascotas WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+}
+?>
+```
+
+### Explicación:
+* Se definen funciones para obtener todas las mascotas, agregar una nueva mascota, obtener una mascota específica, editar y eliminar mascotas. Cada función interactúa con la base de datos usando PDO.
+
+### 6. Archivo con formulario para agregar nuevas mascotas
+**Archivo:** ```agregar.php`
+
+```php
+<?php
+include_once 'mascotas.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = $_POST['nombre'];
+    $especie = $_POST['especie'];
+    agregarMascota($nombre, $especie);
+    header('Location: index.php');
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Mascota</title>
+</head>
+<body>
+    <h1>Agregar Nueva Mascota</h1>
+    <form method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <br>
+        <label for="especie">Especie:</label>
+        <input type="text" name="especie" required>
+        <br>
+        <input type="submit" value="Agregar">
+    </form>
+</body>
+</html>
+```
+### Explicación:
+* Si se recibe una solicitud POST, se agregan los datos de la nueva mascota a la base de datos.
+* Se muestra un formulario para ingresar el nombre y la especie de la mascota.
 
 
 
