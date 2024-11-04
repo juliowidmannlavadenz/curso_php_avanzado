@@ -967,6 +967,88 @@ class MilkDecorator implements Coffee {
 }
 ```
 
+## 3. Patrones de comportamiento
+Estos patrones se centran en la comunicación entre objetos.
+
+### 3.1 Observer
+Define una relación de dependencia uno a muchos entre objetos de manera que cuando uno cambia de estado, todos sus dependientes son notificados.
+
+```php
+class Subject {
+    private $observers = [];
+
+    public function attach(Observer $observer) {
+        $this->observers[] = $observer;
+    }
+
+    public function notify() {
+        foreach ($this->observers as $observer) {
+            $observer->update();
+        }
+    }
+}
+
+interface Observer {
+    public function update();
+}
+```
+
+### 3.2 Strategy
+Define una familia de algoritmos, encapsula cada uno y los hace intercambiables.
+
+```php
+interface Strategy {
+    public function execute();
+}
+
+class ConcreteStrategyA implements Strategy {
+    public function execute() {
+        return "Ejecución de la estrategia A";
+    }
+}
+
+class Context {
+    private $strategy;
+
+    public function __construct(Strategy $strategy) {
+        $this->strategy = $strategy;
+    }
+
+    public function doSomething() {
+        return $this->strategy->execute();
+    }
+}
+```
+
+### 3.2 Command
+Encapsula una solicitud como un objeto, permitiendo parametrizar clientes con diferentes solicitudes.
+
+```php
+interface Command {
+    public function execute();
+}
+
+class Light {
+    public function turnOn() {
+        echo "La luz está encendida.";
+    }
+}
+
+class LightOnCommand implements Command {
+    private $light;
+
+    public function __construct(Light $light) {
+        $this->light = $light;
+    }
+
+    public function execute() {
+        $this->light->turnOn();
+    }
+}
+```
+
+### Conclusión:
+> Los patrones de diseño son herramientas valiosas que pueden mejorar la calidad y la flexibilidad del código. La elección de un patrón depende del contexto del problema que se está resolviendo. 
 
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
