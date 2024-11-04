@@ -1206,7 +1206,7 @@ $mascotas = obtenerMascotas();
 * Se muestra una tabla con las mascotas y opciones para agregar, editar y eliminar.
 
 ### 4. Conexión a las base de datos
-**Archivo:** ```db.php``
+**Archivo:** ```db.php```
 
 ```php
 <?php
@@ -1271,7 +1271,7 @@ function eliminarMascota($id) {
 * Se definen funciones para obtener todas las mascotas, agregar una nueva mascota, obtener una mascota específica, editar y eliminar mascotas. Cada función interactúa con la base de datos usando PDO.
 
 ### 6. Archivo con formulario para agregar nuevas mascotas
-**Archivo:** ```agregar.php`
+**Archivo:** ```agregar.php```
 
 ```php
 <?php
