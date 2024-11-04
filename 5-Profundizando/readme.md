@@ -1317,6 +1317,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 * Si se recibe una solicitud ```POST```, se agregan los datos de la nueva mascota a la base de datos.
 * Se muestra un formulario para ingresar el nombre y la especie de la mascota.
 
+### Vista en el navegador:
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/agregar_mascota.png?raw=true" style />
+</p>
+<br>
+
 ### 7. Editar la información de una mascota
 **Archivo:** ```editar.php```
 
