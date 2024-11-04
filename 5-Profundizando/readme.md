@@ -433,6 +433,23 @@ $tickets = $ticketRepo->read();
 Este ejemplo proporciona una base sólida para un sistema de gestión de tickets de soporte, mostrando el uso de clases abstractas en PHP, así como la implementación de las operaciones básicas de un CRUD. 
 
 # Interfaces
+## Definición
+Una interfaz es un contrato que define un conjunto de métodos que una clase debe implementar, pero no proporciona la implementación de esos métodos. Las interfaces se utilizan para establecer un estándar que las clases pueden seguir, lo que permite la creación de código más estructurado y flexible.
+
+## Características
+### 1. Definición de Métodos: 
+Una interfaz solo puede declarar métodos, no puede contener implementaciones. Cualquier clase que implemente la interfaz debe proporcionar la implementación de estos métodos.
+
+### 2. Múltiples Interfaces: 
+Una clase puede implementar múltiples interfaces, lo que permite que una clase tenga más de un tipo de comportamiento.
+
+### 3. No Se Pueden Instanciar: 
+Las interfaces no se pueden instanciar directamente. Solo se pueden usar como tipos de referencia para las clases que las implementan.
+
+### 4. Visibilidad de Métodos: 
+Todos los métodos declarados en una interfaz son públicos por defecto y no se puede especificar una visibilidad diferente.
+
+
 # Miembros estáticos, patrones de diseño (GOF)
 # Introducción a sistemas distribuidos
 # Desarrollo de una API REST
