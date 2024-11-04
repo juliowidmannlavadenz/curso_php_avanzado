@@ -1306,8 +1306,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 ```
 ### Explicación:
-* Si se recibe una solicitud POST, se agregan los datos de la nueva mascota a la base de datos.
+* Si se recibe una solicitud ```POST```, se agregan los datos de la nueva mascota a la base de datos.
 * Se muestra un formulario para ingresar el nombre y la especie de la mascota.
 
+### 7. Archivo para editar la información de una mascota
+**Archivo:** ```editar.php```
+
+```php
+<?php
+include_once 'mascotas.php';
+
+$mascota = null;
+
+if (isset($_GET['id'])) {
+    $mascota = obtenerMascota($_GET['id']);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = $_POST['nombre'];
+    $especie = $_POST['especie'];
+    editarMascota($_GET['id'], $nombre, $especie);
+    header('Location: index.php');
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Mascota</title>
+</head>
+<body>
+    <h1>Editar Mascota</h1>
+    <?php if ($mascota): ?>
+        <form method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" value="<?php echo $mascota['nombre']; ?>" required>
+            <br>
+            <label for="especie">Especie:</label>
+            <input type="text" name="especie" value="<?php echo $mascota['especie']; ?>" required>
+            <br>
+            <input type="submit" value="Actualizar">
+        </form>
+    <?php else: ?>
+        <p>No se encontró la mascota.</p>
+    <?php endif; ?>
+</body>
+</html>
+```
+### Explicación:
+* Se obtiene la mascota a editar a través de su ```ID```.
+* Si se recibe una solicitud ```POST```, se actualiza la información de la mascota.
+* Se muestra un formulario pre-llenado con los datos de la mascota.
 
 
