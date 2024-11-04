@@ -1087,8 +1087,8 @@ Manejar la recuperación ante fallos es crucial para garantizar la fiabilidad.
 Coordinar el acceso a recursos compartidos y garantizar la coherencia de los datos.
 ### 3. Latencia y ancho de banda: 
 La comunicación entre nodos puede ser lenta y limitada por el ancho de banda de la red.
-### 4. Seguridad: Proteger los datos en tránsito y en reposo, y asegurar que solo los usuarios autorizados tengan acceso a los recursos.
-
+### 4. Seguridad: 
+Proteger los datos en tránsito y en reposo, y asegurar que solo los usuarios autorizados tengan acceso a los recursos.
 
 # Desarrollo de una API REST
 
