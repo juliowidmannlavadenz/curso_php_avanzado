@@ -812,7 +812,11 @@ echo "Número de instancias creadas: " . Contador::obtenerContador();
 <br>
 
 # Patrones de diseño (GOF)
-"Gang of Four" (GOF) son un conjunto de soluciones reutilizables a problemas comunes en el desarrollo de software. Estos patrones se dividen en tres categorías: creacionales, estructurales y de comportamiento. 
+"Gang of Four" (GOF) son un conjunto de soluciones reutilizables a problemas comunes en el desarrollo de software. Estos patrones se dividen en tres categorías: 
+
+### * Creacionales.
+### * Estructurales. 
+### * De comportamiento. 
 
 ## 1. Patrones creacionales
 Estos patrones se centran en la creación de objetos, proporcionando mecanismos adecuados para crear instancias de clases.
