@@ -1070,6 +1070,16 @@ Los sistemas deben ser capaces de continuar funcionando correctamente incluso en
 ### 5. Concurrencia: 
 Múltiples procesos pueden ejecutarse al mismo tiempo en diferentes nodos, lo que permite una mayor eficiencia y velocidad.
 
+## Tipos de sistemas distribuidos
+### 1. Sistemas de archivos distribuidos: 
+Permiten que múltiples usuarios accedan y compartan archivos desde diferentes ubicaciones (ejemplo: NFS, HDFS).
+### 2. Sistemas de bases de datos distribuidos: 
+Permiten el almacenamiento y la gestión de datos en múltiples ubicaciones (ejemplo: Google Spanner, Amazon DynamoDB).
+### 3. Sistemas de computación en la nube: 
+Proporcionan recursos informáticos a través de Internet, permitiendo el acceso y la escalabilidad (ejemplo: AWS, Google Cloud).
+### 4. Sistemas de mensajería: 
+Facilitan la comunicación entre diferentes componentes de un sistema distribuido (ejemplo: Apache Kafka, RabbitMQ).
+
 # Desarrollo de una API REST
 
 
