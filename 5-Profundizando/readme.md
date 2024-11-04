@@ -1060,7 +1060,7 @@ Es un conjunto de ordenadores que se presentan a los usuarios como un solo siste
 ## Características principales
 
 ### 1. Descentralización: 
-    * No hay un solo punto de control. Las decisiones y el procesamiento se distribuyen entre varias máquinas.
+* No hay un solo punto de control. Las decisiones y el procesamiento se distribuyen entre varias máquinas.
 ### 2. Transparencia: 
 Los usuarios deben poder interactuar con el sistema sin tener que preocuparse por la ubicación de los recursos o los detalles de la comunicación. La transparencia puede ser de acceso, ubicación, replicación y migración.
 ### 3. Escalabilidad: 
