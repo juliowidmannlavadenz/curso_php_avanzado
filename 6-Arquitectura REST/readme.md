@@ -114,15 +114,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 ```
 # Buenas prácticas en el diseño de una API REST: 
 
-## 1. Versionamiento: 
+### 1. Versionamiento: 
 Incluye la versión de la API en la URL (/api/v1/productos) para mantener la compatibilidad con versiones anteriores.
-## 2. Manejo de errores: 
+### 2. Manejo de errores: 
 Utiliza códigos de estado HTTP adecuados, como 404 Not Found, 400 Bad Request, 500 Internal Server Error, etc., y devuelve mensajes de error detallados en formato JSON.
-## 3. Documentación: 
+### 3. Documentación: 
 Utiliza herramientas como Swagger o Postman para documentar y probar la API.
-## 4. Autenticación y autorización: 
+### 4. Autenticación y autorización: 
 Protege la API usando mecanismos como OAuth, JWT o API keys, especialmente si la API va a ser pública o requiere manejo de datos sensibles.
-## 5. Paginación, filtros y clasificación: 
+### 5. Paginación, filtros y clasificación: 
 Implementa paginación y opciones de filtro en las respuestas que manejan grandes volúmenes de datos.
 
 # Análisis de requerimientos
