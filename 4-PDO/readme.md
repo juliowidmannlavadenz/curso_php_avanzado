@@ -1,4 +1,4 @@
-# PDO Que es PDO (PHP Data Objects) 
+# Que es PDO (PHP Data Objects) 
 Es una extensión en PHP que proporciona una interfaz uniforme para acceder a bases de datos. Permite trabajar con diferentes sistemas de bases de datos (como MySQL, PostgreSQL, SQLite, entre otros) utilizando el mismo conjunto de funciones, lo que facilita la portabilidad de la aplicación si decides cambiar el sistema de base de datos en el futuro.
 
 ## Características de PDO:
