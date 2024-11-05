@@ -129,5 +129,43 @@ Protege la API usando mecanismos como OAuth, JWT o API keys, especialmente si la
 Implementa paginación y opciones de filtro en las respuestas que manejan grandes volúmenes de datos.
 
 # Análisis de requerimientos
+El análisis de requerimientos es una etapa crucial en el desarrollo de software que tiene como objetivo comprender en detalle qué necesita un sistema para satisfacer las expectativas y necesidades de sus usuarios o stakeholders (partes interesadas). En este proceso se recopilan, documentan y evalúan los requisitos que definen qué debe hacer el sistema y cómo debe comportarse.
+
+## Etapas del Análisis de Requerimientos
+### 1. Identificación de Stakeholders:
+Es fundamental saber quiénes son los usuarios, administradores y otras personas que tendrán alguna relación con el sistema. Cada stakeholder puede tener diferentes expectativas y necesidades que el sistema debe satisfacer.
+
+### 2. Recolección de Requerimientos: 
+Se trata de recopilar toda la información sobre las funcionalidades y el alcance del sistema. Para esto se pueden utilizar diversas técnicas, como:
+
+* **Entrevistas:** Reuniones con los usuarios o stakeholders para entender sus expectativas.
+* **Encuestas y Cuestionarios:** Útil para recolectar datos de un grupo grande de usuarios.
+* **Análisis de Documentación Existente:** Revisión de sistemas actuales, documentos o cualquier información relevante.
+* **Observación:** Observar cómo trabajan los usuarios con sistemas actuales.
+* **Prototipos:** Crear prototipos puede ayudar a los usuarios a visualizar el sistema y dar feedback.
+
+### 3. Clasificación de Requerimientos:  
+Una vez recopilados, se clasifican en diferentes tipos:
+
+* **Funcionales:** Especifican lo que el sistema debe hacer. Ejemplo: "El sistema debe permitir registrar y actualizar datos de clientes."
+* **No Funcionales:** Detallan las características de calidad y restricciones del sistema. Ejemplo: "El sistema debe responder en menos de 2 segundos."
+* **Requerimientos de Negocio:** Están relacionados con los objetivos y el valor que se espera que el sistema aporte a la organización.
+* **Requerimientos Técnicos:** Involucran especificaciones sobre tecnologías, plataformas y arquitecturas que se deben usar.
+
+### 4. Análisis y Priorización de Requerimientos: 
+No todos los requerimientos tienen la misma importancia ni urgencia. Es importante priorizar los requisitos para asegurar que los aspectos más críticos se desarrollen primero. Esto también ayuda a planificar el desarrollo de manera efectiva.
+
+### 5. Documentación de Requerimientos: 
+Los requerimientos deben ser documentados de manera clara y detallada, en un formato que facilite su comprensión y revisión. Documentos comunes incluyen:
+
+* **Especificación de Requerimientos de Software (SRS):** Incluye todos los requerimientos detallados.
+* **Historias de Usuario:** Descripciones de requerimientos desde la perspectiva del usuario final (más común en metodologías ágiles).
+
+### 6. Validación de Requerimientos: 
+Los requerimientos deben ser revisados y aprobados por los stakeholders para asegurar que se alineen con sus expectativas y necesidades. La validación garantiza que los requisitos son correctos, necesarios y factibles de implementar.
+
+### 7. Gestión de Cambios en los Requerimientos: 
+A lo largo del proyecto, es común que los requerimientos cambien. Tener un proceso de control de cambios ayuda a evaluar el impacto de los nuevos requerimientos y permite gestionar adecuadamente los recursos y plazos.
+
 # Diseño de software
 
