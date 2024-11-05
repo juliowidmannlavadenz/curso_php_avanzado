@@ -167,5 +167,22 @@ Los requerimientos deben ser revisados y aprobados por los stakeholders para ase
 ### 7. Gestión de Cambios en los Requerimientos: 
 A lo largo del proyecto, es común que los requerimientos cambien. Tener un proceso de control de cambios ayuda a evaluar el impacto de los nuevos requerimientos y permite gestionar adecuadamente los recursos y plazos.
 
+## Importancia del Análisis de Requerimientos
+Un buen análisis de requerimientos permite:
+
+* Reducir el riesgo de errores y omisiones en el desarrollo.
+* Mejorar la comunicación entre desarrolladores y usuarios finales.
+* Evitar sobrecostos y retrasos causados por la falta de claridad o cambios imprevistos.
+* Aumentar la satisfacción del cliente al garantizar que el producto final cumpla con sus expectativas.
+
+## Herramientas de Apoyo
+Algunas herramientas que facilitan el análisis de requerimientos incluyen:
+
+* **Casos de Uso y Diagramas UML:** Ayudan a modelar el comportamiento del sistema y su interacción con los usuarios.
+* **Herramientas de Gestión de Requerimientos:** Como Jira, Confluence, o Trello para seguimiento y gestión de tareas.
+* **Prototipado:** Herramientas como Figma, Balsamiq o Adobe XD ayudan a visualizar la interfaz del sistema.
+
+> El análisis de requerimientos es un paso decisivo en el ciclo de vida del desarrollo de software, ya que establece la base sobre la cual se construirá el sistema.
+
 # Diseño de software
 
