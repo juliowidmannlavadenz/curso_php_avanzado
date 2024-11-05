@@ -112,6 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     echo getProducto($_GET['id']);
 }
 ```
+
+> El modelo de madurez de Richardson permite construir una API REST estructurada y que cumpla con las mejores prácticas del diseño RESTful, lo cual mejora la experiencia de los desarrolladores y usuarios de la API.
+
 # Buenas prácticas en el diseño de una API REST: 
 
 ### 1. Versionamiento: 
