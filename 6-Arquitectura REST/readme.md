@@ -1,7 +1,7 @@
 # Modelo de madurez de Richardson
 El modelo de madurez de Richardson es una forma de evaluar la madurez de una API REST en cuatro niveles, considerando la utilización de características propias de HTTP para alcanzar un diseño más completo y eficiente.
 
-## Nivel 0: El túnel HTTP
+### Nivel 0: El túnel HTTP
 En este nivel, la API no aprovecha las ventajas de HTTP; normalmente, solo se utiliza el método POST y una única URL para todas las operaciones. Los datos y el tipo de operación se incluyen en el cuerpo de la solicitud. Esto limita el aprovechamiento de REST y de las ventajas que ofrece HTTP, como el caché o la identificación de recursos.
 
 ### Ejemplo:
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ```
 
-## Nivel 1: Recursos individuales
+### Nivel 1: Recursos individuales
 En este nivel, cada recurso tiene su propia URL, permitiendo el uso de múltiples endpoints (URLs) para cada tipo de recurso. Este es un paso adelante, ya que organiza la API de forma más clara y cada recurso se representa de manera única.
 
 ### Ejemplo:
@@ -49,7 +49,7 @@ if ($uri == '/api/productos') {
     }
 }
 ```
-## Nivel 2: Verbos HTTP
+### Nivel 2: Verbos HTTP
 Este nivel implica el uso de métodos HTTP como GET, POST, PUT y DELETE para representar las operaciones CRUD de manera estándar. Esto hace que la API sea más intuitiva y aprovecha las convenciones de HTTP para cada tipo de operación.
 
 ### Ejemplo:
@@ -85,7 +85,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 }
 ```
 
-## Nivel 3: HATEOAS (Hypermedia As The Engine Of Application State)
+### Nivel 3: HATEOAS (Hypermedia As The Engine Of Application State)
 En este nivel, la API incluye enlaces de navegación dentro de las respuestas, guiando al cliente sobre qué acciones puede realizar a continuación. Este enfoque facilita la interacción con la API, ya que permite descubrir las operaciones disponibles sin necesidad de consultar la documentación externa.
 
 ### Ejemplo:
