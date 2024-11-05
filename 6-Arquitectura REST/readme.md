@@ -1,4 +1,4 @@
-# Buenas prácticas en el diseño de una API REST: modelo de madurez de Richardson
+# Modelo de madurez de Richardson
 El modelo de madurez de Richardson es una forma de evaluar la madurez de una API REST en cuatro niveles, considerando la utilización de características propias de HTTP para alcanzar un diseño más completo y eficiente.
 
 ## Nivel 0: El túnel HTTP
@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     echo getProducto($_GET['id']);
 }
 ```
+# Buenas prácticas en el diseño de una API REST: 
 
 
 
