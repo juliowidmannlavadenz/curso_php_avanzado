@@ -775,7 +775,26 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 > * Autenticación básica: Se incluye una verificación de acceso que asegura que solo los usuarios autenticados puedan acceder a ciertas partes de la aplicación, añadiendo una capa básica de seguridad.
 
 # Petición y respuesta http
-## Definición de petición:
+## Definición de HTTP
+
+//TODO: Una defición concreta y didáctica
+
+## Diferencias entre HTTP y HTTPS, y conceptos básicos de cada versión (HTTP/1.1, HTTP/2, HTTP/3)
+
+//TODO: De la forma más concreta posible
+
+## ¿Qué es una petición HTTP?:
+
+//TODO: 
+////////////////////////////////////////////////////////////////////////////////
+Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es exponer la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
+https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
+
+Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
+////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
 
@@ -797,7 +816,7 @@ Archivo ```get/script.php```
 ```php
 <?php
 echo "Hola, " . htmlspecialchars($_GET["nombre"]);
-?>
+
 ```
 
 Si accedemos a este script con una URL como ```http://localhost:3000/script.php?nombre=Yamir Ramirez```, el resultado será:
@@ -1671,4 +1690,6 @@ exit;
 > Este ejemplo crea una aplicación sencilla de gestión de usuarios con funcionalidad completa: listar, añadir y eliminar usuarios, todo manejado dentro del ciclo de vida HTTP en PHP.
 
 # Relaciones entre clases
+
+TODO: https://chatgpt.com/c/672d86b6-9310-8008-9f07-2b6b688288a7
 
