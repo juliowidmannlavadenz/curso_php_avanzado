@@ -215,6 +215,7 @@ Content-Length: 93
 > Este tipo de cuerpo de solicitud es común en API REST y se utiliza para enviar datos estructurados al servidor.
 
 ## Tipos de peticiones HTTP:
+Métodos HTTP más comunes, utilizados en las solicitudes para indicar la acción que desea realizar el cliente sobre un recurso. Cada uno de estos métodos se usa en diferentes contextos según el tipo de acción que el cliente desea realizar sobre los recursos del servidor.
 
 | Método     | Descripción                                                                                                                                    |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------|
