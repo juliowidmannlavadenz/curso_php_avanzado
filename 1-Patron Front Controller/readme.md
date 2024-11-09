@@ -9,6 +9,12 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 **HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones.  
 **HTTPS:** Usa encriptación SSL/TLS. Los datos viajan encriptados, protegiéndolos de accesos no autorizados.
 
+| Protocolo | Encriptación | Seguridad de la Información |
+|-----------|--------------|-----------------------------|
+| **HTTP**  | No           | La información viaja en texto plano, lo que la hace vulnerable a intercepciones. |
+| **HTTPS** | SSL/TLS      | Los datos viajan encriptados, protegiéndolos de accesos no autorizados. |
+
+
 ### 2. Certificados:
 **HTTP:** No necesita certificados de seguridad.  
 **HTTPS:** Requiere un certificado SSL/TLS, que autentica el sitio web y asegura la conexión.
