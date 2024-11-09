@@ -67,10 +67,12 @@ https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
 Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
 ////////////////////////////////////////////////////////////////////////////////
 
+Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía a un servidor para obtener un recurso o realizar una acción específica en la web. 
+
+## Componentes de una petición HTTP
+Una petición HTTP incluye varias piezas de información esenciales que indican al servidor qué hacer y cómo procesar la solicitud.
 
 
-
-Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía al servidor para obtener datos o realizar alguna acción. Esta petición puede ser de diferentes tipos: ```GET```, ```POST```, ```PUT```, ```DELETE```, entre otros, y puede incluir parámetros en la URL o en el cuerpo de la petición.
 
 ## Tipos de peticiones HHTP:
 
