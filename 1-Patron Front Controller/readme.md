@@ -58,15 +58,6 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 
 
 ## ¿Qué es una petición HTTP?:
-
-//TODO: 
-////////////////////////////////////////////////////////////////////////////////
-Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es expo er la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
-https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
-
-Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
-////////////////////////////////////////////////////////////////////////////////
-
 Una petición HTTP es una solicitud que un cliente (generalmente un navegador web) envía a un servidor para obtener un recurso o realizar una acción específica en la web. 
 
 ## Componentes de una petición HTTP
@@ -231,135 +222,25 @@ Métodos HTTP más comunes, utilizados en las solicitudes para indicar la acció
 | **LINK**   | (No estándar, raro) Añade una relación entre recursos.                                                                                         |
 | **UNLINK** | (No estándar, raro) Elimina una relación entre recursos.                                                                                       |
 
+//TODO: 
+////////////////////////////////////////////////////////////////////////////////
+Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es expo er la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
+https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
+
+Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
+////////////////////////////////////////////////////////////////////////////////
+
 
 
 ### Petición GET:
-Se utiliza para solicitar datos sin modificar nada.
+Solicita datos de un recurso. No debe modificar el estado del servidor.
 
 ### Ejemplo de uso:
 
-Archivo ```get/script.php```
 ```php
-<?php
-echo "Hola, " . htmlspecialchars($_GET["nombre"]);
+
 
 ```
-
-Si accedemos a este script con una URL como ```http://localhost:3000/script.php?nombre=Yamir Ramirez```, el resultado será:
-
-### Vista en el navegador:
-
-
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get.jpg?raw=true" alt="Imagen" style />
-</p>
-
-### Petición POST:
-Sirve para enviar información que será procesada, por ejemplo, para crear un nuevo recurso.
-
-### Ejemplo de uso:
-
-Archivo ```post/script.php```
-```php
-<?php
-echo "Hola, " . htmlspecialchars($_POST["nombre"]);
-?>
-```
-
-Este código procesa un formulario enviado mediante el método POST y muestra el valor del campo nombre. Por ejemplo, si un formulario envía el valor "Julio", el resultado será:
-
-```php
-    Hola, Julio
-```
-
-### **Simular una petición POST con la extensión Thunder Client**
-
-### **1. Instalar Thunder Client:**
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/thunder_client2.png?raw=true" alt="Imagen" style />
-</p>
-<br>
-
-### **2. Abrir y crear una petición en Thunder Client:**
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/abrir_thunder_client.png?raw=true" alt="Imagen" style />
-</p>
-<br>
-
-### **3. Enviar una Petición POST:**
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_post2.png?raw=true" alt="Imagen" style />
-</p>
-<br>
-
-### Petición PUT:
-Reemplaza completamente un recurso existente con los datos enviados.
-
-### Ejemplo de uso:
-
-Archivo ```put/script.php```
-```php
-<?php
-$data = file_get_contents("php://input");
-
-$parsedData = json_decode($data, true);
-
-if ($parsedData !== null && isset($parsedData["nombre"])) {
-    echo "Actualizando a: " . htmlspecialchars($parsedData["nombre"]);
-} else {
-    echo "No se envió el campo 'nombre' o el JSON no es válido.";
-}
-?>
-```
-
-Este código captura los datos enviados con una petición PUT (por ejemplo, un campo nombre) y los muestra en pantalla, simulando la actualización de un recurso.
-
-### Enviar una Petición PUT:
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/peticion_put.png?raw=true" alt="Imagen" style />
-</p>
-<br>
-
-### DELETE:
-Elimina un recurso del servidor.
-
-### Ejemplo de uso:
-
-Archivo ```delete/script.php```
-```php
-<?php
-if (isset($_GET["id"])) {
-    echo "Eliminando recurso con ID: " . htmlspecialchars($_GET["id"]);
-} else {
-    echo "No se envió el campo 'id'.";
-}
-?>
-```
-Este código procesa una petición DELETE y obtiene un parámetro id que se envía como parametro en la URL.
-
-### Enviando datos DELETE en la URL (Query Params):
-
-**URL con parámetros:**
-
-```php
-    http://localhost:3000/script.php?id=123
-```
-
-### Vista en el navegador:
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/delete_query_params.png?raw=true" alt="Imagen" style />
-</p>
-<br>
 
 ## Definición de respuesta http:
 
