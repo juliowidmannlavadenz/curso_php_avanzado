@@ -1,17 +1,31 @@
 # Petición y respuesta http
 ## Definición de HTTP
+HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se intercambia información entre navegadores web (clientes) y servidores. Es el lenguaje básico de la web, que permite a los usuarios acceder a sitios web, descargar archivos o enviar datos mediante formularios.
 
-//TODO: Una defición concreta y didáctica
+* HTTP es un protocolo sin estado, lo que significa que cada solicitud es independiente y no se "recuerda" la solicitud anterior. Este protocolo facilita la comunicación entre dispositivos en la web de forma rápida y sencilla, aunque actualmente suele complementarse con HTTPS para mayor seguridad.
 
 ## Diferencias entre HTTP y HTTPS, y conceptos básicos de cada versión (HTTP/1.1, HTTP/2, HTTP/3)
+### 1. Seguridad:
+* **HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones.
+* **HTTPS:** Usa encriptación SSL/TLS. Los datos viajan encriptados, protegiéndolos de accesos no autorizados.
 
-//TODO: De la forma más concreta posible
+### 2. Certificados:
+* **HTTP:** No necesita certificados de seguridad.
+* **HTTPS:** Requiere un certificado SSL/TLS, que autentica el sitio web y asegura la conexión.
+
+### 3. Puerto:
+* **HTTP:** Usa el puerto 80 por defecto.
+* **HTTPS:** Usa el puerto 443 por defecto.
+  
+### 4. SEO y Confianza:
+* **HTTP:** Menor confianza para los usuarios y motores de búsqueda.
+* **HTTPS:** Google prioriza sitios HTTPS en los resultados de búsqueda y aumenta la confianza del usuario.
 
 ## ¿Qué es una petición HTTP?:
 
 //TODO: 
 ////////////////////////////////////////////////////////////////////////////////
-Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es exponer la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
+Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es expo er la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
 https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
 
 Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
