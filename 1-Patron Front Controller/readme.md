@@ -174,6 +174,46 @@ Son líneas de texto que proporcionan información adicional sobre la solicitud.
 |                              | `Referrer-Policy`                      | Controla qué información del referer se envía al servidor.                                                            |
 
 
+### Ejemplo:
+* Encabezados (headers) en una petición HTTP con el método ```GET```:
+
+```php
+GET /productos/123 HTTP/1.1
+Host: www.ejemplo.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8
+Accept-Language: es-ES,es;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: usuarioID=abc123; sesionID=xyz789
+```
+
+### 3. Cuerpo de la solicitud (Body) (Opcional)
+El cuerpo de la solicitud contiene los datos que se envían al servidor, generalmente en solicitudes de tipo ```POST```, ```PUT```, o ```PATCH```. Estos datos pueden incluir información como:
+
+* Datos de un formulario.
+* Archivos enviados por el usuario.
+* Datos en formato JSON, XML, o cualquier otro tipo de datos estructurados.
+
+### Ejemplo:
+Solicitud HTTP POST con encabezados y un cuerpo de datos en formato JSON. Supongamos que se está enviando información de un formulario de registro de usuario:
+
+```php
+POST /usuarios/registrar HTTP/1.1
+Host: www.ejemplo.com
+Content-Type: application/json
+Content-Length: 93
+
+{
+    "nombre": "Juan Pérez",
+    "email": "juan.perez@ejemplo.com",
+    "password": "MiContraseñaSegura123",
+    "telefono": "555-1234"
+}
+```
+
+> Este tipo de cuerpo de solicitud es común en API REST y se utiliza para enviar datos estructurados al servidor.
+
 ## Tipos de peticiones HHTP:
 
 | Tipo de Petición | Propósito                                           | Ejemplo de Uso                                                                 |
