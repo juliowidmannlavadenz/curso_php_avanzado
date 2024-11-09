@@ -79,6 +79,36 @@ Es la primera línea de la petición y contiene tres elementos:
 * **URL (Uniform Resource Locator):** La dirección del recurso al que se quiere acceder (por ejemplo, ```/pagina``` o ```/producto/123```).
 * **Versión de HTTP:** La versión del protocolo que se está utilizando (por ejemplo, ```HTTP/1.1```, ```HTTP/2``` o ```HTTP/3```).
 
+### Ejemplo:
+* Petición HTTP usando el método ```GET``` y la versión ```HTTP/1.1```:
+
+```HTTP/1.1```
+
+```php
+GET /productos/123 HTTP/1.1
+```
+
+* Petición HTTP usando el método ```GET``` y la versión ```HTTP/2```:
+
+```php
+GET /productos/123 HTTP/2
+Host: www.ejemplo.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+```
+
+* Petición HTTP usando el método ```GET``` y la versión ```HTTP/3```:
+
+```php
+GET /productos/123 HTTP/3
+Host: www.ejemplo.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Alt-Svc: h3=":443"
+```
 
 ## Tipos de peticiones HHTP:
 
