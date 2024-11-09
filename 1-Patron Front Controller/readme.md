@@ -4,7 +4,7 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 
 * HTTP es un protocolo sin estado, lo que significa que cada solicitud es independiente y no se "recuerda" la solicitud anterior. Este protocolo facilita la comunicación entre dispositivos en la web de forma rápida y sencilla, aunque actualmente suele complementarse con HTTPS para mayor seguridad.
 
-## Diferencias entre HTTP y HTTPS, y conceptos básicos de cada versión (HTTP/1.1, HTTP/2, HTTP/3)
+## Diferencias entre HTTP y HTTPS
 ### 1. Seguridad:
 * **HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones.
 * **HTTPS:** Usa encriptación SSL/TLS. Los datos viajan encriptados, protegiéndolos de accesos no autorizados.
@@ -20,6 +20,27 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 ### 4. SEO y Confianza:
 * **HTTP:** Menor confianza para los usuarios y motores de búsqueda.
 * **HTTPS:** Google prioriza sitios HTTPS en los resultados de búsqueda y aumenta la confianza del usuario.
+
+## Conceptos básicos de cada versión (HTTP/1.1, HTTP/2, HTTP/3)
+
+### HTTP/1.1
+* **Conexiones persistentes:** Permite reutilizar la misma conexión TCP para múltiples solicitudes, reduciendo el tiempo de establecimiento de conexión.
+* **Pipelining:** Intento de enviar múltiples solicitudes antes de recibir las respuestas anteriores, aunque rara vez fue implementado de forma eficaz.
+* **Limitación de paralelismo:** Los navegadores limitan la cantidad de solicitudes simultáneas, lo cual puede generar "cuellos de botella" en cargas con muchos recursos.
+* **Compresión de encabezados:** Usa compresión básica para reducir el tamaño de los encabezados.
+
+### HTTP/2
+* **Multiplexación:** Permite enviar múltiples solicitudes/respuestas en la misma conexión sin esperar a que terminen las anteriores, mejorando la velocidad.
+* **Compresión de encabezados HPACK:** Utiliza un método de compresión de encabezados más eficiente, reduciendo la carga de datos en cada solicitud.
+* **Prioridad de recursos:** Permite asignar prioridades a las solicitudes para que el servidor sepa qué recursos cargar primero.
+* **Servidor push:** El servidor puede enviar datos al cliente antes de que los solicite, acelerando la carga de recursos conocidos.
+
+### HTTP/3
+* **Protocolo QUIC:** HTTP/3 usa QUIC (basado en UDP) en lugar de TCP, lo que reduce la latencia y mejora la confiabilidad de las conexiones, especialmente en redes móviles.
+* **Reanudación de conexión rápida:** Al cambiar de red (por ejemplo, de Wi-Fi a datos móviles), QUIC permite que la conexión continúe sin reiniciar.
+* **Multiplexación sin bloqueo:** Gracias a QUIC, no hay bloqueos en la transmisión de datos. Las pérdidas de paquetes afectan solo a la solicitud específica, sin ralentizar las demás.
+* **Mayor seguridad integrada:** QUIC incluye encriptación desde el inicio, haciendo que HTTPS sea la única opción en HTTP/3.
+
 
 ## ¿Qué es una petición HTTP?:
 
