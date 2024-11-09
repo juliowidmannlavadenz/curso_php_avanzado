@@ -119,6 +119,60 @@ Las diferencias entre una solicitud GET en HTTP/1.1, HTTP/2 y HTTP/3 radican pri
 * **HTTP/2** mejora la eficiencia con multiplexación y compresión de encabezados, pero sigue siendo sensible a la pérdida de paquetes en TCP.
 * **HTTP/3** lleva la eficiencia aún más lejos usando QUIC, que mejora la velocidad, estabilidad y permite que las solicitudes sean independientes unas de otras.
 
+### 2. Encabezados (Headers)
+Son líneas de texto que proporcionan información adicional sobre la solicitud. Los encabezados permiten al cliente y al servidor intercambiar detalles importantes sobre la solicitud, el cliente, y el contexto de la comunicación. 
+
+| Tipo de Encabezado           | Encabezado                             | Descripción                                                                                                            |
+|------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Encabezados Generales**    | `Cache-Control`                        | Controla el almacenamiento en caché (`no-cache`, `no-store`, `max-age`, etc.).                                        |
+|                              | `Connection`                           | Controla si la conexión se debe mantener abierta o cerrarse (`keep-alive`, `close`).                                  |
+|                              | `Date`                                 | Fecha y hora en que se envió el mensaje.                                                                              |
+|                              | `Pragma`                               | Instrucciones específicas para intermediarios de red (ej., `no-cache`).                                               |
+|                              | `Trailer`                              | Indica que habrá encabezados adicionales al final de la transferencia.                                                |
+|                              | `Transfer-Encoding`                    | Define la codificación aplicada a la carga útil (`chunked`).                                                          |
+|                              | `Upgrade`                              | Solicita cambiar a otro protocolo, como WebSocket.                                                                    |
+|                              | `Via`                                  | Muestra la información de los intermediarios (proxies, gateways) por los que pasó el mensaje.                         |
+| **Encabezados de Solicitud** | `Host`                                 | Dominio del servidor al que se envía la solicitud.                                                                    |
+|                              | `User-Agent`                           | Identificación del navegador o cliente que realiza la solicitud.                                                      |
+|                              | `Accept`                               | Especifica los tipos de contenido aceptables (`text/html`, `application/json`).                                       |
+|                              | `Accept-Charset`                       | Especifica los juegos de caracteres aceptables (`utf-8`, `iso-8859-1`).                                              |
+|                              | `Accept-Encoding`                      | Define las codificaciones de contenido (`gzip`, `deflate`).                                                           |
+|                              | `Accept-Language`                      | Define los idiomas preferidos (`en-US`, `es-ES`).                                                                     |
+|                              | `Authorization`                        | Envía las credenciales para autenticación (por ejemplo, `Bearer token`).                                              |
+|                              | `Cookie`                               | Envía cookies al servidor.                                                                                            |
+|                              | `Referer`                              | URL de la página desde la que se hizo la solicitud actual.                                                            |
+|                              | `If-Match` / `If-None-Match`           | Condiciones para la solicitud según el ETag.                                                                          |
+|                              | `If-Modified-Since` / `If-Unmodified-Since` | Solicitud condicional según la última modificación del recurso.                                                      |
+|                              | `Range`                                | Solicita solo una parte del recurso (ej., bytes para streaming).                                                      |
+|                              | `TE`                                   | Define codificaciones de transferencia aceptables para la respuesta.                                                  |
+| **Encabezados de Respuesta** | `Location`                             | Usado para redireccionar a una URL diferente.                                                                         |
+|                              | `Server`                               | Muestra información del servidor que genera la respuesta.                                                             |
+|                              | `Set-Cookie`                           | Envía una cookie al cliente para que la almacene.                                                                     |
+|                              | `Allow`                                | Indica los métodos HTTP permitidos para el recurso.                                                                   |
+|                              | `Retry-After`                          | Tiempo de espera antes de volver a intentar una solicitud (usado en respuestas 503).                                  |
+|                              | `Accept-Ranges`                        | Indica si el servidor soporta solicitudes de rango (ej., bytes).                                                     |
+|                              | `Age`                                  | Tiempo en segundos desde que la respuesta fue almacenada en caché.                                                    |
+|                              | `Vary`                                 | Especifica los encabezados que afectan la respuesta en caché.                                                         |
+|                              | `WWW-Authenticate`                     | Especifica el método de autenticación solicitado por el servidor (ej., `Basic`, `Bearer`).                            |
+| **Encabezados de Entidad**   | `Content-Type`                         | Indica el tipo de datos en el cuerpo de la solicitud o respuesta (`application/json`, `text/html`).                   |
+|                              | `Content-Length`                       | Longitud en bytes de la carga útil.                                                                                   |
+|                              | `Content-Encoding`                     | Codificación de los datos en la carga útil (`gzip`, `compress`).                                                      |
+|                              | `Content-Language`                     | Idioma del contenido (`en-US`, `es-ES`).                                                                              |
+|                              | `Content-Location`                     | URI del recurso alternativo que representa el contenido.                                                              |
+|                              | `Content-Disposition`                  | Controla cómo se presentará el contenido (ej., como una descarga).                                                    |
+|                              | `Content-Range`                        | Especifica una parte de los datos en una respuesta parcial.                                                           |
+|                              | `Last-Modified`                        | Fecha de última modificación del recurso.                                                                             |
+|                              | `ETag`                                 | Identificador único del recurso, útil para manejar caché y solicitudes condicionales.                                 |
+| **Encabezados Personalizados** | `X-Forwarded-For`                   | IP del cliente original, usada por proxies y balanceadores de carga.                                                 |
+|                              | `X-Frame-Options`                      | Previene la carga de la página en un marco o iframe (`DENY` o `SAMEORIGIN`).                                          |
+|                              | `X-XSS-Protection`                     | Activa la protección contra ataques de XSS.                                                                           |
+|                              | `X-Content-Type-Options`               | Previene la detección automática del tipo de contenido (`nosniff`).                                                   |
+|                              | `X-RateLimit-Limit` / `X-RateLimit-Remaining` | Controla el límite de solicitudes para evitar abusos.                                                              |
+| **Encabezados de Seguridad** | `Strict-Transport-Security`           | Exige conexiones HTTPS durante un período de tiempo.                                                                 |
+|                              | `Content-Security-Policy (CSP)`        | Define políticas de seguridad para controlar el origen del contenido cargado.                                         |
+|                              | `Public-Key-Pins`                      | Fija claves públicas específicas para evitar ataques de intermediarios.                                               |
+|                              | `Referrer-Policy`                      | Controla qué información del referer se envía al servidor.                                                            |
+
 
 ## Tipos de peticiones HHTP:
 
