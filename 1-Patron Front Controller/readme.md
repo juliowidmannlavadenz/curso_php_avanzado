@@ -90,6 +90,8 @@ GET /productos/123 HTTP/1.1
 
 * Petición HTTP usando el método ```GET``` y la versión ```HTTP/2```:
 
+```HTTP/2```
+
 ```php
 GET /productos/123 HTTP/2
 Host: www.ejemplo.com
@@ -101,6 +103,8 @@ Connection: keep-alive
 
 * Petición HTTP usando el método ```GET``` y la versión ```HTTP/3```:
 
+```HTTP/3```
+
 ```php
 GET /productos/123 HTTP/3
 Host: www.ejemplo.com
@@ -109,6 +113,12 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0
 Accept-Encoding: gzip, deflate, br
 Alt-Svc: h3=":443"
 ```
+Las diferencias entre una solicitud GET en HTTP/1.1, HTTP/2 y HTTP/3 radican principalmente en cómo se gestionan las conexiones y la transmisión de los datos, más que en el contenido de la solicitud en sí. En términos de una solicitud GET:
+
+* **HTTP/1.1** es más lento debido a limitaciones de conexión y manejo de solicitudes en serie.
+* **HTTP/2** mejora la eficiencia con multiplexación y compresión de encabezados, pero sigue siendo sensible a la pérdida de paquetes en TCP.
+* **HTTP/3** lleva la eficiencia aún más lejos usando QUIC, que mejora la velocidad, estabilidad y permite que las solicitudes sean independientes unas de otras.
+
 
 ## Tipos de peticiones HHTP:
 
