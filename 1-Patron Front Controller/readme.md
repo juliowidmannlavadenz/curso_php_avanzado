@@ -72,6 +72,12 @@ Una petición HTTP es una solicitud que un cliente (generalmente un navegador we
 ## Componentes de una petición HTTP
 Una petición HTTP incluye varias piezas de información esenciales que indican al servidor qué hacer y cómo procesar la solicitud.
 
+### 1. Línea de solicitud (Request Line)
+Es la primera línea de la petición y contiene tres elementos:
+
+* **Método HTTP:** El tipo de operación que se desea realizar (como ```GET```, ```POST```, ```PUT```, ```DELETE```, etc.).
+* **URL (Uniform Resource Locator):** La dirección del recurso al que se quiere acceder (por ejemplo, ```/pagina``` o ```/producto/123```).
+* **Versión de HTTP:** La versión del protocolo que se está utilizando (por ejemplo, ```HTTP/1.1```, ```HTTP/2``` o ```HTTP/3```).
 
 
 ## Tipos de peticiones HHTP:
