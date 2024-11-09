@@ -922,7 +922,13 @@ El Patrón Front Controller en PHP es un patrón de diseño que centraliza todas
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/front_controller2.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/front_controller_request1.png?raw=true" alt="Imagen width="400" style />
+</p>
+<br>
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/front_controller_request2.png?raw=true" alt="Imagen width="400" style />
 </p>
 <br>
 
