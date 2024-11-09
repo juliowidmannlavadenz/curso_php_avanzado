@@ -6,7 +6,7 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 
 ## Diferencias entre HTTP y HTTPS
 ### 1. Seguridad:
-**HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones. 
+**HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones.  
 **HTTPS:** Usa encriptación SSL/TLS. Los datos viajan encriptados, protegiéndolos de accesos no autorizados.
 
 ### 2. Certificados:
