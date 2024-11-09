@@ -214,14 +214,23 @@ Content-Length: 93
 
 > Este tipo de cuerpo de solicitud es común en API REST y se utiliza para enviar datos estructurados al servidor.
 
-## Tipos de peticiones HHTP:
+## Tipos de peticiones HTTP:
 
-| Tipo de Petición | Propósito                                           | Ejemplo de Uso                                                                 |
-|------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
-| **GET**          | Obtener datos de un servidor.                      | `GET /usuarios` → Recupera la lista de usuarios.                               |
-| **POST**         | Enviar datos al servidor para crear un recurso.    | `POST /usuarios` → Crea un nuevo usuario enviando datos en el cuerpo de la petición. |
-| **PUT**          | Actualizar completamente un recurso existente.     | `PUT /usuarios/1` → Actualiza los datos del usuario con ID 1.                  |
-| **DELETE**       | Eliminar un recurso del servidor.                  | `DELETE /usuarios/1` → Elimina el usuario con ID 1.                            |
+| Método     | Descripción                                                                                                                                    |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **GET**    | Solicita datos de un recurso. No debe modificar el estado del servidor.                                                                        |
+| **POST**   | Envía datos al servidor para crear o actualizar un recurso. Puede modificar el estado del servidor.                                            |
+| **PUT**    | Reemplaza completamente el recurso en la URL especificada con los datos proporcionados en la solicitud.                                        |
+| **PATCH**  | Realiza una actualización parcial del recurso especificado.                                                                                    |
+| **DELETE** | Solicita la eliminación de un recurso en la URL especificada.                                                                                  |
+| **HEAD**   | Similar a `GET`, pero solo devuelve los encabezados de la respuesta, sin el cuerpo. Útil para verificar la existencia de un recurso o sus metadatos. |
+| **OPTIONS**| Devuelve los métodos HTTP permitidos para un recurso. Se utiliza para conocer las opciones de comunicación permitidas.                         |
+| **CONNECT**| Establece una conexión bidireccional entre el cliente y el servidor, generalmente utilizada para túneles SSL (HTTPS).                         |
+| **TRACE**  | Devuelve la solicitud recibida, lo que permite al cliente ver si la solicitud fue alterada.                                                    |
+| **LINK**   | (No estándar, raro) Añade una relación entre recursos.                                                                                         |
+| **UNLINK** | (No estándar, raro) Elimina una relación entre recursos.                                                                                       |
+
+
 
 ### Petición GET:
 Se utiliza para solicitar datos sin modificar nada.
