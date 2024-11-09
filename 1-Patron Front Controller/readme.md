@@ -6,8 +6,6 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 
 ## Diferencias entre HTTP y HTTPS
 ### 1. Seguridad:
-**HTTP:** No está encriptado. La información viaja en texto plano, por lo que es vulnerable a intercepciones.  
-**HTTPS:** Usa encriptación SSL/TLS. Los datos viajan encriptados, protegiéndolos de accesos no autorizados.
 
 | Protocolo | Encriptación | Seguridad de la Información |
 |-----------|--------------|-----------------------------|
@@ -16,16 +14,27 @@ HTTP **(Hypertext Transfer Protocol)** es el protocolo que define cómo se inter
 
 
 ### 2. Certificados:
-**HTTP:** No necesita certificados de seguridad.  
-**HTTPS:** Requiere un certificado SSL/TLS, que autentica el sitio web y asegura la conexión.
+
+| Protocolo | Certificados de Seguridad | Descripción |
+|-----------|---------------------------|-------------|
+| **HTTP**  | No requiere               | No necesita certificados de seguridad. |
+| **HTTPS** | Requiere SSL/TLS          | Requiere un certificado SSL/TLS, que autentica el sitio web y asegura la conexión. |
+
 
 ### 3. Puerto:
-**HTTP:** Usa el puerto 80 por defecto.  
-**HTTPS:** Usa el puerto 443 por defecto.
+
+| Protocolo | Puerto | Descripción |
+|-----------|--------|-------------|
+| **HTTP**  | 80     | Usa el puerto 80 por defecto. |
+| **HTTPS** | 443    | Usa el puerto 443 por defecto. |
   
 ### 4. SEO y Confianza:
-**HTTP:** Menor confianza para los usuarios y motores de búsqueda.  
-**HTTPS:** Google prioriza sitios HTTPS en los resultados de búsqueda y aumenta la confianza del usuario.
+
+| Protocolo | SEO y Confianza | Descripción |
+|-----------|------------------|-------------|
+| **HTTP**  | Menor confianza  | Menor confianza para los usuarios y motores de búsqueda. |
+| **HTTPS** | Mayor confianza  | Google prioriza sitios HTTPS en los resultados de búsqueda y aumenta la confianza del usuario. |
+
 
 ## Conceptos básicos de cada versión (HTTP/1.1, HTTP/2, HTTP/3)
 
