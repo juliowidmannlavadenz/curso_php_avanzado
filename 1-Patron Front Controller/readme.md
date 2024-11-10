@@ -657,6 +657,87 @@ Cuerpo de la respuesta:
 }
 ```
 
+### Petición DELETE:
+Solicita la eliminación de un recurso en la URL especificada.
+
+### Ejemplo de uso:
+Realizar una solicitud DELETE para borrar el post número 1.
+
+```php
+<?php
+
+$url = "https://jsonplaceholder.typicode.com/posts/1";  
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);         
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");    
+curl_setopt($ch, CURLOPT_HEADER, true);               
+
+
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);  
+$headers = substr($response, 0, $header_size);           
+$body = substr($response, $header_size);                
+
+if(curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($headers) . "</pre>";
+    echo "<h3>Cuerpo de la respuesta:</h3><pre>" . htmlspecialchars($body) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+### Explicación
+
+1. **Método DELETE:**
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");```: Especificamos que se trata de una solicitud ```DELETE```.
+
+2. **Encabezados:**
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```: Habilitamos la captura de los encabezados en la respuesta.
+* Usamos ```curl_getinfo``` para dividir los encabezados y el cuerpo en variables separadas.
+
+### Respuesta
+```php
+Encabezados de la respuesta:
+HTTP/2 200 
+date: Sun, 10 Nov 2024 03:02:14 GMT
+content-type: application/json; charset=utf-8
+content-length: 2
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1731207734&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=SNIGYKBCH2jst141McMpAHRriz3sBLO28jIHgVjLLC8%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1731207734&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=SNIGYKBCH2jst141McMpAHRriz3sBLO28jIHgVjLLC8%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1731207742
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+via: 1.1 vegur
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8e02cd722a791cdb-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=100005&sent=7&recv=9&lost=0&retrans=0&sent_bytes=3390&recv_bytes=789&delivery_rate=41121&cwnd=254&unsent_bytes=0&cid=a4aec527b185a8e6&ts=513&x=0"
+
+Cuerpo de la respuesta:
+{}
+```
+
+> Nota: JSONPlaceholder no elimina realmente el recurso, pero retorna un estado ```200 OK``` simulando que se ha eliminado.
+
+
+
 ## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
