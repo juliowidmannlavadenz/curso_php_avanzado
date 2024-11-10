@@ -223,7 +223,7 @@ Métodos HTTP más comunes, utilizados en las solicitudes para indicar la acció
 | **UNLINK** | (No estándar, raro) Elimina una relación entre recursos.                                                                                       |
 
 ### Petición GET:
-Solicita datos de un recurso. No debe modificar el estado del servidor.
+Una petición GET es un tipo de solicitud HTTP que se utiliza para pedir datos a un servidor sin modificar el estado del recurso. Los datos solicitados se envían en la URL, y generalmente se usa para obtener información de una API o cargar contenido en una página web.
 
 ### Ejemplo de uso:
 Realizamos una solicitud GET utilizando cURL en PHP, apuntando a una URL (en este caso, a la API pública de JSONPlaceholder para obtener información de un usuario):
@@ -338,7 +338,7 @@ Cuerpo:
 <br>
 
 ### Petición POST:
-Envía datos al servidor para crear o actualizar un recurso. Puede modificar el estado del servidor. 
+Una petición POST es una solicitud HTTP utilizada para enviar datos al servidor con el fin de crear o actualizar un recurso. Los datos se envían en el cuerpo de la solicitud, no en la URL, lo que permite enviar información más grande y sensible, como formularios o archivos.
 
 ### Ejemplo de uso:
 Realizamos  una solicitud POST para enviar algunos datos en formato JSON a una API de prueba.
@@ -446,7 +446,7 @@ Cuerpo de la respuesta:
 ```
 
 ### Petición PUT:
-Reemplaza completamente el recurso en la URL especificada con los datos proporcionados en la solicitud.
+Una petición PUT es una solicitud HTTP usada para actualizar o reemplazar completamente un recurso en el servidor. Envía los datos en el cuerpo de la solicitud y, si el recurso no existe, algunos servidores pueden crear uno nuevo con los datos proporcionados.
 
 ### Ejemplo de uso:
 Realizamos  una solicitud PUT para actualizar la información de un post con el id 1.
@@ -550,7 +550,7 @@ Cuerpo de la respuesta:
 ```
 
 ### Petición PATCH:
-Realiza una actualización parcial del recurso especificado.
+Una petición PATCH es una solicitud HTTP utilizada para aplicar modificaciones parciales a un recurso en el servidor. A diferencia de PUT, que reemplaza completamente el recurso, PATCH solo envía los cambios específicos que deben realizarse, sin afectar el resto del recurso.
 
 ### Ejemplo de uso:
 Realizamos  una solicitud PATCH para actualizar solo el campo ```title``` del post.
@@ -657,7 +657,7 @@ Cuerpo de la respuesta:
 ```
 
 ### Petición DELETE:
-Solicita la eliminación de un recurso en la URL especificada.
+Una petición DELETE es una solicitud HTTP utilizada para eliminar un recurso específico en el servidor. Al realizar esta solicitud, se indica que el servidor debe borrar el recurso indicado en la URL de la solicitud.
 
 ### Ejemplo de uso:
 Realizar una solicitud DELETE para borrar el post número 1.
@@ -736,7 +736,7 @@ Cuerpo de la respuesta:
 > Nota: JSONPlaceholder no elimina realmente el recurso, pero retorna un estado ```200 OK``` simulando que se ha eliminado.
 
 ### Petición HEAD:
-Similar a GET, pero solo devuelve los encabezados de la respuesta, sin el cuerpo. Útil para verificar la existencia de un recurso o sus metadatos.
+Una petición HEAD es una solicitud HTTP similar a GET, pero solo recupera los encabezados de la respuesta sin el cuerpo del recurso. Se utiliza para obtener metadatos, como el tipo de contenido o el estado de un recurso, sin transferir su contenido completo.
 
 ### Ejemplo de uso:
 Realizar una solicitud HEAD para mostrar los encabezados.
@@ -811,7 +811,7 @@ server-timing: cfL4;desc="?proto=TCP&rtt=101197&sent=6&recv=8&lost=0&retrans=0&s
 
 
 ### Petición OPTIONS:
-Devuelve los métodos HTTP permitidos para un recurso. Se utiliza para conocer las opciones de comunicación permitidas.
+Una petición OPTIONS es una solicitud HTTP utilizada para obtener información sobre los métodos HTTP soportados por un servidor para un recurso específico. No solicita datos del recurso, sino que devuelve los métodos permitidos (como GET, POST, PUT, etc.) en los encabezados de la respuesta.
 
 ### Ejemplo de uso:
 Realizamos una solicitud OPTIONS para descubrir los métodos HTTP permitidos.
@@ -880,7 +880,7 @@ server-timing: cfL4;desc="?proto=TCP&rtt=96021&sent=7&recv=9&lost=0&retrans=0&se
 
 
 ### Petición CONNECT:
-Establece una conexión bidireccional entre el cliente y el servidor, generalmente utilizada para túneles SSL (HTTPS).
+Una petición CONNECT es una solicitud HTTP utilizada para establecer un túnel de comunicación con un servidor a través de un proxy. Normalmente, se usa para habilitar la comunicación segura (HTTPS) entre el cliente y el servidor a través del proxy, permitiendo que la conexión establecida se mantenga abierta para intercambiar datos.
 
 ### Ejemplo usando un proxy público gratuito con CONNECT
 Realizamos una solicitud CONNECT para para establecer una conexión de túnel a través de un proxy HTTP.
@@ -972,7 +972,7 @@ Content-Length: 0
 ```
 
 ### Petición TRACE:
-Devuelve la solicitud recibida, lo que permite al cliente ver si la solicitud fue alterada.
+Una petición TRACE es una solicitud HTTP utilizada para diagnosticar problemas de red, ya que devuelve exactamente el contenido de la solicitud tal como fue recibida por el servidor. Es útil para rastrear el recorrido de una solicitud a través de los servidores y ver cómo se modificó durante el tránsito.
 
 ### Ejemplo de uso:
 Este es el código para realizar una petición TRACE.
