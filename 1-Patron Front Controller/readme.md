@@ -329,7 +329,14 @@ Cuerpo:
 }
 ```
 
+### Utilizando el inspector de propiedades
+```Google Chrome```
 
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/curl_get.png?raw=true" alt="Imagen" style />
+</p>
+<br>
 
 
 
