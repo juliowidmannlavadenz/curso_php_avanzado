@@ -1791,9 +1791,6 @@ exit;
 ### Resumen:
 > Este ejemplo crea una aplicación sencilla de gestión de usuarios con funcionalidad completa: listar, añadir y eliminar usuarios, todo manejado dentro del ciclo de vida HTTP en PHP.
 
-
-***********************************************************************************************************************************
-
 # Patron front controller
 ## Definición:
 El Patrón Front Controller en PHP es un patrón de diseño que centraliza todas las peticiones entrantes a una única ubicación antes de que se distribuyan a los controladores específicos. En lugar de tener múltiples scripts que gestionen distintas partes de la aplicación, este patrón permite manejar todas las solicitudes en un solo punto de entrada **(como index.php)**, mejorando la organización y el control sobre las rutas y las acciones que se ejecutan.
@@ -2575,9 +2572,6 @@ Esto permite que la aplicación cargue automáticamente las clases cuando se nec
 > * Controladores basados en clases: Cada controlador es una clase que agrupa la lógica relacionada con una funcionalidad específica, facilitando el mantenimiento y la escalabilidad del código.
 > * Manejo de sesiones: Las sesiones permiten mantener el estado de los usuarios entre las solicitudes, necesario para funcionalidades como el inicio de sesión o la personalización de contenido.
 > * Autenticación básica: Se incluye una verificación de acceso que asegura que solo los usuarios autenticados puedan acceder a ciertas partes de la aplicación, añadiendo una capa básica de seguridad.
-
-
-***********************************************************************************************************************************
 
 # Relaciones entre clases
 ## Relaciones entre clases en el arranque de codeigniter 4
