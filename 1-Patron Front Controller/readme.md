@@ -406,6 +406,7 @@ curl_close($ch);
 4. **Resultado:** La respuesta será impresa en el navegador en formato legible.
 
 ### Respuesta
+Si la solicitud es exitosa, el servidor responderá con los datos que fueron enviados, con un ID asignado por la API.
 
 ```php
 Encabezados de la respuesta:
@@ -444,8 +445,6 @@ Cuerpo de la respuesta:
   "id": 101
 }
 ```
-
-
 
 ## Definición de respuesta http:
 
