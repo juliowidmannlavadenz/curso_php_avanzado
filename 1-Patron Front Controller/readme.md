@@ -388,10 +388,62 @@ if(curl_errno($ch)) {
 curl_close($ch);
 ?>
 ```
-//AQUI
 
+### Explicación
 
+1. **URL:** Se utiliza ```https://jsonplaceholder.typicode.com/posts```, que es un servicio de prueba de API.
 
+2. **Datos de la solicitud:** En este caso, los datos que se enviarán son:
+* ```title:``` Título de la publicación.
+* ```body:``` Cuerpo de la publicación.
+* ```userId:``` ID del usuario.
+  
+3. **cURL:**
+* ```curl_setopt($ch, CURLOPT_POST, 1)```: Establece que la solicitud es de tipo POST.
+* ```curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data)```: Se incluyen los datos a enviar, codificados en formato JSON.
+* ```curl_setopt($ch, CURLOPT_HTTPHEADER, ...)```: Se añaden los encabezados necesarios, como ```Content-Type: application/json```.
+
+4. **Resultado:** La respuesta será impresa en el navegador en formato legible.
+
+### Respuesta
+
+```php
+Encabezados de la respuesta:
+HTTP/2 201 
+date: Sun, 10 Nov 2024 01:44:27 GMT
+content-type: application/json; charset=utf-8
+content-length: 65
+location: https://jsonplaceholder.typicode.com/posts/101
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1731203067&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=2%2FVwjRPaTNCF4a0wXOi1vhl6WlZV1RIhSUauLxexBoY%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1731203067&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=2%2FVwjRPaTNCF4a0wXOi1vhl6WlZV1RIhSUauLxexBoY%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1731203122
+vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+access-control-expose-headers: Location
+x-content-type-options: nosniff
+etag: W/"41-GDNaWfnVU6RZhpLbye0veBaqcHA"
+via: 1.1 vegur
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8e025b7f990900eb-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=102522&sent=7&recv=8&lost=0&retrans=0&sent_bytes=3388&recv_bytes=846&delivery_rate=27773&cwnd=49&unsent_bytes=0&cid=660414e0f3b6a5be&ts=518&x=0"
+
+Cuerpo de la respuesta:
+{
+  "title": "foo",
+  "body": "bar",
+  "userId": 1,
+  "id": 101
+}
+```
 
 
 
