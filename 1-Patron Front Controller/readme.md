@@ -550,6 +550,78 @@ Cuerpo de la respuesta:
 }
 ```
 
+### Petición PATCH:
+Realiza una actualización parcial del recurso especificado.
+
+### Ejemplo de uso:
+Realizamos  una solicitud PATCH para actualizar solo el campo ```title``` del post.
+
+```php
+<?php
+
+$url = "https://jsonplaceholder.typicode.com/posts/1";  
+
+
+$data = array(
+    "title" => "Updated Title"  
+);
+
+
+$json_data = json_encode($data);
+
+
+$ch = curl_init();
+
+
+curl_setopt($ch, CURLOPT_URL, $url);             
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);            
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");       
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(             
+    'Content-Type: application/json',                    
+    'Content-Length: ' . strlen($json_data)             
+));
+
+
+curl_setopt($ch, CURLOPT_HEADER, true);                 
+
+$response = curl_exec($ch);
+
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);  
+$headers = substr($response, 0, $header_size);           
+$body = substr($response, $header_size);                 
+
+
+if(curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($headers) . "</pre>";
+    echo "<h3>Cuerpo de la respuesta:</h3><pre>" . htmlspecialchars($body) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+### Explicación
+
+1. **Método PATCH:**
+
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");```: Especificamos que se trata de una solicitud ```PATCH```.
+
+2. **Encabezados:**
+
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```: Habilitamos la captura de los encabezados.
+* Extraemos los encabezados y el cuerpo usando ```curl_getinfo``` y ```substr```, para separar ambos componentes de la respuesta.
+
+3. **Datos de la solicitud:**
+
+* En este ejemplo, solo actualizamos el campo ```title```. Los datos se envían en formato JSON con ```json_encode($data)```.
+
+
+### Respuesta
+
 
 ## Definición de respuesta http:
 
