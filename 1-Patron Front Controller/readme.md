@@ -338,8 +338,57 @@ Cuerpo:
 </p>
 <br>
 
+### Petición POST:
+Envía datos al servidor para crear o actualizar un recurso. Puede modificar el estado del servidor. 
 
+### Ejemplo de uso:
+Realizamos  una solicitud POST para enviar algunos datos en formato JSON a una API de prueba.
 
+```php
+<?php
+$url = "https://jsonplaceholder.typicode.com/posts";
+
+$data = array(
+    "title" => "foo",
+    "body" => "bar",
+    "userId" => 1
+);
+
+$json_data = json_encode($data);
+
+// Inicializar cURL
+$ch = curl_init();
+
+// Configurar opciones de cURL
+curl_setopt($ch, CURLOPT_URL, $url);                    
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);            
+curl_setopt($ch, CURLOPT_POST, 1);                      
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);       
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(             
+    'Content-Type: application/json',                   
+    'Content-Length: ' . strlen($json_data)             
+));
+
+curl_setopt($ch, CURLOPT_HEADER, true);                 
+
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);  
+$headers = substr($response, 0, $header_size);           
+$body = substr($response, $header_size);                 
+
+if(curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($headers) . "</pre>";
+    echo "<h3>Cuerpo de la respuesta:</h3><pre>" . htmlspecialchars($body) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+//AQUI
 
 
 
