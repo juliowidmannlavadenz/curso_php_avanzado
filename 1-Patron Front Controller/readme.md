@@ -957,8 +957,19 @@ Desactiva la verificación del nombre de host en el certificado SSL del servidor
 
 ### Respuesta
 
+```php
+Encabezados de la respuesta:
+HTTP/1.1 200 OK
+Date: Sun, 10 Nov 2024 14:10:53 GMT
+Server: nginx
+Content-Type: text/plain
+Content-Length: 0
 
-
+HTTP/1.1 200 OK
+Date: Sun, 10 Nov 2024 14:10:54 GMT
+Server: nginx
+Content-Length: 0
+```
 
 ## Definición de respuesta http:
 
