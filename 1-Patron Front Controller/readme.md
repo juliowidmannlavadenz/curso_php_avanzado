@@ -236,11 +236,71 @@ Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET 
 Solicita datos de un recurso. No debe modificar el estado del servidor.
 
 ### Ejemplo de uso:
+Realizamos una solicitud GET utilizando cURL en PHP, apuntando a una URL (en este caso, a la API pública de JSONPlaceholder para obtener información de un usuario):
 
 ```php
+<?php
+$url = "https://jsonplaceholder.typicode.com/users/1";
 
+$ch = curl_init();
 
+curl_setopt($ch, CURLOPT_URL, $url);           
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);   
+curl_setopt($ch, CURLOPT_HEADER, 0);            
+
+$response = curl_exec($ch);
+
+if(curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+    echo "Respuesta de la solicitud GET: " . $response;
+}
+
+curl_close($ch);
+?>
 ```
+
+### Explicación
+* **URL:** En este caso, la URL ```https://jsonplaceholder.typicode.com/users/1``` es una API pública que devuelve datos simulados de un usuario.
+* **Respuesta:** El resultado de la solicitud será un JSON con los detalles del usuario con ID ```1``` de la API ```jsonplaceholder.typicode.com```, como nombre, correo electrónico, dirección, etc.
+
+### Respuesta
+
+```php
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
 
 ## Definición de respuesta http:
 
