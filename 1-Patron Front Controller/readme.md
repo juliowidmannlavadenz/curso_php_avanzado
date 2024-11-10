@@ -2658,3 +2658,58 @@ En términos de la arquitectura de CodeIgniter 4, la clase ```Boot``` se encarga
   * initializeConsole(): Inicializa el entorno de consola para ejecutar comandos CLI.
   * runCommand(Console $console): Ejecuta un comando en la consola.
 
+## Flujo de solicitud en Laravel 11 y relaciones entre las clases
+En Laravel 11, el flujo de la aplicación desde el archivo ```public/index.php``` sigue un proceso ordenado, ejecutando tareas esenciales para cargar el framework, verificar el estado de la aplicación y procesar la solicitud. 
+
+### 1. Definición del Tiempo de Inicio
+
+```php
+define('LARAVEL_START', microtime(true));
+```
+Laravel define una constante ```LARAVEL_START``` con la marca de tiempo de inicio. Esta información se usará al final de la ejecución para calcular el tiempo de carga total de la aplicación, útil para propósitos de monitoreo de rendimiento.
+
+### 2. Modo de Mantenimiento
+
+```php
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+```
+
+* **Verificación del Modo de Mantenimiento:** Laravel verifica si el archivo storage/framework/maintenance.php existe.
+
+* **Redirección a Mantenimiento (si aplica):** Si este archivo existe, significa que la aplicación está en modo de mantenimiento. Laravel lo carga, redirigiendo todas las solicitudes a una página de mantenimiento sin cargar el resto del framework.
+
+* **Si el archivo no existe**, la aplicación sigue cargándose normalmente.
+
+### 3. Autocarga de Composer
+```php
+require __DIR__.'/../vendor/autoload.php';
+```
+
+* **Registro del Autoloader de Composer:** Incluye el archivo ```autoload.php``` de Composer, que carga automáticamente todas las dependencias de la aplicación. Este paso hace que Laravel y las bibliotecas externas estén disponibles para su uso sin necesidad de cargarlas manualmente.
+
+### 4. Bootstrap de Laravel
+```php
+(require_once __DIR__.'/../bootstrap/app.php')
+    ->handleRequest(Request::capture());
+```
+* **Inicialización de la Aplicación (Bootstrap):** Laravel carga el archivo bootstrap/app.php, que configura e inicializa la aplicación.
+
+* **Creación de la Aplicación:** En este archivo, Laravel crea una instancia de la aplicación ```(Illuminate\Foundation\Application)``` que representa la instancia principal del framework.
+  
+* **Configuración del Contenedor de Inyección de Dependencias:** Este contenedor administra todas las clases y dependencias de la aplicación. Durante este proceso, Laravel vincula servicios principales (como el manejador de rutas, configuración y servicios de caché) para su uso posterior.
+
+### 5. Manejo de la solicitud (request handling)
+```php
+->handleRequest(Request::capture());
+```
+
+* **Captura de la Solicitud HTTP:** ```Request::capture()``` crea una instancia de la clase Request que contiene toda la información de la solicitud HTTP actual, incluyendo URL, encabezados, parámetros, etc.
+  
+* **Delegación al Front Controller de Laravel:** Laravel delega la solicitud capturada a su manejador de solicitudes ```(handleRequest)```, que es responsable de procesarla.
+  
+* **Resolución de Rutas y Ejecución de Controladores:** El manejador identifica la ruta solicitada, encuentra el controlador o función que debe ejecutarse, y llama a dicho controlador.
+  
+* **Middleware y Filtros:** Durante este proceso, Laravel aplica cualquier middleware configurado. Los middlewares pueden ser responsables de tareas como autenticación, autorización, validación y otras verificaciones previas al procesamiento de la solicitud.
+
