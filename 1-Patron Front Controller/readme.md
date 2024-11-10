@@ -2638,3 +2638,23 @@ En términos de la arquitectura de CodeIgniter 4, la clase ```Boot``` se encarga
   * Carga la configuración del entorno (loadEnvironmentBootstrap).
   * Carga el autoloader (loadAutoloader).
 
+### 4. MétodoS auxiliares
+
+  * loadDotEnv(Paths $paths): Carga el archivo .env para gestionar las variables de entorno (como base de datos, claves de API, etc.).
+  * defineEnvironment(): Define la constante ENVIRONMENT para indicar en qué entorno se está ejecutando la aplicación (producción, desarrollo, etc.).
+  * loadEnvironmentBootstrap(Paths $paths): Carga archivos de configuración específicos para el entorno.
+  * definePathConstants(Paths $paths): Define las rutas a las carpetas principales de la aplicación, como APPPATH, SYSTEMPATH, etc.
+  * loadConstants(): Carga constantes definidas en el archivo Config/Constants.php.
+  * loadCommonFunctions(): Carga funciones comunes definidas en Common.php tanto de la aplicación como del sistema.
+  * loadAutoloader(): Carga los archivos de configuración de autoload y servicios necesarios para autoloading.
+  * autoloadHelpers(): Carga los helpers para la aplicación.
+  * setExceptionHandler(): Configura el manejador de excepciones globales.
+  * checkMissingExtensions(): Verifica si las extensiones PHP requeridas están instaladas.
+  * initializeKint(): Inicializa la herramienta de depuración Kint si el modo de depuración está activado.
+  * loadConfigCache(): Carga la caché de configuración si está habilitada.
+  * initializeCodeIgniter(): Inicializa la aplicación de CodeIgniter.
+  * runCodeIgniter(CodeIgniter $app): Ejecuta la aplicación CodeIgniter.
+  * saveConfigCache(FactoriesCache $factoriesCache): Guarda la caché de configuración si es necesario.
+  * initializeConsole(): Inicializa el entorno de consola para ejecutar comandos CLI.
+  * runCommand(Console $console): Ejecuta un comando en la consola.
+
