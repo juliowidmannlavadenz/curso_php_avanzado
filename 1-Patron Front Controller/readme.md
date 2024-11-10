@@ -328,6 +328,15 @@ Cuerpo:
 </p>
 <br>
 
+### Utilizando Thunder Client
+```Thunder Client```
+
+<br>
+<p align="center">
+<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/get_thunder.png?raw=true" alt="Imagen" style />
+</p>
+<br>
+
 ### Petición POST:
 Envía datos al servidor para crear o actualizar un recurso. Puede modificar el estado del servidor. 
 
