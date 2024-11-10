@@ -446,6 +446,72 @@ Cuerpo de la respuesta:
 }
 ```
 
+### Petición PUT:
+Reemplaza completamente el recurso en la URL especificada con los datos proporcionados en la solicitud.
+
+### Ejemplo de uso:
+Realizamos  una solicitud PUT para actualizar la información de un post con el id 1.
+
+```php
+<?php
+$url = "https://jsonplaceholder.typicode.com/posts/1"; 
+
+
+$data = array(
+    "id" => 1,
+    "title" => "foo updated",
+    "body" => "bar updated",
+    "userId" => 1
+);
+
+$json_data = json_encode($data);
+
+// Inicializar cURL
+$ch = curl_init();
+
+// Configurar opciones de cURL
+curl_setopt($ch, CURLOPT_URL, $url);                    
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);            
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");        
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(            
+    'Content-Type: application/json',                   
+    'Content-Length: ' . strlen($json_data)             
+));
+
+curl_setopt($ch, CURLOPT_HEADER, true);                  
+
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);  
+$headers = substr($response, 0, $header_size);           
+$body = substr($response, $header_size);                 
+
+
+if(curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($headers) . "</pre>";
+    echo "<h3>Cuerpo de la respuesta:</h3><pre>" . htmlspecialchars($body) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+### Explicación
+
+1. **Método PUT:**
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT")```;: Usamos esta opción para especificar que la solicitud es de tipo ```PUT``` (en lugar del predeterminado ```POST```).
+
+2. **Encabezados:**
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```: Esto captura los encabezados de la respuesta.
+* Los encabezados se extraen del resultado utilizando ```curl_getinfo($ch, CURLINFO_HEADER_SIZE)``` para obtener el tamaño de los encabezados y luego separarlos del cuerpo de la respuesta.
+
+3. **Cuerpo de la solicitud:**
+* Los datos que se envían en la solicitud se codifican en formato JSON utilizando ```json_encode($data)```.
+
+
 ## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
