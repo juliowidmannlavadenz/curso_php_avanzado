@@ -2617,6 +2617,7 @@ En términos de la arquitectura de CodeIgniter 4, la clase ```Boot``` se encarga
 
 * **Función:** Inicializa el entorno necesario para las pruebas (test) en la aplicación.
 * **Pasos:**
+  
   * Carga las constantes (loadConstants).
   * Verifica las extensiones PHP necesarias (checkMissingExtensions).
   * Carga la configuración del entorno (loadDotEnv, loadEnvironmentBootstrap).
@@ -2625,4 +2626,15 @@ En términos de la arquitectura de CodeIgniter 4, la clase ```Boot``` se encarga
   * Configura el manejador de excepciones (setExceptionHandler).
   * Inicializa Kint (initializeKint).
   * Carga los helpers (autoloadHelpers).
+ 
+### 4. Método ```preload(Paths $paths)```
+
+* **Función:** Este método se usa para realizar pre-carga antes de iniciar la aplicación, generalmente para configuraciones mínimas.
+* **Pasos:**
+  
+  * Define las rutas (definePathConstants).
+  * Carga las constantes (loadConstants).
+  * Define el entorno (defineEnvironment).
+  * Carga la configuración del entorno (loadEnvironmentBootstrap).
+  * Carga el autoloader (loadAutoloader).
 
