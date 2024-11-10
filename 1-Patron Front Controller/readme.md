@@ -888,10 +888,76 @@ Dado que esta solicitud se usa específicamente para abrir túneles a través de
 
 * Primero, debemos conseguir un proxy gratuito, para ello podemos entrar a la siguiente dirección: https://free-proxy-list.net/
   
-
 ```php
+<?php
 
+$proxy = "184.169.154.119"; 
+$url = "https://www.example.com"; 
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);                 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);      
+curl_setopt($ch, CURLOPT_PROXY, $proxy);             
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP); 
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "CONNECT");  
+curl_setopt($ch, CURLOPT_HEADER, true);             
+curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1); 
+
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);    
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);     
+
+$response = curl_exec($ch);
+
+
+if (curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($response) . "</pre>";
+}
+
+curl_close($ch);
+?>
 ```
+
+### Explicación
+
+1. **Método CONNECT:**
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "CONNECT");```: Configura CONNECT como el método HTTP, que normalmente se usa para establecer un túnel a través del proxy.
+
+2. **Proxy:**
+
+* ```curl_setopt($ch, CURLOPT_URL, $url);```
+Especifica la URL a la que se enviará la solicitud.
+
+* ```curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);```
+Configura cURL para devolver la respuesta como un string en lugar de imprimirla.
+
+* ```curl_setopt($ch, CURLOPT_PROXY, $proxy);```
+Define la dirección del proxy a través del cual se enviará la solicitud.
+
+* ```curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);```
+Establece el tipo de proxy como HTTP.
+
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "CONNECT");```
+Cambia el método de solicitud HTTP a CONNECT.
+
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```
+Indica que los encabezados de la respuesta deben incluirse en la salida.
+
+* ```curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);```
+Fuerza a cURL a utilizar HTTP/1.1.
+
+* ```curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);```
+Desactiva la verificación del certificado SSL del servidor.
+
+* ```curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);```
+Desactiva la verificación del nombre de host en el certificado SSL del servidor.
+
+### Respuesta
+
+
 
 
 ## Definición de respuesta http:
