@@ -720,7 +720,7 @@ access-control-allow-credentials: true
 cache-control: no-cache
 pragma: no-cache
 expires: -1
-x-content-type-options: nosniff
+x-content-type-: nosniff
 etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
 via: 1.1 vegur
 cf-cache-status: DYNAMIC
@@ -795,7 +795,7 @@ access-control-allow-credentials: true
 cache-control: max-age=43200
 pragma: no-cache
 expires: -1
-x-content-type-options: nosniff
+x-content-type-: nosniff
 etag: W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"
 via: 1.1 vegur
 cf-cache-status: HIT
@@ -877,6 +877,21 @@ server-timing: cfL4;desc="?proto=TCP&rtt=96021&sent=7&recv=9&lost=0&retrans=0&se
 ```
 
 > Nota: La respuesta de la solicitud OPTIONS suele incluir el encabezado Allow, que lista los métodos HTTP permitidos para el recurso.
+
+
+### Petición CONNECT:
+Establece una conexión bidireccional entre el cliente y el servidor, generalmente utilizada para túneles SSL (HTTPS).
+
+### Ejemplo usando un proxy público gratuito con CONNECT
+Realizamos una solicitud CONNECT para para establecer una conexión de túnel a través de un proxy HTTP.
+Dado que esta solicitud se usa específicamente para abrir túneles a través de proxies (por ejemplo, para conectarse a un servidor HTTPS a través de un proxy), no es directamente aplicable a muchas URL públicas como las que normalmente usamos en ejemplos, ya que el servidor debe estar configurado como un proxy para responder a CONNECT.
+
+* Primero, debemos conseguir un proxy gratuito, para ello podemos entrar a la siguiente dirección: https://free-proxy-list.net/
+  
+
+```php
+
+```
 
 
 ## Definición de respuesta http:
