@@ -1031,6 +1031,12 @@ Connection: close
 </html>
 ```
 
+### Petición LINK:
+Una petición LINK es una solicitud HTTP que se utiliza para crear una relación entre el recurso solicitado y otro recurso en el servidor. Se usa principalmente para vincular un recurso actual con un recurso relacionado, mediante el encabezado Link. Aunque no es tan común como otras peticiones HTTP, puede ser útil en la gestión de relaciones semánticas entre recursos.
+
+### Petición UNLINK:
+Una petición UNLINK es una solicitud HTTP que se utiliza para eliminar una relación entre un recurso y otro, que previamente había sido establecida con la petición ```LINK```. Se usa para deshacer el vínculo entre los recursos, eliminando la relación representada en el encabezado ```Link```.
+
 ## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
