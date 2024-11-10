@@ -811,6 +811,75 @@ server-timing: cfL4;desc="?proto=TCP&rtt=101197&sent=6&recv=8&lost=0&retrans=0&s
 > Nota: La solicitud HEAD se usa comúnmente para obtener metadatos o verificar la disponibilidad de un recurso sin necesidad de transferir el cuerpo completo.
 
 
+### Petición OPTIONS:
+Devuelve los métodos HTTP permitidos para un recurso. Se utiliza para conocer las opciones de comunicación permitidas.
+
+### Ejemplo de uso:
+Realizamos una solicitud OPTIONS para descubrir los métodos HTTP permitidos.
+
+```php
+<?php
+
+$url = "https://jsonplaceholder.typicode.com/posts/1";
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);        
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "OPTIONS");    
+curl_setopt($ch, CURLOPT_HEADER, true);               
+curl_setopt($ch, CURLOPT_NOBODY, true);                
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($response) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+
+### Explicación
+
+1. **Método OPTIONS:**
+
+* ```curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "OPTIONS");```: Establecemos OPTIONS como método de la solicitud.
+* ```curl_setopt($ch, CURLOPT_NOBODY, true);```: No necesitamos el cuerpo de la respuesta, solo los encabezados.
+
+2. Encabezados:
+
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```: Permite capturar los encabezados en la respuesta de cURL.
+
+### Respuesta
+
+```php
+Encabezados de la respuesta:
+HTTP/2 204 
+date: Sun, 10 Nov 2024 03:28:55 GMT
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1731209335&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=YxokYCpW1f32k7wxZW2ttss9%2BqEyvXfajcPDFWQLn9A%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1731209335&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=YxokYCpW1f32k7wxZW2ttss9%2BqEyvXfajcPDFWQLn9A%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1731209362
+vary: Origin, Access-Control-Request-Headers
+access-control-allow-credentials: true
+access-control-allow-methods: GET,HEAD,PUT,PATCH,POST,DELETE
+via: 1.1 vegur
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8e02f48ad9441d23-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=96021&sent=7&recv=9&lost=0&retrans=0&sent_bytes=3388&recv_bytes=790&delivery_rate=42321&cwnd=253&unsent_bytes=0&cid=97cd109e6f906190&ts=522&x=0"
+```
+
+> Nota: La respuesta de la solicitud OPTIONS suele incluir el encabezado Allow, que lista los métodos HTTP permitidos para el recurso.
+
+
 ## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
