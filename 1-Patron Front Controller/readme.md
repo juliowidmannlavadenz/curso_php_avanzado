@@ -621,7 +621,41 @@ curl_close($ch);
 
 
 ### Respuesta
+```php
+Encabezados de la respuesta:
+HTTP/2 200 
+date: Sun, 10 Nov 2024 02:44:40 GMT
+content-type: application/json; charset=utf-8
+content-length: 231
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1731206680&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=OXx4e%2BE5fmH389wj2cmMw0B7g6D%2F64b9f7LCYg%2BAlGw%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1731206680&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=OXx4e%2BE5fmH389wj2cmMw0B7g6D%2F64b9f7LCYg%2BAlGw%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1731206722
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"e7-v4kHz441ELaQs9cvkMHnqqJHG3I"
+via: 1.1 vegur
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8e02b3b63fda1b29-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=96887&sent=7&recv=9&lost=0&retrans=0&sent_bytes=3389&recv_bytes=840&delivery_rate=42406&cwnd=253&unsent_bytes=0&cid=5f5a3e2a74645b52&ts=538&x=0"
 
+Cuerpo de la respuesta:
+{
+  "userId": 1,
+  "id": 1,
+  "title": "Updated Title",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+```
 
 ## Definición de respuesta http:
 
