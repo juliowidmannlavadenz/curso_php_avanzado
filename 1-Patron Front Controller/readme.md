@@ -511,6 +511,45 @@ curl_close($ch);
 3. **Cuerpo de la solicitud:**
 * Los datos que se envían en la solicitud se codifican en formato JSON utilizando ```json_encode($data)```.
 
+### Respuesta
+En el cuerpo de la respuesta se muestra la actualización del recurso.
+
+```php
+Encabezados de la respuesta:
+HTTP/2 200 
+date: Sun, 10 Nov 2024 02:27:36 GMT
+content-type: application/json; charset=utf-8
+content-length: 79
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1731205656&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=sUu9rnezEwuKvJFzt6X%2FyyOCYTIssiJtawneQxVYpUk%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1731205656&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=sUu9rnezEwuKvJFzt6X%2FyyOCYTIssiJtawneQxVYpUk%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1731205702
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"4f-3iZQjmQWJQ/W+z0G/b1ntFsRoHs"
+via: 1.1 vegur
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8e029ab76d3c1b2f-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=99081&sent=7&recv=9&lost=0&retrans=0&sent_bytes=3390&recv_bytes=875&delivery_rate=41045&cwnd=253&unsent_bytes=0&cid=50486db7abf15b6b&ts=540&x=0"
+
+Cuerpo de la respuesta:
+{
+  "id": 1,
+  "title": "foo updated",
+  "body": "bar updated",
+  "userId": 1
+}
+```
+
 
 ## Definición de respuesta http:
 
