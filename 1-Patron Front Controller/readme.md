@@ -971,6 +971,66 @@ Server: nginx
 Content-Length: 0
 ```
 
+### Petición TRACE:
+Devuelve la solicitud recibida, lo que permite al cliente ver si la solicitud fue alterada.
+
+### Ejemplo de uso:
+Este es el código para realizar una petición TRACE.
+
+```php
+<?php
+
+$url = "https://httpbin.org/trace"; // URL que permite hacer pruebas con TRACE
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);                 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);      
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "TRACE");    
+curl_setopt($ch, CURLOPT_HEADER, true);              
+curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1); 
+
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);     
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);     
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+    echo "<h3>Encabezados y respuesta de la solicitud TRACE:</h3><pre>" . htmlspecialchars($response) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+
+### Explicación
+
+1. **URL:** Usamos ```https://httpbin.org/trace```, que es un servicio de prueba que permite ver cómo se manejan las peticiones TRACE.
+2. **TRACE:** Especificamos el método ```TRACE``` usando ```CURLOPT_CUSTOMREQUEST```.
+3. **Encabezados:** Incluimos los encabezados de la respuesta en la salida ```(CURLOPT_HEADER)```.
+4. **SSL:** Desactivamos la verificación SSL para evitar errores de certificado en el entorno de prueba.
+
+### Respuesta
+
+```php
+Encabezados y respuesta de la solicitud TRACE:
+HTTP/1.1 405 Not Allowed
+Server: awselb/2.0
+Date: Sun, 10 Nov 2024 14:47:58 GMT
+Content-Type: text/html
+Content-Length: 122
+Connection: close
+
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+</body>
+</html>
+```
+
 ## Definición de respuesta http:
 
 Es el mensaje que el servidor web envía de vuelta al cliente (normalmente un navegador o una aplicación) en respuesta a una solicitud HTTP. Este mensaje incluye:
