@@ -244,29 +244,66 @@ $url = "https://jsonplaceholder.typicode.com/users/1";
 
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, $url);           
+curl_setopt($ch, CURLOPT_URL, $url);          
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);   
-curl_setopt($ch, CURLOPT_HEADER, 0);            
+curl_setopt($ch, CURLOPT_HEADER, 1);           
 
 $response = curl_exec($ch);
 
 if(curl_errno($ch)) {
     echo "Error en la solicitud: " . curl_error($ch);
 } else {
-    echo "Respuesta de la solicitud GET: " . $response;
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $headers = substr($response, 0, $header_size);  // Encabezados
+    $body = substr($response, $header_size);        // Cuerpo
+
+    echo "<h3>Encabezados:</h3><pre>" . htmlspecialchars($headers) . "</pre>";
+    echo "<h3>Cuerpo:</h3><pre>" . htmlspecialchars($body) . "</pre>";
 }
 
 curl_close($ch);
 ?>
 ```
 
-### Explicación
-* **URL:** En este caso, la URL ```https://jsonplaceholder.typicode.com/users/1``` es una API pública que devuelve datos simulados de un usuario.
-* **Respuesta:** El resultado de la solicitud será un JSON con los detalles del usuario con ID ```1``` de la API ```jsonplaceholder.typicode.com```, como nombre, correo electrónico, dirección, etc.
+### Explicación del código
+* ```$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE)```: Obtiene el tamaño de los encabezados.
+* ```$headers = substr($response, 0, $header_size)```: Extrae los encabezados de la respuesta.
+* ```$body = substr($response, $header_size)```: Extrae el cuerpo de la respuesta.
+* ```htmlspecialchars()```: Convierte caracteres especiales a su forma HTML para evitar problemas de interpretación y para mostrarlo correctamente en el navegador.
+
 
 ### Respuesta
 
 ```php
+Encabezados:
+HTTP/2 200 
+date: Sun, 10 Nov 2024 01:00:52 GMT
+content-type: application/json; charset=utf-8
+content-length: 509
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1730502324&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=Z%2BIda%2BwvDqSSQVhZLew4TxU3kKrpkYiyT1SuuKpwtdQ%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1730502324&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=Z%2BIda%2BwvDqSSQVhZLew4TxU3kKrpkYiyT1SuuKpwtdQ%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1730502369
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: max-age=43200
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"
+via: 1.1 vegur
+cf-cache-status: HIT
+age: 520
+accept-ranges: bytes
+server: cloudflare
+cf-ray: 8e021baea8c1e01c-GIG
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=103994&sent=7&recv=8&lost=0&retrans=0&sent_bytes=3411&recv_bytes=751&delivery_rate=39290&cwnd=200&unsent_bytes=0&cid=bc2764e5414cf1fd&ts=161&x=0"
+
+Cuerpo:
 {
   "id": 1,
   "name": "Leanne Graham",
