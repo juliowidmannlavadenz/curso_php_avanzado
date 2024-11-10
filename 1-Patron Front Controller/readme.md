@@ -222,16 +222,6 @@ Métodos HTTP más comunes, utilizados en las solicitudes para indicar la acció
 | **LINK**   | (No estándar, raro) Añade una relación entre recursos.                                                                                         |
 | **UNLINK** | (No estándar, raro) Elimina una relación entre recursos.                                                                                       |
 
-//TODO: 
-////////////////////////////////////////////////////////////////////////////////
-Poner todos los tipos, incluir por cada uno un ejemplo usando Curl PHP, Thunderclient y mostrar los ejemplos en el inspector de firefox o google chrome (basta con colocar un o dos ejemplos es dercir capturas de pantalla del inspector). La idea es expo er la importancia de usar los encabezados en un petición tipo CURL, porque de esta forma se suele consumir las APIs y por otro lado es importante que el estudiante pueda interpretar una petición leyendo tanto los encabezados del navegador, del curl o usando un cliente como postman o en este caso Thunderclient
-https://chatgpt.com/share/672d726a-b17c-8008-a907-cd9e44e3ab19
-
-Estrategia: hacer un ejemplo bien detallado con un encabezado conocido como GET o POST
-////////////////////////////////////////////////////////////////////////////////
-
-
-
 ### Petición GET:
 Solicita datos de un recurso. No debe modificar el estado del servidor.
 
