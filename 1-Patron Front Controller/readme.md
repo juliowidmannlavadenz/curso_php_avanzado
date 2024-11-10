@@ -736,6 +736,79 @@ Cuerpo de la respuesta:
 
 > Nota: JSONPlaceholder no elimina realmente el recurso, pero retorna un estado ```200 OK``` simulando que se ha eliminado.
 
+### Petición HEAD:
+Similar a GET, pero solo devuelve los encabezados de la respuesta, sin el cuerpo. Útil para verificar la existencia de un recurso o sus metadatos.
+
+### Ejemplo de uso:
+Realizar una solicitud HEAD para mostrar los encabezados.
+
+```php
+<?php
+
+$url = "https://jsonplaceholder.typicode.com/posts/1";
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);               
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);      
+curl_setopt($ch, CURLOPT_NOBODY, true);              
+curl_setopt($ch, CURLOPT_HEADER, true);              
+
+
+$response = curl_exec($ch);
+
+
+if (curl_errno($ch)) {
+    echo "Error en la solicitud: " . curl_error($ch);
+} else {
+
+    echo "<h3>Encabezados de la respuesta:</h3><pre>" . htmlspecialchars($response) . "</pre>";
+}
+
+curl_close($ch);
+?>
+```
+
+### Explicación
+
+1. **Método HEAD:**
+* ```curl_setopt($ch, CURLOPT_NOBODY, true);```: Evita que se reciba el cuerpo de la respuesta, retornando solo los encabezados.
+Encabezados:
+* ```curl_setopt($ch, CURLOPT_HEADER, true);```: Incluye los encabezados en la respuesta de cURL para poder capturarlos.
+
+### Respuesta
+
+```php
+Encabezados de la respuesta:
+HTTP/2 200 
+date: Sun, 10 Nov 2024 03:15:55 GMT
+content-type: application/json; charset=utf-8
+content-length: 292
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1730188068&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=6ySF7gUyz97taOMzfrkBXohtAoyqU2vsAxI8rRpkt1I%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1730188068&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=6ySF7gUyz97taOMzfrkBXohtAoyqU2vsAxI8rRpkt1I%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1730188070
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: max-age=43200
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"
+via: 1.1 vegur
+cf-cache-status: HIT
+age: 12452
+accept-ranges: bytes
+server: cloudflare
+cf-ray: 8e02e17e8faf1b12-GRU
+alt-svc: h3=":443"; ma=86400
+server-timing: cfL4;desc="?proto=TCP&rtt=101197&sent=6&recv=8&lost=0&retrans=0&sent_bytes=3389&recv_bytes=756&delivery_rate=40586&cwnd=252&unsent_bytes=0&cid=5a0389e18a67ccff&ts=175&x=0"
+```
+
+> Nota: La solicitud HEAD se usa comúnmente para obtener metadatos o verificar la disponibilidad de un recurso sin necesidad de transferir el cuerpo completo.
 
 
 ## Definición de respuesta http:
