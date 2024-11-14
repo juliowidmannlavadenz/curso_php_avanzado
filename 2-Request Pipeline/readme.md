@@ -129,6 +129,13 @@ public function index()
 **Laravel Snippets:** https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets  
 **PHP Intelephense:** https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client  
 
+**Laravel Blade formatter:** [https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter](https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter)  
+**Laravel Blade Snippets:** [https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade)  
+**Laravel goto view:** [https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view](https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view)  
+**Laravel Snippets:** [https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets)  
+**PHP Intelephense:** [https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)  
+
+
 ### 2. Instalando Laragon.
 Laragon es un entorno de desarrollo local para Windows que facilita la configuración de servidores web. Muy usado por desarrolladores PHP, incluye herramientas como Apache o Nginx, PHP, MySQL o MariaDB, y soporte para Node.js, Python y Ruby, permitiendo desarrollar aplicaciones con varias tecnologías sin configuraciones complicadas.
 
