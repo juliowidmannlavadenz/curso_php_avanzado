@@ -129,11 +129,14 @@ public function index()
 **Laravel Snippets:** https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets  
 **PHP Intelephense:** https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client  
 
-**Laravel Blade formatter:** [https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter](https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter)  
-**Laravel Blade Snippets:** [https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade)  
-**Laravel goto view:** [https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view](https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view)  
-**Laravel Snippets:** [https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets)  
-**PHP Intelephense:** [https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)  
+| Extension                  | Link                                                                                                                 |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Laravel Blade formatter** | [Laravel Blade formatter](https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter)         |
+| **Laravel Blade Snippets**  | [Laravel Blade Snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-blade)              |
+| **Laravel goto view**       | [Laravel goto view](https://marketplace.visualstudio.com/items?itemName=codingyu.laravel-goto-view)                 |
+| **Laravel Snippets**        | [Laravel Snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets)               |
+| **PHP Intelephense**        | [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)        |
+
 
 
 ### 2. Instalando Laragon.
