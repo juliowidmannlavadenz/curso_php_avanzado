@@ -131,8 +131,9 @@ public function index()
 | **Laravel Snippets**        | [Laravel Snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets)               |
 | **PHP Intelephense**        | [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)        |
 
-***********************************************************************************
-### Instalación de Composer en Linux
+
+### 2. Instalación de Composer
+**Instalando:** ```Composer en Linux```
 
  | Paso                                                                                  | Comando                                                                       |
 |---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -142,7 +143,7 @@ public function index()
 | Elimina el instalador de tu ordenador utilizando los siguientes comandos              | `php -r "unlink('composer-setup.php');"`                                      |
 | Ejecuta el siguiente comando en tu terminal para comprobar si Composer se ha instalado correctamente | `composer`                                                                    |
 
-### Instalar Composer en Windows
+**Instalando:** ```Composer en Windows```
 
 Abre tu navegador y navega hasta el sitio web de Composer https://getcomposer.org/ , luego haz clic en el botón Getting started.  
 En la tabla de contenidos, navega hasta la sección Utilizar el instalador bajo el título Instalación – Windows.  
@@ -158,8 +159,7 @@ Ejecuta el instalador y sigue las instrucciones para instalar Composer. Tras la 
 
 composer
 
-
-### Instalar Composer en macOS
+**Instalando:** ```Composer en macOS```
 
 | Paso                                                                                             | Comando                                                                           |
 |--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -169,7 +169,7 @@ composer
 | Ejecuta Composer para comprobar si se ha instalado correctamente o no                            | `composer`                                                                        |
 
 
-## Crear un nuevo proyecto de Laravel mediante Composer
+### Crear un nuevo proyecto de Laravel mediante Composer
 
 - Abrimos nuestra terminal, nos dirigirnos a la carpeta donde queremos que se encuentre la instalación de nuestra aplicación.
 - Ejecutamos el comando **create-project** de Composer.
@@ -177,7 +177,7 @@ composer
 ```php
  composer create-project laravel/laravel mi-proyecto
 ```
-## Crear un nuevo proyecto  usando Laravel Installer
+### Crear un nuevo proyecto  usando Laravel Installer
 - Primero ejecutar este comando, que hará que el instalador de Laravel esté disponible de manera global.
 
 ```php
@@ -190,7 +190,7 @@ composer global require laravel/installer
 laravel new <mi-proyecto>
 ```
 
-## Lanzando el proyecto en nuestro servidor local
+### Lanzando el proyecto en nuestro servidor local
 Para ejecutar nuestro proyecto de Laravel 11, necesitaremos ejecutar el siguiente comando, dentro de la carpeta que hemos creado con composer o el instalador de laravel.
 
 ```php
@@ -202,9 +202,6 @@ php artisan serve
 <img src="https://github.com/juliowidmannlavadenz/curso_laravel/blob/main/assets/laravel-inicio.jpg" alt="Logo de mi proyecto" width="600" style />
 </p>
 <br>
-
-
-***********************************************************************************
 
 ## Ejemplo completo de request pipeline en Laravel 11
 
