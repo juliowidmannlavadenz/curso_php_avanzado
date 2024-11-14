@@ -131,75 +131,80 @@ public function index()
 | **Laravel Snippets**        | [Laravel Snippets](https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel5-snippets)               |
 | **PHP Intelephense**        | [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)        |
 
+***********************************************************************************
+### Instalación de Composer en Linux
 
+ | Paso                                                                                  | Comando                                                                       |
+|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Descarga Composer desde su sitio web                                                  | `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`   |
+| Instalar Composer localmente en tu sistema                                            | `php composer-setup.php`                                                      |
+| Instalar Composer globalmente en tu sistema                                           | `php composer-setup.php --install-dir=/usr/local/bin --filename=composer`     |
+| Elimina el instalador de tu ordenador utilizando los siguientes comandos              | `php -r "unlink('composer-setup.php');"`                                      |
+| Ejecuta el siguiente comando en tu terminal para comprobar si Composer se ha instalado correctamente | `composer`                                                                    |
 
-### 2. Instalando Laragon.
-Laragon es un entorno de desarrollo local para Windows que facilita la configuración de servidores web. Muy usado por desarrolladores PHP, incluye herramientas como Apache o Nginx, PHP, MySQL o MariaDB, y soporte para Node.js, Python y Ruby, permitiendo desarrollar aplicaciones con varias tecnologías sin configuraciones complicadas.
+### Instalar Composer en Windows
 
-* **Descargar Laragon desde la siguiente dirección:** https://laragon.org/download
-* **Actualizar PHP a la version mas reciente:** Laravel 11 requiere la version 8.2 de PHP como minimo  (Laragon viene con la version 8.1)
-  decargamos PHP (version 8.2 o superior) desde: https://windows.php.net/download/ 
-* **Copiar el archivo descargado:** Copiamos la nueva version de PHP en el directorio: C:\laragon\bin\php.
+Abre tu navegador y navega hasta el sitio web de Composer https://getcomposer.org/ , luego haz clic en el botón Getting started.  
+En la tabla de contenidos, navega hasta la sección Utilizar el instalador bajo el título Instalación – Windows.  
+Haz clic en el enlace Composer-Setup.exe para descargar el instalador:
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_laravel/blob/main/assets/windows-composer-installer.png" alt="Logo de mi proyecto" width="700" style />
 </p>
 <br>
 
-* **Activar la nueva versión de PHP:** Clic derecho y seleccionamos la version de PHP que vamos a usar (8.3), reiniciamos todos los servicios.
+Ejecuta el instalador y sigue las instrucciones para instalar Composer. Tras la instalación, puedes comprobar que todo funciona abriendo tu símbolo del sistema y escribiendo lo siguiente:
 
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon_php3.png?raw=true" alt="Imagen width="400" style />
-</p>
-<br>
+composer
 
-* **Habilitar la extensión zip en PHP:** 
-  
-    * Abrimos el archivo php.ini:
-    * Buscamos la línea que contiene ``` ;extension=zip``` .
-    * Quitamos el punto y coma ```(;)``` al inicio de la línea para habilitar la extensión.
+
+### Instalar Composer en macOS
+
+| Paso                                                                                             | Comando                                                                           |
+|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Descarga el instalador de Composer                                                               | `sudo php -r "copy('https://getcomposer.org/installer','composer-setup.php');"`   |
+| Instalar Composer globalmente especificando manualmente un directorio de instalación que esté en tu PATH | `php composer-setup.php --install-dir=/usr/local/bin --filename=composer`         |
+| Elimina el archivo de instalación tras la instalación                                            | `php -r "unlink('composer-setup.php');"`                                          |
+| Ejecuta Composer para comprobar si se ha instalado correctamente o no                            | `composer`                                                                        |
+
+
+## Crear un nuevo proyecto de Laravel mediante Composer
+
+- Abrimos nuestra terminal, nos dirigirnos a la carpeta donde queremos que se encuentre la instalación de nuestra aplicación.
+- Ejecutamos el comando **create-project** de Composer.
 
 ```php
-C:\laragon\bin\php\php-8.3.13-nts-Win32-vs16-x64\php.ini
-``` 
+ composer create-project laravel/laravel mi-proyecto
+```
+## Crear un nuevo proyecto  usando Laravel Installer
+- Primero ejecutar este comando, que hará que el instalador de Laravel esté disponible de manera global.
 
 ```php
-extension=zip
+composer global require laravel/installer
+```
+
+- Ejecutar este comando que creará un nuevo proyecto de Laravel.
+
+```php
+laravel new <mi-proyecto>
+```
+
+## Lanzando el proyecto en nuestro servidor local
+Para ejecutar nuestro proyecto de Laravel 11, necesitaremos ejecutar el siguiente comando, dentro de la carpeta que hemos creado con composer o el instalador de laravel.
+
+```php
+php artisan serve
 ```
 
 <br>
 <p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/zip1.png?raw=true" alt="Imagen width="400" style />
+<img src="https://github.com/juliowidmannlavadenz/curso_laravel/blob/main/assets/laravel-inicio.jpg" alt="Logo de mi proyecto" width="600" style />
 </p>
 <br>
 
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/zip2.png?raw=true" alt="Imagen width="400" style />
-</p>
-<br>
 
-* **Crear un nuevo proyecto de Laravel 11 en Laragon:**
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon3.png?raw=true" alt="Imagen width="400" style />
-</p>
-<br>
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon4.png?raw=true" alt="Imagen width="400" style />
-</p>
-<br>
-
-<br>
-<p align="center">
-<img src="https://github.com/juliowidmannlavadenz/curso_php_avanzado/blob/main/assets/laragon5.png?raw=true" alt="Imagen width="400" style />
-</p>
-<br>
+***********************************************************************************
 
 ## Ejemplo completo de request pipeline en Laravel 11
 
