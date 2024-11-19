@@ -1,5 +1,5 @@
 
-# Popularidad de Patrones de Diseño
+# Patrones de Diseño
 
 ## Patrones Creacionales
 | Patrón               | Descripción                                                                                                                  | Popularidad |
